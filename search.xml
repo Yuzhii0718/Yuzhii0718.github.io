@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>My New Post</title>
+      <link href="/2023/02/28/My-New-Post/"/>
+      <url>/2023/02/28/My-New-Post/</url>
+      
+        <content type="html"><![CDATA[<h1 id="My-New-Post"><a href="#My-New-Post" class="headerlink" title="My New Post"></a>My New Post</h1><p>尝试使用Hexo搭建博客，<br>这是我写的第一篇博客。</p><blockquote><p>我要学会使用Markdown语法</p><blockquote><p>Markdown语法很简单，它可以显示标题，图片，链接，引用等等。<br>我觉得它对网页设计很有帮助。</p></blockquote></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2023/02/16/hello-world/"/>
       <url>/2023/02/16/hello-world/</url>
