@@ -193,6 +193,344 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yuzhii0718.github.com/2023/03/05/HTML-Day2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yuzhii">
+      <meta itemprop="description" content="FreeEverywhere">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuzhii's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/05/HTML-Day2/" class="post-title-link" itemprop="url">HTML Day2</a>
+        </h2>
+
+        <div class="post-meta">
+		
+
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-05 16:53:16 / 修改时间：18:04:38" itemprop="dateCreated datePublished" datetime="2023-03-05T16:53:16+08:00">2023-03-05</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>HTML Day2</h1>
+<p><a name="top">顶部锚点</a><br><br>
+<a href="#down">下去</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a name=&quot;top&quot;&gt;顶部&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="HTML基本结构">HTML基本结构</h2>
+<blockquote>
+<p>2023年3月5日，最近闲得慌，继续学习HTML，记录一下。</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;网页标题&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        网页内容
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="网页基本信息">网页基本信息</h2>
+<h3 id="注释">注释</h3>
+<pre><code>&lt;!----&gt;
+</code></pre>
+<h3 id="网页类型">网页类型</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+</code></pre>
+<h3 id="网页编码">网页编码</h3>
+<pre><code>&lt;meta charset=&quot;utf-8&quot;&gt;
+</code></pre>
+<p>mate描述性标签，一般用于网页的描述性信息，用作SEO。</p>
+<h3 id="网页关键字">网页关键字</h3>
+<pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;网页关键字&quot;&gt;\
+</code></pre>
+<h3 id="网页描述">网页描述</h3>
+<pre><code>&lt;meta name=&quot;description&quot; content=&quot;网页描述&quot;&gt;
+</code></pre>
+<h3 id="网页作者">网页作者</h3>
+<pre><code>&lt;meta name=&quot;author&quot; content=&quot;网页作者&quot;&gt;
+</code></pre>
+<h3 id="网页图标">网页图标</h3>
+<pre><code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;网页图标路径&quot;&gt;
+</code></pre>
+<h2 id="网页基本标签">网页基本标签</h2>
+<h3 id="标题">标题</h3>
+<pre><code>&lt;h1&gt;标题&lt;/h1&gt;
+&lt;h2&gt;标题&lt;/h2&gt;
+&lt;h3&gt;标题&lt;/h3&gt;
+&lt;h4&gt;标题&lt;/h4&gt;
+&lt;h5&gt;标题&lt;/h5&gt;
+&lt;h6&gt;标题&lt;/h6&gt;
+</code></pre>
+<p>h1-h6分别表示标题1-标题6，h1表示最大的标题，h6表示最小的标题。下面是h1和h6的例子</p>
+<blockquote>
+<p>e.g.:</p>
+<blockquote>
+<p>h1标签</p>
+<blockquote>
+<h1>Hello World</h1>
+</blockquote>
+<p>h6标签</p>
+<blockquote>
+<h6>Hello World</h6>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="段落">段落</h3>
+<pre><code>&lt;p&gt;段落&lt;/p&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个段落</p>
+</blockquote>
+<h3 id="换行">换行</h3>
+<pre><code>&lt;br&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个段落<br>这是一个换行</p>
+</blockquote>
+<h3 id="水平线">水平线</h3>
+<pre><code>&lt;hr&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个段落</p>
+<hr>
+<p>这是一个段落</p>
+</blockquote>
+<h3 id="字体样式">字体样式</h3>
+<pre><code>&lt;b&gt;粗体&lt;/b&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<b>粗体</b>段落</p>
+</blockquote>
+<pre><code>&lt;strong&gt;粗体&lt;/strong&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<strong>粗体</strong>段落</p>
+</blockquote>
+<pre><code>&lt;i&gt;斜体&lt;/i&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<i>斜体</i>段落</p>
+</blockquote>
+<pre><code>&lt;em&gt;斜体&lt;/em&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<em>斜体</em>段落</p>
+</blockquote>
+<pre><code>&lt;u&gt;下划线&lt;/u&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<u>下划线</u>段落</p>
+</blockquote>
+<pre><code>&lt;s&gt;删除线&lt;/s&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<s>删除线</s>段落</p>
+</blockquote>
+<pre><code>&lt;del&gt;删除线&lt;/del&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<del>删除线</del>段落</p>
+</blockquote>
+<pre><code>&lt;ins&gt;下划线&lt;/ins&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<ins>下划线</ins>段落</p>
+</blockquote>
+<pre><code>&lt;sub&gt;下标&lt;/sub&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<sub>下标</sub>段落</p>
+</blockquote>
+<pre><code>&lt;sup&gt;上标&lt;/sup&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p>这是一个<sup>上标</sup>段落</p>
+</blockquote>
+<pre><code>&lt;small&gt;小字体&lt;/small&gt;
+</code></pre>
+<h3 id="注释和特殊符号">注释和特殊符号</h3>
+<pre><code>&lt;!-- 注释 --&gt;
+&amp;nbsp; 空格
+&amp;lt; 小于号
+&amp;gt; 大于号
+&amp;amp; &amp;号
+&amp;copy; 版权
+&amp;reg; 注册商标
+&amp;trade; 商标
+&amp;yen; 日元
+&amp;euro; 欧元
+&amp;pound; 英镑
+&amp;cent; 分
+&amp;sect; 小节
+&amp;times; 乘号
+&amp;divide; 除号
+&amp;frac12; 1/2
+&amp;frac14; 1/4
+&amp;frac34; 3/4
+&amp;frac13; 1/3
+&amp;frac23; 2/3
+&amp;frac15; 1/5
+&amp;frac25; 2/5
+&amp;frac35; 3/5
+&amp;frac45; 4/5
+&amp;frac16; 1/6
+&amp;frac56; 5/6
+&amp;frac18; 1/8
+&amp;frac38; 3/8
+&amp;frac58; 5/8
+&amp;frac78; 7/8
+</code></pre>
+<h2 id="图像标签">图像标签</h2>
+<h3 id="图像标签-2">图像标签</h3>
+<blockquote>
+<p>常见的图像格式有：jpg、png、gif、bmp、svg等。</p>
+</blockquote>
+<pre><code>&lt;img src=&quot;图片路径&quot; alt=&quot;图片描述&quot; title=&quot;图片标题&quot;&gt;
+</code></pre>
+<p>src属性表示图片的路径，alt属性表示图片的描述，title属性表示图片的标题。其中，src属性是必须的。<br>
+src建议使用相对路径，而不是绝对路径。…/表示上一级目录，./表示当前目录。</p>
+<p>e.g.:</p>
+<blockquote>
+<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" title="百度logo">
+</blockquote>
+<h2 id="超链接标签">超链接标签</h2>
+<h3 id="超链接标签-2">超链接标签</h3>
+<pre><code>&lt;a href=&quot;链接地址&quot; target=&quot;链接打开方式&quot;&gt;链接文本&lt;/a&gt;
+</code></pre>
+<p>e.g.:</p>
+<blockquote>
+<p><a href="https://www.baidu.com" target="_blank">百度</a></p>
+</blockquote>
+<p>也可以是图片链接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;https://www.baidu.com&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://www.baidu.com/img/bd_logo1.png&quot; alt=&quot;百度logo&quot; title=&quot;百度logo&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>e.g.:</p>
+<blockquote>
+<p><a href="https://www.baidu.com" target="_blank"><img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" title="百度logo"></a></p>
+</blockquote>
+<p>target属性表示链接打开方式，有以下几种：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>_blank：在新窗口打开链接</p>
+</li>
+<li class="lvl-2">
+<p>_self：在当前窗口打开链接</p>
+</li>
+<li class="lvl-2">
+<p>_parent：在父窗口打开链接</p>
+</li>
+<li class="lvl-2">
+<p>_top：在顶级窗口打开链接</p>
+</li>
+<li class="lvl-2">
+<p>framename：在指定的框架中打开链接</p>
+</li>
+</ul>
+<p><a name="down">下去锚点</a></p>
+<h3 id="锚点">锚点</h3>
+<p>锚点是指在网页中的某个位置，可以通过锚点链接到网页中的某个位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#锚点名称&quot;&gt;锚点文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>e.g.:</p>
+<blockquote>
+<p><a href="#top">回到顶部</a></p>
+</blockquote>
+<p>不过请注意，name属性已经被废弃，不建议使用。现在使用id属性来代替name属性。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;锚点名称&quot;&gt;锚点文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="页面间跳转">页面间跳转</h3>
+<p>页面间跳转是指在网页中的某个位置，可以通过链接跳转到另一个网页中的某个位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;链接地址#锚点名称&quot;&gt;链接文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>e.g.:</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com#down">百度</a></p>
+</blockquote>
+<h3 id="功能链接">功能链接</h3>
+<p>功能链接是指在网页中的某个位置，可以通过链接执行某个功能。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:函数名()&quot;&gt;链接文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>e.g.:</p>
+<blockquote>
+<p><a href="javascript:alert('hello world')">弹出提示框</a></p>
+</blockquote>
+<p>邮件链接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;mailto:邮箱地址&quot;&gt;链接文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>e.g.:</p>
+<blockquote>
+<p><a href="mailto:test@mail.com">发送邮件给test@mail.com</a></p>
+</blockquote>
+<p>电话链接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;tel:电话号码&quot;&gt;链接文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>e.g.:</p>
+<blockquote>
+<p><a href="tel:123456789">拨打电话123456789</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yuzhii0718.github.com/2023/03/02/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1496,7 +1834,7 @@ $ git archive
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1541,12 +1879,12 @@ $ git archive
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">6k</span>
+    <span title="站点总字数">9k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6 分钟</span>
+    <span title="站点阅读时长">8 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
