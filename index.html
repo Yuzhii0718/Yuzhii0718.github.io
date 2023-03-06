@@ -193,6 +193,281 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yuzhii0718.github.com/2023/03/06/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Yuzhii">
+      <meta itemprop="description" content="FreeEverywhere">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuzhii's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/06/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/" class="post-title-link" itemprop="url">我的Debain设备与Linux</a>
+        </h2>
+
+        <div class="post-meta">
+		
+
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-06 18:18:09 / 修改时间：19:49:47" itemprop="dateCreated datePublished" datetime="2023-03-06T18:18:09+08:00">2023-03-06</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>我的Debain设备与Linux</h1>
+<h2 id="我的Debain设备">我的Debain设备</h2>
+<h3 id="设备介绍">设备介绍</h3>
+<blockquote>
+<p>这个东西其实就是随身wifi，但他的硬件很有趣，所以被开发出来了许多玩法</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/images/(1).jpg" alt="采用msm8916@2.0GHz,521M内存，8G硬盘"><br>
+<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/images/(2).jpg" alt="改装被动散热"></p>
+<h3 id="为什么要用这个设备学习linux">为什么要用这个设备学习linux</h3>
+<blockquote>
+<p>因为这个学期有linux的课程，所以我就把这个东西拿来学习linux，因为这个东西的硬件比较好，所以我就把他当作我的开发板来学习linux<br>
+开始上linux课的时候，要求我们用虚拟机来学习，但是我觉得这样不太好</p>
+<ul class="lvl-1">
+<li class="lvl-2">一是因为我的电脑是游戏本，很厚重，上课带来带去很麻烦</li>
+<li class="lvl-2">二是目前学习linux并不需要很高的性能，这个设备已经有足够的性能来学习linux了</li>
+</ul>
+</blockquote>
+<h3 id="为什么不用安卓手机呢">为什么不用安卓手机呢</h3>
+<blockquote>
+<p>众所周知安卓手机也使用了linux内核</p>
+<ul class="lvl-1">
+<li class="lvl-2">安卓手机通常无法获取root权限，这样就无法学习linux内核，即使手机支持root，也需要折腾很久，我不想在主力机上root，因为我的数据都在里面</li>
+<li class="lvl-2">安卓的Linux内核经过了修改，所以学习起来会比较麻烦</li>
+</ul>
+</blockquote>
+<h2 id="学习Linux">学习Linux</h2>
+<p><img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/images/(3).png" alt="Debain"></p>
+<blockquote>
+<p>其实linux只是个操作系统而已，只是其Gui界面较少，操作通常使用命令行，所以学习linux并不难，只要学会一些基本的命令就可以了</p>
+</blockquote>
+<h3 id="基本命令">基本命令</h3>
+<p>ls:列出当前目录下的文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l:列出详细信息</span><br><span class="line"><span class="built_in">ls</span> -a:列出所有文件</span><br><span class="line"><span class="built_in">ls</span> -al:列出所有文件的详细信息</span><br></pre></td></tr></table></figure>
+<p>cd:切换目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..:返回上一级目录</span><br><span class="line"><span class="built_in">cd</span> ~:返回根目录</span><br></pre></td></tr></table></figure>
+<p>pwd:显示当前目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span> -P:显示真实路径</span><br></pre></td></tr></table></figure>
+<p>mkdir:创建目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p:创建多级目录</span><br></pre></td></tr></table></figure>
+<p>rm:删除文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -r:删除目录</span><br><span class="line"><span class="built_in">rm</span> -f:强制删除</span><br></pre></td></tr></table></figure>
+<p>rmdir:删除目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rmdir</span> -p:删除多级目录</span><br></pre></td></tr></table></figure>
+<p>cp:复制文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r:复制目录</span><br><span class="line"><span class="built_in">cp</span> -a:复制目录并保留属性</span><br></pre></td></tr></table></figure>
+<p>mv:移动文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> -f:强制移动</span><br></pre></td></tr></table></figure>
+<p>cat:显示文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> -n:显示行号</span><br></pre></td></tr></table></figure>
+<p>touch:创建文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> -a:修改文件的访问时间</span><br><span class="line"><span class="built_in">touch</span> -m:修改文件的修改时间</span><br><span class="line"><span class="built_in">touch</span> -c:不创建文件，只修改文件的时间</span><br></pre></td></tr></table></figure>
+<p>echo:输出内容到文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span> &gt; hello.txt:输出内容到文件</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span> &gt;&gt; hello.txt:输出内容到文件末尾</span><br></pre></td></tr></table></figure>
+<p>find:查找文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -name <span class="string">&quot;hello.txt&quot;</span>:查找当前目录下的hello.txt文件</span><br><span class="line">find . -name <span class="string">&quot;hello.txt&quot;</span> -<span class="built_in">type</span> f:查找当前目录下的hello.txt文件并且是文件</span><br><span class="line">find . -name <span class="string">&quot;hello.txt&quot;</span> -<span class="built_in">type</span> d:查找当前目录下的hello.txt文件并且是目录</span><br><span class="line">find . -name <span class="string">&quot;hello.txt&quot;</span> -<span class="built_in">type</span> f -<span class="built_in">exec</span> <span class="built_in">rm</span> -rf &#123;&#125; \;:查找当前目录下的hello.txt文件并且是文件并且删除</span><br></pre></td></tr></table></figure>
+<p>grep:查找文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&quot;hello&quot;</span> hello.txt:查找hello.txt文件中的hello</span><br><span class="line">grep -i <span class="string">&quot;hello&quot;</span> hello.txt:忽略大小写</span><br><span class="line">grep -v <span class="string">&quot;hello&quot;</span> hello.txt:查找不包含hello的行</span><br><span class="line">grep -n <span class="string">&quot;hello&quot;</span> hello.txt:查找包含hello的行并且显示行号</span><br><span class="line">grep -c <span class="string">&quot;hello&quot;</span> hello.txt:查找包含hello的行并且显示行数</span><br><span class="line">grep -r <span class="string">&quot;hello&quot;</span> .:查找当前目录下的所有文件中包含hello的行</span><br></pre></td></tr></table></figure>
+<p>wc:统计文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wc</span> -l hello.txt:统计hello.txt文件的行数</span><br><span class="line"><span class="built_in">wc</span> -w hello.txt:统计hello.txt文件的单词数</span><br><span class="line"><span class="built_in">wc</span> -c hello.txt:统计hello.txt文件的字符数</span><br></pre></td></tr></table></figure>
+<p>sort:排序文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span> hello.txt:对hello.txt文件进行排序</span><br><span class="line"><span class="built_in">sort</span> -r hello.txt:对hello.txt文件进行倒序排序</span><br><span class="line"><span class="built_in">sort</span> -n hello.txt:对hello.txt文件进行数字排序</span><br><span class="line"><span class="built_in">sort</span> -u hello.txt:对hello.txt文件进行去重排序</span><br></pre></td></tr></table></figure>
+<p>uniq:去重文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uniq</span> hello.txt:去重hello.txt文件</span><br><span class="line"><span class="built_in">uniq</span> -c hello.txt:去重并且统计重复次数</span><br></pre></td></tr></table></figure>
+<p>head:显示文件头部内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">head</span> -n 10 hello.txt:显示hello.txt文件的前10行</span><br></pre></td></tr></table></figure>
+<p>tail:显示文件尾部内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -n 10 hello.txt:显示hello.txt文件的后10行</span><br></pre></td></tr></table></figure>
+<p>diff:比较文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff example1.txt example2.txt 比较文件差异</span><br></pre></td></tr></table></figure>
+<h3 id="vim">vim</h3>
+<p>vim是linux下的文本编辑器，其操作方式与windows下的记事本类似，但是vim的功能更加强大，所以学习vim是学习linux的必备技能</p>
+<p>vim的操作方式有两种，一种是命令模式，一种是编辑模式，命令模式下可以进行一些操作，比如复制粘贴，编辑模式下可以进行编辑。vim有多个模式，分别是</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>正常模式(normal mode),默认模式,可以进行复制粘贴等操作</p>
+</li>
+<li class="lvl-2">
+<p>插入模式(insert mode),可以进行编辑</p>
+</li>
+<li class="lvl-2">
+<p>命令行模式(command mode),可以执行一些命令</p>
+</li>
+<li class="lvl-2">
+<p>可视模式(visual mode),可以进行选择</p>
+</li>
+</ul>
+<h4 id="新建保存和退出">新建保存和退出</h4>
+<p>新建文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim hello.txt</span><br></pre></td></tr></table></figure>
+<p>保存文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w</span><br></pre></td></tr></table></figure>
+<p>退出文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:q</span><br></pre></td></tr></table></figure>
+<p>强制退出文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:q!</span><br></pre></td></tr></table></figure>
+<p>保存并退出文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
+<p>进入编辑模式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i</span><br></pre></td></tr></table></figure>
+<p>退出编辑模式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esc</span><br></pre></td></tr></table></figure>
+<h4 id="初步导航和编辑">初步导航和编辑</h4>
+<p>通常vim移动光标的方式是使用方向键，但是vim也提供了一些快捷键，可以使用快捷键来移动光标</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>h:左移</p>
+</li>
+<li class="lvl-2">
+<p>j:下移</p>
+</li>
+<li class="lvl-2">
+<p>k:上移</p>
+</li>
+<li class="lvl-2">
+<p>l:右移</p>
+</li>
+<li class="lvl-2">
+<p>i:插入，插入到当前光标的前面</p>
+</li>
+<li class="lvl-2">
+<p>shift+a或A:追加，追加到当前光标的后面</p>
+</li>
+</ul>
+<p>新建一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">o 新建下一行或者</span><br><span class="line"><span class="built_in">shift</span>+o 新建下一行</span><br></pre></td></tr></table></figure>
+<h4 id="进阶导航和编辑">进阶导航和编辑</h4>
+<p>行号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> nu</span><br></pre></td></tr></table></figure>
+<p>移动到最后</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shift</span>+g</span><br><span class="line">G</span><br></pre></td></tr></table></figure>
+<p>移动到顶部</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gg</span><br></pre></td></tr></table></figure>
+<p>相对行号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> rnu</span><br></pre></td></tr></table></figure>
+<p>复制粘贴</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yy 复制一行</span><br><span class="line">p 粘贴</span><br></pre></td></tr></table></figure>
+<p>删除一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span></span><br></pre></td></tr></table></figure>
+<p>重复上一次操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.</span><br></pre></td></tr></table></figure>
+<p>撤销</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u</span><br></pre></td></tr></table></figure>
+<p>返回上一次操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+r</span><br></pre></td></tr></table></figure>
+<p>删除一个单词</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dw</span><br></pre></td></tr></table></figure>
+<p>改变一个单词</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cw</span><br></pre></td></tr></table></figure>
+<p>按单词移动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w 向后移动一个单词</span><br><span class="line">b 向前移动一个单词</span><br></pre></td></tr></table></figure>
+<p>跳到单词最后</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e</span><br></pre></td></tr></table></figure>
+<p>跳到单词最前</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+<h4 id="搜索替换和视觉模式">搜索替换和视觉模式</h4>
+<p>搜索</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/word</span><br></pre></td></tr></table></figure>
+<p>替换</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/old/new/g 最后的g是全局的意思</span><br></pre></td></tr></table></figure>
+<p>复制一个单词</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yw</span><br></pre></td></tr></table></figure>
+<p>粘贴3次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3p</span><br></pre></td></tr></table></figure>
+<p>删除大括号内的内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ci&#123;</span><br><span class="line">ci&#125;</span><br></pre></td></tr></table></figure>
+<p>视觉模式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+v</span><br></pre></td></tr></table></figure>
+<p>其他的快捷键</p>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>:set nu:显示行号</p>
+</li>
+<li class="lvl-2">
+<p>:set nonu:不显示行号</p>
+</li>
+<li class="lvl-2">
+<p>:set ai:自动缩进</p>
+</li>
+<li class="lvl-2">
+<p>:set noai:不自动缩进</p>
+</li>
+<li class="lvl-2">
+<p>:set si:智能缩进</p>
+</li>
+<li class="lvl-2">
+<p>:set nosi:不智能缩进</p>
+</li>
+<li class="lvl-2">
+<p>:set ts=4:设置缩进为4个空格</p>
+</li>
+<li class="lvl-2">
+<p>:set ts=8:设置缩进为8个空格</p>
+</li>
+<li class="lvl-2">
+<p>:set ts=tab:设置缩进为tab</p>
+</li>
+</ul>
+</blockquote>
+<p>参考：</p>
+<iframe class="video-frame" src="//player.bilibili.com/player.html?aid=983519439&cid=775999565&autoplay=0&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yuzhii0718.github.com/2023/03/06/AI%E7%BB%98%E7%94%BB%E5%B7%A5%E5%85%B7%EF%BC%9AStable-Diffusion%E9%83%A8%E7%BD%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2314,7 +2589,7 @@ $ git archive
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2359,12 +2634,12 @@ $ git archive
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">12k</span>
+    <span title="站点总字数">15k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
