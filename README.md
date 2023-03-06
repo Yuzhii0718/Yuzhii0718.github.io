@@ -1,0 +1,1 @@
+This is a github.io blog. It is built using Hexo and hosted on Github Pages.
