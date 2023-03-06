@@ -220,7 +220,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-06 18:18:09 / 修改时间：19:49:47" itemprop="dateCreated datePublished" datetime="2023-03-06T18:18:09+08:00">2023-03-06</time>
+              <time title="创建时间：2023-03-06 18:18:09 / 修改时间：20:15:28" itemprop="dateCreated datePublished" datetime="2023-03-06T18:18:09+08:00">2023-03-06</time>
             </span>
 
           <br>
@@ -248,208 +248,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>我的Debain设备与Linux</h1>
-<h2 id="我的Debain设备">我的Debain设备</h2>
-<h3 id="设备介绍">设备介绍</h3>
-<blockquote>
-<p>这个东西其实就是随身wifi，但他的硬件很有趣，所以被开发出来了许多玩法</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/images/(1).jpg" alt="采用msm8916@2.0GHz,521M内存，8G硬盘"><br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/images/(2).jpg" alt="改装被动散热"></p>
-<h3 id="为什么要用这个设备学习linux">为什么要用这个设备学习linux</h3>
-<blockquote>
-<p>因为这个学期有linux的课程，所以我就把这个东西拿来学习linux，因为这个东西的硬件比较好，所以我就把他当作我的开发板来学习linux<br>
-开始上linux课的时候，要求我们用虚拟机来学习，但是我觉得这样不太好</p>
-<ul class="lvl-1">
-<li class="lvl-2">一是因为我的电脑是游戏本，很厚重，上课带来带去很麻烦</li>
-<li class="lvl-2">二是目前学习linux并不需要很高的性能，这个设备已经有足够的性能来学习linux了</li>
-</ul>
-</blockquote>
-<h3 id="为什么不用安卓手机呢">为什么不用安卓手机呢</h3>
-<blockquote>
-<p>众所周知安卓手机也使用了linux内核</p>
-<ul class="lvl-1">
-<li class="lvl-2">安卓手机通常无法获取root权限，这样就无法学习linux内核，即使手机支持root，也需要折腾很久，我不想在主力机上root，因为我的数据都在里面</li>
-<li class="lvl-2">安卓的Linux内核经过了修改，所以学习起来会比较麻烦</li>
-</ul>
-</blockquote>
-<h2 id="学习Linux">学习Linux</h2>
-<p><img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/images/(3).png" alt="Debain"></p>
-<blockquote>
-<p>其实linux只是个操作系统而已，只是其Gui界面较少，操作通常使用命令行，所以学习linux并不难，只要学会一些基本的命令就可以了</p>
-</blockquote>
-<h3 id="基本命令">基本命令</h3>
-<p>ls:列出当前目录下的文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l:列出详细信息</span><br><span class="line"><span class="built_in">ls</span> -a:列出所有文件</span><br><span class="line"><span class="built_in">ls</span> -al:列出所有文件的详细信息</span><br></pre></td></tr></table></figure>
-<p>cd:切换目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..:返回上一级目录</span><br><span class="line"><span class="built_in">cd</span> ~:返回根目录</span><br></pre></td></tr></table></figure>
-<p>pwd:显示当前目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span> -P:显示真实路径</span><br></pre></td></tr></table></figure>
-<p>mkdir:创建目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p:创建多级目录</span><br></pre></td></tr></table></figure>
-<p>rm:删除文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -r:删除目录</span><br><span class="line"><span class="built_in">rm</span> -f:强制删除</span><br></pre></td></tr></table></figure>
-<p>rmdir:删除目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rmdir</span> -p:删除多级目录</span><br></pre></td></tr></table></figure>
-<p>cp:复制文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r:复制目录</span><br><span class="line"><span class="built_in">cp</span> -a:复制目录并保留属性</span><br></pre></td></tr></table></figure>
-<p>mv:移动文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> -f:强制移动</span><br></pre></td></tr></table></figure>
-<p>cat:显示文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> -n:显示行号</span><br></pre></td></tr></table></figure>
-<p>touch:创建文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> -a:修改文件的访问时间</span><br><span class="line"><span class="built_in">touch</span> -m:修改文件的修改时间</span><br><span class="line"><span class="built_in">touch</span> -c:不创建文件，只修改文件的时间</span><br></pre></td></tr></table></figure>
-<p>echo:输出内容到文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span> &gt; hello.txt:输出内容到文件</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span> &gt;&gt; hello.txt:输出内容到文件末尾</span><br></pre></td></tr></table></figure>
-<p>find:查找文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -name <span class="string">&quot;hello.txt&quot;</span>:查找当前目录下的hello.txt文件</span><br><span class="line">find . -name <span class="string">&quot;hello.txt&quot;</span> -<span class="built_in">type</span> f:查找当前目录下的hello.txt文件并且是文件</span><br><span class="line">find . -name <span class="string">&quot;hello.txt&quot;</span> -<span class="built_in">type</span> d:查找当前目录下的hello.txt文件并且是目录</span><br><span class="line">find . -name <span class="string">&quot;hello.txt&quot;</span> -<span class="built_in">type</span> f -<span class="built_in">exec</span> <span class="built_in">rm</span> -rf &#123;&#125; \;:查找当前目录下的hello.txt文件并且是文件并且删除</span><br></pre></td></tr></table></figure>
-<p>grep:查找文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&quot;hello&quot;</span> hello.txt:查找hello.txt文件中的hello</span><br><span class="line">grep -i <span class="string">&quot;hello&quot;</span> hello.txt:忽略大小写</span><br><span class="line">grep -v <span class="string">&quot;hello&quot;</span> hello.txt:查找不包含hello的行</span><br><span class="line">grep -n <span class="string">&quot;hello&quot;</span> hello.txt:查找包含hello的行并且显示行号</span><br><span class="line">grep -c <span class="string">&quot;hello&quot;</span> hello.txt:查找包含hello的行并且显示行数</span><br><span class="line">grep -r <span class="string">&quot;hello&quot;</span> .:查找当前目录下的所有文件中包含hello的行</span><br></pre></td></tr></table></figure>
-<p>wc:统计文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wc</span> -l hello.txt:统计hello.txt文件的行数</span><br><span class="line"><span class="built_in">wc</span> -w hello.txt:统计hello.txt文件的单词数</span><br><span class="line"><span class="built_in">wc</span> -c hello.txt:统计hello.txt文件的字符数</span><br></pre></td></tr></table></figure>
-<p>sort:排序文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span> hello.txt:对hello.txt文件进行排序</span><br><span class="line"><span class="built_in">sort</span> -r hello.txt:对hello.txt文件进行倒序排序</span><br><span class="line"><span class="built_in">sort</span> -n hello.txt:对hello.txt文件进行数字排序</span><br><span class="line"><span class="built_in">sort</span> -u hello.txt:对hello.txt文件进行去重排序</span><br></pre></td></tr></table></figure>
-<p>uniq:去重文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uniq</span> hello.txt:去重hello.txt文件</span><br><span class="line"><span class="built_in">uniq</span> -c hello.txt:去重并且统计重复次数</span><br></pre></td></tr></table></figure>
-<p>head:显示文件头部内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">head</span> -n 10 hello.txt:显示hello.txt文件的前10行</span><br></pre></td></tr></table></figure>
-<p>tail:显示文件尾部内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -n 10 hello.txt:显示hello.txt文件的后10行</span><br></pre></td></tr></table></figure>
-<p>diff:比较文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff example1.txt example2.txt 比较文件差异</span><br></pre></td></tr></table></figure>
-<h3 id="vim">vim</h3>
-<p>vim是linux下的文本编辑器，其操作方式与windows下的记事本类似，但是vim的功能更加强大，所以学习vim是学习linux的必备技能</p>
-<p>vim的操作方式有两种，一种是命令模式，一种是编辑模式，命令模式下可以进行一些操作，比如复制粘贴，编辑模式下可以进行编辑。vim有多个模式，分别是</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>正常模式(normal mode),默认模式,可以进行复制粘贴等操作</p>
-</li>
-<li class="lvl-2">
-<p>插入模式(insert mode),可以进行编辑</p>
-</li>
-<li class="lvl-2">
-<p>命令行模式(command mode),可以执行一些命令</p>
-</li>
-<li class="lvl-2">
-<p>可视模式(visual mode),可以进行选择</p>
-</li>
-</ul>
-<h4 id="新建保存和退出">新建保存和退出</h4>
-<p>新建文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim hello.txt</span><br></pre></td></tr></table></figure>
-<p>保存文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w</span><br></pre></td></tr></table></figure>
-<p>退出文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:q</span><br></pre></td></tr></table></figure>
-<p>强制退出文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:q!</span><br></pre></td></tr></table></figure>
-<p>保存并退出文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
-<p>进入编辑模式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i</span><br></pre></td></tr></table></figure>
-<p>退出编辑模式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esc</span><br></pre></td></tr></table></figure>
-<h4 id="初步导航和编辑">初步导航和编辑</h4>
-<p>通常vim移动光标的方式是使用方向键，但是vim也提供了一些快捷键，可以使用快捷键来移动光标</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>h:左移</p>
-</li>
-<li class="lvl-2">
-<p>j:下移</p>
-</li>
-<li class="lvl-2">
-<p>k:上移</p>
-</li>
-<li class="lvl-2">
-<p>l:右移</p>
-</li>
-<li class="lvl-2">
-<p>i:插入，插入到当前光标的前面</p>
-</li>
-<li class="lvl-2">
-<p>shift+a或A:追加，追加到当前光标的后面</p>
-</li>
-</ul>
-<p>新建一行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">o 新建下一行或者</span><br><span class="line"><span class="built_in">shift</span>+o 新建下一行</span><br></pre></td></tr></table></figure>
-<h4 id="进阶导航和编辑">进阶导航和编辑</h4>
-<p>行号</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> nu</span><br></pre></td></tr></table></figure>
-<p>移动到最后</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shift</span>+g</span><br><span class="line">G</span><br></pre></td></tr></table></figure>
-<p>移动到顶部</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gg</span><br></pre></td></tr></table></figure>
-<p>相对行号</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> rnu</span><br></pre></td></tr></table></figure>
-<p>复制粘贴</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yy 复制一行</span><br><span class="line">p 粘贴</span><br></pre></td></tr></table></figure>
-<p>删除一行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span></span><br></pre></td></tr></table></figure>
-<p>重复上一次操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.</span><br></pre></td></tr></table></figure>
-<p>撤销</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u</span><br></pre></td></tr></table></figure>
-<p>返回上一次操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+r</span><br></pre></td></tr></table></figure>
-<p>删除一个单词</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dw</span><br></pre></td></tr></table></figure>
-<p>改变一个单词</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cw</span><br></pre></td></tr></table></figure>
-<p>按单词移动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w 向后移动一个单词</span><br><span class="line">b 向前移动一个单词</span><br></pre></td></tr></table></figure>
-<p>跳到单词最后</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e</span><br></pre></td></tr></table></figure>
-<p>跳到单词最前</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
-<h4 id="搜索替换和视觉模式">搜索替换和视觉模式</h4>
-<p>搜索</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/word</span><br></pre></td></tr></table></figure>
-<p>替换</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/old/new/g 最后的g是全局的意思</span><br></pre></td></tr></table></figure>
-<p>复制一个单词</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yw</span><br></pre></td></tr></table></figure>
-<p>粘贴3次</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3p</span><br></pre></td></tr></table></figure>
-<p>删除大括号内的内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ci&#123;</span><br><span class="line">ci&#125;</span><br></pre></td></tr></table></figure>
-<p>视觉模式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+v</span><br></pre></td></tr></table></figure>
-<p>其他的快捷键</p>
-<blockquote>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>:set nu:显示行号</p>
-</li>
-<li class="lvl-2">
-<p>:set nonu:不显示行号</p>
-</li>
-<li class="lvl-2">
-<p>:set ai:自动缩进</p>
-</li>
-<li class="lvl-2">
-<p>:set noai:不自动缩进</p>
-</li>
-<li class="lvl-2">
-<p>:set si:智能缩进</p>
-</li>
-<li class="lvl-2">
-<p>:set nosi:不智能缩进</p>
-</li>
-<li class="lvl-2">
-<p>:set ts=4:设置缩进为4个空格</p>
-</li>
-<li class="lvl-2">
-<p>:set ts=8:设置缩进为8个空格</p>
-</li>
-<li class="lvl-2">
-<p>:set ts=tab:设置缩进为tab</p>
-</li>
-</ul>
-</blockquote>
-<p>参考：</p>
-<iframe class="video-frame" src="//player.bilibili.com/player.html?aid=983519439&cid=775999565&autoplay=0&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-
+          <p>有趣的Debain设备与学习Linux</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/06/%E6%88%91%E7%9A%84Debain%E8%AE%BE%E5%A4%87%E4%B8%8ELinux/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -495,7 +302,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-06 00:02:50 / 修改时间：14:28:51" itemprop="dateCreated datePublished" datetime="2023-03-06T00:02:50+08:00">2023-03-06</time>
+              <time title="创建时间：2023-03-06 00:02:50 / 修改时间：20:17:29" itemprop="dateCreated datePublished" datetime="2023-03-06T00:02:50+08:00">2023-03-06</time>
             </span>
 
           <br>
@@ -523,9 +330,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><del> AI绘画工具：Stable-Diffusion部署 </del></p>
-<p>由于我安装了最新的python3.11，所以在安装stable-diffusion时遇到了一些问题,暂时搁置SD的部署。深度学习套件：PyTorch暂时不支持win_amd64的python3.11，如果需要继续部署，需要将python版本降到3.10。或者使用Linux，由于我使用的是主力机，所以暂时不考虑使用Linux。且由于学习需要，不考虑安装python3.10，所以暂时搁置SD的部署。</p>
-
+          <p>暂时搁置SD的部署</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/06/AI%E7%BB%98%E7%94%BB%E5%B7%A5%E5%85%B7%EF%BC%9AStable-Diffusion%E9%83%A8%E7%BD%B2/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -577,7 +390,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-06 14:33:44" itemprop="dateModified" datetime="2023-03-06T14:33:44+08:00">2023-03-06</time>
+                <time title="修改时间：2023-03-06 20:18:14" itemprop="dateModified" datetime="2023-03-06T20:18:14+08:00">2023-03-06</time>
               </span>
 
           <br>
@@ -605,331 +418,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>HTML Day3</h1>
-<p>继续学习HTML</p>
-<h2 id="块级元素和行内元素">块级元素和行内元素</h2>
-<h3 id="块级元素">块级元素</h3>
-<blockquote>
-<p>块级元素：独占一行，可以设置宽高，可以容纳行内元素和块级元素</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标签</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>&lt;address&gt;</code></td>
-<td style="text-align:left">定义地址</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;center&gt;</code></td>
-<td style="text-align:left">定义居中的文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;div&gt;</code></td>
-<td style="text-align:left">定义文档中的分区或节</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;dl&gt;</code></td>
-<td style="text-align:left">定义定义列表</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;form&gt;</code></td>
-<td style="text-align:left">定义供用户输入的HTML表单</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;h1&gt;</code></td>
-<td style="text-align:left">定义标题</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;hr&gt;</code></td>
-<td style="text-align:left">定义水平线</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;li&gt;</code></td>
-<td style="text-align:left">定义列表项目</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;menu&gt;</code></td>
-<td style="text-align:left">定义菜单列表</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;ol&gt;</code></td>
-<td style="text-align:left">定义有序列表</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;p&gt;</code></td>
-<td style="text-align:left">定义段落</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;pre&gt;</code></td>
-<td style="text-align:left">定义预格式化的文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;table&gt;</code></td>
-<td style="text-align:left">定义表格</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;ul&gt;</code></td>
-<td style="text-align:left">定义无序列表</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;tr&gt;</code></td>
-<td style="text-align:left">定义表格行</td>
-</tr>
-</tbody>
-</table>
-<h3 id="行内元素">行内元素</h3>
-<blockquote>
-<p>行内元素：不独占一行，不可以设置宽高，只能容纳文本或者其他行内元素</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标签</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>&lt;a&gt;</code></td>
-<td style="text-align:left">定义超链接</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;b&gt;</code></td>
-<td style="text-align:left">定义粗体文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;big&gt;</code></td>
-<td style="text-align:left">定义大号文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;br&gt;</code></td>
-<td style="text-align:left">定义换行</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;dfn&gt;</code></td>
-<td style="text-align:left">定义定义项目</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;em&gt;</code></td>
-<td style="text-align:left">定义强调文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;i&gt;</code></td>
-<td style="text-align:left">定义斜体文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;img&gt;</code></td>
-<td style="text-align:left">定义图像</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;input&gt;</code></td>
-<td style="text-align:left">定义输入控件</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;label&gt;</code></td>
-<td style="text-align:left">定义标注</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;q&gt;</code></td>
-<td style="text-align:left">定义短的引用文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;select&gt;</code></td>
-<td style="text-align:left">定义下拉列表</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;span&gt;</code></td>
-<td style="text-align:left">定义行内元素</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;strong&gt;</code></td>
-<td style="text-align:left">定义重要文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;textarea&gt;</code></td>
-<td style="text-align:left">定义多行文本输入控件</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;u&gt;</code></td>
-<td style="text-align:left">定义下划线文本</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;var&gt;</code></td>
-<td style="text-align:left">定义变量</td>
-</tr>
-</tbody>
-</table>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/800e6bb26590">参考:https://www.jianshu.com/p/800e6bb26590</a></p>
-<h2 id="列表">列表</h2>
-<h3 id="无序列表">无序列表</h3>
-<p>e.g.:</p>
-<ul>
-    <li>列表项a</li>
-    <li>列表项b</li>
-    <li>列表项c</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项a<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项b<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项c<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="有序列表">有序列表</h3>
-<p>e.g.:</p>
-<ol>
-    <li>列表项a</li>
-    <li>列表项b</li>
-    <li>列表项c</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项a<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项b<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项c<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="定义列表">定义列表</h3>
-<p>e.g.:</p>
-<dl>
-    <dt>列表项a</dt>
-    <dd>列表项1</dd>
-    <dt>列表项b</dt>
-    <dd>列表项2</dd>
-    <dt>列表项c</dt>
-    <dd>列表项3</dd>
-</dl>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>列表项a<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>列表项1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>列表项b<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>列表项2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>列表项c<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>列表项3<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="表格">表格</h2>
-<h3 id="表格的基本结构">表格的基本结构</h3>
-<p>e.g.:</p>
-<table>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-    </tr>
-</table>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>3<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>4<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>5<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>6<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>7<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>8<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>9<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="表格的属性">表格的属性</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>border</code></td>
-<td style="text-align:left">设置表格的边框</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>cellpadding</code></td>
-<td style="text-align:left">设置单元格内边距</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>cellspacing</code></td>
-<td style="text-align:left">设置单元格间距</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>width</code></td>
-<td style="text-align:left">设置表格的宽度</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>height</code></td>
-<td style="text-align:left">设置表格的高度</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>bgcolor</code></td>
-<td style="text-align:left">设置表格的背景颜色</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>align</code></td>
-<td style="text-align:left">设置表格的对齐方式</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>valign</code></td>
-<td style="text-align:left">设置表格的垂直对齐方式</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>bordercolor</code></td>
-<td style="text-align:left">设置表格的边框颜色</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>bordercolordark</code></td>
-<td style="text-align:left">设置表格的边框暗色</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>bordercolorlight</code></td>
-<td style="text-align:left">设置表格的边框亮色</td>
-</tr>
-</tbody>
-</table>
-<p>e.g.:</p>
-<table border="1" cellpadding="10" cellspacing="0" width="200" height="200" bgcolor="red" align="center" valign="middle" bordercolor="blue" bordercolordark="green" bordercolorlight="yellow">
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-    </tr>
-</table>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">cellpadding</span>=<span class="string">&quot;10&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span> <span class="attr">bgcolor</span>=<span class="string">&quot;red&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">valign</span>=<span class="string">&quot;middle&quot;</span> <span class="attr">bordercolor</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">bordercolordark</span>=<span class="string">&quot;green&quot;</span> <span class="attr">bordercolorlight</span>=<span class="string">&quot;yellow&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>3<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>4<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>5<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>6<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>7<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>8<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>9<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="媒体元素">媒体元素</h2>
-<h3 id="视频">视频</h3>
-<p>e.g.:</p>
-<blockquote>
-<p>plasticlove.mp4</p>
-</blockquote>
-<p><video src="./video/Plastic Love Official Music Video_v240P.mp4" controls="controls" width="200" height="200"></video><br>
-<video controls name="media"><br>
-<source src="./video/Plastic Love Official Music Video_v240P.mp4" type="video/mp4"><br>
-</video></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;./video/Plastic Love Official Music Video_v240P.mp4&quot;</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span> <span class="attr">name</span>=<span class="string">&quot;media&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;./video/Plastic Love Official Music Video_v240P.mp4&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/mp4&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>video.mp4</p>
-</blockquote>
-<p><video src="video.mp4" controls="controls" width="200" height="200"></video></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;video.mp4&quot;</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="音频">音频</h3>
-<p>e.g.:</p>
-<blockquote>
-<p>plasticlove.mp3</p>
-</blockquote>
-<p><audio src="./audio/plasticlove.mp3" controls="controls"></audio><br>
-<audio controls name="media"><br>
-<source src="./audio/plasticlove.mp3" type="audio/mp3"><br>
-</audio></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;./audio/plasticlove.mp3&quot;</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span> <span class="attr">name</span>=<span class="string">&quot;media&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;./audio/plasticlove.mp3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mp3&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>audio.mp3</p>
-</blockquote>
-<p><audio src="audio.mp3" controls="controls"></audio></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;audio.mp3&quot;</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注：音频和视频的属性基本一致，这里就不一一列举了。<br>
-controls：是否显示控制条<br>
-autoplay：是否自动播放<br>
-muted：是否静音</p>
-</blockquote>
-
+          <p>学习HTML的第三天</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/05/HTML-Day3/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -973,10 +470,16 @@ muted：是否静音</p>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-05 16:53:16 / 修改时间：22:34:33" itemprop="dateCreated datePublished" datetime="2023-03-05T16:53:16+08:00">2023-03-05</time>
+              <time title="创建时间：2023-03-05 16:53:16" itemprop="dateCreated datePublished" datetime="2023-03-05T16:53:16+08:00">2023-03-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-06 20:17:58" itemprop="dateModified" datetime="2023-03-06T20:17:58+08:00">2023-03-06</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -1003,271 +506,15 @@ muted：是否静音</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>HTML Day2</h1>
-<p><a name="top">顶部锚点</a><br><br>
-<a href="#down">下去</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a name=&quot;top&quot;&gt;顶部&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="HTML基本结构">HTML基本结构</h2>
-<blockquote>
-<p>2023年3月5日，最近闲得慌，继续学习HTML，记录一下。</p>
-</blockquote>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;title&gt;网页标题&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        网页内容
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h2 id="网页基本信息">网页基本信息</h2>
-<h3 id="注释">注释</h3>
-<pre><code>&lt;!----&gt;
-</code></pre>
-<h3 id="网页类型">网页类型</h3>
-<pre><code>&lt;!DOCTYPE html&gt;
-</code></pre>
-<h3 id="网页编码">网页编码</h3>
-<pre><code>&lt;meta charset=&quot;utf-8&quot;&gt;
-</code></pre>
-<p>mate描述性标签，一般用于网页的描述性信息，用作SEO。</p>
-<h3 id="网页关键字">网页关键字</h3>
-<pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;网页关键字&quot;&gt;\
-</code></pre>
-<h3 id="网页描述">网页描述</h3>
-<pre><code>&lt;meta name=&quot;description&quot; content=&quot;网页描述&quot;&gt;
-</code></pre>
-<h3 id="网页作者">网页作者</h3>
-<pre><code>&lt;meta name=&quot;author&quot; content=&quot;网页作者&quot;&gt;
-</code></pre>
-<h3 id="网页图标">网页图标</h3>
-<pre><code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;网页图标路径&quot;&gt;
-</code></pre>
-<h2 id="网页基本标签">网页基本标签</h2>
-<h3 id="标题">标题</h3>
-<pre><code>&lt;h1&gt;标题&lt;/h1&gt;
-&lt;h2&gt;标题&lt;/h2&gt;
-&lt;h3&gt;标题&lt;/h3&gt;
-&lt;h4&gt;标题&lt;/h4&gt;
-&lt;h5&gt;标题&lt;/h5&gt;
-&lt;h6&gt;标题&lt;/h6&gt;
-</code></pre>
-<p>h1-h6分别表示标题1-标题6，h1表示最大的标题，h6表示最小的标题。下面是h1和h6的例子</p>
-<blockquote>
-<p>e.g.:</p>
-<blockquote>
-<p>h1标签</p>
-<blockquote>
-<h1>Hello World</h1>
-</blockquote>
-<p>h6标签</p>
-<blockquote>
-<h6>Hello World</h6>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="段落">段落</h3>
-<pre><code>&lt;p&gt;段落&lt;/p&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个段落</p>
-</blockquote>
-<h3 id="换行">换行</h3>
-<pre><code>&lt;br&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个段落<br>这是一个换行</p>
-</blockquote>
-<h3 id="水平线">水平线</h3>
-<pre><code>&lt;hr&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个段落</p>
-<hr>
-<p>这是一个段落</p>
-</blockquote>
-<h3 id="字体样式">字体样式</h3>
-<pre><code>&lt;b&gt;粗体&lt;/b&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<b>粗体</b>段落</p>
-</blockquote>
-<pre><code>&lt;strong&gt;粗体&lt;/strong&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<strong>粗体</strong>段落</p>
-</blockquote>
-<pre><code>&lt;i&gt;斜体&lt;/i&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<i>斜体</i>段落</p>
-</blockquote>
-<pre><code>&lt;em&gt;斜体&lt;/em&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<em>斜体</em>段落</p>
-</blockquote>
-<pre><code>&lt;u&gt;下划线&lt;/u&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<u>下划线</u>段落</p>
-</blockquote>
-<pre><code>&lt;s&gt;删除线&lt;/s&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<s>删除线</s>段落</p>
-</blockquote>
-<pre><code>&lt;del&gt;删除线&lt;/del&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<del>删除线</del>段落</p>
-</blockquote>
-<pre><code>&lt;ins&gt;下划线&lt;/ins&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<ins>下划线</ins>段落</p>
-</blockquote>
-<pre><code>&lt;sub&gt;下标&lt;/sub&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<sub>下标</sub>段落</p>
-</blockquote>
-<pre><code>&lt;sup&gt;上标&lt;/sup&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p>这是一个<sup>上标</sup>段落</p>
-</blockquote>
-<pre><code>&lt;small&gt;小字体&lt;/small&gt;
-</code></pre>
-<h3 id="注释和特殊符号">注释和特殊符号</h3>
-<pre><code>&lt;!-- 注释 --&gt;
-&amp;nbsp; 空格
-&amp;lt; 小于号
-&amp;gt; 大于号
-&amp;amp; &amp;号
-&amp;copy; 版权
-&amp;reg; 注册商标
-&amp;trade; 商标
-&amp;yen; 日元
-&amp;euro; 欧元
-&amp;pound; 英镑
-&amp;cent; 分
-&amp;sect; 小节
-&amp;times; 乘号
-&amp;divide; 除号
-&amp;frac12; 1/2
-&amp;frac14; 1/4
-&amp;frac34; 3/4
-&amp;frac13; 1/3
-&amp;frac23; 2/3
-&amp;frac15; 1/5
-&amp;frac25; 2/5
-&amp;frac35; 3/5
-&amp;frac45; 4/5
-&amp;frac16; 1/6
-&amp;frac56; 5/6
-&amp;frac18; 1/8
-&amp;frac38; 3/8
-&amp;frac58; 5/8
-&amp;frac78; 7/8
-</code></pre>
-<h2 id="图像标签">图像标签</h2>
-<h3 id="图像标签-2">图像标签</h3>
-<blockquote>
-<p>常见的图像格式有：jpg、png、gif、bmp、svg等。</p>
-</blockquote>
-<pre><code>&lt;img src=&quot;图片路径&quot; alt=&quot;图片描述&quot; title=&quot;图片标题&quot;&gt;
-</code></pre>
-<p>src属性表示图片的路径，alt属性表示图片的描述，title属性表示图片的标题。其中，src属性是必须的。<br>
-src建议使用相对路径，而不是绝对路径。…/表示上一级目录，./表示当前目录。</p>
-<p>e.g.:</p>
-<blockquote>
-<img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" title="百度logo">
-</blockquote>
-<h2 id="超链接标签">超链接标签</h2>
-<h3 id="超链接标签-2">超链接标签</h3>
-<pre><code>&lt;a href=&quot;链接地址&quot; target=&quot;链接打开方式&quot;&gt;链接文本&lt;/a&gt;
-</code></pre>
-<p>e.g.:</p>
-<blockquote>
-<p><a href="https://www.baidu.com" target="_blank">百度</a></p>
-</blockquote>
-<p>也可以是图片链接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;https://www.baidu.com&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://www.baidu.com/img/bd_logo1.png&quot; alt=&quot;百度logo&quot; title=&quot;百度logo&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>e.g.:</p>
-<blockquote>
-<p><a href="https://www.baidu.com" target="_blank"><img src="https://www.baidu.com/img/bd_logo1.png" alt="百度logo" title="百度logo"></a></p>
-</blockquote>
-<p>target属性表示链接打开方式，有以下几种：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>_blank：在新窗口打开链接</p>
-</li>
-<li class="lvl-2">
-<p>_self：在当前窗口打开链接</p>
-</li>
-<li class="lvl-2">
-<p>_parent：在父窗口打开链接</p>
-</li>
-<li class="lvl-2">
-<p>_top：在顶级窗口打开链接</p>
-</li>
-<li class="lvl-2">
-<p>framename：在指定的框架中打开链接</p>
-</li>
-</ul>
-<p><a name="down">下去锚点</a></p>
-<h3 id="锚点">锚点</h3>
-<p>锚点是指在网页中的某个位置，可以通过锚点链接到网页中的某个位置。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#锚点名称&quot;&gt;锚点文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>e.g.:</p>
-<blockquote>
-<p><a href="#top">回到顶部</a></p>
-</blockquote>
-<p>不过请注意，name属性已经被废弃，不建议使用。现在使用id属性来代替name属性。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a id=&quot;锚点名称&quot;&gt;锚点文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="页面间跳转">页面间跳转</h3>
-<p>页面间跳转是指在网页中的某个位置，可以通过链接跳转到另一个网页中的某个位置。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;链接地址#锚点名称&quot;&gt;链接文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>e.g.:</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.baidu.com#down">百度</a></p>
-</blockquote>
-<h3 id="功能链接">功能链接</h3>
-<p>功能链接是指在网页中的某个位置，可以通过链接执行某个功能。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:函数名()&quot;&gt;链接文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>e.g.:</p>
-<blockquote>
-<p><a href="javascript:alert('hello world')">弹出提示框</a></p>
-</blockquote>
-<p>邮件链接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;mailto:邮箱地址&quot;&gt;链接文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>e.g.:</p>
-<blockquote>
-<p><a href="mailto:test@mail.com">发送邮件给test@mail.com</a></p>
-</blockquote>
-<p>电话链接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;tel:电话号码&quot;&gt;链接文本&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>e.g.:</p>
-<blockquote>
-<p><a href="tel:123456789">拨打电话123456789</a></p>
-</blockquote>
-
+          <p>学习HTML的第二天</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/05/HTML-Day2/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1311,10 +558,16 @@ src建议使用相对路径，而不是绝对路径。…/表示上一级目录�
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-02 22:23:05 / 修改时间：22:53:04" itemprop="dateCreated datePublished" datetime="2023-03-02T22:23:05+08:00">2023-03-02</time>
+              <time title="创建时间：2023-03-02 22:23:05" itemprop="dateCreated datePublished" datetime="2023-03-02T22:23:05+08:00">2023-03-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-06 20:17:10" itemprop="dateModified" datetime="2023-03-06T20:17:10+08:00">2023-03-06</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -1341,41 +594,15 @@ src建议使用相对路径，而不是绝对路径。…/表示上一级目录�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>一流的练习打字的网站</h1>
-<p>目前学习计算机专业，需要经常打字，使用键盘操作，所以需要练习打字，这里推荐两个好的练习打字的网站。</p>
-<h2 id="1-Typing-com">1. <a target="_blank" rel="noopener" href="https://www.typing.com">Typing.com</a></h2>
-<p>Typing.com是一个练习打字的网站，可以练习打字，UI精美，指导性很强，非常适合初学者。</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://Typing.com">Typing.com</a> is a free online typing tutor. Learn touch typing, practice your keyboarding skills, take typing tests and find your true typing speed.</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>适合初学者<br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/typing%20the%20home.png" alt="通俗易懂的UI"></p>
-</li>
-<li class="lvl-2">
-<p>指导性强<br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/typing%20tips.png" alt="打字技巧"></p>
-</li>
-<li class="lvl-2">
-<p>按键指导<br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/typing%20keyboard%20guide.png" alt="按键指导"></p>
-</li>
-<li class="lvl-2">
-<p>打字练习<br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/typing%20pracice.png" alt="速度练习"></p>
-</li>
-</ul>
-<h2 id="2-qwerty-kaiyi-cool">2. <a target="_blank" rel="noopener" href="https://qwerty.kaiyi.cool/">qwerty.kaiyi.cool</a></h2>
-<p>qwerty.kaiyi.cool是一个练习打字的网站，可以练习打字，UI简洁，指导性不强，适合熟悉打字的人。</p>
-<blockquote>
-<p>但其内容实用性强，有CET4/6，GMAT，GRE，TOEFL，雅思，托福，SAT，ACT，英语专四，英八，PTE，计算机代码练习，甚至日语罗马音······等</p>
-</blockquote>
-<p>在其中，你能在熟练打字的同时，学习到你需要的知识。<br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/qwert%201.png" alt="CET"><br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/qwert%202.png" alt="Code"><br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/qwert%203.png" alt="Others"></p>
-
+          <p>推荐两个好的练习打字的网站</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/02/%E4%B8%80%E6%B5%81%E7%9A%84%E7%BB%83%E4%B9%A0%E6%89%93%E5%AD%97%E7%9A%84%E7%BD%91%E7%AB%99/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1419,10 +646,16 @@ src建议使用相对路径，而不是绝对路径。…/表示上一级目录�
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-02 19:08:27 / 修改时间：19:52:35" itemprop="dateCreated datePublished" datetime="2023-03-02T19:08:27+08:00">2023-03-02</time>
+              <time title="创建时间：2023-03-02 19:08:27" itemprop="dateCreated datePublished" datetime="2023-03-02T19:08:27+08:00">2023-03-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-06 20:18:52" itemprop="dateModified" datetime="2023-03-06T20:18:52+08:00">2023-03-06</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -1449,510 +682,15 @@ src建议使用相对路径，而不是绝对路径。…/表示上一级目录�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>初试HTML5</h1>
-<h2 id="H5的基本原理">H5的基本原理</h2>
-<p>H5 App 前端开发，是基于 HTML5、CSS3、JavaScript、jQuery、Ajax、JSON、XML 等技术，主要由3部分组成：结构（Structure）、表现（Presentation）、行为（Behavior）。大多数H5应用与CSS相集成，Javascript负责；浏览器的交互行为。HTML5+CSS3+JavaScript相辅相成，紧密合作。</p>
-<blockquote>
-<ul class="lvl-1">
-<li class="lvl-2">HTML 就像是骨架</li>
-<li class="lvl-2">CSS 就像是血肉</li>
-<li class="lvl-2">JavaScript 就像是灵魂</li>
-</ul>
-</blockquote>
-<h2 id="H5的优势">H5的优势</h2>
-<p>H5的优势主要体现在以下几个方面：</p>
-<blockquote>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>H5的跨平台性</p>
-</li>
-<li class="lvl-2">
-<p>H5的开发效率</p>
-</li>
-<li class="lvl-2">
-<p>H5的开发成本</p>
-</li>
-<li class="lvl-2">
-<p>H5的开发周期</p>
-</li>
-<li class="lvl-2">
-<p>H5的开发技术</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="H5的结构元素">H5的结构元素</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>header 定义文档或者节的页眉</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;...&lt;/header&gt;</span><br></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>section 定义文档中的主体部分</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;section&gt;...&lt;/section&gt;</span><br></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>nav 定义导航链接的部分</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav&gt;...&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>aside 定义页面的侧边栏</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;aside&gt;...&lt;/aside&gt;</span><br></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>article 定义页面的主要内容</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;article&gt;...&lt;/article&gt;</span><br></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>footer 定义文档或者节的页脚</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;footer&gt;...&lt;/footer&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="H5的元素类型">H5的元素类型</h2>
-<h3 id="节元素标签">节元素标签</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>body</p>
-</li>
-</ul>
-<blockquote>
-<p>文档的主体</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>article</p>
-</li>
-</ul>
-<blockquote>
-<p>文档中的独立内容</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>h1~h6</p>
-</li>
-</ul>
-<blockquote>
-<p>标题</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>nav</p>
-</li>
-</ul>
-<blockquote>
-<p>导航</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>aside</p>
-</li>
-</ul>
-<blockquote>
-<p>侧边栏</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>section</p>
-</li>
-</ul>
-<blockquote>
-<p>文档中的章节</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>header</p>
-</li>
-</ul>
-<blockquote>
-<p>页眉</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>footer</p>
-</li>
-</ul>
-<blockquote>
-<p>页脚</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>hgroup</p>
-</li>
-</ul>
-<blockquote>
-<p>标题组</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>address</p>
-</li>
-</ul>
-<blockquote>
-<p>地址</p>
-</blockquote>
-<h3 id="文本元素标签">文本元素标签</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>a</p>
-</li>
-</ul>
-<blockquote>
-<p>超链接</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>em</p>
-</li>
-</ul>
-<blockquote>
-<p>强调</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>strong</p>
-</li>
-</ul>
-<blockquote>
-<p>重要</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>p</p>
-</li>
-</ul>
-<blockquote>
-<p>段落</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>b</p>
-</li>
-</ul>
-<blockquote>
-<p>粗体</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>i</p>
-</li>
-</ul>
-<blockquote>
-<p>斜体</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>code</p>
-</li>
-</ul>
-<blockquote>
-<p>代码</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>q</p>
-</li>
-</ul>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>cite</p>
-</li>
-</ul>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>u</p>
-</li>
-</ul>
-<blockquote>
-<p>下划线</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>abbr</p>
-</li>
-</ul>
-<blockquote>
-<p>缩写</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>dfn</p>
-</li>
-</ul>
-<blockquote>
-<p>定义</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>var</p>
-</li>
-</ul>
-<blockquote>
-<p>变量</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>samp</p>
-</li>
-</ul>
-<blockquote>
-<p>样本</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>kbd</p>
-</li>
-</ul>
-<blockquote>
-<p>键盘</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>wbr</p>
-</li>
-</ul>
-<blockquote>
-<p>自动换行</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>span</p>
-</li>
-</ul>
-<blockquote>
-<p>行内元素</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>br</p>
-</li>
-</ul>
-<blockquote>
-<p>换行</p>
-</blockquote>
-<h3 id="分组元素标签">分组元素标签</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>div</p>
-</li>
-</ul>
-<blockquote>
-<p>块级元素</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>p</p>
-</li>
-</ul>
-<blockquote>
-<p>段落</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>dl</p>
-</li>
-</ul>
-<blockquote>
-<p>定义列表</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>dt</p>
-</li>
-</ul>
-<blockquote>
-<p>定义列表中的项目</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>dd</p>
-</li>
-</ul>
-<blockquote>
-<p>定义列表中的项目</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>ol</p>
-</li>
-</ul>
-<blockquote>
-<p>有序列表</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>ul</p>
-</li>
-</ul>
-<blockquote>
-<p>无序列表</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>li</p>
-</li>
-</ul>
-<blockquote>
-<p>列表项</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>hr</p>
-</li>
-</ul>
-<blockquote>
-<p>水平线</p>
-</blockquote>
-<h3 id="嵌入元素标签">嵌入元素标签</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>img</p>
-</li>
-</ul>
-<blockquote>
-<p>图片</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>iframe</p>
-</li>
-</ul>
-<blockquote>
-<p>内联框架</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>video</p>
-</li>
-</ul>
-<blockquote>
-<p>视频</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>audio</p>
-</li>
-</ul>
-<blockquote>
-<p>音频</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>canvas</p>
-</li>
-</ul>
-<blockquote>
-<p>画布</p>
-</blockquote>
-<h2 id="写一个基本的HTML5页面">写一个基本的HTML5页面</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh-CN&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;这是一个H5页面&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>B站视频教程:</p>
-<iframe class="video-frame" src="//player.bilibili.com/player.html?aid=55631961&cid=97256834&autoplay=0&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-<p>参考资料:<br>
-<a target="_blank" rel="noopener" href="https://www.w3schools.com/html/html_elements.asp">https://www.w3schools.com/html/html_elements.asp</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yuzhii0718.github.com/2023/03/01/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Yuzhii">
-      <meta itemprop="description" content="FreeEverywhere">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuzhii's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/01/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-		
-
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-03-01 19:55:40 / 修改时间：21:30:05" itemprop="dateCreated datePublished" datetime="2023-03-01T19:55:40+08:00">2023-03-01</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>288</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>欢迎来到 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! 这是你的第一篇POST. 检查 <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> 获取更多信息. 如果你在使用Hexo中有什么问题, 你能在 <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 找到答案，或者在 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a> 上问我。</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>更多信息: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>更多信息: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>更多信息: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>更多信息: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <p>初试HTML5，开始你的H5之旅</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/02/%E5%88%9D%E8%AF%95HTML5/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -2004,7 +742,7 @@ src建议使用相对路径，而不是绝对路径。…/表示上一级目录�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-01 23:03:50" itemprop="dateModified" datetime="2023-03-01T23:03:50+08:00">2023-03-01</time>
+                <time title="修改时间：2023-03-06 20:19:18" itemprop="dateModified" datetime="2023-03-06T20:19:18+08:00">2023-03-06</time>
               </span>
 
           <br>
@@ -2032,30 +770,15 @@ src建议使用相对路径，而不是绝对路径。…/表示上一级目录�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>关于Vmware Workstation 在Windows11虚拟化的问题</h1>
-<p>最近学习linux，想在windows11上虚拟化linux，但是遇到了一些问题，记录一下。</p>
-<h2 id="问题情况">问题情况</h2>
-<p><img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/Questions-about-VMware-Workstation-Virtualization-in-Windows-11/error.png" alt="error"><br>
-通常我们的解决办法是关闭虚拟机的虚拟化，但我认为这并不是解决问题的最佳方案，因为这样会导致虚拟机的性能下降。</p>
-<h2 id="解决办法">解决办法</h2>
-<p>通过搜索引擎，我知道了原因在两个方面</p>
-<h3 id="1-没有打开的windows虚拟机平台">1. 没有打开的windows虚拟机平台</h3>
-<blockquote>
-<p>打开虚拟机平台，关闭hyper-v<br>
-<img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/Questions-about-VMware-Workstation-Virtualization-in-Windows-11/ctrlpanel.png" alt="ctrlpanel"></p>
-</blockquote>
-<h3 id="2-windows11引入了hyper-v">2. windows11引入了hyper-v</h3>
-<blockquote>
-<p>直接在控制面版关闭hyper-v是无法做到完全关闭的，需要在powershell中关闭</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/Yuzhii0718/Github.io-image-hosting/main/image-hosting/Questions-about-VMware-Workstation-Virtualization-in-Windows-11/cmd.png" alt="powershell"></p>
-<blockquote>
-<p>以管理员身份输入以下命令</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set hypervisorlaunchtype off</span><br></pre></td></tr></table></figure>
-<h3 id="其他">其他</h3>
-<p>关闭hyper-v后，我发现我的WSA也无法使用了，目前无法解决，二者存在兼容性问题，请等待微软官方的更新，如果想要使用WSA，需要在powershell中输入以下命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set hypervisorlaunchtype auto</span><br></pre></td></tr></table></figure>
+          <p>解决学习中linux虚拟机过程中遇到的问题</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/02/28/%E5%85%B3%E4%BA%8EVmware%20Workstation%20%E5%9C%A8Windows11%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E9%97%AE%E9%A2%98/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -2107,7 +830,7 @@ src建议使用相对路径，而不是绝对路径。…/表示上一级目录�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-02 19:49:30" itemprop="dateModified" datetime="2023-03-02T19:49:30+08:00">2023-03-02</time>
+                <time title="修改时间：2023-03-06 20:16:50" itemprop="dateModified" datetime="2023-03-06T20:16:50+08:00">2023-03-06</time>
               </span>
 
           <br>
@@ -2135,296 +858,15 @@ src建议使用相对路径，而不是绝对路径。…/表示上一级目录�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>学习使用Git</h1>
-<blockquote>
-<p>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。<br>
-Git是由Linux之父Linus Torvalds编写的一个开源的分布版本控制系统。<br>
-Git是目前世界上最先进的分布式版本控制系统（没有之一）。<br>
-Git是免费软件，遵循GPL协议。</p>
-</blockquote>
-<p>Git在开发过程中，可以有效、高速的处理从很小到非常大的项目版本管理。十分有用，因此，在学习计算机的过程中，学习Git是必不可少的。今日2023年2月28日，我开始学习Git，希望能够在一年之内熟练Git的使用。</p>
-<p>参考以下网站，可以帮助你学习Git：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的官方网站</a></p>
-</li>
-<li class="lvl-2">
-<p><a target="_blank" rel="noopener" href="https://api.gitee.com/all-about-git">来自gitee的教程</a></p>
-</li>
-</ul>
-<h2 id="常用git命令">常用git命令</h2>
-<h3 id="仓库">仓库</h3>
-<blockquote></blockquote>
-<pre><code># 在当前目录新建一个Git代码库
-$ git init
-
-# 新建一个目录，将其初始化为Git代码库
-$ git init [project-name]
-
-# 下载一个项目和它的整个代码历史
-$ git clone [url]
-</code></pre>
-<h3 id="配置">配置</h3>
-<blockquote></blockquote>
-<pre><code># 显示当前的Git配置
-$ git config --list
-
-# 编辑Git配置文件
-$ git config -e [--global]
-
-# 设置提交代码时的用户信息
-$ git config [--global] user.name &quot;[name]&quot;
-$ git config [--global] user.email &quot;[email address]&quot;
-</code></pre>
-<h3 id="添加与删除">添加与删除</h3>
-<blockquote></blockquote>
-<pre><code># 添加指定文件到暂存区
-$ git add [file1] [file2] ...
-
-# 添加指定目录到暂存区，包括子目录
-$ git add [dir]
-
-# 添加当前目录的所有文件到暂存区
-$ git add .
-
-# 添加每个变化前，都会要求确认
-# 对于同一个文件的多处变化，可以实现分次提交
-$ git add -p
-
-# 删除工作区文件，并且将这次删除放入暂存区
-$ git rm [file1] [file2] ...
-
-# 停止追踪指定文件，但该文件会保留在工作区
-$ git rm --cached [file]
-
-# 改名文件，并且将这个改名放入暂存区
-$ git mv [file-original] [file-renamed]
-</code></pre>
-<h3 id="代码提交">代码提交</h3>
-<blockquote></blockquote>
-<pre><code># 提交暂存区到仓库区
-$ git commit -m [message]
-
-# 提交暂存区的指定文件到仓库区
-$ git commit [file1] [file2] ... -m [message]
-
-# 提交工作区自上次commit之后的变化，直接到仓库区
-$ git commit -a
-
-# 提交时显示所有diff信息
-$ git commit -v
-
-# 使用一次新的commit，替代上一次提交
-# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
-$ git commit --amend -m [message]
-
-# 重做上一次commit，并包括指定文件的新变化
-$ git commit --amend [file1] [file2] ...
-</code></pre>
-<h3 id="分支">分支</h3>
-<blockquote></blockquote>
-<pre><code># 列出所有本地分支
-$ git branch
-
-# 列出所有远程分支
-$ git branch -r
-
-# 列出所有本地分支和远程分支
-$ git branch -a
-
-# 新建一个分支，但依然停留在当前分支
-$ git branch [branch-name]
-
-# 新建一个分支，并切换到该分支
-$ git checkout -b [branch]
-
-# 新建一个分支，指向指定commit
-$ git branch [branch] [commit]
-
-# 新建一个分支，与指定的远程分支建立追踪关系
-$ git branch --track [branch] [remote-branch]
-
-# 切换到指定分支，并更新工作区
-$ git checkout [branch-name]
-
-# 切换到上一个分支
-$ git checkout -
-
-# 建立追踪关系，在现有分支与指定的远程分支之间
-$ git branch --set-upstream [branch] [remote-branch]
-
-# 合并指定分支到当前分支
-$ git merge [branch]
-
-# 选择一个commit，合并进当前分支
-$ git cherry-pick [commit]
-
-# 删除分支
-$ git branch -d [branch-name]
-
-# 删除远程分支
-$ git push origin --delete [branch-name]
-$ git branch -dr [remote/branch]
-</code></pre>
-<h3 id="标签">标签</h3>
-<blockquote></blockquote>
-<pre><code># 列出所有tag
-$ git tag
-
-# 新建一个tag在当前commit
-$ git tag [tag]
-
-# 新建一个tag在指定commit
-$ git tag [tag] [commit]
-
-# 删除本地tag
-$ git tag -d [tag]
-
-# 删除远程tag
-$ git push origin :refs/tags/[tagName]
-
-# 查看tag信息
-$ git show [tag]
-
-# 提交指定tag
-$ git push [remote] [tag]
-
-# 提交所有tag
-$ git push [remote] --tags
-
-# 新建一个分支，指向某个tag
-$ git checkout -b [branch] [tag]
-</code></pre>
-<h3 id="查看信息">查看信息</h3>
-<blockquote></blockquote>
-<pre><code># 显示有变更的文件
-$ git status
-
-# 显示当前分支的版本历史
-$ git log
-
-# 显示commit历史，以及每次commit发生变更的文件
-$ git log --stat
-
-# 搜索提交历史，根据关键词
-$ git log -S [keyword]
-
-# 显示某个commit之后的所有变动，每个commit占据一行
-$ git log [tag] HEAD --pretty=format:%s
-
-# 显示某个commit之后的所有变动，其&quot;提交说明&quot;必须符合搜索条件
-$ git log [tag] HEAD --grep feature
-
-# 显示某个文件的版本历史，包括文件改名
-$ git log --follow [file]
-$ git whatchanged [file]
-
-# 显示指定文件相关的每一次diff
-$ git log -p [file]
-
-# 显示过去5次提交
-$ git log -5 --pretty --oneline
-
-# 显示所有提交过的用户，按提交次数排序
-$ git shortlog -sn
-
-# 显示指定文件是什么人在什么时间修改过
-$ git blame [file]
-
-# 显示暂存区和工作区的差异
-$ git diff
-
-# 显示暂存区和上一个commit的差异
-$ git diff --cached [file]
-
-# 显示工作区与当前分支最新commit之间的差异
-$ git diff HEAD
-
-# 显示两次提交之间的差异
-$ git diff [first-branch]...[second-branch]
-
-# 显示今天你写了多少行代码
-$ git diff --shortstat &quot;@&#123;0 day ago&#125;&quot;
-
-# 显示某次提交的元数据和内容变化
-$ git show [commit]
-
-# 显示某次提交发生变化的文件
-$ git show --name-only [commit]
-
-# 显示某次提交时，某个文件的内容
-$ git show [commit]:[filename]
-
-# 显示当前分支的最近几次提交
-$ git reflog
-</code></pre>
-<h3 id="远程同步">远程同步</h3>
-<blockquote></blockquote>
-<pre><code># 下载远程仓库的所有变动
-$ git fetch [remote]
-
-# 显示所有远程仓库
-$ git remote -v
-
-# 显示某个远程仓库的信息
-$ git remote show [remote]
-
-# 增加一个新的远程仓库，并命名
-$ git remote add [shortname] [url]
-
-# 取回远程仓库的变化，并与本地分支合并
-$ git pull [remote] [branch]
-
-# 上传本地指定分支到远程仓库
-$ git push [remote] [branch]
-
-# 强行推送当前分支到远程仓库，即使有冲突
-$ git push [remote] --force
-
-# 推送所有分支到远程仓库
-$ git push [remote] --all
-</code></pre>
-<h3 id="撤销">撤销</h3>
-<blockquote></blockquote>
-<pre><code># 恢复暂存区的指定文件到工作区
-$ git checkout [file]
-
-# 恢复某个commit的指定文件到暂存区和工作区
-$ git checkout [commit] [file]
-
-# 恢复暂存区的所有文件到工作区
-$ git checkout .
-
-# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
-$ git reset [file]
-
-# 重置暂存区与工作区，与上一次commit保持一致
-$ git reset --hard
-
-# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
-$ git reset [commit]
-
-# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
-$ git reset --hard [commit]
-
-# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
-$ git reset --keep [commit]
-
-# 新建一个commit，用来撤销指定commit
-# 后者的所有变化都将被前者抵消，并且应用到当前分支
-$ git revert [commit]
-
-# 暂时将未提交的变化移除，稍后再移入
-$ git stash
-$ git stash pop
-</code></pre>
-<h3 id="其他">其他</h3>
-<blockquote></blockquote>
-<pre><code># 生成一个可供发布的压缩包
-$ git archive
-</code></pre>
-<p>以上常用命令来自阮一峰老师的博客文章《常用 Git 命令清单》，感谢阮老师！</p>
-
+          <p>学习使用Git，记录学习过程中的一些笔记。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/02/28/%E5%AD%A6%E4%B9%A0%E4%BD%BF%E7%94%A8Git/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -2443,7 +885,7 @@ $ git archive
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yuzhii0718.github.com/2023/02/28/My-New-Post/">
+    <link itemprop="mainEntityOfPage" href="https://yuzhii0718.github.com/2023/02/15/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2457,7 +899,7 @@ $ git archive
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/02/28/My-New-Post/" class="post-title-link" itemprop="url">My New Post</a>
+            <a href="/2023/02/15/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
         </h2>
 
         <div class="post-meta">
@@ -2470,7 +912,7 @@ $ git archive
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-02-28 19:51:58 / 修改时间：19:58:07" itemprop="dateCreated datePublished" datetime="2023-02-28T19:51:58+08:00">2023-02-28</time>
+              <time title="创建时间：2023-02-15 20:22:06 / 修改时间：20:22:29" itemprop="dateCreated datePublished" datetime="2023-02-15T20:22:06+08:00">2023-02-15</time>
             </span>
 
           <br>
@@ -2479,7 +921,7 @@ $ git archive
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>96</span>
+              <span>330</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -2498,15 +940,15 @@ $ git archive
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>My New Post</h1>
-<p>尝试使用Hexo搭建博客，这是我写的第一篇博客。</p>
-<blockquote>
-<p>我要学会使用Markdown语法</p>
-<blockquote>
-<p>Markdown语法很简单，它可以显示标题，图片，链接，引用等等。我觉得它对网页设计很有帮助。</p>
-</blockquote>
-</blockquote>
-
+          <p>Hello World</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/02/15/hello-world/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -2589,7 +1031,7 @@ $ git archive
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

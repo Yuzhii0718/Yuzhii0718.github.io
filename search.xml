@@ -82,19 +82,6 @@
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2023/03/01/hello-world/"/>
-      <url>/2023/03/01/hello-world/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>欢迎来到 <a href="https://hexo.io/">Hexo</a>! 这是你的第一篇POST. 检查 <a href="https://hexo.io/docs/">documentation</a> 获取更多信息. 如果你在使用Hexo中有什么问题, 你能在 <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> 找到答案，或者在 <a href="https://github.com/hexojs/hexo/issues">GitHub</a> 上问我。</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>更多信息: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>更多信息: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>更多信息: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>更多信息: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于Vmware Workstation 在Windows11虚拟化的问题</title>
       <link href="/2023/02/28/%E5%85%B3%E4%BA%8EVmware%20Workstation%20%E5%9C%A8Windows11%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E9%97%AE%E9%A2%98/"/>
       <url>/2023/02/28/%E5%85%B3%E4%BA%8EVmware%20Workstation%20%E5%9C%A8Windows11%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E9%97%AE%E9%A2%98/</url>
@@ -121,11 +108,11 @@
     
     
     <entry>
-      <title>My New Post</title>
-      <link href="/2023/02/28/My-New-Post/"/>
-      <url>/2023/02/28/My-New-Post/</url>
+      <title>Hello World</title>
+      <link href="/2023/02/15/hello-world/"/>
+      <url>/2023/02/15/hello-world/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>My New Post</h1><p>尝试使用Hexo搭建博客，这是我写的第一篇博客。</p><blockquote><p>我要学会使用Markdown语法</p><blockquote><p>Markdown语法很简单，它可以显示标题，图片，链接，引用等等。我觉得它对网页设计很有帮助。</p></blockquote></blockquote>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>��ӭ���� <a href="https://hexo.io/">Hexo</a>! ������ĵ�һƪPOST. ��� <a href="https://hexo.io/docs/">documentation</a> ��ȡ������Ϣ. �������ʹ��Hexo����ʲô����, ������ <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> �ҵ��𰸣������� <a href="https://github.com/hexojs/hexo/issues">GitHub</a> �����ҡ�</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>������Ϣ: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>������Ϣ: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>������Ϣ: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>������Ϣ: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
       
