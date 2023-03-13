@@ -1248,7 +1248,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffffe7;
+  background: #ec77ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2679,6 +2679,13 @@ mjx-container + br {
 /* sidebar social icon */
 .fa-ysepan {
   background: url("/images/ysepan.svg");
+  background-position: 50% 75%;
+  background-repeat: no-repeat;
+  height: 1rem;
+  width: 1rem;
+}
+.envelope-solid {
+  background: url("/images/envelope-solid.svg");
   background-position: 50% 75%;
   background-repeat: no-repeat;
   height: 1rem;
