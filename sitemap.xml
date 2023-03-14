@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yuzhii0718.github.com/schedule/index.html</loc>
+    
+    <lastmod>2023-03-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://yuzhii0718.github.com/about/index.html</loc>
     
     <lastmod>2023-03-13</lastmod>
@@ -184,7 +193,7 @@
 
   <url>
     <loc>https://yuzhii0718.github.com/</loc>
-    <lastmod>2023-03-13</lastmod>
+    <lastmod>2023-03-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -192,21 +201,21 @@
   
   <url>
     <loc>https://yuzhii0718.github.com/tags/%E5%AD%A6%E4%B9%A0CSS/</loc>
-    <lastmod>2023-03-13</lastmod>
+    <lastmod>2023-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://yuzhii0718.github.com/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-03-13</lastmod>
+    <lastmod>2023-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://yuzhii0718.github.com/tags/%E5%AD%A6%E4%B9%A0HTML/</loc>
-    <lastmod>2023-03-13</lastmod>
+    <lastmod>2023-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
