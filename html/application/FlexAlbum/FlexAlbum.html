@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>我的相册</title>
+    <link href="https://yuzhii0718.github.io/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="https://yuzhii0718.github.io/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link color="#222" href="https://yuzhii0718.github.io/images/logo.svg" rel="mask-icon">
+    <link href="https://cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <link rel="stylesheet" href="src/main.css"/>
+</head>
+<body>
+<div class="gallery-section">
+    <div class="inner-width">
+        <h1>🖼️ 我的相册</h1>
+        <div class="border"></div>
+        <div class="gallery">
+            <a href="../../images/71.jpg" class="image">
+                <img src="../../images/71.jpg" alt=""/>
+            </a>
+            <a href="../../images/93.jpg" class="image">
+                <img src="../../images/93.jpg" alt=""/>
+            </a>
+            <a href="../../images/104.jpg" class="image">
+                <img src="../../images/104.jpg" alt=""/>
+            </a>
+            <a href="../../images/114.jpg" class="image">
+                <img src="../../images/114.jpg" alt=""/>
+            </a>
+            <a href="../../images/156.jpg" class="image">
+                <img src="../../images/156.jpg" alt=""/>
+            </a>
+            <a href="../../images/171.jpg" class="image">
+                <img src="../../images/171.jpg" alt=""/>
+            </a>
+            <a href="../../images/264.jpg" class="image">
+                <img src="../../images/264.jpg" alt=""/>
+            </a>
+            <a href="../../images/265.jpg" class="image">
+                <img src="../../images/265.jpg" alt=""/>
+            </a>
+        </div>
+    </div>
+    <div id="footer">
+        <p>© 2023 Yuzhii</p>
+    </div>
+</div>
+
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ES6 转换 ES5(Babel.js 在线测试) js转义 js新语法兼容老浏览器</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/codemirror/5.58.2/codemirror.min.css">
+  <!--导入 bootsrtap 5-->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* Add your styles here */
+    .CodeMirror {
+      outline: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="d-flex justify-content-center">
+    <h1>ES6 转换 ES5(Babel.js)</h1>
+  </header>
+  <nav class="d-flex justify-content-center">
+    <ul>
+      <li>基于 Babel.js 实现转换</li>
+      <li>在线使用，简单轻便，无需安装Node.js、配置复杂的开发环境</li>
+      <li>JS 新语法转换后，可解决老浏览器的语法报错问题</li>
+      <li>JS 代码语法高亮</li>
+    </ul>
+  </nav>
+  <main>
+    <div style="display: flex;">
+      <div style="flex: 1;">
+        <h5>ES6代码</h5>
+        <div>
+          <textarea id="text1">let getArray = () => [];
+    </textarea>
+        </div>
+      </div>
+      <div>
+        <button id="convertBtn" style="margin: 4.6em 4px 0 4px; font-weight: bold;">转换&gt;</button>
+      </div>
+      <div style="flex: 1;">
+        <h5>ES5代码</h5>
+        <div>
+          <textarea id="text2">"use strict";
+    var getArray = function getArray() {
+      return [];
+    };</textarea>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.21.2/babel.min.js"></script>
+    <script src="https://cdn.staticfile.org/codemirror/5.58.2/codemirror.min.js"></script>
+    <script src="https://cdn.staticfile.org/codemirror/5.58.2/mode/javascript/javascript.js"></script>
+
+    <script>
+      new function () {
+        var es6Editor = CodeMirror.fromTextArea(document.getElementById("text1"), { lineNumbers: true, mode: "javascript" })
+        var es5Editor = CodeMirror.fromTextArea(document.getElementById("text2"), { lineNumbers: true, mode: "javascript" })
+        var height = window.innerHeight * 0.55
+        height = height > 200 ? height : 200
+        es6Editor.setSize(undefined, height);
+        es5Editor.setSize(undefined, height);
+
+        convertBtn.onclick = function () {
+          var code = es6Editor.doc.getValue()
+          code = Babel.transform(code, { presets: ["env"] }).code
+
+          es5Editor.doc.setValue(code)
+        }
+      }
+    </script>
+    </div>
+  </main>
+  <br>
+    <footer class="d-flex justify-content-center">
+      <p>&copy; 2023 Yuzhii</p>
+    </footer>
+</body>
+
+</html>

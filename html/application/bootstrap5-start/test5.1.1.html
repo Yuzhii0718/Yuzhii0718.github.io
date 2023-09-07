@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="src/bootstrap-5.3.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .row{background-color: rgba(0, 0, 255, 0.178);height: 120px;margin:10px;}
+        .col{background-color: rgba(255, 0, 0, 0.178);height: 30px;padding: 10px;margin: 10px;}
+        .col-4{background-color: rgba(101, 101, 161, 0.842);height: 30px;padding: 10px;margin: 10px;}
+    </style>
+    <title>垂直对齐演示</title>
+</head>
+<body>
+<!-- 第一个例子：控制列的宽度及在不同的设备上如何显示 -->
+<div class="row">
+    <div class="col-*-*"></div>
+</div>
+<div class="row">
+    <div class="col-*-*"></div>
+    <div class="col-*-*"></div>
+    <div class="col-*-*"></div>
+</div>
+
+<!-- 第二个例子：或让 Bootstrap 者自动处理布局 -->
+<div class="row">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col">.col</div>
+    <div class="col">.col</div>
+    <div class="col">.col</div>
+</div>
+
+<script src="src/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
