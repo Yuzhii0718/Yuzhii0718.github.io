@@ -1,3 +1,4 @@
+https://yuzhii0718.github.io/2023/09/17/1/
 https://yuzhii0718.github.io/2023/09/15/1/
 https://yuzhii0718.github.io/2023/09/12/1/
 https://yuzhii0718.github.io/2023/09/07/1/
@@ -107,3 +108,4 @@ https://yuzhii0718.github.io/categories/PyQt6/
 https://yuzhii0718.github.io/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/
 https://yuzhii0718.github.io/categories/Vue3/
 https://yuzhii0718.github.io/categories/Cpp/
+https://yuzhii0718.github.io/categories/Cpp/DataStructure/
