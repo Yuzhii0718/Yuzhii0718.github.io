@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .tab{
+            width: 100%;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .tab li{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+        }
+        .tab li.active{
+            background-color: #fff;
+            color: #000;
+        }
+        .content{
+            width: 100%;
+            height: 300px;
+            background-color: #ccc;
+            display: none;
+        }
+        .content.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="tab">
+        <li class="active">Tab1</li>
+        <li>Tab2</li>
+        <li>Tab3</li>
+        <li>Tab4</li>
+        <li>Tab5</li>
+    </ul>
+    <div class="content active">Content1</div>
+    <div class="content">Content2</div>
+    <div class="content">Content3</div>
+    <div class="content">Content4</div>
+    <div class="content">Content5</div>
+</div>
+<!---<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>--->
+<script>
+    // $(function(){
+    //     $('.tab li').click(function(){
+    //         $(this).addClass('active').siblings().removeClass('active');
+    //         var index = $(this).index();
+    //         $('.content').eq(index).addClass('active').siblings().removeClass('active');
+    //     });
+    // });
+    window.onload = function(){
+        const tabs = document.querySelectorAll('.tab li');
+        const contents = document.querySelectorAll('.content');
+
+        tabs.forEach(function(tab, index){
+            tab.addEventListener('click', function(){
+                tabs.forEach(function(tab){
+                    tab.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                contents.forEach(function(content){
+                    content.classList.remove('active');
+                });
+                contents[index].classList.add('active');
+            });
+        });
+    };
+</script>
+</body>
+</html>
