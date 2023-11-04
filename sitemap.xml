@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yuzhii0718.github.io/about/index.html</loc>
+    
+    <lastmod>2023-11-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://yuzhii0718.github.io/2023/11/02/1/</loc>
     
     <lastmod>2023-11-04</lastmod>
@@ -239,15 +248,6 @@
     <loc>https://yuzhii0718.github.io/2023/08/17/1/</loc>
     
     <lastmod>2023-08-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yuzhii0718.github.io/about/index.html</loc>
-    
-    <lastmod>2023-08-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

@@ -5,16 +5,19 @@
 </script>
 
 # 关于:heart:
+
 <input type="image" src="../images/logo.png" onclick="alert('Hello , Welcome to my site .😊')" alt="avatar" text-align=“center” vertical-align=“middle”>
 <p><a href="../application/bootstrap-dev/index.html">yuzhii</a></p>
 
 ## 这是什么？:smile:
+
 `应用中心` 是我学习前端基础知识时后想出的点子。:)
 右侧 `banner` 使用的图片素材来音乐专辑封面。
 `应用中心` 中的部分网页程序来自外部。
 遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA协议</a>
 
 ## 给我留言/建议/反馈:yum:
+
 使用Email给我留言/建议/反馈  <button type="button" id="mail">📧</button>
 
 <script>
@@ -25,10 +28,11 @@
 </script>
 
 ---
+
 ## 将 `应用中心` 下载至本地
 
 <style>
-#box1 {
+# box1 {
     width: 80%;
     height: 100px;
     background-color: white;
@@ -40,7 +44,7 @@
     margin: 0 auto;
     text-decoration: none;
 }
-#box2 {
+# box2 {
     width: 20%;
     height: 20%;
     background-color: #f5f5f5;
@@ -53,7 +57,7 @@
     position: relative;
     text-decoration: none;
 }
-#box2 a {
+# box2 a {
     position: absolute;
     top: 0;
     left: 0;
@@ -62,15 +66,15 @@
     line-height: 35px;
     text-decoration: none;
 }
-#box2 a:hover {
+# box2 a:hover {
     background-color: #ff4081;
     color: white;
     border: 0 solid #000000;
     border-radius: 50px;
     text-align: center;
     text-decoration: none;
-} 
-/* 给按钮美化 */
+}
+/*给按钮美化 */
 button {
     background-color: #f5f5f5;
     border: 2px solid #000000;
@@ -87,7 +91,7 @@ button:hover {
     text-align: center;
     text-decoration: none;
 }
-/* 给选择框美化 */
+/* 给选择框美化*/
 select {
     background-color: #f5f5f5;
     border: 2px solid #000000;
@@ -118,8 +122,12 @@ select:hover {
 
 <div id="show"></div>
 
-<div id=downloadhtml>
+<!-- <div id=downloadhtml>
 <hr><div id='box1'><span style='text-align: center; color:black;'>html.zip</span><br><span style='text-align: center; color:black;'>4.70 MB (4,938,404 字节)</span><br><div id='box2'><a href='./src/html.zip' data-pjax-state='load' download='html.zip'>点击下载</a></div></div>
+</div> -->
+
+<div id=downloadhtml>
+<hr><div id='box1'><span style='text-align: center; color:black;'>html.zip</span><br><span style='text-align: center; color:black;'>4.70 MB (4,938,404 字节)</span><br><div id='box2'><a href='' data-pjax-state='load' download='html.zip'>点击下载</a></div></div>
 </div>
 
 <div id=downloadgit>
@@ -166,5 +174,5 @@ select:hover {
 </script>
 
 ---
-> “I wandered lonely as a cloud that floats on high o’er vales and hills.”
-> -- William Wordsworth, I Wandered Lonely as a Cloud
+> "In Return, It gives to everyone of us the highest satisfaction: the consciousness that the building of a better future, that one carries on his shoulders a particle of the fate of mankind, and then one's life will not have been lived in vain."
+> Лев Давидович Троцкий, 1938.10, Mexico, The Fourth International
