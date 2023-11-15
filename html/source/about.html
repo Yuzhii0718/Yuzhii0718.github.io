@@ -37,16 +37,7 @@
 右侧 <code>banner</code> 使用的图片素材来音乐专辑封面。<br>
 <code>应用中心</code> 中的部分网页程序来自外部。<br>
 遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA协议</a></p>
-<h2 id="给我留言建议反馈yum">给我留言/建议/反馈😋 </h2>
-<p>使用Email给我留言/建议/反馈  <button type="button" id="mail">📧</button></p>
-<script>
-    let mail = document.getElementById("mail");
-    mail.onclick = function() {
-        window.location.href = "mailto:lizongchen0718@gmail.com"
-    }
-</script>
 <hr>
-<h2 id="将-应用中心-下载至本地">将 <code>应用中心</code> 下载至本地 </h2>
 <style>
 # box1 { {#box1- }
     width: 80%;
@@ -125,21 +116,6 @@ select:hover {
     text-decoration: none;
 }
 </style>
-<form method="get">
-    <span style="text-align: center;">选择下载方式：</span>
-        <label for="download1"></label><select name="download" id="download1">
-            <option value="html">html</option>
-            <option value="git">git</option>
-        </select>&nbsp;&nbsp;
-    <button type="button" id="dlbtn">下载</button>
-</form>
-<div id="show"></div>
-<div id="downloadhtml">
-<hr><div id="box1"><span style="text-align: center; color:black;">html.zip</span><br><span style="text-align: center; color:black;">4.70 MB (4,938,404 字节)</span><br><div id="box2"><a href="" data-pjax-state="load" download="html.zip">点击下载</a></div></div>
-</div>
-<div id="downloadgit">
-<hr><p>不仅是 <code>应用中心</code> 的源码，Blog 的页面也已经上传至 <code>github</code>，你可以通过 git 命令获取。</p><p><code id="git">git clone git@github.com:Yuzhii0718/Yuzhii0718.github.io.git</code>&nbsp;&nbsp;<button type="button" id="copybtn" value="📋">📋</button></p>
-</div>
 <script>
     // 默认隐藏下载内容
     const downloadhtml = document.getElementById("downloadhtml");
