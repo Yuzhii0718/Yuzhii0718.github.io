@@ -37,7 +37,7 @@ if (screen.width >= 768) {
 			//apiPath: "https://live2d.fghrsh.net/api/",
 			cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
 			// tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
-			tools: ["hitokoto", "asteroids", "switch-model", "photo",  "quit"]
+			tools: ["hitokoto", "asteroids", "switch-model", "photo", "quit"]
 		});
 	});
 }
@@ -74,3 +74,7 @@ const imageCiallo = [
 ];
 
 console.log(imageCiallo.join('\n'));
+
+const Yuzhii_VERSION = '3.0.0';
+const Yuzhii_UPDATE = '240210';
+console.log('\n' + ' %c Yuzhii v' + Yuzhii_VERSION + '-' + Yuzhii_UPDATE + ' %c https://yuzhii0718.github.io ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
