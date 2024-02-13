@@ -10,7 +10,7 @@ document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
         // 恢复原来的 favicon
         favicon.href = favicon.dataset.favicon;
-        document.title = ' Ciallo~(∠・ω< )⌒★ ! ' + OriginTitle;
+        document.title = ' Ciallo~(≧∇≦)ﾉ' + OriginTitle;
         clearTimeout(titleTime);
     }
     else {
