@@ -3,11 +3,11 @@
   <title>Yuzhii&#39;s Blog</title>
   
   
-  <link href="https://yuzhii0718.github.io/atom.xml" rel="self"/>
+  <link href="https://www.yuzhii0718.eu.org/atom.xml" rel="self"/>
   
-  <link href="https://yuzhii0718.github.io/"/>
-  <updated>2024-02-13T13:28:55.203Z</updated>
-  <id>https://yuzhii0718.github.io/</id>
+  <link href="https://www.yuzhii0718.eu.org/"/>
+  <updated>2024-02-14T13:20:34.717Z</updated>
+  <id>https://www.yuzhii0718.eu.org/</id>
   
   <author>
     <name>Yuzhii</name>
@@ -17,30 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>软件工程-测试-01</title>
-    <link href="https://yuzhii0718.github.io/2024/02/11/1/"/>
-    <id>https://yuzhii0718.github.io/2024/02/11/1/</id>
-    <published>2024-02-11T13:57:28.000Z</published>
-    <updated>2024-02-13T13:28:55.203Z</updated>
+    <title>软件工程-测试-02</title>
+    <link href="https://www.yuzhii0718.eu.org/2024/02/14/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/02/14/1/</id>
+    <published>2024-02-14T13:02:15.000Z</published>
+    <updated>2024-02-14T13:20:34.717Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="软件测试">软件测试</h2><p>为什么要测试？因为软件可能有缺陷，而缺陷可能导致软件无法正常工作。软件测试的目的是发现缺陷，以便修复缺陷。</p><p>测试的完整的定义是：测试是一个过程，这个过程中，我们发现了软件的缺陷。</p><p>所以，软件测试是发现缺陷的过程。</p><p>软件测试应该贯穿整个软件开发的周期。</p><h2 id="软件测试的原则">软件测试的原则</h2><ol><li class="lvl-3"><p>完全测试是不可能的。</p></li><li class="lvl-3"><p>测试存在风险，没有十全十美的测试方法</p></li><li class="lvl-3"><p>软件测试只能表明缺陷的存在，不能表明缺陷的不存在</p></li><li class="lvl-3"><p>软件产品中潜在的错误数与已发现的错误数成正比（集群现象）</p></li><li class="lvl-3"><p>让不同的人进行测试（杀虫剂效应）</p></li><li class="lvl-3"><p>开发与测试应该分离</p></li><li class="lvl-3"><p>尽早不断地测试，应使测试贯穿整个软件开发周期</p></li><li class="lvl-3"><p>设计测试用例时，应该考虑边界条件，特殊输入和错误输入（健壮性测试）</p></li><li class="lvl-3"><p>集中测试容易出错或者错误较多的模块（80/20原则）</p></li><li class="lvl-4"><p>长期保留测试用例</p></li></ol><ul class="lvl-0"><li class="lvl-2"><p><a href="https://www.cnblogs.com/sasan/p/6888038.html">软件测试中的80/20原则</a></p></li><li class="lvl-2"><p><a href="https://naodeng.com.cn/zh/posts/others/80-20-rule/">软件研发质量中的二八法则</a></p></li></ul><h2 id="软件测试模型">软件测试模型</h2><p>一个模型应该阐述6个方面：</p><ol><li class="lvl-3"><p>测试时间</p></li><li class="lvl-3"><p>测试步骤</p></li><li class="lvl-3"><p>计划测试</p></li><li class="lvl-3"><p>不同阶段中应该关注的测试对象</p></li><li class="lvl-3"><p>测试过程中应该考虑哪些问题</p></li><li class="lvl-3"><p>测试的目标</p></li></ol><p>常用的有 V 模型、W 模型、敏捷模型、螺旋模型、瀑布模型。</p><h2 id="测试用例">测试用例</h2><p>测试用例是一组输入、执行条件和预期结果的集合。测试用例是一个测试计划的基本单元。</p><p>测试用例 = 测试数据 + 测试环境 + 预期结果</p><p>测试结果 = 测试数据 + 实际结果 + 预期结果</p><p><strong>一个好的测试用例能够发现缺陷，而且能够重现缺陷。</strong></p><h2 id="软件测试方法">软件测试方法</h2><h3 id="静态分析方法（人工测试）">静态分析方法（人工测试）</h3><p>静态分析方法是指在程序运行之前对程序进行检查的方法。</p><ol><li class="lvl-3"><p>桌前测试（自检）指的是程序员自己检查自己的代码。</p></li><li class="lvl-3"><p>代码会审代码会审是一种由多个人参与的代码检查方法。</p></li><li class="lvl-3"><p>代码走查是一种非正式的代码检查方法，由多名测试人员模拟程序的执行过程，发现程序中的缺陷。</p></li></ol><h3 id="动态测试方法（自动测试）">动态测试方法（自动测试）</h3><p>选择适当的测试用例，运行程序，观察程序的行为，以发现程序中的缺陷。</p><ol><li class="lvl-3"><p>黑盒测试（功能测试）黑盒测试是一种测试方法，它只关心程序的输入和输出，而不关心程序的内部结构。</p></li><li class="lvl-3"><p>白盒测试白盒测试是一种测试方法，它关心程序的内部结构，以发现程序中的缺陷。</p></li></ol><h2 id="黑盒测试">黑盒测试</h2><h3 id="等价类划分">等价类划分</h3><p>等价类划分是一种黑盒测试方法，它将输入数据划分为若干个等价类，然后从每个等价类中选择一个测试用例。</p><ul class="lvl-0"><li class="lvl-2"><p>有效等价类：有效等价类是指输入数据的一个子集，这个子集包含了程序的一个有效输入。</p></li><li class="lvl-2"><p>无效等价类：无效等价类是指输入数据的一个子集，这个子集包含了程序的一个无效输入。</p></li></ul><p>等价类划分的步骤：</p><ol><li class="lvl-3"><p>确定输入数据的等价类。</p></li><li class="lvl-3"><p>选择测试用例。</p></li></ol><h4 id="等价划分法分类的启发式规则">等价划分法分类的启发式规则</h4><ol><li class="lvl-3"><p>如果输入数据是一个范围，那么等价类划分法的启发式规则是：选择范围的边界值。</p></li><li class="lvl-3"><p>如果输入数据是一个集合，那么等价类划分法的启发式规则是：选择集合的最小值和最大值。</p></li><li class="lvl-3"><p>如果输入数据是一个布尔值，那么等价类划分法的启发式规则是：选择真和假。</p></li><li class="lvl-3"><p>如果输入数据是一个字符串，那么等价类划分法的启发式规则是：选择字符串的最小长度和最大长度。</p></li></ol><p>etc…</p><h3 id="边界值分析">边界值分析</h3><p>边界值分析是一种黑盒测试方法，它将输入数据的边界值作为测试用例。</p><p>取值范围的边界值是指取值范围的最小值、最大值和最小值与最大值之间的值。</p><p>应当遵循的原则：</p><ol><li class="lvl-3"><p>如果输入数据的取值范围是有限的，那么边界值分析的测试用例应该包括取值范围的边界值。</p></li><li class="lvl-3"><p>如果输入数据的取值范围是无限的，那么边界值分析的测试用例应该包括取值范围的边界值和取值范围的边界值附近的值。</p></li></ol><p>边界值分析的步骤：</p><ol><li class="lvl-3"><p>确定输入数据的边界值。</p></li><li class="lvl-3"><p>选择测试用例。</p></li></ol><h3 id="因果图">因果图</h3><p>因果图是一种黑盒测试方法，它将程序的输入和输出之间的因果关系表示为一个图。</p><p>因果图有 4 个符号：恒等符号、逻辑与符号、逻辑或符号、逻辑非符号。</p><p>从输入、输出考虑，有 以下约束条件：</p><ul class="lvl-0"><li class="lvl-2"><p>E（互斥）</p></li><li class="lvl-2"><p>I（包含）</p></li><li class="lvl-2"><p>O（唯一）</p></li><li class="lvl-2"><p>R（要求）</p></li><li class="lvl-2"><p>M （强制/屏蔽）</p></li></ul><h3 id="决策表">决策表</h3><p>决策表是一种黑盒测试方法，它将程序的输入和输出之间的因果关系表示为一个表。</p><p>决策表的组成部分：</p><ol><li class="lvl-3"><p>条件</p></li><li class="lvl-3"><p>动作</p></li><li class="lvl-3"><p>条件的取值</p></li><li class="lvl-3"><p>动作的取值</p></li></ol><p>决策表的步骤：</p><ol><li class="lvl-3"><p>确定条件和动作。</p></li><li class="lvl-3"><p>确定条件的取值。</p></li><li class="lvl-3"><p>确定动作的取值。</p></li><li class="lvl-3"><p>选择测试用例。</p></li></ol><h3 id="场景法">场景法</h3><p>场景法是一种黑盒测试方法，它将程序的输入和输出之间的因果关系表示为一个场景。</p><p>基本流：是指程序的正常执行流程。最简单路径，表示程序的正常执行流程。</p><p>备选流：是指程序的异常执行流程。程序的异常执行流程有多条，每条异常执行流程都是一个备选流。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="白盒测试">白盒测试</h2><p>白盒测试，也叫玻璃盒测试，它关注的是程序内部的逻辑结构，是基于程序内部结构的测试。白盒测试的目的是检查程序的内部结构，以验证程序是否按照设计要求正确执行。白盒测试的主要任务是设计测试用例，以检查程序的内部逻辑结构是否正确。</p><h3 id="逻辑覆盖">逻辑覆盖</h3><p>逻辑覆盖是白盒测试的一种测试方法，以程序内在的逻辑结构为依据，设计测试用例，以检查程序的内部逻辑结构是否正确。逻辑覆盖主要有以下几种：</p><ul class="lvl-0"><li class="lvl-2"><p>语句覆盖：要求每个语句至少被执行一次。</p></li><li class="lvl-2"><p>判定覆盖：要求每个判定的每个分支至少被执行一次。</p></li><li class="lvl-2"><p>条件覆盖：要求每个判定的每个条件的每个取值至少被执行一次。</p></li><li class="lvl-2"><p>判定/条件覆盖：要求每个判定的每个条件的每个取值至少被执行一次，且每个判定的每个分支至少被执行一次。</p></li><li class="lvl-2"><p>条件组合覆盖：要求每个判定的每个条件的每个取值至少被执行一次，且每个判定的每个条件的每个组合至少被执行一次。</p></li><li class="lvl-2"><p>路径覆盖：要求每个可能的路径至少被执行一次。</p></li></ul>]]></content>
     
     
     <summary type="html">none</summary>
     
     
     
-    <category term="SoftwareEngineering" scheme="https://yuzhii0718.github.io/categories/SoftwareEngineering/"/>
+    <category term="SoftwareEngineering" scheme="https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件工程-测试-01</title>
+    <link href="https://www.yuzhii0718.eu.org/2024/02/11/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/02/11/1/</id>
+    <published>2024-02-11T13:57:28.000Z</published>
+    <updated>2024-02-14T13:03:36.913Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="软件测试">软件测试</h2><p>为什么要测试？因为软件可能有缺陷，而缺陷可能导致软件无法正常工作。软件测试的目的是发现缺陷，以便修复缺陷。</p><p>测试的完整的定义是：测试是一个过程，这个过程中，我们发现了软件的缺陷。</p><p>所以，软件测试是发现缺陷的过程。</p><p>软件测试应该贯穿整个软件开发的周期。</p><h2 id="软件测试的原则">软件测试的原则</h2><ol><li class="lvl-3"><p>完全测试是不可能的。</p></li><li class="lvl-3"><p>测试存在风险，没有十全十美的测试方法</p></li><li class="lvl-3"><p>软件测试只能表明缺陷的存在，不能表明缺陷的不存在</p></li><li class="lvl-3"><p>软件产品中潜在的错误数与已发现的错误数成正比（集群现象）</p></li><li class="lvl-3"><p>让不同的人进行测试（杀虫剂效应）</p></li><li class="lvl-3"><p>开发与测试应该分离</p></li><li class="lvl-3"><p>尽早不断地测试，应使测试贯穿整个软件开发周期</p></li><li class="lvl-3"><p>设计测试用例时，应该考虑边界条件，特殊输入和错误输入（健壮性测试）</p></li><li class="lvl-3"><p>集中测试容易出错或者错误较多的模块（80/20原则）</p></li><li class="lvl-4"><p>长期保留测试用例</p></li></ol><ul class="lvl-0"><li class="lvl-2"><p><a href="https://www.cnblogs.com/sasan/p/6888038.html">软件测试中的80/20原则</a></p></li><li class="lvl-2"><p><a href="https://naodeng.com.cn/zh/posts/others/80-20-rule/">软件研发质量中的二八法则</a></p></li></ul><h2 id="软件测试模型">软件测试模型</h2><p>一个模型应该阐述6个方面：</p><ol><li class="lvl-3"><p>测试时间</p></li><li class="lvl-3"><p>测试步骤</p></li><li class="lvl-3"><p>计划测试</p></li><li class="lvl-3"><p>不同阶段中应该关注的测试对象</p></li><li class="lvl-3"><p>测试过程中应该考虑哪些问题</p></li><li class="lvl-3"><p>测试的目标</p></li></ol><p>常用的有 V 模型、W 模型、敏捷模型、螺旋模型、瀑布模型。</p><h2 id="测试用例">测试用例</h2><p>测试用例是一组输入、执行条件和预期结果的集合。测试用例是一个测试计划的基本单元。</p><p>测试用例 = 测试数据 + 测试环境 + 预期结果</p><p>测试结果 = 测试数据 + 实际结果 + 预期结果</p><p><strong>一个好的测试用例能够发现缺陷，而且能够重现缺陷。</strong></p><h2 id="软件测试方法">软件测试方法</h2><h3 id="静态分析方法（人工测试）">静态分析方法（人工测试）</h3><p>静态分析方法是指在程序运行之前对程序进行检查的方法。</p><ol><li class="lvl-3"><p>桌前测试（自检）指的是程序员自己检查自己的代码。</p></li><li class="lvl-3"><p>代码会审代码会审是一种由多个人参与的代码检查方法。</p></li><li class="lvl-3"><p>代码走查是一种非正式的代码检查方法，由多名测试人员模拟程序的执行过程，发现程序中的缺陷。</p></li></ol><h3 id="动态测试方法（自动测试）">动态测试方法（自动测试）</h3><p>选择适当的测试用例，运行程序，观察程序的行为，以发现程序中的缺陷。</p><ol><li class="lvl-3"><p>黑盒测试（功能测试）黑盒测试是一种测试方法，它只关心程序的输入和输出，而不关心程序的内部结构。</p></li><li class="lvl-3"><p>白盒测试白盒测试是一种测试方法，它关心程序的内部结构，以发现程序中的缺陷。</p></li></ol><h2 id="黑盒测试">黑盒测试</h2><h3 id="等价类划分">等价类划分</h3><p>等价类划分是一种黑盒测试方法，它将输入数据划分为若干个等价类，然后从每个等价类中选择一个测试用例。</p><ul class="lvl-0"><li class="lvl-2"><p>有效等价类：有效等价类是指输入数据的一个子集，这个子集包含了程序的一个有效输入。</p></li><li class="lvl-2"><p>无效等价类：无效等价类是指输入数据的一个子集，这个子集包含了程序的一个无效输入。</p></li></ul><p>等价类划分的步骤：</p><ol><li class="lvl-3"><p>确定输入数据的等价类。</p></li><li class="lvl-3"><p>选择测试用例。</p></li></ol><h4 id="等价划分法分类的启发式规则">等价划分法分类的启发式规则</h4><ol><li class="lvl-3"><p>如果输入数据是一个范围，那么等价类划分法的启发式规则是：选择范围的边界值。</p></li><li class="lvl-3"><p>如果输入数据是一个集合，那么等价类划分法的启发式规则是：选择集合的最小值和最大值。</p></li><li class="lvl-3"><p>如果输入数据是一个布尔值，那么等价类划分法的启发式规则是：选择真和假。</p></li><li class="lvl-3"><p>如果输入数据是一个字符串，那么等价类划分法的启发式规则是：选择字符串的最小长度和最大长度。</p></li></ol><p>etc…</p><h3 id="边界值分析">边界值分析</h3><p>边界值分析是一种黑盒测试方法，它将输入数据的边界值作为测试用例。</p><p>取值范围的边界值是指取值范围的最小值、最大值和最小值与最大值之间的值。</p><p>应当遵循的原则：</p><ol><li class="lvl-3"><p>如果输入数据的取值范围是有限的，那么边界值分析的测试用例应该包括取值范围的边界值。</p></li><li class="lvl-3"><p>如果输入数据的取值范围是无限的，那么边界值分析的测试用例应该包括取值范围的边界值和取值范围的边界值附近的值。</p></li></ol><p>边界值分析的步骤：</p><ol><li class="lvl-3"><p>确定输入数据的边界值。</p></li><li class="lvl-3"><p>选择测试用例。</p></li></ol><h3 id="因果图">因果图</h3><p>因果图是一种黑盒测试方法，它将程序的输入和输出之间的因果关系表示为一个图。</p><p>因果图有 4 个符号：恒等符号、逻辑与符号、逻辑或符号、逻辑非符号。</p><p>从输入、输出考虑，有 以下约束条件：</p><ul class="lvl-0"><li class="lvl-2"><p>E（互斥）</p></li><li class="lvl-2"><p>I（包含）</p></li><li class="lvl-2"><p>O（唯一）</p></li><li class="lvl-2"><p>R（要求）</p></li><li class="lvl-2"><p>M （强制/屏蔽）</p></li></ul><h3 id="决策表">决策表</h3><p>决策表是一种黑盒测试方法，它将程序的输入和输出之间的因果关系表示为一个表。</p><p>决策表的组成部分：</p><ol><li class="lvl-3"><p>条件</p></li><li class="lvl-3"><p>动作</p></li><li class="lvl-3"><p>条件的取值</p></li><li class="lvl-3"><p>动作的取值</p></li></ol><p>决策表的步骤：</p><ol><li class="lvl-3"><p>确定条件和动作。</p></li><li class="lvl-3"><p>确定条件的取值。</p></li><li class="lvl-3"><p>确定动作的取值。</p></li><li class="lvl-3"><p>选择测试用例。</p></li></ol><h3 id="场景法">场景法</h3><p>场景法是一种黑盒测试方法，它将程序的输入和输出之间的因果关系表示为一个场景。</p><p>基本流：是指程序的正常执行流程。最简单路径，表示程序的正常执行流程。</p><p>备选流：是指程序的异常执行流程。程序的异常执行流程有多条，每条异常执行流程都是一个备选流。</p>]]></content>
+    
+    
+    <summary type="html">软件测试主要分为了黑盒测试和白盒测试，黑盒测试主要包括等价类划分、边界值分析、因果图、决策表和场景法。</summary>
+    
+    
+    
+    <category term="SoftwareEngineering" scheme="https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/"/>
+    
+    
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Csharp-04</title>
-    <link href="https://yuzhii0718.github.io/2024/02/07/1/"/>
-    <id>https://yuzhii0718.github.io/2024/02/07/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/02/07/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/02/07/1/</id>
     <published>2024-02-07T13:12:59.000Z</published>
     <updated>2024-02-11T14:29:48.053Z</updated>
     
@@ -51,17 +72,17 @@
     
     
     
-    <category term="Csharp" scheme="https://yuzhii0718.github.io/categories/Csharp/"/>
+    <category term="Csharp" scheme="https://www.yuzhii0718.eu.org/categories/Csharp/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Csharp-03</title>
-    <link href="https://yuzhii0718.github.io/2024/01/31/1/"/>
-    <id>https://yuzhii0718.github.io/2024/01/31/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/01/31/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/01/31/1/</id>
     <published>2024-01-31T13:59:10.000Z</published>
     <updated>2024-02-07T13:13:54.845Z</updated>
     
@@ -72,17 +93,17 @@
     
     
     
-    <category term="Csharp" scheme="https://yuzhii0718.github.io/categories/Csharp/"/>
+    <category term="Csharp" scheme="https://www.yuzhii0718.eu.org/categories/Csharp/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Csharp-02</title>
-    <link href="https://yuzhii0718.github.io/2024/01/29/1/"/>
-    <id>https://yuzhii0718.github.io/2024/01/29/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/01/29/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/01/29/1/</id>
     <published>2024-01-29T12:39:52.000Z</published>
     <updated>2024-01-31T14:02:14.907Z</updated>
     
@@ -93,17 +114,17 @@
     
     
     
-    <category term="Csharp" scheme="https://yuzhii0718.github.io/categories/Csharp/"/>
+    <category term="Csharp" scheme="https://www.yuzhii0718.eu.org/categories/Csharp/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Csharp-01</title>
-    <link href="https://yuzhii0718.github.io/2024/01/25/1/"/>
-    <id>https://yuzhii0718.github.io/2024/01/25/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/01/25/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/01/25/1/</id>
     <published>2024-01-25T13:49:48.000Z</published>
     <updated>2024-01-31T14:00:42.329Z</updated>
     
@@ -114,17 +135,17 @@
     
     
     
-    <category term="Csharp" scheme="https://yuzhii0718.github.io/categories/Csharp/"/>
+    <category term="Csharp" scheme="https://www.yuzhii0718.eu.org/categories/Csharp/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-10</title>
-    <link href="https://yuzhii0718.github.io/2023/12/22/1/"/>
-    <id>https://yuzhii0718.github.io/2023/12/22/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/22/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/22/1/</id>
     <published>2023-12-22T03:08:03.000Z</published>
     <updated>2024-02-12T13:16:30.845Z</updated>
     
@@ -135,17 +156,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-09</title>
-    <link href="https://yuzhii0718.github.io/2023/12/21/1/"/>
-    <id>https://yuzhii0718.github.io/2023/12/21/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/21/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/21/1/</id>
     <published>2023-12-21T03:34:04.000Z</published>
     <updated>2023-12-25T03:22:52.272Z</updated>
     
@@ -156,17 +177,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-08</title>
-    <link href="https://yuzhii0718.github.io/2023/12/08/1/"/>
-    <id>https://yuzhii0718.github.io/2023/12/08/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/08/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/08/1/</id>
     <published>2023-12-08T13:21:49.000Z</published>
     <updated>2023-12-21T03:34:06.421Z</updated>
     
@@ -177,17 +198,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-07</title>
-    <link href="https://yuzhii0718.github.io/2023/12/02/1/"/>
-    <id>https://yuzhii0718.github.io/2023/12/02/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/02/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/02/1/</id>
     <published>2023-12-02T06:38:19.000Z</published>
     <updated>2023-12-08T10:16:30.037Z</updated>
     
@@ -198,17 +219,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-06</title>
-    <link href="https://yuzhii0718.github.io/2023/12/01/1/"/>
-    <id>https://yuzhii0718.github.io/2023/12/01/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/01/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/01/1/</id>
     <published>2023-12-01T13:20:42.000Z</published>
     <updated>2023-12-02T06:38:52.129Z</updated>
     
@@ -219,17 +240,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-05</title>
-    <link href="https://yuzhii0718.github.io/2023/11/14/1/"/>
-    <id>https://yuzhii0718.github.io/2023/11/14/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/11/14/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/11/14/1/</id>
     <published>2023-11-14T07:57:49.000Z</published>
     <updated>2023-12-01T13:21:33.081Z</updated>
     
@@ -240,17 +261,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-04</title>
-    <link href="https://yuzhii0718.github.io/2023/11/07/1/"/>
-    <id>https://yuzhii0718.github.io/2023/11/07/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/11/07/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/11/07/1/</id>
     <published>2023-11-07T08:06:28.000Z</published>
     <updated>2023-11-14T08:00:19.333Z</updated>
     
@@ -261,17 +282,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-03</title>
-    <link href="https://yuzhii0718.github.io/2023/11/02/1/"/>
-    <id>https://yuzhii0718.github.io/2023/11/02/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/11/02/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/11/02/1/</id>
     <published>2023-11-02T11:18:36.000Z</published>
     <updated>2023-11-05T09:05:49.799Z</updated>
     
@@ -282,17 +303,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-02</title>
-    <link href="https://yuzhii0718.github.io/2023/10/30/1/"/>
-    <id>https://yuzhii0718.github.io/2023/10/30/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/10/30/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/10/30/1/</id>
     <published>2023-10-30T07:45:46.000Z</published>
     <updated>2023-11-02T11:19:27.720Z</updated>
     
@@ -303,17 +324,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Torch 基础</title>
-    <link href="https://yuzhii0718.github.io/2023/10/28/1/"/>
-    <id>https://yuzhii0718.github.io/2023/10/28/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/10/28/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/10/28/1/</id>
     <published>2023-10-28T06:24:56.000Z</published>
     <updated>2023-10-28T12:08:58.671Z</updated>
     
@@ -324,17 +345,17 @@
     
     
     
-    <category term="神经网络" scheme="https://yuzhii0718.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <category term="神经网络" scheme="https://www.yuzhii0718.eu.org/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-01</title>
-    <link href="https://yuzhii0718.github.io/2023/10/26/1/"/>
-    <id>https://yuzhii0718.github.io/2023/10/26/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/10/26/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/10/26/1/</id>
     <published>2023-10-26T08:29:17.000Z</published>
     <updated>2023-10-30T07:39:40.444Z</updated>
     
@@ -345,17 +366,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.github.io/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>准备工作- TensorFlow 和其他工具软件包</title>
-    <link href="https://yuzhii0718.github.io/2023/10/25/1/"/>
-    <id>https://yuzhii0718.github.io/2023/10/25/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/10/25/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/10/25/1/</id>
     <published>2023-10-25T07:56:10.000Z</published>
     <updated>2023-10-28T11:19:01.655Z</updated>
     
@@ -366,17 +387,17 @@
     
     
     
-    <category term="神经网络" scheme="https://yuzhii0718.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <category term="神经网络" scheme="https://www.yuzhii0718.eu.org/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>CSS3 动画专题(下)</title>
-    <link href="https://yuzhii0718.github.io/2023/10/19/2/"/>
-    <id>https://yuzhii0718.github.io/2023/10/19/2/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/10/19/2/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/10/19/2/</id>
     <published>2023-10-19T14:40:18.000Z</published>
     <updated>2023-10-26T12:35:14.295Z</updated>
     
@@ -387,17 +408,17 @@
     
     
     
-    <category term="学习CSS" scheme="https://yuzhii0718.github.io/categories/%E5%AD%A6%E4%B9%A0CSS/"/>
+    <category term="学习CSS" scheme="https://www.yuzhii0718.eu.org/categories/%E5%AD%A6%E4%B9%A0CSS/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>CSS3 动画专题(上)</title>
-    <link href="https://yuzhii0718.github.io/2023/10/19/1/"/>
-    <id>https://yuzhii0718.github.io/2023/10/19/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/10/19/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/10/19/1/</id>
     <published>2023-10-19T07:15:56.000Z</published>
     <updated>2023-10-26T12:35:05.968Z</updated>
     
@@ -408,31 +429,10 @@
     
     
     
-    <category term="学习CSS" scheme="https://yuzhii0718.github.io/categories/%E5%AD%A6%E4%B9%A0CSS/"/>
+    <category term="学习CSS" scheme="https://www.yuzhii0718.eu.org/categories/%E5%AD%A6%E4%B9%A0CSS/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue3-10</title>
-    <link href="https://yuzhii0718.github.io/2023/10/13/null/"/>
-    <id>https://yuzhii0718.github.io/2023/10/13/null/</id>
-    <published>2023-10-13T06:55:43.000Z</published>
-    <updated>2023-10-13T07:52:45.042Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="组件保持存活">组件保持存活</h2><p>使用 <code>&lt;component :is="xxx"&gt;</code> 动态切换组件时，会导致组件的状态丢失，比如说在组件 A 中输入了一些内容，然后切换到组件 B，再切换回组件 A，此时组件 A 中的内容就会丢失。</p><p>为了解决这个问题，Vue3 提供了一个 <code>&lt;keep-alive&gt;</code> 组件，可以用来对组件进行缓存，从而保持组件的状态不丢失。</p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>{{ message }}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"changeMessage"</span>&gt;</span>改变 message<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"componentName"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"changeComponentName"</span>&gt;</span>切换组件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">ComponentA</span> <span class="keyword">from</span> <span class="string">'./ComponentA.vue'</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">ComponentB</span> <span class="keyword">from</span> <span class="string">'./ComponentB.vue'</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">'App'</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">components</span>: {</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">ComponentA</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">ComponentB</span></span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> {</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">message</span>: <span class="string">'Hello Vue3, I am BeforeCreate'</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">componentName</span>: <span class="string">'ComponentA'</span></span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeCreate</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'beforeCreate'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">created</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'created'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeMount</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'beforeMount'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">mounted</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'mounted'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeUpdate</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'beforeUpdate'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">updated</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'updated'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeUnmount</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'beforeUnmount'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">unmounted</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'unmounted'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">methods</span>: {</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">changeMessage</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">message</span> = <span class="string">'Hello Vue3, I am Updated'</span></span></span><br><span class="line"><span class="language-javascript">        },</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">changeComponentName</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">componentName</span> = <span class="variable language_">this</span>.<span class="property">componentName</span> === <span class="string">'ComponentA'</span> ? <span class="string">'ComponentB'</span> : <span class="string">'ComponentA'</span></span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure><p><code>ComponentA.vue</code> &amp; <code>ComponentB.vue</code>是上一篇笔记中的组件(Login &amp; Register)，这里就不再赘述了。</p><h2 id="异步组件">异步组件</h2><p>大型项目中，可能会有很多组件，如果一次性把所有组件都加载进来，会导致首屏加载时间过长，影响用户体验。</p><p>Vue 提供了异步组件的功能，可以让我们把组件按需加载，从而提高首屏加载速度。使用<code>defineAsyncComponent</code>函数来定义异步组件。</p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>{{ message }}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"changeMessage"</span>&gt;</span>改变 message<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"componentName"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"changeComponentName"</span>&gt;</span>切换组件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"asyncComponentName"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"changeAsyncComponentName"</span>&gt;</span>切换异步组件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">ComponentA</span> <span class="keyword">from</span> <span class="string">'./ComponentA.vue'</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// import ComponentB from './ComponentB.vue'</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> { defineAsyncComponent } <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// const AsyncComponentA = defineAsyncComponent(() =&gt; import('./ComponentA.vue'))</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">const</span> <span class="title class_">AsyncComponentB</span> = <span class="title function_">defineAsyncComponent</span>(<span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">'./ComponentB.vue'</span>))</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">'App'</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">components</span>: {</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">ComponentA</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// ComponentB,</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// AsyncComponentA,</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">AsyncComponentB</span></span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> {</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">message</span>: <span class="string">'Hello Vue3, I am BeforeCreate'</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">componentName</span>: <span class="string">'ComponentA'</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">asyncComponentName</span>: <span class="string">'AsyncComponentA'</span></span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeCreate</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'beforeCreate'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">created</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'created'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeMount</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'beforeMount'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">mounted</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'mounted'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeUpdate</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'beforeUpdate'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">updated</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'updated'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">beforeUnmount</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'beforeUnmount'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">unmounted</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">'unmounted'</span>, <span class="variable language_">this</span>.<span class="property">message</span>)</span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">methods</span>: {</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">changeMessage</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">message</span> = <span class="string">'Hello Vue3, I am Updated'</span></span></span><br><span class="line"><span class="language-javascript">        },</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">changeComponentName</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">componentName</span> = <span class="variable language_">this</span>.<span class="property">componentName</span> === <span class="string">'ComponentA'</span> ? <span class="string">'ComponentB'</span> : <span class="string">'ComponentA'</span></span></span><br><span class="line"><span class="language-javascript">        },</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">changeAsyncComponentName</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">asyncComponentName</span> = <span class="variable language_">this</span>.<span class="property">asyncComponentName</span> === <span class="string">'AsyncComponentA'</span> ? <span class="string">'AsyncComponentB'</span> : <span class="string">'AsyncComponentA'</span></span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure><p>在浏览器中打开页面，点击<code>切换异步组件</code>按钮，可以看到开发者工具中的<code>Network</code>面板，会发出一个<code>chunk-vendors.js</code>的请求，这个请求就是异步组件的代码。</p><h2 id="依赖注入">依赖注入</h2><p>依赖注入是一种设计模式，它的目的是为了提高代码的可复用性。</p><p>通常，我们要从父组件向子组件传递数据，需要使用<code>props</code>，但是如果父组件和子组件之间的层级很深，那么就需要一层一层的传递<code>props</code>，这样会导致代码的可维护性变差。</p><p>这一问题被称为<code>prop drilling</code>，Vue3 提供了依赖注入的功能，可以解决这一问题。</p><p><code>provide</code>和<code>inject</code>是成对使用的，<code>provide</code>用来提供数据，<code>inject</code>用来注入数据。一个父组件相对其所有后代组件，会作为一个<code>provide</code>的来源，而所有的子组件都可以使用<code>inject</code>来注入数据。</p><p>新建一个<code>components</code>文件夹，然后在里面新建一个<code>Grandson.vue</code>、<code>Son.vue</code>和<code>Father.vue</code>，代码如下：</p><p><code>Grandson.vue</code></p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Grandson<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>message: {{ message }}<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">'Grandson'</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">inject</span>: [<span class="string">'message'</span>]</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure><p><code>Son.vue</code></p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Son<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>message: {{ message }}<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Grandson</span>&gt;</span><span class="tag">&lt;/<span class="name">Grandson</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">Grandson</span> <span class="keyword">from</span> <span class="string">'./Grandson.vue'</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">'Son'</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">components</span>: {</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">Grandson</span></span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">inject</span>: [<span class="string">'message'</span>]</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure><p><code>Father.vue</code></p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Father<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>message: {{ message }}<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Son</span>&gt;</span><span class="tag">&lt;/<span class="name">Son</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">Son</span> <span class="keyword">from</span> <span class="string">'./Son.vue'</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> {</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">'Father'</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">components</span>: {</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">Son</span></span></span><br><span class="line"><span class="language-javascript">    },</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">provide</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> {</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">message</span>: <span class="string">'Hello Vue3, I am provide'</span></span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure><p>在<code>Father.vue</code>中，我们使用<code>provide</code>来提供数据，然后在<code>Son.vue</code>和<code>Grandson.vue</code>中使用<code>inject</code>来注入数据。</p><p><code>Father</code> 的 <code>message</code> 没有显示出来，控制台提示 <code>[Vue warn]: Property "message" was accessed during render but is not defined on instance.</code>，这是因为<code>provide</code>提供的数据，只能在后代组件中使用，不能在自己组件中使用。</p><p>并且，<code>provide</code>提供的数据，只能在后代组件中使用，不能在兄弟组件中使用。也就是从上到下的单向数据流。</p><p>如果想要一个全局的数据，可以在<code>main.js</code>中使用<code>app.provide</code>来提供数据，然后在组件中使用<code>inject</code>来注入数据。</p><p><code>main.js</code></p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { createApp } <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">provide</span>(<span class="string">'message'</span>, <span class="string">'Hello Vue3, I am provide'</span>)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">'#app'</span>)</span><br></pre></td></tr></tbody></table></figure><h2 id="Vue-应用">Vue 应用</h2><p><code>main.js</code>中的代码如下：</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> { createApp } <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// app 是一个应用实例</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>({</span><br><span class="line">    <span class="comment">// 应用选项</span></span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="comment">// 挂载应用实例</span></span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">'#app'</span>)</span><br></pre></td></tr></tbody></table></figure><blockquote><p>应用实例</p></blockquote><p>每个 Vue 应用都需要通过 <code>createApp</code> 函数来创建一个应用实例，然后通过 <code>mount</code> 函数来挂载应用实例。</p><blockquote><p>根组件</p></blockquote><p>在 Vue 应用中，我们需要定义一个根组件，这个根组件会被挂载到 <code>#app</code> 元素中，这个根组件可以包含其他的子组件。</p><blockquote><p>挂载点</p></blockquote><p>在 Vue 应用中，我们需要一个挂载点，这个挂载点是一个 DOM 元素，我们可以通过这个挂载点来把根组件挂载到 DOM 中。</p><h2 id="🎉结束这一段学习">🎉结束这一段学习</h2><p>Vue3 的学习到此结束。Vue3 的学习笔记就到这里！</p>]]></content>
-    
-    
-    <summary type="html">本文介绍 Vue3 中的组件保持存活、异步组件和依赖注入。</summary>
-    
-    
-    
-    <category term="Vue3" scheme="https://yuzhii0718.github.io/categories/Vue3/"/>
-    
-    
-    <category term="学习笔记" scheme="https://yuzhii0718.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
