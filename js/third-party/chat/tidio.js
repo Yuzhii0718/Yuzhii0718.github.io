@@ -1,1 +1,10 @@
-!function(){var t=document.querySelector(".sidebar-button button");t&&t.addEventListener("click",()=>{tidioChatApi.open()})}();
+/* global tidioChatApi */
+
+(function() {
+  const chatButton = document.querySelector('.sidebar-button button');
+  if (chatButton) {
+    chatButton.addEventListener('click', () => {
+      tidioChatApi.open();
+    });
+  }
+})();

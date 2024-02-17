@@ -1,1 +1,66 @@
-window.NexT||(window.NexT={}),function(){const c={};let i={};const r=e=>{var n=document.querySelector(`.next-config[data-name="${e}"]`);n&&(n=n.text,n=JSON.parse(n||"{}"),"main"===e?Object.assign(c,n):i[e]=n)};r("main"),window.CONFIG=new Proxy({},{get(e,n){let t;if(t=(n in c?c:(n in i||r(n),i))[n],n in e||"object"!=typeof t||(e[n]={}),n in e){const o=e[n];return"object"==typeof o&&"object"==typeof t?new Proxy({...t,...o},{set(e,n,t){return e[n]=t,o[n]=t,!0}}):o}return t}}),document.addEventListener("pjax:success",()=>{i={}})}();
+if (!window.NexT) window.NexT = {};
+
+(function() {
+  const className = 'next-config';
+
+  const staticConfig = {};
+  let variableConfig = {};
+
+  const parse = text => JSON.parse(text || '{}');
+
+  const update = name => {
+    const targetEle = document.querySelector(`.${className}[data-name="${name}"]`);
+    if (!targetEle) return;
+    const parsedConfig = parse(targetEle.text);
+    if (name === 'main') {
+      Object.assign(staticConfig, parsedConfig);
+    } else {
+      variableConfig[name] = parsedConfig;
+    }
+  };
+
+  update('main');
+
+  window.CONFIG = new Proxy({}, {
+    get(overrideConfig, name) {
+      let existing;
+      if (name in staticConfig) {
+        existing = staticConfig[name];
+      } else {
+        if (!(name in variableConfig)) update(name);
+        existing = variableConfig[name];
+      }
+
+      // For unset override and mixable existing
+      if (!(name in overrideConfig) && typeof existing === 'object') {
+        // Get ready to mix.
+        overrideConfig[name] = {};
+      }
+
+      if (name in overrideConfig) {
+        const override = overrideConfig[name];
+
+        // When mixable
+        if (typeof override === 'object' && typeof existing === 'object') {
+          // Mix, proxy changes to the override.
+          return new Proxy({ ...existing, ...override }, {
+            set(target, prop, value) {
+              target[prop] = value;
+              override[prop] = value;
+              return true;
+            }
+          });
+        }
+
+        return override;
+      }
+
+      // Only when not mixable and override hasn't been set.
+      return existing;
+    }
+  });
+
+  document.addEventListener('pjax:success', () => {
+    variableConfig = {};
+  });
+})();

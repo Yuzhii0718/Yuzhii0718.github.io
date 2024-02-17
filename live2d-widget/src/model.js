@@ -1,1 +1,75 @@
-import showMessage from"./message.js";import randomSelection from"./utils.js";class Model{constructor(e){let{apiPath:t,cdnPath:s}=e,o=!1;if("string"==typeof s)o=!0,s.endsWith("/")||(s+="/");else{if("string"!=typeof t)throw"Invalid initWidget argument!";t.endsWith("/")||(t+="/")}this.useCDN=o,this.apiPath=t,this.cdnPath=s}async loadModelList(){var e=await fetch(this.cdnPath+"model_list.json");this.modelList=await e.json()}async loadModel(e,t,s){localStorage.setItem("modelId",e),localStorage.setItem("modelTexturesId",t),showMessage(s,4e3,10),this.useCDN?(this.modelList||await this.loadModelList(),s=randomSelection(this.modelList.models[e]),loadlive2d("live2d",this.cdnPath+`model/${s}/index.json`)):(loadlive2d("live2d",this.apiPath+`get/?id=${e}-`+t),console.log(`Live2D 模型 ${e}-${t} 加载完成`))}async loadRandModel(){const t=localStorage.getItem("modelId"),s=localStorage.getItem("modelTexturesId");var e;this.useCDN?(this.modelList||await this.loadModelList(),e=randomSelection(this.modelList.models[t]),loadlive2d("live2d",this.cdnPath+`model/${e}/index.json`),showMessage("我的新衣服好看嘛？",4e3,10)):fetch(`${this.apiPath}rand_textures/?id=${t}-`+s).then(e=>e.json()).then(e=>{1!==e.textures.id||1!==s&&0!==s?this.loadModel(t,e.textures.id,"我的新衣服好看嘛？"):showMessage("我还没有其他衣服呢！",4e3,10)})}async loadOtherModel(){let e=localStorage.getItem("modelId");var t;this.useCDN?(this.modelList||await this.loadModelList(),t=++e>=this.modelList.models.length?0:e,this.loadModel(t,0,this.modelList.messages[t])):fetch(this.apiPath+"switch/?id="+e).then(e=>e.json()).then(e=>{this.loadModel(e.model.id,0,e.model.message)})}}export default Model;
+import showMessage from "./message.js";
+import randomSelection from "./utils.js";
+
+class Model {
+    constructor(config) {
+        let { apiPath, cdnPath } = config;
+        let useCDN = false;
+        if (typeof cdnPath === "string") {
+            useCDN = true;
+            if (!cdnPath.endsWith("/")) cdnPath += "/";
+        } else if (typeof apiPath === "string") {
+            if (!apiPath.endsWith("/")) apiPath += "/";
+        } else {
+            throw "Invalid initWidget argument!";
+        }
+        this.useCDN = useCDN;
+        this.apiPath = apiPath;
+        this.cdnPath = cdnPath;
+    }
+
+    async loadModelList() {
+        const response = await fetch(`${this.cdnPath}model_list.json`);
+        this.modelList = await response.json();
+    }
+
+    async loadModel(modelId, modelTexturesId, message) {
+        localStorage.setItem("modelId", modelId);
+        localStorage.setItem("modelTexturesId", modelTexturesId);
+        showMessage(message, 4000, 10);
+        if (this.useCDN) {
+            if (!this.modelList) await this.loadModelList();
+            const target = randomSelection(this.modelList.models[modelId]);
+            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);
+        } else {
+            loadlive2d("live2d", `${this.apiPath}get/?id=${modelId}-${modelTexturesId}`);
+            console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);
+        }
+    }
+
+    async loadRandModel() {
+        const modelId = localStorage.getItem("modelId"),
+            modelTexturesId = localStorage.getItem("modelTexturesId");
+        if (this.useCDN) {
+            if (!this.modelList) await this.loadModelList();
+            const target = randomSelection(this.modelList.models[modelId]);
+            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);
+            showMessage("我的新衣服好看嘛？", 4000, 10);
+        } else {
+            // 可选 "rand"(随机), "switch"(顺序)
+            fetch(`${this.apiPath}rand_textures/?id=${modelId}-${modelTexturesId}`)
+                .then(response => response.json())
+                .then(result => {
+                    if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("我还没有其他衣服呢！", 4000, 10);
+                    else this.loadModel(modelId, result.textures.id, "我的新衣服好看嘛？");
+                });
+        }
+    }
+
+    async loadOtherModel() {
+        let modelId = localStorage.getItem("modelId");
+        if (this.useCDN) {
+            if (!this.modelList) await this.loadModelList();
+            const index = (++modelId >= this.modelList.models.length) ? 0 : modelId;
+            this.loadModel(index, 0, this.modelList.messages[index]);
+        } else {
+            fetch(`${this.apiPath}switch/?id=${modelId}`)
+                .then(response => response.json())
+                .then(result => {
+                    this.loadModel(result.model.id, 0, result.model.message);
+                });
+        }
+    }
+}
+
+export default Model;
