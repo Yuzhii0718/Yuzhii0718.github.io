@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.yuzhii0718.eu.org/2024/02/11/1/</loc>
+    <loc>https://www.yuzhii0718.eu.org/playlist/index.html</loc>
     
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.yuzhii0718.eu.org/google6cab6888cf331a89.html</loc>
+    <loc>https://www.yuzhii0718.eu.org/links/index.html</loc>
+    
+    <lastmod>2024-02-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yuzhii0718.eu.org/2024/02/11/1/</loc>
     
     <lastmod>2024-02-17</lastmod>
     
@@ -1129,7 +1138,7 @@
 
   <url>
     <loc>https://www.yuzhii0718.eu.org/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1137,14 +1146,14 @@
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/tags/%E5%88%86%E4%BA%AB/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1153,112 +1162,112 @@
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/Linux/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/%E5%AD%A6%E4%B9%A0CSS/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/Network/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/Csharp/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/%E5%AD%A6%E4%B9%A0HTML/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/Java/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/%E5%AD%A6%E4%B9%A0JavaScript/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/Go/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/MySQL/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/Cpp/</loc>
-    <lastmod>2024-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yuzhii0718.eu.org/categories/PyQt6/</loc>
-    <lastmod>2024-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yuzhii0718.eu.org/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/Cpp/DataStructure/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yuzhii0718.eu.org/categories/PyQt6/</loc>
+    <lastmod>2024-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yuzhii0718.eu.org/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yuzhii0718.eu.org/categories/Vue3/</loc>
-    <lastmod>2024-02-17</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

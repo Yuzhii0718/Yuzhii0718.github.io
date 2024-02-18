@@ -95,7 +95,7 @@ console.log(imageCiallo.join('\n'));
 
 const Yuzhii_VERSION = '3.0.0';
 const Yuzhii_UPDATE = '240210';
-console.log('\n' + ' %c Yuzhii v' + Yuzhii_VERSION + '-' + Yuzhii_UPDATE + ' %c https://yuzhii0718.github.io ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
+console.log('\n' + ' %c Yuzhii v' + Yuzhii_VERSION + '-' + Yuzhii_UPDATE + ' %c https://yuzhii0718.eu.org ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
 
 const CoreVersion = [
 	' [HEXO_VERSION] = 6.3.0',
