@@ -54,7 +54,6 @@ a {
     float: right;
     width: 80%;
     height: 100%;
-    /*background: #2196F3;*/
     background-color: #00DBDE;
     background-image: linear-gradient(90deg, #00DBDE 0%, #6600ff 100%);
     border-radius: 30px;
@@ -67,6 +66,13 @@ a {
     line-height: 42px;
     text-align: center;
     margin: 0 auto;
+    transition: all 0.5s;
+
+
+    &:hover {
+        transform: perspective(100px) scale3d(1.2, 1.2, 1.2);
+
+    }
 }
 
 .nav li a {
@@ -77,12 +83,17 @@ a {
     color: #fff;
     margin: 0 auto;
     border-radius: 30px;
+
+    transition: all 0.5s;
 }
 
 .nav li a:hover {
-    /*background: #FF9800;*/
-    background-color: #FBDA61;
-    background-image: linear-gradient(45deg, #fbae61 0%, #FF5ACD 100%);
+    transition: all 0.5s;
+
+    &:hover {
+        background-color: #FBDA61;
+        background-image: linear-gradient(45deg, #fbae61 0%, #FF5ACD 100%);
+    }
     color: #fff;
     margin: 0 auto;
 }
@@ -233,6 +244,12 @@ a {
     line-height: 30px;
     color: white;
     text-align: center;
+
+    transition: all 0.5s;
+    &:hover {
+        transform: perspective(100px) scale3d(1.2, 1.2, 1.2);
+
+    }
 }
 
 .content-app a {
@@ -240,7 +257,6 @@ a {
     width: 100%;
     height: 100%;
     background-color: #FF80AB;
-    /*background-color: #f584b7;*/
     line-height: 100px;
     text-align: center;
     text-decoration: none;
@@ -249,8 +265,11 @@ a {
 }
 
 .content-app a:hover {
-    background-color: #82B1FF;
-    /*background-color: #47a4ff;*/
+    transition: all 0.5s;
+
+    &:hover {
+        background-color: #82B1FF;
+    }
 }
 
 .app-title {
@@ -262,7 +281,6 @@ a {
     top: -26%;
     color: white;
     background-color: #82B1FF;
-    /*background-color: #47a4ff;*/
     line-height: 280%;
 }
 
