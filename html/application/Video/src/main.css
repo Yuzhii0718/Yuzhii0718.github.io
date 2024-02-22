@@ -147,7 +147,7 @@ hr {
     height: 100px;
     position: relative;
     text-align: center;
-    display: grid;
+    /*display: grid;*/
     top: 100px;
     font-weight: 300;
 }
@@ -172,12 +172,20 @@ hr {
 #totop,
 #parse {
     padding: 5px;
+
+    &:hover {
+        transform: perspective(100px) scale3d(1.2, 1.2, 1.2);
+    }
+    transition: all 0.5s;
 }
 
 #totop a:hover,
 #parse a:hover {
-    background-color: #03a9f4;
     color: #fff;
+    /* 放大效果 */
+    transform: scale(1.1);
+    transition: all 0.5s;
+    background-color: #03a9f4;
 }
 
 #totop a,

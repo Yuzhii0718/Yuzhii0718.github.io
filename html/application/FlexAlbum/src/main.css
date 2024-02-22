@@ -38,7 +38,7 @@
 }
 
 .gallery-section .image {
-    flex: 25%;
+    flex: 20%; /* default 25% */
     overflow: hidden;
     cursor: pointer;
 }

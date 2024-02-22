@@ -181,3 +181,9 @@ hr {
 #totop {
     display: none;
 }
+
+#parse {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}

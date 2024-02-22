@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>我的视频</title>
-    <link href="https://yuzhii0718.github.io/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-    <link href="https://yuzhii0718.github.io/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-    <link color="#222" href="https://yuzhii0718.github.io/images/logo.svg" rel="mask-icon">
+    <link href="https://www.yuzhii0718.eu.org/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="https://www.yuzhii0718.eu.org/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link color="#222" href="https://www.yuzhii0718.eu.org/images/logo.svg" rel="mask-icon">
     <!--stylesheet.css-->
     <link rel="stylesheet" href="src/main.css" media="screen and (min-width: 1000px)">
     <link rel="stylesheet" href="src/mobile.css" media="screen and (max-width: 1000px)">
@@ -20,7 +20,7 @@
 
     <!--    <div id="main">-->
     <!--        <video controls="controls"-->
-    <!--               src="https://yuzhii0718.github.io/2023/03/04/1/video/Plastic%20Love%20Official%20Music%20Video_v240P.mp4"-->
+    <!--               src="https://www.yuzhii0718.eu.org/2023/03/04/1/video/Plastic%20Love%20Official%20Music%20Video_v240P.mp4"-->
     <!--               poster="src/img.png">-->
     <!--            当前浏览器不支持视频播放-->
     <!--        </video>-->
@@ -34,7 +34,7 @@
         <script>
             const config = {
                 "id": "mse",
-                "url": "https://yuzhii0718.github.io/2023/03/04/1/video/Plastic%20Love%20Official%20Music%20Video_v240P.mp4",
+                "url": "https://www.yuzhii0718.eu.org/2023/03/04/1/video/Plastic%20Love%20Official%20Music%20Video_v240P.mp4",
                 "playsinline": true,
                 "poster": "src/img.png",
                 "height": "36rem",
@@ -155,7 +155,7 @@
     </div>
 
     <div id="footer">
-        <p><a id="copyright">© 2023 Yuzhii</a></p>
+        <p id="copy">&copy; <span id="year"></span> <span id="author"></span></p>
     </div>
 
     <div id="function">
@@ -184,9 +184,9 @@
         }, 1000);
     });
 
-    const copyright = document.getElementById('copyright');
+    const copyright = document.getElementById('copy');
     const parse = document.getElementById('parse');
-    // 点击 3 次 footer 时，显示 parse
+    // 点击 3 次 copy 时，显示 parse
     parse.style.display = 'none';
     let clickCount = 0;
     copyright.addEventListener('click', () => {
@@ -213,6 +213,7 @@
     });
 
 </script>
+<script src="../../common/loadconfig.js"></script>
 
 </body>
 </html>

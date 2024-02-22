@@ -38,5 +38,3 @@ document.getElementById('main').onmouseleave = function () {
     // 8.1 启动定时器
     timerId = setInterval(switchImg, 3000);
 }
-
-// 实现点击图片跳转网页
