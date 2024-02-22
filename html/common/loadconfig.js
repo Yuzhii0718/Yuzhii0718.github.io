@@ -1,7 +1,7 @@
 // 从config.json中获取配置
 
 // 注意，这需要异步加载，否则将显示 undefined
-fetch('/common/config.json')
+fetch('/html/common/config.json')
     .then(response => response.json())
     .then(data => {
         // 从配置中获取需要的信息
