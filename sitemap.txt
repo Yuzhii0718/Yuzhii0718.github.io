@@ -1,3 +1,4 @@
+https://www.yuzhii0718.eu.org/2024/02/28/1/
 https://www.yuzhii0718.eu.org/playlist/index.html
 https://www.yuzhii0718.eu.org/links/index.html
 https://www.yuzhii0718.eu.org/2024/02/11/1/
@@ -138,8 +139,8 @@ https://www.yuzhii0718.eu.org/categories/Go/
 https://www.yuzhii0718.eu.org/categories/MySQL/
 https://www.yuzhii0718.eu.org/categories/Cpp/
 https://www.yuzhii0718.eu.org/categories/Cpp/DataStructure/
-https://www.yuzhii0718.eu.org/categories/PyQt6/
 https://www.yuzhii0718.eu.org/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/
+https://www.yuzhii0718.eu.org/categories/PyQt6/
 https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/
 https://www.yuzhii0718.eu.org/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/
 https://www.yuzhii0718.eu.org/categories/Vue3/
