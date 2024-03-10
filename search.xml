@@ -1,6 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>中兴 ZTE E8820S 路由器经验分享</title>
+    <url>/2024/03/10/1/</url>
+    <content><![CDATA[<h2 id="1-介绍">1. 介绍</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>外观：白色机身，双天线，三个指示灯位于下方，天线不可拆卸，</p>
+</li>
+<li class="lvl-2">
+<p>接口：全在天线侧，包括电源、WAN、LAN1、LAN2、LAN3、LAN4、RESET、WPS、开关。WAN口和LAN口都是千兆口。</p>
+</li>
+<li class="lvl-2">
+<p>规格：双核CPU，256MB内存，128MB存储，支持2.4G和5G双频，支持IPv6*，支持USB2.0*。</p>
+</li>
+<li class="lvl-2">
+<p>价格：二手网约 40 元左右。（24年3月）</p>
+</li>
+<li class="lvl-2">
+<p>硬件参数：</p>
+<ul class="lvl-2">
+<li class="lvl-4">主控芯片：联发科芯片 ramips架构的 MT7621@880MHz</li>
+<li class="lvl-4">2.4G芯片：MT7603</li>
+<li class="lvl-4">5G芯片：MT7612</li>
+<li class="lvl-4">存储芯片：NAND FLASH（128M）</li>
+<li class="lvl-4">主板内存: 256M DDR3@1200MHz</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>GPIO引脚：</p>
+<ul class="lvl-2">
+<li class="lvl-4">POWER_LED:  GPIO#3</li>
+<li class="lvl-4">RESET:  GPIO#18</li>
+<li class="lvl-4">WPS:     GPIO#8</li>
+<li class="lvl-4">WIFI:    GPIO#10</li>
+</ul>
+</li>
+</ul>
+<p>纸面参数看起来不错，但是实际使用中，有一些问题：</p>
+<p>2.4G 信号不错，但是速度不行，5G 信号不稳定，闭源驱动速度快，但是稳定性不行，开源驱动稳定性好，但是速度不行。</p>
+<p>且没有屏蔽罩，容易干扰，倒装主板，散热不行，容易发热。</p>
+<p>实测中 1000M 宽带，2.4G 速度 20-30M；5G 速度 500M 左右,开源驱动 5G 速度 200M 左右；LAN 速度 1000M。</p>
+<p>*：官方固件未开启，需要刷机。<br>
+*：硬件给的是 USB3.0，但是实际是 USB2.0。</p>
+<h2 id="2-breed-不死-BootLoader-安装">2. breed 不死 BootLoader 安装</h2>
+<p><strong>在开始之前，确保你知道自己在做什么，刷机有风险，刷机有风险，刷机有风险。</strong></p>
+<p><mark>如果机器背面的信息贴纸是完整的，那么就可以开始了。如果贴纸被撕掉了，那么你先要进入管理界面，保存 MAC 地址以及 SN 码。这台路由器的管理界面进入专家模式就可以看到所有信息，建议截图保存。</mark></p>
+<p>这台设备没有自带不死 BootLoader，所以需要先安装一个。</p>
+<p>网上流行了一个老版本的 breed，这个版本是移植自<code>极路由4 HC5962/B70</code>的，功能有限，且 部分 GPIO 无法使用，无法备份 EEPROM。</p>
+<p>所以使用新版本的 breed，新增 ZTE E8820S 专用版，支持极路由4 HC5962/B70 固件；支持 MTK SDK 分区的固件；支持启动原厂固件以及升级原厂编程器固件。</p>
+<p>资源：<span class="exturl" data-url="aHR0cHM6Ly9icmVlZC5oYWNrcGFzY2FsLm5ldC8=">breed<i class="fa fa-external-link-alt"></i></span></p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC0xNjE5MDYtMS0xLmh0bWw=">【2022-07-26】AR/QCA/MTK Breed，功能强大的多线程 Bootloader-OPENWRT专版-恩山无线论坛<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="通过-ttl-线刷入-breed">通过 ttl 线刷入 breed</h3>
+<p>没什么好说的，路由器拆开，找到串口，接上 ttl 线，然后通过串口刷入 breed。</p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly93d3cubXlkaWdpdC5jbi90aHJlYWQtMjAwMDc2LTEtMS5odG1s">最详细的中兴E8820S的TTL刷机教程，附最完美的Padavan固件 - WiFi/路由器 数码之家<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="免拆路由器刷入-breed">免拆路由器刷入 breed</h3>
+<p>中兴其实留有一个固件升级的接口，可以通过这个接口刷入 breed。</p>
+<ol>
+<li class="lvl-3">
+<p>断开路由器电源，拔掉 Wan 口的网线</p>
+</li>
+<li class="lvl-3">
+<p>电脑打开控制面板-网络和共享中心-更改适配器设置-找到本地连接-属性-IPv4-设置为</p>
+<ol>
+<li class="lvl-7">IP 地址：192.168.1.2</li>
+<li class="lvl-7">子网掩码：255.255.255.0</li>
+<li class="lvl-7">默认网关：192.168.1.254</li>
+</ol>
+</li>
+<li class="lvl-3">
+<p>打开<code>tftpd64.exe</code>软件，选择设置好的网卡，breed 放在同一目录下，并重命名为<code>ZTE_img.bin</code></p>
+</li>
+<li class="lvl-3">
+<p>路由器断电，按住 reset 键，插上电源，等待指示灯闪烁时松开 reset 键（也可以观察<code>tftpd64.exe</code>软件的提示）</p>
+</li>
+<li class="lvl-3">
+<p>等待路由器重启，还原网卡设置</p>
+</li>
+<li class="lvl-3">
+<p>打开浏览器，输入<code>192.168.1.1</code>，进入 breed 界面</p>
+</li>
+</ol>
+<p>资源：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3NoYXJlL2luaXQ/c3VybD1UZHBpNFlwb3VpS0pOSjUtcTJpcGN3JnB3ZD16NzFk">tftpd64.exe<i class="fa fa-external-link-alt"></i></span></p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMUxwNHkxRjdXdS8/c3BtX2lkX2Zyb209MzMzLjc4OC5yZWNvbW1lbmRfbW9yZV92aWRlby40JnZkX3NvdXJjZT1lNWFjZjhkNTI0M2MyMzU1NzBiYWY0YjYwNTBlZDYyZA==">38.8元的中兴E8820S免拆刷机教程 值得一冲_哔哩哔哩_bilibili<i class="fa fa-external-link-alt"></i></span></p>
+<p>需要注意的是，<strong>这个参考中关于 eeprom 的操作是错误的</strong>。</p>
+<h2 id="3-EEPROM-备份与选择">3. EEPROM 备份与选择</h2>
+<p>备份是一个好习惯，我们需要进入 breed 界面，然后备份 EEPROM 以及固件（编程器固件），选择原厂格式。</p>
+<h3 id="EEPROM-选择">EEPROM 选择</h3>
+<p>你可以选择备份原厂的 EEPROM，也可以使用别人的 EEPROM。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>原厂 EEPROM</p>
+</li>
+<li class="lvl-2">
+<p>8820s_eeprom_b70gs_yh_nomac.bin</p>
+</li>
+<li class="lvl-2">
+<p>8820s_eeprom_yuan-gai.bin</p>
+</li>
+</ul>
+<p>资源</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMURYNDVPTWREeEVxQVJNV19QenY2UWcmcHdkPTZybW4=">8820s_eeprom_b70gs_yh_nomac.bin<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGFuem91eC5jb20vaVVsa1JoZGh5NGY=">8820s_eeprom_yuan-gai.bin<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<h3 id="EEPROM-修改">EEPROM 修改</h3>
+<p>对于这台路由器，EEPROM 是十分重要的，影响了信号质量以及 5G 信号的稳定性。</p>
+<p>下载 WinHex，打开 EEPROM，修改 MAC 地址（包括 2.4G/5G/Lan/Wan 的 MAC 地址）</p>
+<blockquote>
+<p>WinHex 默认是 Insert 模式，所以不用担心覆盖问题。</p>
+</blockquote>
+<p>其中 2.4G 和 Lan 和 Wan 的 MAC 地址也是一样的，5G 的 MAC 地址是 2.4G 的 MAC 地址 + 1（16进制加法）。</p>
+<p>偏移量</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>2.4G MAC 地址：4</p>
+</li>
+<li class="lvl-2">
+<p>5G MAC 地址：8004</p>
+</li>
+<li class="lvl-2">
+<p>Lan MAC 地址：E000</p>
+</li>
+<li class="lvl-2">
+<p>Wan MAC 地址：E006</p>
+</li>
+</ul>
+<p>参考：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC04Mjc1NjA2LTEtMS5odG1s">路由器修改mac的方法-新手入门及其它(硬件)-恩山无线论坛<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC04Mjc1NjA2LTEtMS5odG1s">路由器修改mac的方法<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<h2 id="4-固件">4. 固件</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>官方固件：不推荐，功能太少。不过与现在不同，虽然没有内置插件，但不保证没有后门。</p>
+</li>
+<li class="lvl-2">
+<p>OpenWrt 固件：这个很常见，并且有很多基于此改版的固件。</p>
+<ul class="lvl-2">
+<li class="lvl-4">Offical 固件</li>
+<li class="lvl-4">Lean 固件</li>
+<li class="lvl-4">immortalwrt 固件</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>Padavan 固件：中兴路由器上也有</p>
+</li>
+</ul>
+<h3 id="汇总">汇总</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC04MjM0MjQ5LTEtMS5odG1s">中兴E8820S OpenWrt-v21.02.3 可随便装插件-OPENWRT专版-恩山无线论坛 - 手机版 - Powered by Discuz!<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC04Mjg5NjYxLTEtMS5odG1sI2dvb2dsZV92aWduZXR0ZQ==">中兴 ZTE E8820S 折腾记录，附编译好的 OpenWrt 固件，也包含新3-OPENWRT专版-恩山无线论坛 - 手机版 - Powered by Discuz!<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC04MjcwNDEzLTEtMS5odG1s">中兴E8820S OpenWrt-v21.02.3 带USB驱动 可插随身wifi、手机通过USB共享网络-OPENWRT专版-恩山无线论坛<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC04MjkzMzE3LTEtMS5odG1s">中兴E8820S-R23.6.6-OPENWRT 闭源驱动-OPENWRT专版-恩山无线论坛<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL0ZPUlVNL3RocmVhZC00MDU0NzExLTEtMS5odG1s">21.2.20更新，重新配置中兴E8820S编译LEDE固件，汉化闭源驱动无线设置-OPENWRT专版-恩山无线论坛<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC01MjAzNzU0LTEtMS5odG1s">中兴E8820S路由器拆机及OpenWrt固件(含源代码)-OPENWRT专版-恩山无线论坛 - 手机版 - Powered by Discuz!<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<hr>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vc2l3aW5kL29wZW53cnQtZmlybXdhcmUtZm9yLW1lZGlhdGVrLW10NzYyMQ==">Openwrt firmware for mediatek mt7621<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9kbC5vcGVud3J0LmFpL2Zpcm13YXJlL3JhbWlwcy1tdDc2MjEvenRlX2U4ODIwcy8=">OpenWrt Downloads<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9vcHQuY24ycXEuY29tL3BhZGF2YW4v">padavan<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<p>以上顺序不分先后，可以根据自己的需求选择。</p>
+<h3 id="刷入固件">刷入固件</h3>
+<p>在刷入固件前，需要先刷入修改好的 EEPROM。并确定 MAC 地址已经修改。</p>
+<p>然后通过 breed 界面刷入固件。</p>
+<h2 id="恢复原厂固件">恢复原厂固件</h2>
+<p>折腾这么久，总觉得不称心如意？累了？还是回归原厂吧。</p>
+<p><strong>以下操作建议认真阅读参考后再进行。</strong></p>
+<ol>
+<li class="lvl-3">
+<p>断电，拔掉 Wan 口的网线，按住 reset 键，插上电源，等待指示灯闪烁时松开 reset 键</p>
+</li>
+<li class="lvl-3">
+<p>电脑打开 <code>192.168.1.1</code></p>
+</li>
+<li class="lvl-3">
+<p>telnet 登录 <code>telnet 192.168.1.1</code></p>
+</li>
+<li class="lvl-3">
+<p>HFS 文件服务器上传原厂固件</p>
+</li>
+<li class="lvl-3">
+<p><code>wget http://192.168.1.2/full.bin</code> 这个地址和文件是根据你自己的情况来的记录下 Saving to address 后面的内存地址和 Length: 后面 0x 开头的数据大小读入备份文件的内存起始地址是 0x80001000，数据大小是 0x7f80000</p>
+</li>
+<li class="lvl-3">
+<p>擦除 Flash：flash是breed的内部命令，用于NAND的读取写入擦除等操作执行命令<br>
+flash erase 0x0  0x7f80000<br>
+清除flash 从地址0x0   长度0x7f80000  127M，对应上面一步读入的备份文件长度<mark>这时候NAND flash 已经全部清空，千万别重启别断电！！！</mark></p>
+</li>
+<li class="lvl-3">
+<p>写入数据：执行命令<br>
+flash write 0x0 0x80001000  0x7f80000<br>
+把内存起始地址0x80001000 长度为0x7f80000的数据从0x0开始写入闪存，</p>
+</li>
+</ol>
+<p>显示 Succeeded  原厂编程器固件写入完成，重启就行了</p>
+<p>以上操作是breed从内存中进行的，<strong>如果失败，路由器必砖</strong>，所以一定要小心，别出差错，真变砖了，相对简单的方法只有换spi闪存了</p>
+<p><em><strong>最后，在 breed 界面恢复原厂的 BootLoader。</strong></em></p>
+<p>参考：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2NzE5MTU5NDMx">E8820s无线路由器轻松刷回原厂固件<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC00MTEwMjA3LTEtMS5odG1s">中兴E8820S刷回原厂固件经验分享<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue-issue-and-typescript</title>
+    <url>/2024/03/09/1/</url>
+    <content><![CDATA[<h2 id="Vue-路由的坑和-SSR-的坑">Vue 路由的坑和 SSR 的坑</h2>
+<p>因为我没有自己的服务器，所以我只能使用 github 提供的 pages 服务。</p>
+<p>但是这个服务是静态的，所以我需要使用 vue SSG 渲染 SSR 的页面，使其成为静态页面。</p>
+<p>但是这个过程中遇到了很多问题，唯独 router 和 SSR 的问题最为棘手。</p>
+<h3 id="踩坑">踩坑</h3>
+<p>在正常的 vue 项目中，我们可以使用 vue-router 来进行路由的管理。</p>
+<p>这时我们使用官方的方法构造 main.ts 文件：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createRouter, createWebHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Home</span> <span class="keyword">from</span> <span class="string">&#x27;./views/Home.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">About</span> <span class="keyword">from</span> <span class="string">&#x27;./views/About.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHistory</span>(),</span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>, <span class="attr">component</span>: <span class="title class_">Home</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">&#x27;/about&#x27;</span>, <span class="attr">component</span>: <span class="title class_">About</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(router)</span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>这样很好，路由也可以正常工作。</p>
+<p>但是我们在使用 SSR 的时候，我们需要使用 SSG 的方法构造 main.ts 文件：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ViteSSG</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vite-ssg&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> routes <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span> <span class="comment">// 确保你已经创建了 router 文件</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="variable constant_">ID_INJECTION_KEY</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// `export const createApp` is required instead of the original `createApp(App).mount(&#x27;#app&#x27;)`</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> createApp = <span class="title class_">ViteSSG</span>(</span><br><span class="line">    <span class="comment">// the root component</span></span><br><span class="line">    <span class="title class_">App</span>,</span><br><span class="line">    <span class="comment">// vue-router options</span></span><br><span class="line">    &#123; routes &#125;,</span><br><span class="line">    <span class="comment">// function to have custom setups</span></span><br><span class="line">    <span class="function">(<span class="params">&#123; app, router, routes, isClient, initialState &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// install plugins etc.</span></span><br><span class="line">        app.<span class="title function_">provide</span>(<span class="variable constant_">ID_INJECTION_KEY</span>, &#123;</span><br><span class="line">            <span class="attr">prefix</span>: <span class="number">100</span>,</span><br><span class="line">            <span class="attr">current</span>: <span class="number">0</span>,</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个文件中，我使用了 <code>ID_INJECTION_KEY</code> 这个变量，这个变量是<code>element-plus</code>的一个插件，我在这里只是举例说明。</p>
+</blockquote>
+<p>并且，我们需要在 router 文件中不能使用 <code>createRouter</code> 方法</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// const router = createRouter(&#123;</span></span><br><span class="line"><span class="comment">//     history: createWebHistory(process.env.VUE_APP_BASE_URL),</span></span><br><span class="line"><span class="comment">//     routes</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// const isServer = typeof window === &#x27;undefined&#x27;;</span></span><br><span class="line"><span class="comment">// const history = isServer</span></span><br><span class="line"><span class="comment">//     ? createMemoryHistory(import.meta.env.BASE_URL)</span></span><br><span class="line"><span class="comment">//     : createWebHistory(import.meta.env.BASE_URL);</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// const routerOptions = &#123;</span></span><br><span class="line"><span class="comment">//     history: history,</span></span><br><span class="line"><span class="comment">//     routes,</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// const router = createRouter(routerOptions);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> routes</span><br></pre></td></tr></table></figure>
+<p>可以看到，直接 <code>export default routes</code></p>
+<p>然后运行 <code>vue-ssg</code> 的命令 <code>vite-ssg build</code>，然后我们会发现，运行直接报错。</p>
+<p>我们需要在 <code>vite.config.ts</code> 文件中添加一些配置：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;~/&#x27;</span>: <span class="string">`<span class="subst">$&#123;pathSrc&#125;</span>/`</span>,</span><br><span class="line">        <span class="comment">// 需要使用 ssg 编译时，要把 vue 的别名注释掉</span></span><br><span class="line">        <span class="string">&#x27;vue&#x27;</span>: <span class="string">&#x27;vue/dist/vue.esm-bundler.js&#x27;</span>,</span><br><span class="line">        <span class="string">&quot;@&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;src&#x27;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>这样就可以解决这个问题。</p>
+<h2 id="TypeScript">TypeScript</h2>
+<p>很久之前，我就开始使用 TypeScript 了，现在开了一个新的项目，使用了 Vue3 和 TypeScript。</p>
+<p>故复习一遍，做一些记录。</p>
+<hr>
+<p>TypeScript 是 JavaScript 的超集，它可以编译成纯 JavaScript。TypeScript 是一种由微软开发的自由和开源的编程语言。</p>
+<blockquote>
+<p>TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHlwZXNjcmlwdGxhbmcub3JnL2RvY3MvaGFuZGJvb2svaW50cm8uaHRtbA==">TypeScript 官方文档<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="使用">使用</h3>
+<p>在 Vue3 中，我们可以直接使用 TypeScript，不需要额外的配置。</p>
+<hr>
+<p>本地安装 TypeScript：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g typescript</span><br></pre></td></tr></table></figure>
+<h3 id="类型推断">类型推断</h3>
+<p>TypeScript 会根据你的代码，自动推断出类型。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">a = <span class="string">&#x27;1&#x27;</span>; <span class="comment">// Error: Type &#x27;string&#x27; is not assignable to type &#x27;number&#x27;.</span></span><br></pre></td></tr></table></figure>
+<h3 id="类型注解">类型注解</h3>
+<p>我们可以使用类型注解，来明确的告诉 TypeScript 变量的类型。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>: <span class="built_in">number</span> = <span class="number">1</span>;</span><br><span class="line">a = <span class="string">&#x27;1&#x27;</span>; <span class="comment">// Error: Type &#x27;string&#x27; is not assignable to type &#x27;number&#x27;.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="built_in">number</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> result = <span class="built_in">number</span>.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item &gt; <span class="number">2</span>);</span><br><span class="line">result * <span class="number">2</span>; <span class="comment">// Error: Object is possibly &#x27;undefined&#x27;.</span></span><br></pre></td></tr></table></figure>
+<p>如果把第2行改成：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="built_in">number</span>.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item &gt; <span class="number">2</span>) <span class="keyword">as</span> <span class="built_in">number</span>;</span><br></pre></td></tr></table></figure>
+<p>这样就不会报错了。</p>
+<h3 id="基础类型以及联合类型">基础类型以及联合类型</h3>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">v1</span>: <span class="built_in">string</span> = <span class="string">&#x27;abc&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">v2</span>: <span class="built_in">number</span> = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">v3</span>: <span class="built_in">boolean</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">v4</span>: <span class="literal">null</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">v5</span>: <span class="literal">undefined</span> = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">v6</span>: <span class="built_in">symbol</span> = <span class="title class_">Symbol</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="attr">v7</span>: <span class="built_in">bigint</span> = <span class="number">100n</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">v8</span>: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&#x27;abc&#x27;</span>;</span><br><span class="line">v8 = <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="数组">数组</h3>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">arr1</span>: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">arr2</span>: <span class="title class_">Array</span>&lt;<span class="built_in">string</span>&gt; = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="元组">元组</h4>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">tuple</span>: [<span class="built_in">string</span>, <span class="built_in">number</span>] = [<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="枚举">枚举</h3>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Color</span> &#123;</span><br><span class="line">    <span class="title class_">Red</span>,</span><br><span class="line">    <span class="title class_">Green</span>,</span><br><span class="line">    <span class="title class_">Blue</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">c</span>: <span class="title class_">Color</span> = <span class="title class_">Color</span>.<span class="property">Green</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Color</span>[<span class="number">1</span>]); <span class="comment">// Green</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Color</span>[<span class="string">&#x27;Green&#x27;</span>]); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h4 id="void">void</h4>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params">message: <span class="built_in">string</span></span>): <span class="built_in">void</span></span><br></pre></td></tr></table></figure>
+<p>void 表示没有任何类型，通常用于函数没有返回值。</p>
+<h3 id="函数">函数</h3>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="接口">接口</h3>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">person</span>: <span class="title class_">Person</span> = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Tom&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">printPerson</span>(<span class="params">person: Person</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>, person.<span class="property">age</span>);</span><br><span class="line">&#125;<span class="comment">// Tom 18</span></span><br></pre></td></tr></table></figure>
+<h3 id="Type">Type</h3>
+<p>type 是 TypeScript 的一个关键字，用来定义类型别名。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">UserName</span> = <span class="built_in">string</span> | <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">name</span>: <span class="title class_">UserName</span> = <span class="string">&#x27;Tom&#x27;</span>;</span><br><span class="line">name = <span class="literal">undefined</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="泛型">泛型</h3>
+<p>泛型是 TypeScript 的一个重要特性，它可以让我们在定义函数、接口、类的时候，可以使用任意类型。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> myFn &lt;T&gt;(<span class="attr">arg</span>: T): T &#123;</span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = myFn&lt;<span class="built_in">string</span>&gt;(<span class="string">&#x27;Hello&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">// Hello</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里的 T 是一个占位符，可以是任意类型。这个例子中，我们使用了泛型来定义一个函数，这个函数接受一个参数，返回这个参数。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>大前端</category>
+      </categories>
+  </entry>
+  <entry>
     <title>怎么办--我们网络中的迫切问题</title>
     <url>/2024/02/28/1/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">
