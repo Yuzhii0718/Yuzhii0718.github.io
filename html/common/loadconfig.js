@@ -17,36 +17,103 @@ fetch('/html/common/config.json')
             text: data.beian.text,
             url: data.beian.url
         };
+        // 更新标题
+        window.maintitle = data.maintitle;
+        // 社交链接
+        window.github = {
+            text: data.github.text,
+            url: data.github.url
+        };
+        window.twitter = {
+            text: data.twitter.text,
+            url: data.twitter.url
+        };
+        window.v2ex = {
+            text: data.v2ex.text,
+            url: data.v2ex.url
+        };
+        window.facebook = {
+            text: data.facebook.text,
+            url: data.facebook.url
+        };
+        // 文字内容
+        window.sbp1 = data.sbp1.text;
+        window.sbp2 = data.sbp2.text;
+        window.sbs1 = data.sbs1.text;
+        window.sbs2 = data.sbs2.text;
+        window.sbs3 = data.sbs3.text;
+        window.sbs4 = data.sbs4.text;
+
+        // 其他
+        window.easteregg = {
+            value: data.easteregg.value,
+            js: data.easteregg.js,
+            css: data.easteregg.css,
+            text: data.easteregg.text
+        };
+
         console.log('Version:', window.Version);
 
         // 触发自定义事件
-        var event = new Event('configLoaded');
+        let event = new Event('configLoaded');
         document.dispatchEvent(event);
     })
     .catch(error => console.error('Error:', error));
 
 // 监听自定义事件
 document.addEventListener('configLoaded', function () {
-    if(document.getElementById('version')) {
-        document.getElementById('version').innerHTML += window.Version;
+
+    // 更新文字内容
+    function updateInnerHTML(id, content) {
+        let element = document.getElementById(id);
+        if (element) {
+            element.innerHTML += content;
+        }
     }
-    if(document.getElementById('year')) {
-        document.getElementById('year').innerHTML += window.Year;
+
+    updateInnerHTML('version', window.Version);
+    updateInnerHTML('year', window.Year);
+    updateInnerHTML('author', window.author);
+    updateInnerHTML('email', window.email);
+    updateInnerHTML('sbp1', window.sbp1);
+    updateInnerHTML('sbp2', window.sbp2);
+    updateInnerHTML('sbs1', window.sbs1);
+    updateInnerHTML('sbs2', window.sbs2);
+    updateInnerHTML('sbs3', window.sbs3);
+    updateInnerHTML('sbs4', window.sbs4);
+
+    // 更新链接
+    function updateLink(id, text, url) {
+        let element = document.getElementById(id);
+        if (element) {
+            element.innerHTML += `
+            <a style="text-decoration:none" href="${url}" target="_blank">${text}</a>
+        `;
+        }
     }
-    if(document.getElementById('author')) {
-        document.getElementById('author').innerHTML += window.author;
+
+    updateLink('copyright', window.copyright.text, window.copyright.url);
+    updateLink('beian', window.beian.text, window.beian.url);
+    updateLink('github', window.github.text, window.github.url);
+    updateLink('twitter', window.twitter.text, window.twitter.url);
+    updateLink('v2ex', window.v2ex.text, window.v2ex.url);
+    updateLink('facebook', window.facebook.text, window.facebook.url);
+
+    // 更新标题
+    if (document.getElementsByTagName('title')[0]) {
+        document.getElementsByTagName('title')[0].innerHTML = window.maintitle;
+        document.title = window.maintitle;
+        document.getElementById('appcenter').innerHTML = window.maintitle;
     }
-    if(document.getElementById('email')) {
-        document.getElementById('email').innerHTML += window.email;
-    }
-    if(document.getElementById('copyright')) {
-        document.getElementById('copyright').innerHTML += `
-            <a style="text-decoration:none" href="${window.copyright.url}" target="_blank">${window.copyright.text}</a>
+
+    // 更新彩蛋
+    if (document.getElementById('easteregg')) {
+        // <button type="button" ${value} ${js}>text</button>
+        let element = document.getElementById('easteregg');
+        element.innerHTML += `
+            <button type="button" ${window.easteregg.value} ${window.easteregg.js}>${window.easteregg.text}</button>
         `;
     }
-    if(document.getElementById('beian')) {
-        document.getElementById('beian').innerHTML += `
-            <a style="text-decoration:none" href="${window.beian.url}" target="_blank">${window.beian.text}</a>
-        `;
-    }
+
+    console.log('configLoaded event dispatched');
 });

@@ -147,3 +147,14 @@ a {
 .footer {
     display: none;
 }
+
+/* 隐藏所有滚动条 */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 针对 IE 和 Edge 的滚动条隐藏 */
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

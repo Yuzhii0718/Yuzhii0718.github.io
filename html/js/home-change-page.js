@@ -1,132 +1,64 @@
-// 0.开启严格模式
-'use strict';
+function setupClickHandler(elementId, title, iframeSrc) {
+    let element = document.getElementById(elementId);
+    let elementAs = element.getElementsByTagName('a');
+    for (let i = 0; i < elementAs.length; i++) {
+        let elementA = elementAs[i];
+        elementA.onclick = function () {
+            let href = this.getAttribute('href');
+            if (href === '#') {
+                return false
+            } else {
+                document.title = title;
+                content.innerHTML = `<iframe src="${iframeSrc}"></iframe>`;
+                let iframe = document.getElementsByTagName('iframe')[0];
+                iframe.style.height = '100%';
+                iframe.style.width = '100%';
+                iframe.style.border = 'none';
+                return false
+            }
+        }
+    }
+}
 
-// 获取content元素
 let content = document.getElementById('content');
+setupClickHandler('info', '资讯', './source/information.html');
+setupClickHandler('about', '关于', './source/about.html');
 
-// 1. 获取资讯导航栏元素
-let info = document.getElementById('info');
-// 2. 获取资讯导航栏中的所有a标签
-let infoAs = info.getElementsByTagName('a');
-
-// 实现点击顶部资讯导航栏，替换content为资讯的内容
-// 4. 为每个a标签绑定点击事件
-for (let i = 0; i < infoAs.length; i++) {
-    // 4.1 获取当前遍历到的a标签
-    let infoA = infoAs[i];
-    // 4.2 为当前遍历到的a标签绑定点击事件
-    infoA.onclick = function () {
-        // 4.2.1 获取当前点击的a标签的href属性值
-        let href = this.getAttribute('href');
-        // 4.2.2 判断href的值是否为#
-        if (href === '#') {
-            // 为#，则不跳转
-            return false;
-        } else {
-            // // 不为#，则跳转
-            // 将页面标题设置为 资讯
-            document.title = '资讯';
-            // 4.2.3 将content的内容替换为iframe
-            content.innerHTML = '<iframe src="./source/information.html"></iframe>';
-            // 调整iframe的大小
-            let iframe = document.getElementsByTagName('iframe')[0];
-            iframe.style.height = '100%';
-            iframe.style.width = '100%';
-            // 除去iframe的边框
-            iframe.style.border = 'none';
-            // 4.2.4 阻止默认行为
-            return false;
-        }
-    }
-}
-
-
-// 实现点击顶部资讯导航栏，替换content为关于的内容
-// 1. 获取资讯导航栏元素
-let about = document.getElementById('about');
-// 2. 获取资讯导航栏中的所有a标签
-let aboutAs = about.getElementsByTagName('a');
-
-// 4. 为每个a标签绑定点击事件
-for (let i = 0; i < aboutAs.length; i++) {
-    // 4.1 获取当前遍历到的a标签
-    let aboutA = aboutAs[i];
-    // 4.2 为当前遍历到的a标签绑定点击事件
-    aboutA.onclick = function () {
-        // 4.2.1 获取当前点击的a标签的href属性值
-        let href = this.getAttribute('href');
-        // 4.2.2 判断href的值是否为#
-        if (href === '#') {
-            // 为#，则不跳转
-            return false;
-        } else {
-            // // 不为#，则跳转
-            // 将页面标题设置为 关于
-            document.title = '关于';
-            // 4.2.3 将content的内容替换为iframe
-            content.innerHTML = '<iframe src="./source/about.html"></iframe>';
-            // 调整iframe的大小
-            let iframe = document.getElementsByTagName('iframe')[0];
-            iframe.style.height = '100%';
-            iframe.style.width = '100%';
-            // 除去iframe的边框
-            iframe.style.border = 'none';
-            // 4.2.4 阻止默认行为
-            return false;
-        }
-    }
-}
-
-
-// 点击首页后，清除iframe，加载页面原来的内容
-// 1. 获取首页元素
 let home = document.getElementById('home');
-// 2. 获取首页中的a标签
 let homeA = home.getElementsByTagName('a')[0];
-// 3. 为a标签绑定点击事件
 homeA.onclick = function () {
-    // 3.1 将页面标题设置为 应用中心
     document.title = '应用中心';
+    content.innerHTML = '        <div id="content-top"><h1>应用中心</h1></div>\n        <div id="content-box-1">\n            <div class="content-app" id="app1">\n            </div>\n            <div class="content-app" id="app2">\n            </div>\n            <div class="content-app" id="app3">\n            </div>\n            <div class="content-app" id="app4">\n            </div>\n        </div>\n        <div id="content-box-2">\n            <div class="content-app" id="app5">\n            </div>\n            <div class="content-app" id="app6">\n            </div>\n            <div class="content-app" id="app7">\n            </div>\n            <div class="content-app" id="app8">\n            </div>\n        </div>'
+    // 定义当appdata.xml请求的状态改变时执行的函数
+    xhttpApp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            // 当请求成功完成时，调用displayAppInfo函数
+            displayAppInfo(this);
+        }
+    };
+    // 初始化一个GET请求来获取appdata.xml文件
+    xhttpApp.open("GET", "./common/appdata.xml", true);
+    // 发送请求
+    xhttpApp.send();
 
-    content.innerHTML =
-        '        <div id="content-top"><h1>应用中心</h1></div>\n' +
-        '        <div id="content-box-1">\n' +
-        '            <div class="content-app">\n' +
-        '                <a href="application/Matrix/Matrix.html" target="_blank" class="app-title" id="app1">屏幕测试</a>\n' +
-        '                <p class="app-tag">工具</p>\n' +
-        '            </div>\n' +
-        '            <div class="content-app">\n' +
-        '                <a href="application/FlexAlbum/FlexAlbum.html" target="_blank" class="app-title" id="app2">相册</a>\n' +
-        '                <p class="app-tag">媒体</p>\n' +
-        '            </div>\n' +
-        '            <div class="content-app">\n' +
-        '                <a href="application/Video/Video.html" target="_blank" class="app-title" id="app3">视频</a>\n' +
-        '                <p class="app-tag">媒体</p>\n' +
-        '            </div>\n' +
-        '            <div class="content-app">\n' +
-        '                <a href="application/Playlist/Playlist.html" target="_blank" class="app-title" id="app4">歌单</a>\n' +
-        '                <p class="app-tag">媒体</p>\n' +
-        '            </div>\n' +
-        '        </div>\n' +
-        '        <div id="content-box-2">\n' +
-        '            <div class="content-app">\n' +
-        '                <a href="application/ShuangPin/index.html" target="_blank" class="app-title" id="app5">双拼</a>\n' +
-        '                <p class="app-tag">工具</p>\n' +
-        '            </div>\n' +
-        '            <div class="content-app">\n' +
-        '                <a href="https://www.chaip.org/" target="_blank" class="app-title"\n' +
-        '                   id="app6">IP检查<p style="color: #fff;line-height: 5px" class="third">第三方</p></a>\n' +
-        '                <p class="app-tag">工具</p>\n' +
-        '            </div>\n' +
-        '            <div class="content-app">\n' +
-        '                <a href="https://c.runoob.com/" target="_blank" class="app-title"\n' +
-        '                   id="app7">菜鸟工具<p style="color: #fff;line-height: 5px" class="third">第三方</p></a>\n' +
-        '                <p class="app-tag">工具</p>\n' +
-        '            </div>\n' +
-        '            <div class="content-app">\n' +
-        '                <a href="/404" target="_blank" class="app-title"\n' +
-        '                   id="app8">敬请期待</a>\n' +
-        '                <p class="app-tag">暂未开放</p>\n' +
-        '            </div>\n' +
-        '        </div>'
+    // 定义一个函数来处理XML文件并显示应用信息
+    function displayAppInfo(xml) {
+        let i;
+        let xmlDoc = xml.responseXML;
+        let apps = xmlDoc.getElementsByTagName("app");
+        for (i = 0; i < apps.length; i++) {
+            let id = apps[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+            let url = apps[i].getElementsByTagName("url")[0].childNodes[0].nodeValue;
+            let name = apps[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+            let tag = apps[i].getElementsByTagName("tag")[0].childNodes[0].nodeValue;
+            let newpage = apps[i].getElementsByTagName("newpage")[0].childNodes[0].nodeValue;
+            let target = newpage === "1" ? 'target="_blank"' : '';
+            let appInfo = `
+                <a href="${url}" ${target} class="app-title" id="${id}">${name}</a>
+                <p class="app-tag">${tag}</p>`;
+            document.getElementById(id).insertAdjacentHTML('beforeend', appInfo);
+        }
+    }
+    return false
+
 }
