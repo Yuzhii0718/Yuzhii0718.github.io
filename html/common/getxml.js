@@ -62,7 +62,7 @@ function displayHeaderInfo(xml) {
         let jsoperate = js !== "0" ? `${js}` : '';
         let newpage = fns[i].getElementsByTagName("newpage")[0].childNodes[0].nodeValue;
         let target = newpage === "1" ? 'target="_blank"' : '';
-        let openurl = url !== "0" ? 'href="${url}"' : '';
+        let openurl = url !== "0" ? `href="${url}"` : '';
         let linkHTML = `
     <a ${openurl} ${target} ${jsoperate}>${name}</a>`;
         let element = document.getElementById(id);

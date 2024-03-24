@@ -19,6 +19,7 @@ async function main() {
         const content = await readFile(filePath, 'utf8');
         const newContent = content.replace(/\/markdown\//g, '/html/application/a-cheeky-angel/markdown/');
         await writeFile(filePath, newContent);
+        console.log(`File ${filePath} has been processed.`);
         }
     }
     }
