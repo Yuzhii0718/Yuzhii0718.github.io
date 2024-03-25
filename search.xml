@@ -572,6 +572,9 @@ flash write 0x0 0x80001000  0x7f80000<br>
 <p>这个问题我还没有解决，如果有人知道，希望能够告诉我。</p>
 <p><img src="githubpage-settings.png" alt="githubpage-settings"></p>
 <p>此外，出于某些原因，例如 CORS 策略问题，我不得不将 Cloudflare 的安全性设置为 <code>低</code>，并且关闭<code>浏览器完整性检查</code>。</p>
+<h3 id="24年3月25日更新">24年3月25日更新</h3>
+<p>需要把 Cloudflare DNS 的代理模式设置为 DNS only，这样 Github Page 才能强制使用 HTTPS。</p>
+<p>然后前面更新github page的设置，其实不用在域名前加 <code>www</code>，直接输入域名就可以了。</p>
 <h2 id="参考">参考</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
