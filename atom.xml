@@ -3,11 +3,11 @@
   <title>Yuzhii&#39;s Blog</title>
   
   
-  <link href="https://yuzhii0718.eu.org/atom.xml" rel="self"/>
+  <link href="https://www.yuzhii0718.eu.org/atom.xml" rel="self"/>
   
-  <link href="https://yuzhii0718.eu.org/"/>
-  <updated>2024-03-26T13:06:54.880Z</updated>
-  <id>https://yuzhii0718.eu.org/</id>
+  <link href="https://www.yuzhii0718.eu.org/"/>
+  <updated>2024-03-28T14:17:56.879Z</updated>
+  <id>https://www.yuzhii0718.eu.org/</id>
   
   <author>
     <name>Yuzhii</name>
@@ -17,9 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>计算机网络杂记-11</title>
+    <link href="https://www.yuzhii0718.eu.org/2024/03/28/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/03/28/1/</id>
+    <published>2024-03-28T13:55:25.000Z</published>
+    <updated>2024-03-28T14:17:56.879Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="TCP-可靠传输的实现">TCP 可靠传输的实现</h2><p>TCP 可靠传输的实现主要依靠三个机制：<strong>超时重传</strong>、<strong>数据包校验</strong>和<strong>滑动窗口</strong>。</p><p>TCP 基于<strong>以字节为单位的滑动窗口</strong>机制实现可靠传输</p><p>つづく．．．</p>]]></content>
+    
+    
+    <summary type="html">none</summary>
+    
+    
+    
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
+    
+    
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>⟪天使な小生意気⟫ 专题现已推出！</title>
-    <link href="https://yuzhii0718.eu.org/2024/03/26/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/03/26/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/03/26/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/03/26/1/</id>
     <published>2024-03-26T12:40:46.000Z</published>
     <updated>2024-03-26T13:06:54.880Z</updated>
     
@@ -31,14 +52,14 @@
     
     
     
-    <category term="分享" scheme="https://yuzhii0718.eu.org/tags/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://www.yuzhii0718.eu.org/tags/%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-10</title>
-    <link href="https://yuzhii0718.eu.org/2024/03/24/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/03/24/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/03/24/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/03/24/1/</id>
     <published>2024-03-24T02:43:03.000Z</published>
     <updated>2024-03-24T03:33:10.772Z</updated>
     
@@ -49,17 +70,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>中兴 ZTE E8820S 路由器经验分享</title>
-    <link href="https://yuzhii0718.eu.org/2024/03/10/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/03/10/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/03/10/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/03/10/1/</id>
     <published>2024-03-10T04:55:28.000Z</published>
     <updated>2024-03-10T06:16:29.510Z</updated>
     
@@ -71,14 +92,14 @@
     
     
     
-    <category term="分享" scheme="https://yuzhii0718.eu.org/tags/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://www.yuzhii0718.eu.org/tags/%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
   <entry>
     <title>Vue-issue-and-typescript</title>
-    <link href="https://yuzhii0718.eu.org/2024/03/09/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/03/09/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/03/09/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/03/09/1/</id>
     <published>2024-03-09T03:03:43.000Z</published>
     <updated>2024-03-24T03:10:59.334Z</updated>
     
@@ -89,15 +110,15 @@
     
     
     
-    <category term="AdvancedWeb" scheme="https://yuzhii0718.eu.org/categories/AdvancedWeb/"/>
+    <category term="AdvancedWeb" scheme="https://www.yuzhii0718.eu.org/categories/AdvancedWeb/"/>
     
     
   </entry>
   
   <entry>
     <title>怎么办--我们网络中的迫切问题</title>
-    <link href="https://yuzhii0718.eu.org/2024/02/28/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/02/28/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/02/28/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/02/28/1/</id>
     <published>2024-02-28T11:58:23.000Z</published>
     <updated>2024-02-28T14:44:02.573Z</updated>
     
@@ -113,12 +134,12 @@
   
   <entry>
     <title>让 Github Page 使用 eu.org 域名</title>
-    <link href="https://yuzhii0718.eu.org/2024/02/16/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/02/16/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/02/16/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/02/16/1/</id>
     <published>2024-02-16T06:53:46.000Z</published>
-    <updated>2024-03-24T16:25:07.946Z</updated>
+    <updated>2024-03-27T13:36:09.025Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="让-Github-Page-使用-eu-org-域名">让 Github Page 使用 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 域名</h2><p>目前，由于受到 DNS 污染以及 SNI 阻断，大陆地区的用户访问 Github Page 会遇到很多问题。</p><p>这让我不得不寻找一种替代方案，让我能够让我的网站能够被大陆地区的用户访问。</p><h2 id="注册-eu-org-域名">注册 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 域名</h2><p>访问 <span class="exturl" data-url="aHR0cHM6Ly9ldS5vcmc=">eu.org<i class="fa fa-external-link-alt"></i></span> 注册一个域名，这网上教程很多，这里不再赘述。</p><p>注意的是大陆地区的用户可能要花费很长时间才能收到注册成功的邮件。根据网上网友的反馈，大约是 2个月到1年不等。</p><p>我的是 3 个月左右收到的邮件。</p><h2 id="配置-DNS">配置 DNS</h2><p>在 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 网站上，找到你注册的域名，然后配置 DNS。</p><h3 id="HOSTRY">HOSTRY</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaG9zdHJ5LmNvbS8=">HOSTRY<i class="fa fa-external-link-alt"></i></span> 是一个免费的 DNS 服务商，注册一个账号，然后添加域名。</p><p>但是，这只是用于初步测试的</p><p>在 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 网站上，找到你注册的域名，然后配置 DNS。</p><h3 id="Github-Page">Github Page</h3><p>在你的 Github Page 仓库中，找到 <code>Settings</code> -&gt; <code>Pages</code> -&gt; <code>Custom domain</code>，然后输入你的域名。</p><p><mark>这个域名需要有前缀 <code>www</code>，例如 <code>www.example.eu.org</code>。</mark></p><h3 id="CLOUDFLARE">CLOUDFLARE</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2xvdWRmbGFyZS5jb20v">Cloudflare<i class="fa fa-external-link-alt"></i></span> 是一个免费的 DNS 服务商，注册一个账号，然后添加域名。</p><p>这个的作用是，你的域名需要有一个 DNS 服务器，这个服务器会解析你的域名，然后指向你的 Github Page。</p><p>在这里，你需要添加 A 记录、AAAA 记录、CNAME 记录。</p><h4 id="1-添加-A-记录">1. 添加 A 记录</h4><p>在 Cloudflare 上，添加 A 记录，指向 Github Page 的 IP 地址。</p><h4 id="2-添加-AAAA-记录">2. 添加 AAAA 记录</h4><p>在 Cloudflare 上，添加 AAAA 记录，指向 Github Page 的 IP 地址。</p><h4 id="3-添加-CNAME-记录">3. 添加 CNAME 记录</h4><p>在 Cloudflare 上，添加 CNAME 记录，指向你的 Github Page。</p><h3 id="eg">eg</h3><p><img src="clouldflare-record.png" alt="clouldflare-record"></p><blockquote><p>这些 ipv4 和 ipv6 地址是 Github Page 的地址，你可以在 Github Page 的文档中找到。</p></blockquote><h3 id="等待">等待</h3><p>等待一段时间，然后访问你的域名，如果能访问你的 Github Page，那么就成功了。</p><h2 id="安全性">安全性</h2><p>这里需要注意的是，你的域名需要使用 HTTPS，这样才能保证你的网站的安全性。</p><p>所以我们需要在 Cloudflare 上配置一些东西。</p><h3 id="DNS">DNS</h3><p>这里，我们让 Cloudflare 代理我们的域名，这样我们的域名就能使用 HTTPS。</p><h3 id="SSL-TLS">SSL/TLS</h3><p>在 Cloudflare 上，找到 <code>SSL/TLS</code>，然后配置 <code>Full</code>。</p><p>边缘证书需要配置 <code>始终使用 HTTPS</code>、<code>随机加密</code>、<code>LTS 1.3</code>、<code>自动 HTTPS 重写</code>。</p><p>源服务器证书需要配置 <code>经过身份验证的源服务器拉取</code>。</p><h2 id="问题">问题</h2><p>我在这里遇到了一个问题，就是 Github Page 无法强制使用 HTTPS。</p><p>这个问题我还没有解决，如果有人知道，希望能够告诉我。</p><p><img src="githubpage-settings.png" alt="githubpage-settings"></p><p>此外，出于某些原因，例如 CORS 策略问题，我不得不将 Cloudflare 的安全性设置为 <code>低</code>，并且关闭<code>浏览器完整性检查</code>。</p><h3 id="24年3月25日更新">24年3月25日更新</h3><p>需要把 Cloudflare DNS 的代理模式设置为 DNS only，这样 Github Page 才能强制使用 HTTPS。</p><p>然后前面更新github page的设置，其实不用在域名前加 <code>www</code>，直接输入域名就可以了。</p><h2 id="参考">参考</h2><ul class="lvl-0"><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubW9kYi5wcm8vZGIvNTE0MDQy">免费注册申请永久的eu.org顶级域名创建属于自己的域名,再也不用给博客域名续费了!<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vemgvcGFnZXMvY29uZmlndXJpbmctYS1jdXN0b20tZG9tYWluLWZvci15b3VyLWdpdGh1Yi1wYWdlcy1zaXRlL21hbmFnaW5nLWEtY3VzdG9tLWRvbWFpbi1mb3IteW91ci1naXRodWItcGFnZXMtc2l0ZQ==">管理 GitHub Pages 站点的自定义域<i class="fa fa-external-link-alt"></i></span></p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="让-Github-Page-使用-eu-org-域名">让 Github Page 使用 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 域名</h2><p>目前，由于受到 DNS 污染以及 SNI 阻断，大陆地区的用户访问 Github Page 会遇到很多问题。</p><p>这让我不得不寻找一种替代方案，让我能够让我的网站能够被大陆地区的用户访问。</p><h2 id="注册-eu-org-域名">注册 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 域名</h2><p>访问 <span class="exturl" data-url="aHR0cHM6Ly9ldS5vcmc=">eu.org<i class="fa fa-external-link-alt"></i></span> 注册一个域名，这网上教程很多，这里不再赘述。</p><p>注意的是大陆地区的用户可能要花费很长时间才能收到注册成功的邮件。根据网上网友的反馈，大约是 2个月到1年不等。</p><p>我的是 3 个月左右收到的邮件。</p><h2 id="配置-DNS">配置 DNS</h2><p>在 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 网站上，找到你注册的域名，然后配置 DNS。</p><h3 id="HOSTRY">HOSTRY</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaG9zdHJ5LmNvbS8=">HOSTRY<i class="fa fa-external-link-alt"></i></span> 是一个免费的 DNS 服务商，注册一个账号，然后添加域名。</p><p>但是，这只是用于初步测试的</p><p>在 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 网站上，找到你注册的域名，然后配置 DNS。</p><h3 id="Github-Page">Github Page</h3><p>在你的 Github Page 仓库中，找到 <code>Settings</code> -&gt; <code>Pages</code> -&gt; <code>Custom domain</code>，然后输入你的域名。</p><p><mark>这个域名需要有前缀 <code>www</code>，例如 <code>www.example.eu.org</code>。</mark></p><h3 id="CLOUDFLARE">CLOUDFLARE</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2xvdWRmbGFyZS5jb20v">Cloudflare<i class="fa fa-external-link-alt"></i></span> 是一个免费的 DNS 服务商，注册一个账号，然后添加域名。</p><p>这个的作用是，你的域名需要有一个 DNS 服务器，这个服务器会解析你的域名，然后指向你的 Github Page。</p><p>在这里，你需要添加 A 记录、AAAA 记录、CNAME 记录。</p><h4 id="1-添加-A-记录">1. 添加 A 记录</h4><p>在 Cloudflare 上，添加 A 记录，指向 Github Page 的 IP 地址。</p><h4 id="2-添加-AAAA-记录">2. 添加 AAAA 记录</h4><p>在 Cloudflare 上，添加 AAAA 记录，指向 Github Page 的 IP 地址。</p><h4 id="3-添加-CNAME-记录">3. 添加 CNAME 记录</h4><p>在 Cloudflare 上，添加 CNAME 记录，指向你的 Github Page。</p><h3 id="eg">eg</h3><p><img src="clouldflare-record.png" alt="clouldflare-record"></p><blockquote><p>这些 ipv4 和 ipv6 地址是 Github Page 的地址，你可以在 Github Page 的文档中找到。</p></blockquote><h3 id="等待">等待</h3><p>等待一段时间，然后访问你的域名，如果能访问你的 Github Page，那么就成功了。</p><h2 id="安全性">安全性</h2><p>这里需要注意的是，你的域名需要使用 HTTPS，这样才能保证你的网站的安全性。</p><p>所以我们需要在 Cloudflare 上配置一些东西。</p><h3 id="DNS">DNS</h3><p>这里，我们让 Cloudflare 代理我们的域名，这样我们的域名就能使用 HTTPS。</p><h3 id="SSL-TLS">SSL/TLS</h3><p>在 Cloudflare 上，找到 <code>SSL/TLS</code>，然后配置 <code>Full</code>。</p><p>边缘证书需要配置 <code>始终使用 HTTPS</code>、<code>随机加密</code>、<code>LTS 1.3</code>、<code>自动 HTTPS 重写</code>。</p><p>源服务器证书需要配置 <code>经过身份验证的源服务器拉取</code>。</p><h2 id="问题">问题</h2><p>我在这里遇到了一个问题，就是 Github Page 无法强制使用 HTTPS。</p><p>这个问题我还没有解决，如果有人知道，希望能够告诉我。</p><p><img src="githubpage-settings.png" alt="githubpage-settings"></p><p>此外，出于某些原因，例如 CORS 策略问题，我不得不将 Cloudflare 的安全性设置为 <code>低</code>，并且关闭<code>浏览器完整性检查</code>。</p><h3 id="24年3月25日更新">24年3月25日更新</h3><p>需要把 Cloudflare DNS 的代理模式设置为 DNS only，这样 Github Page 才能强制使用 HTTPS。</p><p>但是其实无所谓了，使用 Cloudflare 的代理模式，也能够使用 HTTPS。</p><p>因为是基于 Github Page 的，所以也没办法在服务器上安装证书，Cloudflare 也只能使用 完全 SSL/TLS。</p><h2 id="参考">参考</h2><ul class="lvl-0"><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubW9kYi5wcm8vZGIvNTE0MDQy">免费注册申请永久的eu.org顶级域名创建属于自己的域名,再也不用给博客域名续费了!<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vemgvcGFnZXMvY29uZmlndXJpbmctYS1jdXN0b20tZG9tYWluLWZvci15b3VyLWdpdGh1Yi1wYWdlcy1zaXRlL21hbmFnaW5nLWEtY3VzdG9tLWRvbWFpbi1mb3IteW91ci1naXRodWItcGFnZXMtc2l0ZQ==">管理 GitHub Pages 站点的自定义域<i class="fa fa-external-link-alt"></i></span></p></li></ul>]]></content>
     
     
     <summary type="html">使用 eu.org 域名替代 Github Page 的域名，让我们流畅的访问 Github Page。</summary>
@@ -126,14 +147,14 @@
     
     
     
-    <category term="分享" scheme="https://yuzhii0718.eu.org/tags/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://www.yuzhii0718.eu.org/tags/%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
   <entry>
     <title>软件工程-测试</title>
-    <link href="https://yuzhii0718.eu.org/2024/02/11/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/02/11/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/02/11/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/02/11/1/</id>
     <published>2024-02-11T13:57:28.000Z</published>
     <updated>2024-02-17T14:16:45.790Z</updated>
     
@@ -144,17 +165,17 @@
     
     
     
-    <category term="SoftwareEngineering" scheme="https://yuzhii0718.eu.org/categories/SoftwareEngineering/"/>
+    <category term="SoftwareEngineering" scheme="https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Csharp-04</title>
-    <link href="https://yuzhii0718.eu.org/2024/02/07/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/02/07/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/02/07/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/02/07/1/</id>
     <published>2024-02-07T13:12:59.000Z</published>
     <updated>2024-02-11T14:29:48.053Z</updated>
     
@@ -165,17 +186,17 @@
     
     
     
-    <category term="Csharp" scheme="https://yuzhii0718.eu.org/categories/Csharp/"/>
+    <category term="Csharp" scheme="https://www.yuzhii0718.eu.org/categories/Csharp/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Csharp-03</title>
-    <link href="https://yuzhii0718.eu.org/2024/01/31/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/01/31/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/01/31/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/01/31/1/</id>
     <published>2024-01-31T13:59:10.000Z</published>
     <updated>2024-02-07T13:13:54.845Z</updated>
     
@@ -186,17 +207,17 @@
     
     
     
-    <category term="Csharp" scheme="https://yuzhii0718.eu.org/categories/Csharp/"/>
+    <category term="Csharp" scheme="https://www.yuzhii0718.eu.org/categories/Csharp/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Csharp-02</title>
-    <link href="https://yuzhii0718.eu.org/2024/01/29/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/01/29/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/01/29/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/01/29/1/</id>
     <published>2024-01-29T12:39:52.000Z</published>
     <updated>2024-01-31T14:02:14.907Z</updated>
     
@@ -207,17 +228,17 @@
     
     
     
-    <category term="Csharp" scheme="https://yuzhii0718.eu.org/categories/Csharp/"/>
+    <category term="Csharp" scheme="https://www.yuzhii0718.eu.org/categories/Csharp/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Csharp-01</title>
-    <link href="https://yuzhii0718.eu.org/2024/01/25/1/"/>
-    <id>https://yuzhii0718.eu.org/2024/01/25/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2024/01/25/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/01/25/1/</id>
     <published>2024-01-25T13:49:48.000Z</published>
     <updated>2024-01-31T14:00:42.329Z</updated>
     
@@ -228,17 +249,17 @@
     
     
     
-    <category term="Csharp" scheme="https://yuzhii0718.eu.org/categories/Csharp/"/>
+    <category term="Csharp" scheme="https://www.yuzhii0718.eu.org/categories/Csharp/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-09</title>
-    <link href="https://yuzhii0718.eu.org/2023/12/21/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/12/21/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/21/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/21/1/</id>
     <published>2023-12-21T03:34:04.000Z</published>
     <updated>2023-12-25T03:22:52.272Z</updated>
     
@@ -249,17 +270,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-08</title>
-    <link href="https://yuzhii0718.eu.org/2023/12/08/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/12/08/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/08/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/08/1/</id>
     <published>2023-12-08T13:21:49.000Z</published>
     <updated>2023-12-21T03:34:06.421Z</updated>
     
@@ -270,17 +291,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-07</title>
-    <link href="https://yuzhii0718.eu.org/2023/12/02/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/12/02/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/02/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/02/1/</id>
     <published>2023-12-02T06:38:19.000Z</published>
     <updated>2023-12-08T10:16:30.037Z</updated>
     
@@ -291,17 +312,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-06</title>
-    <link href="https://yuzhii0718.eu.org/2023/12/01/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/12/01/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/12/01/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/12/01/1/</id>
     <published>2023-12-01T13:20:42.000Z</published>
     <updated>2023-12-02T06:38:52.129Z</updated>
     
@@ -312,17 +333,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-05</title>
-    <link href="https://yuzhii0718.eu.org/2023/11/14/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/11/14/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/11/14/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/11/14/1/</id>
     <published>2023-11-14T07:57:49.000Z</published>
     <updated>2023-12-01T13:21:33.081Z</updated>
     
@@ -333,17 +354,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-04</title>
-    <link href="https://yuzhii0718.eu.org/2023/11/07/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/11/07/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/11/07/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/11/07/1/</id>
     <published>2023-11-07T08:06:28.000Z</published>
     <updated>2023-11-14T08:00:19.333Z</updated>
     
@@ -354,17 +375,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-03</title>
-    <link href="https://yuzhii0718.eu.org/2023/11/02/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/11/02/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/11/02/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/11/02/1/</id>
     <published>2023-11-02T11:18:36.000Z</published>
     <updated>2023-11-05T09:05:49.799Z</updated>
     
@@ -375,17 +396,17 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络杂记-02</title>
-    <link href="https://yuzhii0718.eu.org/2023/10/30/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/10/30/1/</id>
+    <link href="https://www.yuzhii0718.eu.org/2023/10/30/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2023/10/30/1/</id>
     <published>2023-10-30T07:45:46.000Z</published>
     <updated>2023-11-02T11:19:27.720Z</updated>
     
@@ -396,31 +417,10 @@
     
     
     
-    <category term="Network" scheme="https://yuzhii0718.eu.org/categories/Network/"/>
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
     
     
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Torch 基础</title>
-    <link href="https://yuzhii0718.eu.org/2023/10/28/1/"/>
-    <id>https://yuzhii0718.eu.org/2023/10/28/1/</id>
-    <published>2023-10-28T06:24:56.000Z</published>
-    <updated>2024-03-24T03:16:37.462Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Troch-输入输出">Troch 输入输出</h2><p>创建一个 <code>tensor</code> 变量</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = torch.tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure><p>转换类型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = x.<span class="built_in">float</span>()</span><br></pre></td></tr></table></figure><p>并使用 <code>cuda()</code> 函数将变量转移到 GPU 上。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = x.cuda()</span><br></pre></td></tr></table></figure><p>同样，我们可以使用 <code>cpu()</code> 函数将变量转移到 CPU 上。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = x.cpu()</span><br></pre></td></tr></table></figure><p>完整的代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">x = torch.tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = torch.tensor([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Before cuda&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;x: <span class="subst">&#123;x&#125;</span>, <span class="subst">&#123;x.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;x.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;y: <span class="subst">&#123;y&#125;</span>, <span class="subst">&#123;y.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;y.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;#######################################################&quot;</span>)</span><br><span class="line"></span><br><span class="line">x = x.<span class="built_in">float</span>()</span><br><span class="line">y = y.<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">x = x.cuda()</span><br><span class="line">y = y.cuda()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;After cuda&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;x: <span class="subst">&#123;x&#125;</span>, <span class="subst">&#123;x.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;x.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;y: <span class="subst">&#123;y&#125;</span>, <span class="subst">&#123;y.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;y.size()&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure><p>输出结果如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Before cuda</span><br><span class="line">x: tensor([1, 2, 3, 4]), torch.LongTensor, torch.Size([4])</span><br><span class="line">y: tensor([[1, 2],</span><br><span class="line">        [3, 4]]), torch.LongTensor, torch.Size([2, 2])</span><br><span class="line"><span class="comment">#######################################################</span></span><br><span class="line">After cuda</span><br><span class="line">x: tensor([1., 2., 3., 4.], device=<span class="string">&#x27;cuda:0&#x27;</span>), torch.cuda.FloatTensor, torch.Size([4])</span><br><span class="line">y: tensor([[1., 2.],</span><br><span class="line">        [3., 4.]], device=<span class="string">&#x27;cuda:0&#x27;</span>), torch.cuda.FloatTensor, torch.Size([2, 2])</span><br></pre></td></tr></table></figure><h2 id="构建网络结构">构建网络结构</h2><p>使用 <code>torch.nn</code> 构建网络结构。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">myNet = nn.Sequential(</span><br><span class="line">    nn.Linear(<span class="number">2</span>, <span class="number">3</span>),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(<span class="number">3</span>, <span class="number">1</span>),</span><br><span class="line">    nn.Sigmoid()</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>使用类的形式构建网络结构。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">myNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(myNet, self).__init__()</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">        self.relu = nn.ReLU()</span><br><span class="line">        self.sigmoid = nn.Sigmoid()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = self.relu(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        x = self.sigmoid(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure><p>上面两种方式都可以，但是第二种方式更加灵活，可以自定义网络结构。但是，它们都使用 CPU 计算，如果需要使用 GPU 计算，需要在构建网络结构的时候加上 <code>.cuda()</code>。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">myNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(myNet, self).__init__()</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">2</span>, <span class="number">3</span>).cuda()</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">3</span>, <span class="number">1</span>).cuda()</span><br><span class="line">        self.relu = nn.ReLU().cuda()</span><br><span class="line">        self.sigmoid = nn.Sigmoid().cuda()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = self.relu(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        x = self.sigmoid(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure><h2 id="优化器与损失函数">优化器与损失函数</h2><p>使用 <code>torch.optim</code> 构建优化器。</p><p>这里使用了随机梯度下降法（SGD）。还有其他的优化器，如 Adam、RMSProp 等。参考：<span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLm9yZy9kb2NzL3N0YWJsZS9vcHRpbS5odG1s">torch.optim<i class="fa fa-external-link-alt"></i></span></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.SGD(myNet.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure><p>使用 <code>torch.nn</code> 构建损失函数。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">criterion = nn.MSELoss()</span><br></pre></td></tr></table></figure><h2 id="保存与加载模型">保存与加载模型</h2><p>保存模型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这种方式只保存模型的参数</span></span><br><span class="line">torch.save(myNet.state_dict(), <span class="string">&#x27;myNet.pth&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="comment"># 这种方式保存整个模型</span></span><br><span class="line">torch.save(myNet, <span class="string">&#x27;myNet.pth&#x27;</span>)</span><br></pre></td></tr></table></figure><p>加载模型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myNet.load_state_dict(torch.load(<span class="string">&#x27;myNet.pth&#x27;</span>))</span><br></pre></td></tr></table></figure><h2 id="训练一个简单的网络学习-XOR">训练一个简单的网络学习 XOR</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(MyNet, self).__init__()</span><br><span class="line">        self.net = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">2</span>, <span class="number">20</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">20</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        self.optimizer = torch.optim.SGD(self.net.parameters(), lr=<span class="number">0.05</span>)</span><br><span class="line">        self.loss_func = nn.MSELoss()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> self.net(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train_xor</span>(<span class="params">self, x, y, epochs=<span class="number">5000</span></span>):</span><br><span class="line">        <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">            out = self.forward(x)</span><br><span class="line">            loss = self.loss_func(out, y)</span><br><span class="line"></span><br><span class="line">            self.optimizer.zero_grad()</span><br><span class="line">            loss.backward()</span><br><span class="line">            self.optimizer.step()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> epoch % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&#x27;epoch: <span class="subst">&#123;epoch&#125;</span>, loss: <span class="subst">&#123;loss&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        out = self.forward(x)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;out.data&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        torch.save(self.net, <span class="string">&#x27;net_EOR_CPU.pkl&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    x = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">    y = [[<span class="number">0</span>], [<span class="number">1</span>], [<span class="number">1</span>], [<span class="number">0</span>]]</span><br><span class="line">    x_tensor = torch.tensor(x).<span class="built_in">float</span>()</span><br><span class="line">    y_tensor = torch.tensor(y).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    net = MyNet()</span><br><span class="line">    <span class="built_in">print</span>(net)</span><br><span class="line"></span><br><span class="line">    net.train_xor(x_tensor, y_tensor)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>测试模型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyNet</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, model_path</span>):</span><br><span class="line">        self.net = torch.load(model_path, map_location=<span class="string">&#x27;cpu&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, x</span>):</span><br><span class="line">        out = self.net(x)</span><br><span class="line">        outfinal = out.data</span><br><span class="line">        <span class="keyword">return</span> outfinal</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    x = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">    x_tensor = torch.tensor(x).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    net = MyNet(<span class="string">&#x27;net_EOR_CPU.pkl&#x27;</span>)</span><br><span class="line">    outfinal = net.predict(x_tensor)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        <span class="keyword">if</span> outfinal[i] &lt; <span class="number">0.5</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal[i]&#125;</span>, 0&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal[i]&#125;</span>, 1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>这个例子中，我们使用了 <code>torch.nn</code> 构建了一个网络结构，使用了 <code>torch.optim</code> 构建了一个优化器，使用了 <code>torch.nn</code> 构建了一个损失函数，使用了 <code>torch.save</code> 保存了模型，使用了 <code>torch.load</code> 加载了模型。</p><p>并且使用的是 CPU 计算，如果需要使用 GPU 计算，需要在构建网络结构的时候加上 <code>.cuda()</code>。</p><p>最后 <code>print</code> 时，将结果cpu化，即 <code>print(net(x).cpu())</code>。这样才能在 CPU 上打印出结果。</p><h2 id="参考">参考</h2><ul class="lvl-0"><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLm9yZy9kb2NzL3N0YWJsZS9pbmRleC5odG1s">PyTorch官方文档<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLWNuLnJlYWR0aGVkb2NzLmlvL3poL2xhdGVzdC8=">PyTorch中文文档<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p>⟪Python 神经网络入门与实战⟫ ———— 王凯编著，北京大学出版社，2020年11月第1版</p></li></ul>]]></content>
-    
-    
-    <summary type="html">本文介绍了 PyTorch 的基础知识，包括输入输出、构建网络结构、优化器与损失函数、保存与加载模型、训练一个简单的网络学习 XOR。</summary>
-    
-    
-    
-    <category term="ANNs" scheme="https://yuzhii0718.eu.org/categories/ANNs/"/>
-    
-    
-    <category term="学习笔记" scheme="https://yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
