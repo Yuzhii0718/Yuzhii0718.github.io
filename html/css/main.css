@@ -94,6 +94,7 @@ a {
         background-color: #FBDA61;
         background-image: linear-gradient(45deg, #fbae61 0%, #FF5ACD 100%);
     }
+
     color: #fff;
     margin: 0 auto;
 }
@@ -246,6 +247,7 @@ a {
     text-align: center;
 
     transition: all 0.5s;
+
     &:hover {
         transform: perspective(100px) scale3d(1.2, 1.2, 1.2);
 
@@ -349,4 +351,33 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media screen and (max-height: 580px) {
+    .footer {
+        display: none;
+    }
+    #sidebar span {
+        display: none;
+    }
+    /* 隐藏所有滚动条 */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    /* 针对 IE 和 Edge 的滚动条隐藏 */
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+@media screen and (max-height: 460px) {
+    .app-tag {
+        display: none;
+    }
+    .sidebar-top div {
+        display: flex;
+    }
+    .sidebar-bottom {
+        display: none;
+    }
 }

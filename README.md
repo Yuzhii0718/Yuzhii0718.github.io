@@ -1,1 +1,3 @@
-This is a github.io blog. It is built using Hexo and hosted on Github Pages.
+# README
+
+It is a Blog which built using Hexo and hosted on Github Pages.
