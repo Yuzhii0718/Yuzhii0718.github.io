@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的视频</title>
+    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link color="#222" href="/images/logo.svg" rel="mask-icon">
+    <!--stylesheet.css-->
+    <link rel="stylesheet" href="src/main.css" media="screen and (min-width: 1000px)">
+    <link rel="stylesheet" href="src/mobile.css" media="screen and (max-width: 1000px)">
+</head>
+<body>
+<div id="container">
+
+    <div id="header">
+        <a id="top"></a>
+        <h1>📺 我的视频</h1>
+    </div>
+
+    <!--    <div id="main">-->
+    <!--        <video controls="controls"-->
+    <!--               src="https://yuzhii0718.github.io/2023/03/04/1/video/Plastic%20Love%20Official%20Music%20Video_v240P.mp4"-->
+    <!--               poster="src/img.png">-->
+    <!--            当前浏览器不支持视频播放-->
+    <!--        </video>-->
+    <!--    </div>-->
+
+    <div style="display:flex;flex-wrap: nowrap;justify-content: space-evenly;" id="xg-player">
+        <div id="mse" style="border-radius: 10px;"></div>
+        <link rel="stylesheet" href="https://unpkg.byted-static.com/xgplayer/3.0.1/dist/index.min.css"/>
+        <script charset="utf-8" src="https://unpkg.byted-static.com/xgplayer/3.0.1/dist/index.min.js"></script>
+
+        <script>
+            const config = {
+                "id": "mse",
+                "url": "https://yuzhii0718.github.io/2023/03/04/1/video/Plastic%20Love%20Official%20Music%20Video_v240P.mp4",
+                "playsinline": true,
+                "poster": "src/img.png",
+                "height": "36rem",
+                "width": "70%",
+                "plugins": [],
+                "autoplay": false,
+                "fluid": false,
+                "playbackRate": [
+                    null
+                ],
+                "rotate": {
+                    "clockwise": false,
+                    "innerRotate": true
+                },
+                "screenShot": false,
+                "download": true,
+                "pip": true,
+                "progressDot": [
+                    {
+                        "time": 55,
+                        "text": "Start"
+                    },
+                    {
+                        "time": 115,
+                        "text": "Highlights"
+                    },
+                    {
+                        "time": 240,
+                        "text": "End"
+                    }
+                ]
+            }
+
+            let player = new Player(config)
+
+        </script>
+    </div>
+
+    <div>
+        <p>&nbsp</p>
+    </div>
+
+    <div>
+        <p id="title">竹内まりや - Plastic Love (Official Music Video)</p>
+    </div>
+
+    <div id="summary">
+        <p style="padding: 15px">Plastic Love Official Music Video : <a style="color: #03a9f4;"
+                                                                        href="https://www.youtube.com/watch?v=T_lC2O1oIew"
+                                                                        target="_blank">https://www.youtube.com/watch?v=T_lC2O1oIew</a>
+        </p>
+        <p style="padding: 15px" hidden="until-found"><b>23,340,059次观看 2021年11月11日</b><br>
+            Summary Japanese ver<br>
+            竹内まりや「プラスティック・ラブ」<br>
+            ミュージック・ビデオのフル・サイズ・バージョンが遂に公開！<br><br>
+
+            このミュージック・ビデオは、同楽曲の新たな解釈として、<br>
+            林響太朗監督の手により、2019年に制作された作品。<br>
+            これまでにインターネット上ではショート・サイズのみが<br>
+            公開されていましたが、満を持してのフル・サイズ公開です。<br><br>
+
+            林響太朗監督 コメント<br>
+            時代の波に埋もれないこの名曲を、令和になったこの年に改めて世に放たれたと。それに監督として関われたこと。大変光栄でした。<br>
+            この曲が生まれた時代への尊敬と、僕ら同世代の解釈を織り交ぜ一丸となって作りました。ぜひご覧ください。</p>
+        <p style="padding: 15px"><b>23,340,059次观看 2021年11月11日</b><br>
+            竹内玛利亚「Plastic Love」<br>
+            完整尺寸版的音乐视频终于出来了！<br><br>
+
+            这段音乐视频是对这首歌的全新诠释，<br>
+            林京太郎监督指导，于2019年制作的作品<br>
+            到目前为止，网络上只有短尺寸版本<br>
+            它是向公众发布的，但它是一个完整的版本。<br><br>
+
+            导演林京太郎的评论<br>
+            这部在时代浪潮中未曾失落的佳作，在令和这一年再次向世人发布。 作为导演参与其中。 这是莫大的荣幸。<br>
+            我们共同创作了这首歌，结合了对这首歌诞生的时代的尊重和我们这一代人的诠释。 请看一下。</p>
+    </div>
+
+    <div id="recommend">
+        <h2>推荐观看<a href="#bottom">⬇️</a></h2>
+        <hr>
+        <br>
+        <div>
+            <ul>
+                <li>
+                    <iframe class="video-frame"
+                            src="//player.bilibili.com/player.html?aid=763320086&cid=418393802&autoplay=0&page=1"
+                            allowfullscreen="allowfullscreen"></iframe>
+                    <p><a href="https://www.bilibili.com/video/av763320086" target="_blank">Beautiful World
+                        字幕版4K-【EVA】终结亦是起始:│▌ Beautiful World</a></p>
+                </li>
+                <li>
+                    <iframe class="video-frame"
+                            src="//player.bilibili.com/player.html?aid=462433485&cid=391545500&autoplay=0&page=1"
+                            allowfullscreen="allowfullscreen"></iframe>
+                    <p><a href="https://www.bilibili.com/video/av462433485"
+                          target="_blank">（eva终）-就10秒</a></p>
+                </li>
+                <li>
+                    <iframe class="video-frame"
+                            src="//player.bilibili.com/player.html?aid=89607464&cid=153047580&autoplay=0&page=1"
+                            allowfullscreen="allowfullscreen"></iframe>
+                    <p><a href="https://www.bilibili.com/video/av89607464" target="_blank"> 都 蒸 気 少 女-京
+                        都 蒸 気
+                        少 女</a></p>
+                </li>
+                <li>
+                    <iframe class="video-frame"
+                            src="//player.bilibili.com/player.html?aid=929529208&cid=309269770&autoplay=0&page=1"
+                            allowfullscreen="allowfullscreen"></iframe>
+                    <p><a href="https://www.bilibili.com/video/av929529208" target="_blank">这首 BGM
+                        洗了我们所有人的脑-这首
+                        BGM 洗了我们所有人的脑</a></p>
+                </li>
+            </ul>
+            <a id="bottom"></a>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p id="copy">&copy; <span id="year"></span> <span id="author"></span></p>
+    </div>
+
+    <div id="function">
+        <div id="totop">
+            <a>⬆️</a>
+        </div>
+        <div id="parse">
+            <a href="./Parse.html" target="_blank">🎦</a>
+        </div>
+    </div>
+
+</div>
+
+<!--script-->
+<script>
+    const functionDiv = document.getElementById('function');
+    let timeoutId;
+
+    // 默认隐藏 functionDiv
+    functionDiv.style.display = 'none';
+    window.addEventListener('scroll', () => {
+        functionDiv.style.display = 'block';
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            functionDiv.style.display = 'none';
+        }, 1000);
+    });
+
+    const copyright = document.getElementById('copy');
+    const parse = document.getElementById('parse');
+    // 点击 3 次 copy 时，显示 parse
+    parse.style.display = 'none';
+    let clickCount = 0;
+    copyright.addEventListener('click', () => {
+        clickCount++;
+        if (clickCount === 3) {
+            parse.style.display = 'flex';
+            // 弹出提示框
+            alert('点击视频右下角的按钮，可以解析视频哦！');
+        }
+    });
+
+    // 鼠标移动到 functionDiv 时 保持显示
+    functionDiv.addEventListener('mouseover', () => {
+        clearTimeout(timeoutId);
+    });
+
+    // 点击 totop 时，回到顶部
+    const totop = document.getElementById('totop');
+    totop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+</script>
+<script src="../../common/loadconfig.js"></script>
+
+</body>
+</html>
