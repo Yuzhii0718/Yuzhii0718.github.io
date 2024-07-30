@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yuzhii0718.eu.org/playlist/index.html</loc>
+    
+    <lastmod>2024-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yuzhii0718.eu.org/2024/06/26/3/</loc>
     
     <lastmod>2024-06-26</lastmod>
@@ -383,15 +392,6 @@
     <loc>https://www.yuzhii0718.eu.org/2024/03/10/1/</loc>
     
     <lastmod>2024-03-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yuzhii0718.eu.org/playlist/index.html</loc>
-    
-    <lastmod>2024-02-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
