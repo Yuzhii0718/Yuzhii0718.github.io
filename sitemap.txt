@@ -1,5 +1,4 @@
 https://www.yuzhii0718.eu.org/playlist/index.html
-https://www.yuzhii0718.eu.org/2024/06/26/3/
 https://www.yuzhii0718.eu.org/2024/03/26/1/
 https://www.yuzhii0718.eu.org/2023/05/27/1/
 https://www.yuzhii0718.eu.org/2024/02/16/1/
@@ -149,7 +148,7 @@ https://www.yuzhii0718.eu.org/categories/Cpp/
 https://www.yuzhii0718.eu.org/categories/Cpp/DataStructure/
 https://www.yuzhii0718.eu.org/categories/ANNs/
 https://www.yuzhii0718.eu.org/categories/PyQt6/
-https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/
 https://www.yuzhii0718.eu.org/categories/Springboot/
+https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/
 https://www.yuzhii0718.eu.org/categories/AdvancedWeb/
 https://www.yuzhii0718.eu.org/categories/Vue3/
