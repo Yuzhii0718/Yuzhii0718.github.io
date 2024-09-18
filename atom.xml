@@ -6,7 +6,7 @@
   <link href="https://www.yuzhii0718.eu.org/atom.xml" rel="self"/>
   
   <link href="https://www.yuzhii0718.eu.org/"/>
-  <updated>2024-05-08T08:44:16.444Z</updated>
+  <updated>2024-09-07T07:39:10.011Z</updated>
   <id>https://www.yuzhii0718.eu.org/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ROG-Strix-G17-2022-超频探索</title>
+    <link href="https://www.yuzhii0718.eu.org/2024/09/07/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/09/07/1/</id>
+    <published>2024-09-07T07:01:26.000Z</published>
+    <updated>2024-09-07T07:39:10.011Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="玩家国度-魔霸6p-超频探索">玩家国度-魔霸6p-超频探索</h2><p>之前就使用将内存简单调到了5000MT/s，但是并没有进行进一步的调整</p><p>这次遇到奇怪的问题，重置了BIOS之后，所以重新进行一次配置</p><ul class="lvl-0"><li class="lvl-2"><p>工具 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhdmlkUzk1L1Ntb2tlbGVzc19VTUFGL3RyZWUvbWFpbg==">UniversalAMDFormBrowser<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p>前置准备-关闭安全启动</p></li></ul><p><img src="dissecureboot.jpg" alt="关闭安全启动"></p><ul class="lvl-0"><li class="lvl-2"><p>不开机了怎么办</p></li></ul><blockquote><p>正确解决方法应该是长按电源间关机，然后长按Ctrl+home+电源键，一直按不松手，直到所有指示灯全灭，然后松开所有按键，之后键盘灯会亮，然后键盘灯连闪三次就会开机了。</p></blockquote><h2 id="PBO">PBO</h2><p><img src="pbo.jpg" alt="PBO"></p><p>这个页面下有 Curve Optimizer，可以调整核心的电压，我调整到了 -10，其实可以更低，但是我没有测试</p><p>另外降压可以通过软件进行，比如 Ghelper，这样更安全</p><h2 id="DDR-Timing">DDR Timing</h2><p><img src="ddrtime.jpg" alt="DDR Timing"></p><p>这个是适合双内存 5000MT/s 的设置</p><p>注意这使用的是 16进制，所以 38(10)=26(16)以此类推</p><p><img src="zentimings.png" alt="Zentimings"></p><p>此外，在另一个页面(infinity fabric frequency and dividers)，还有一个设置</p><p>用于调试 infinity fabric 频率，这个频率是与 FCLK 一致的</p><p>原本的 auto 默认是 1800 MHz，但是我调整到了 2000 MHz，这个是可以通过 tm5 进行测试的</p><p>有关内存，还可以关闭 power down mode，这个是在另一个页面(AMD CBS)的，可以减少延迟</p><p>但是因为我有时需要使用电池，所以并没有关闭</p><h2 id="电压">电压</h2><p>电压只有少数几个可以调整的选项</p><p>主要是 VDD_MEM VDD_IO VDD_DIMM</p><p>这几个有关内存的电压，我没有调整，因为我是三星的内存(4800MT/s@c40)，并没有超频潜力，我尝试过了，三星的极限是 5400MT/s，此时延迟颇高，且不可过 tm5，效能不如 5000MT/s@c38(此时仍然是1.1v电压)</p><p>对了，这个三星内存的编号还有说法</p><blockquote><p>DDR5 后缀2位：0L和0D 是代表PMIC（电源管理IC）不同，0L是三星自己S2FPC01，0D是IDT（瑞萨收购）P8911， 三星PMIC相对稳定，P8911超频性能会好，国际大厂都有在用，hynix ddr5 也用这颗P8911</p></blockquote><p>如果是海力士 a/m die，可以尝试调整电压，据说可以达到 6000MT/s@c30</p><h2 id="iGPU">iGPU</h2><p>这个在 PBO 里面，可以调整 iGPU 的频率，最高可以 boost 200MHz，另外在 AMD CBS -&gt; NBIO -&gt; GFX 里面，还有一个选项可以调整 iGPU 的显存，最高可以调整到 16GB</p><p>一些网友反应，很多 AMD 笔记本使用 EDGE 看视频会卡顿，这个是因为 iGPU 的显存不足（很多厂商设定是 AUTO，或者是512MB），可以尝试调整到 2GB 以上，或者在 AMD Radeon Software 里面调整 性能 -&gt; 调整 -&gt; 系统 -&gt; 内存优化器 -&gt; 游戏，但是很多机器并不会生效，所以还是在 BIOS 里面调整比较好</p><h2 id="参考">参考</h2><ul class="lvl-0"><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC83ODIwMTU0MTAw">三星ddr5内存后缀参数的真正区别？<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1p5dDIwNDgvYXJ0aWNsZS9kZXRhaWxzLzEyNjEzODE3OA==">天选三超频实战<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC83ODYzNDI0MDYxP3NlZV9sej0xIzE0NDMyNDgwOTIyM2w=">AMD 移动平台修改 BIOS 隐藏选项实现内存超频等<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly93aW5yYWlkLmxldmVsMXRlY2hzLmNvbS90L3Rvb2wtdW5pdmVyc2FsYW1kZm9ybWJyb3dzZXIvNDAzNTM=">TOOL UniversalAMDFormBrowser<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly9wb3N0LnNtemRtLmNvbS94aWxpZS85NDM5NC8=">系列：龙之怒<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NlZXJnZS9nLWhlbHBlcg==">Ghelper<i class="fa fa-external-link-alt"></i></span></p></li></ul>]]></content>
+    
+    
+    <summary type="html">主要是PBO以及内存相关的</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络杂记-11</title>
+    <link href="https://www.yuzhii0718.eu.org/2024/09/04/1/"/>
+    <id>https://www.yuzhii0718.eu.org/2024/09/04/1/</id>
+    <published>2024-09-04T11:49:31.000Z</published>
+    <updated>2024-09-18T12:24:56.765Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="参考资料">参考资料</h2><ul class="lvl-0"><li class="lvl-2"><p><span class="exturl" data-url="cmVsaWFiaWxpdHlodHRwczovL2hvdWJiLmdpdGh1Yi5pby8yMDE5LzA0LzA1L3Byb3RvY29sLXRjcC1pcC0wNS10Y3AtcmVsaWFiaWxpdHkjOn46dGV4dD1UQ1AlMjAlRTglQTYlODElRTYlQjElODIlRTQlQjglOEQlRTglQUUlQkE=">TCP/IP 协议-05-TCP 如何保证传输的可靠性<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGl4dWVkdWFuLmNvbS9wb3N0cy9uZXR3b3JrLzAzLXRjcC1yZWxpYWJpbGl0eS8=">计算机网络(三)–TCP如何保证传输可靠性<i class="fa fa-external-link-alt"></i></span></p></li><li class="lvl-2"><p><span class="exturl" data-url="aHR0cHM6Ly9ob3ViYi5naXRodWIuaW8vMjAyMy8wMi8yMi9uZXQtMDYtbmV0LXRjcC0xMi10aW1lX3dhaXRfcmVjdl9zeW4=">NET 网络专题汇总-06-12-在 TIME_WAIT 状态的 TCP 连接，收到 SYN 后会发生什么？<i class="fa fa-external-link-alt"></i></span></p></li></ul><h2 id="TCP-可靠传输的实现">TCP 可靠传输的实现</h2><p>TCP 基于<strong>以字节为单位的滑动窗口</strong>机制实现可靠传输，TCP 的滑动窗口机制是 TCP 实现可靠传输的核心机制。</p><ul class="lvl-0"><li class="lvl-2"><p>发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的，但在同一时刻，发送方的发送窗口并不总是和接收方的接收窗口大小相等的</p><ul class="lvl-2"><li class="lvl-4">网络传送窗口值需要经历一定时间滞后，并且这个时间不是固定的，而是动态变化的</li><li class="lvl-4">发送方还可能根据网络拥塞程度调整发送窗口的大小，发送方的发送窗口大小并不总是和接收方的接收窗口大小相等的</li></ul></li><li class="lvl-2"><p>对于不按序到达的数据的处理,并无明确的说明</p><ul class="lvl-2"><li class="lvl-4">接收方把不按序到达的数据丢弃，那么发送方会重传这些数据，虽然接受窗口的管理比较简单，但是这种方式会导致网络资源的浪费</li><li class="lvl-4">通常将不按序到达的数据缓存起来，等待缺失的数据到达后再交付给应用层，这种方式会增加接收方的复杂度，但是可以减少网络资源的浪费</li></ul></li><li class="lvl-2"><p>TCP 要求接收方必须有累计确认和捎带确认两种确认方式</p><ul class="lvl-2"><li class="lvl-4">这样可以减少传输开销，接收方可以在合适的时候发送确认，也可以在自己有数据要发送时把确认信息捎带上去</li><li class="lvl-4">但接收方不应该过分延迟确认，否则会导致发送方重传数据，浪费网络资源</li><li class="lvl-4">捎带不常用，因为大多数应用程序很少同时在两个方向上传输数据</li></ul></li><li class="lvl-2"><p>TCP 是全双工通信的，发送方和接收方都有自己的发送窗口和接收窗口</p><ul class="lvl-2"><li class="lvl-4">发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的</li><li class="lvl-4">接收方的接收窗口是根据发送方的发送窗口大小和接收方的处理能力动态调整的</li></ul></li></ul><h2 id="TCP-运输连接管理">TCP 运输连接管理</h2><h3 id="TCP-连接的建立">TCP 连接的建立</h3><p>TCP 连接的建立是三次握手的过程，三次握手的过程是为了确保双方都能够发送和接收数据。</p><ul class="lvl-0"><li class="lvl-2"><p>第一次握手：客户端发送一个 SYN 报文段给服务器端，请求建立连接</p></li><li class="lvl-2"><p>第二次握手：服务器端接收到客户端发送的 SYN 报文段后，发送一个 SYN 报文段和一个 ACK 报文段给客户端，确认客户端的请求</p></li><li class="lvl-2"><p>第三次握手：客户端接收到服务器端发送的 SYN 报文段和 ACK 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p></li></ul><h3 id="TCP-连接的释放">TCP 连接的释放</h3><p>TCP 连接的释放是四次挥手的过程，四次挥手的过程是为了确保双方都能够正确关闭连接。</p><ul class="lvl-0"><li class="lvl-2"><p>第一次挥手：客户端发送一个 FIN 报文段给服务器端，请求关闭连接</p></li><li class="lvl-2"><p>第二次挥手：服务器端接收到客户端发送的 FIN 报文段后，发送一个 ACK 报文段给客户端，确认客户端的请求</p></li><li class="lvl-2"><p>第三次挥手：服务器端发送一个 FIN 报文段给客户端，请求关闭连接</p></li><li class="lvl-2"><p>第四次挥手：客户端接收到服务器端发送的 FIN 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p></li></ul><h2 id="TCP-报文段的首部格式">TCP 报文段的首部格式</h2><p>TCP 报文段的首部格式如下：</p><ul class="lvl-0"><li class="lvl-2"><p>源端口号：16 位，标识发送方的端口号</p></li><li class="lvl-2"><p>目的端口号：16 位，标识接收方的端口号</p></li><li class="lvl-2"><p>序列号：32 位，标识数据的顺序</p></li><li class="lvl-2"><p>确认号：32 位，标识数据的确认</p></li><li class="lvl-2"><p>首部长度：4 位，标识首部的长度</p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img alt=&quot;Network Knowledge&quot; src=&quot;https://www.netacad.com/sfa-assets/images/svg/netacad_logo_black.svg&quot; decoding=&quot;async&quot; width=&quot;128&quot; height=&quot;128&quot;&gt;&lt;/p&gt;这个思科的模拟器，我制作了相关汉化&lt;br&gt;&lt;a href=&quot;https://github.com/Yuzhii0718/Cisco-Packet-Tracer-Chinese&quot;&gt;Cisco-Packet-Tracer-Chinese&lt;/a&gt;</summary>
+    
+    
+    
+    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
+    
+    
+    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>Yuzhii的Springboot3笔记【3】</title>
@@ -370,48 +408,6 @@
     
     
     <summary type="html">本文主要介绍了集线器与交换机、交换机自学习与转发、交换机生成树协议 STP、虚拟局域网 VLAN、VLAN 的实现方法等内容。</summary>
-    
-    
-    
-    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
-    
-    
-    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络杂记-06</title>
-    <link href="https://www.yuzhii0718.eu.org/2023/12/01/1/"/>
-    <id>https://www.yuzhii0718.eu.org/2023/12/01/1/</id>
-    <published>2023-12-01T13:20:42.000Z</published>
-    <updated>2023-12-02T06:38:52.129Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MAC-地址">MAC 地址</h2><p>MAC 地址是指网卡的物理地址，它是一个 48 位的二进制数，通常用 12 位的十六进制数表示。属于数据链路层的地址。</p><h3 id="MAC-地址的作用">MAC 地址的作用</h3><ul class="lvl-0"><li class="lvl-2"><p>当多个主机连接在同一个以太网中时，每个主机都必须有一个唯一的标识，即一个数据链路层地址。</p></li><li class="lvl-2"><p>在每个主机发送的帧中，都必须包含目的主机的数据链路层地址。由于这类地址是用于媒体接入控制的，因此又称为 Media Access Control Address，简称 MAC 地址。</p><ul class="lvl-2"><li class="lvl-4">MAC 地址一般由网卡的制造商来分配，被固化在 EEPROM 中，每个网卡都有一个唯一的 MAC 地址，这称之为<strong>硬件地址</strong>。但是，近年来，一些设备提供了随机生成 MAC 地址的功能，这样就可以保护用户的隐私。</li><li class="lvl-4">有时也被称为<strong>物理地址</strong>，但是这种说法不准确，因为 MAC 地址并不是物理上的地址，<strong>而是逻辑上的地址</strong>。</li></ul></li><li class="lvl-2"><p>一般，用户有两个网络适配器，一个是有线网卡，一个是无线网卡，每个网卡都有一个唯一的 MAC 地址。<strong>这是对接口的唯一标识，而不是对设备的唯一标识</strong>。</p></li></ul><h3 id="IEEE-802-MAC-地址">IEEE 802 MAC 地址</h3><p>IEEE 802 MAC 地址是指在 IEEE 802 标准中定义的 MAC 地址，它是一个 48 位的二进制数，通常用 12 位的十六进制数表示。也是扩展的唯一标识符 EUI-48。</p><p>通过 MAC 地址，我们可以知道这个网卡是由哪个厂商生产的，这个网卡是什么型号，这个网卡是什么时候生产的。</p><p>IEEE 802 MAC 地址的前 24 位称为组织唯一标识符 OUI，由 IEEE 的注册管理机构分配给组织，用于标识组织。这 24位分成3个字段，每个字段包含 8 位，称为 OUI 的第一、第二、第三字节。</p><p>IEEE 802 MAC 地址的后 24 位称为扩展标识符 EI，由组织自行分配，用于标识组织内的设备。这 24 位分成 3 个字段，每个字段包含 8 位，称为 EI 的第一、第二、第三字节。也叫第四、第五、第六字节。</p><ul class="lvl-0"><li class="lvl-2"><p>标准表示法: XX-XX-XX-XX-XX-XX<br>例如: 00-0C-29-3F-2C-1A<br>这在 Windows 系统中使用的是最常见的表示法。</p></li><li class="lvl-2"><p>以太网表示法: XX:XX:XX:XX:XX:XX<br>例如: 00:0C:29:3F:2C:1A<br>这在 Linux 系统中使用的是最常见的表示法。IOS、Mac OS X、Android 也使用这种表示法。</p></li><li class="lvl-2"><p>无分隔符表示法: XXXXXXXXXXXX<br>例如: 000C293F2C1A<br>这种表示法在 Cisco IOS 中使用。</p></li><li class="lvl-2"><p>其他表示法 1: XX.XX.XX.XX.XX.XX<br>例如: 00.0C.29.3F.2C.1A</p></li><li class="lvl-2"><p>其他表示法 2: XXXX-XXXX-XXXX<br>例如: 000C-293F-2C1A</p></li><li class="lvl-2"><p>其他表示法 3: XXXX.XXXX.XXXX<br>例如: 000C.293F.2C1A</p></li></ul><p><img src="IEEE-MAC.png" alt="IEEE-MAC"></p><blockquote><p>第一字节</p></blockquote><table><thead><tr><th>位</th><th>取值</th><th>含义</th></tr></thead><tbody><tr><td>b0</td><td>0</td><td>单播地址</td></tr><tr><td>b0</td><td>1</td><td>组播地址</td></tr><tr><td>b1</td><td>0</td><td>全球管理</td></tr><tr><td>b1</td><td>1</td><td>本地管理</td></tr></tbody></table><table><thead><tr><th>b0=0</th><th>b0=1</th><th>b1=0</th><th>b1=1</th><th>MAC 地址类型</th><th>地址占比</th><th>说明</th></tr></thead><tbody><tr><td>√</td><td></td><td>√</td><td></td><td>全球管理单播地址</td><td>25%</td><td>厂商生产网络设备时固化</td></tr><tr><td>√</td><td></td><td></td><td>√</td><td>本地管理单播地址</td><td>25%</td><td>由网络管理员分配</td></tr><tr><td></td><td>√</td><td>√</td><td></td><td>全球管理组播地址</td><td>25%</td><td></td></tr><tr><td></td><td>√</td><td></td><td>√</td><td>本地管理组播地址</td><td>25%</td><td>用户对主机进行配置时使用，如果剩余46位全为1，则表示广播地址 FF-FF-FF-FF-FF-FF</td></tr></tbody></table><p>所以可以计算总地址数量为 $2^{48} = 281,474,976,710,656$ 个。</p><h2 id="IP-地址">IP 地址</h2><p>IP 地址是指互联网协议地址，它是一个 32 位的二进制数，通常用 4 个 8 位的十进制数表示。属于网络层的地址。</p><h3 id="IP-地址的作用">IP 地址的作用</h3><p>IP 地址是因特网上主机和路由器的标识符，用于标识两部分信息：</p><ul class="lvl-0"><li class="lvl-2"><p>网络号：用于标识主机所在的网络</p></li><li class="lvl-2"><p>主机号：用于标识主机</p></li></ul><p>所以，MAC 地址不具备区分网络的能力，而 IP 地址具备区分网络的能力。</p><ul class="lvl-0"><li class="lvl-2"><p>如果是单独网络，不接入因特网，那么只需要使用 MAC 地址就可以了。</p></li><li class="lvl-2"><p>如果是接入因特网，那么就需要 IP 地址与 MAC 地址配合使用。</p></li></ul><h2 id="ARP-协议">ARP 协议</h2><p>ARP 协议是指地址解析协议，它是一种将 IP 地址解析为 MAC 地址的协议，属于网络层的协议。</p><p><img src="conclude.png" alt="Conclude"></p>]]></content>
-    
-    
-    <summary type="html">这篇文章主要介绍了计算机网络杂记-06，主要内容包括MAC地址、IP地址、ARP协议等。</summary>
-    
-    
-    
-    <category term="Network" scheme="https://www.yuzhii0718.eu.org/categories/Network/"/>
-    
-    
-    <category term="学习笔记" scheme="https://www.yuzhii0718.eu.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络杂记-05</title>
-    <link href="https://www.yuzhii0718.eu.org/2023/11/14/1/"/>
-    <id>https://www.yuzhii0718.eu.org/2023/11/14/1/</id>
-    <published>2023-11-14T07:57:49.000Z</published>
-    <updated>2023-12-01T13:21:33.081Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="随机接入-CSMA-CD-协议">随机接入 CSMA/CD 协议</h2><p>Carrier Sense Multiple Access with Collision Detection 载波监听多路访问/碰撞检测</p><p>在早期的以太网中，采用的是随机接入的方式，即任何一个站点都可以在任何时刻发送数据帧，但是由于多个站点同时发送数据帧会造成碰撞，因此需要进行碰撞检测，如果检测到碰撞，就立即停止发送数据帧，然后等待一段随机的时间后再次发送。</p><p><strong>MA 多址接入</strong>，即多个站点共享同一个信道，每个站点都有机会发送数据帧。</p><p><strong>CS 载波监听</strong>，即在发送数据帧之前，先监听信道，如果信道空闲，就发送数据帧，否则等待一段时间后再次监听。（先听后说）</p><p><strong>CD 碰撞检测</strong>，即在发送数据帧的过程中，如果检测到碰撞，就立即停止发送数据帧，然后等待一段随机的时间后再次发送。（边说边听）</p><blockquote><p>争用期</p></blockquote><p>争用期是指在发送数据帧之前，先监听信道，如果信道空闲，就发送数据帧，否则等待一段时间后再次监听。</p><blockquote><p>最小帧长</p></blockquote><p>最小帧长是指发送数据帧的最小长度，如果发送的数据帧长度小于最小帧长，就会出现碰撞检测失效的情况。</p><ul class="lvl-0"><li class="lvl-2"><p>以太网的最小帧长是 64 字节，如果发送的数据帧长度小于 64 字节，就会出现碰撞检测失效的情况。</p></li><li class="lvl-2"><p>最小帧长的目的是为了保证在发送数据帧的过程中，能够检测到碰撞。</p></li><li class="lvl-2"><p>在争用期内，没有检测到碰撞，就可以认为发送的数据帧没有发生碰撞。如果检测到碰撞，就立即停止发送数据帧，然后等待一段随机的时间后再次发送。所以但凡长度小于 64 字节的数据帧都是由于碰撞而异常终止的无效帧。</p></li></ul><blockquote><p>最大帧长</p></blockquote><p>最大帧长是指发送数据帧的最大长度，如果发送的数据帧长度大于最大帧长，就会出现碰撞检测失效的情况。最大帧长为 1518 字节。</p><blockquote><p>二进制指数退避算法</p></blockquote><p>二进制指数退避算法是指在发送数据帧的过程中，如果检测到碰撞，就立即停止发送数据帧，然后等待一段随机的时间后再次发送。</p><ul class="lvl-0"><li class="lvl-2"><p>若连续发生 k 次碰撞，就等待一个 0 到 2^k-1 之间的随机数，然后再次发送数据帧。</p></li><li class="lvl-2"><p>若连续发生 16 次碰撞，就等待一个 0 到 2^16-1 之间的随机数，然后再次发送数据帧。 2^16-1 = 65535，即最大等待时间为 65535 微秒，即 65.535 毫秒。16 次仍不成功，就放弃发送数据帧，并向上层报告发送失败。</p></li></ul><blockquote><p>信道利用率</p></blockquote><p>信道利用率是指在发送数据帧的过程中，信道被利用的时间与总时间的比值。</p><p>应考虑以下这种理想情况</p><ul class="lvl-0"><li class="lvl-2"><p>各个主机发送帧不发生碰撞</p></li><li class="lvl-2"><p>总线一旦空闲，就立即有主机发送帧</p></li><li class="lvl-2"><p>发送一帧的时间为 t + T0，其中 t 为传播时延，T0 为帧长</p></li></ul><p>S(max) = 1 / (1 + a)</p><p>a = t / T0</p><h2 id="随机接入-CSMA-CA-协议">随机接入 CSMA/CA 协议</h2><p>在无线局域网中，仍然可以使用随机接入的方式，但是由于无线信道的特殊性，无法进行碰撞检测，因此需要采用其他的方式来避免碰撞。</p><blockquote><p>为何无线网路不能使用 碰撞检测</p></blockquote><ul class="lvl-0"><li class="lvl-2"><p>对硬件要求高，需要在发送数据帧的过程中，能够检测到碰撞。</p></li><li class="lvl-2"><p>存在隐藏终端问题，即 A 与 B 之间存在 C，A 与 C 之间存在 B，A 与 B 之间无法检测到碰撞，但是 A 与 C 之间存在碰撞。</p></li></ul><blockquote><p>Carrier Sense Multiple Access with Collision Avoidance 载波监听多路访问/碰撞避免</p></blockquote><ul class="lvl-0"><li class="lvl-2"><p>802.11 无线局域网采用的是随机接入的方式，但是由于无线信道的特殊性，无法进行碰撞检测，因此需要采用其他的方式来<strong>避免碰撞</strong>。</p></li><li class="lvl-2"><p>由于不可能避免所有碰撞，并且无线信道误码率较高，802.11 标准使用了<strong>数据链路层的 ARQ 机制</strong>来保证可靠传输。</p></li><li class="lvl-2"><p>802.11 的 MAC 层定义了两种基本的协议，即 DCF 分布式协调函数和 PCF 点对点协调函数。</p><ul class="lvl-2"><li class="lvl-4">Distributed Coordination Function 分布式协调函数: 采用的是随机接入的方式，即任何一个站点都可以在任何时刻发送数据帧。</li><li class="lvl-4">Point Coordination Function 点对点协调函数: 采用的是集中控制的方式，即只有一个站点可以在任何时刻发送数据帧。</li></ul></li></ul><blockquote><p>InterFrame Space 帧间间隔</p></blockquote><ul class="lvl-0"><li class="lvl-2"><p>IFS 是指在发送数据帧的过程中，需要等待的时间。</p></li><li class="lvl-2"><p>IFS 的长度与发送的数据帧的类型有关，即发送的数据帧的类型不同，IFS 的长度也不同。</p></li><li class="lvl-2"><p>IFS 的长度越长，优先级越高，即发送的数据帧的类型越重要。</p></li><li class="lvl-2"><p>常用的 IFS 有以下几种类型</p><ul class="lvl-2"><li class="lvl-4"><strong>SIFS</strong> Short InterFrame Space 短帧间间隔；GitHub Copilot: SIFS是Short InterFrame Space的缩写，是一种短帧间间隔。在802.11协议中，SIFS是指在发送数据帧的过程中，需要等待的最短时间。SIFS的长度比PIFS和DIFS都要短，通常为16微秒。SIFS的作用是在发送数据帧的过程中，保证高优先级的数据帧能够优先传输。在802.11协议中，SIFS主要用于ACK帧和CTS帧的发送。</li><li class="lvl-4">PIFS PCF InterFrame Space PCF 帧间间隔</li><li class="lvl-4"><strong>DIFS</strong> DCF InterFrame Space DCF 帧间间隔；GitHub Copilot: DIFS是DCF InterFrame Space的缩写，是一种DCF帧间间隔。在802.11协议中，DIFS是指在发送数据帧的过程中，需要等待的时间。DIFS的长度比SIFS长，比PIFS短，通常为34微秒。DIFS的作用是在发送数据帧的过程中，保证低优先级的数据帧能够等待一段时间，以便高优先级的数据帧能够优先传输。在802.11协议中，DIFS主要用于发送数据帧和ACK帧之间的间隔。</li><li class="lvl-4">EIFS Extended InterFrame Space 扩展帧间间隔</li></ul></li></ul><blockquote><p>协议的工作原理</p></blockquote><p><img src="principal.png" alt="CSMA/CA"></p><blockquote><p>协议的退避算法</p></blockquote><p><img src="algorithm1.png" alt="algorithm"><br><img src="algorithm2.png" alt="algorithm"></p><blockquote><p>信道预约与虚拟载波监听</p></blockquote><p>为了提高信道利用率，802.11 无线局域网采用了信道预约的方式，即在发送数据帧之前，先发送 RTS 帧，然后接收 CTS 帧，最后发送数据帧。</p><p><img src="channelappointandvirtuallisten.png" alt="channelappointandvirtuallisten"><br><img src="cavlpic.png" alt="cavlpic"></p>]]></content>
-    
-    
-    <summary type="html">本篇博客主要介绍了随机接入 CSMA/CD 协议和随机接入 CSMA/CA 协议。</summary>
     
     
     
