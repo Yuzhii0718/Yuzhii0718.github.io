@@ -1,6 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>破解富士通平板电脑的UEFI密码</title>
+    <url>/2024/09/22/1/</url>
+    <content><![CDATA[<p><img src="screen.jpg" alt="screen"></p>
+<p>以往我都会把密码存储在密码管理器中，这次想要重装系统，但是忘记了UEFI密码。</p>
+<p>尝试了许多可能的密码，但是都没有成功。最后我找到了一个方法，可以重置UEFI密码。</p>
+<h2 id="重置UEFI密码">重置UEFI密码</h2>
+<p>解密工作需要输入密码时请直接回车3次，一般会出现多位溢出码部分不出溢出码的机器请按照以下方法操作。提示密码时输入下列：</p>
+<p>第一次输入3hqgo3按确定报错之后第二次输入jqw534报错之后输入0qww294e按确定之后出一串字符码。第一个密码33是数字  第二个534是数字 第三个0294是数字。其它都是小写字母</p>
+<p>把溢出的代码 在这个网站输入</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9iaW9zLXB3Lm9yZy8=">BIOS Master Password Generator for Laptops<i class="fa fa-external-link-alt"></i></span></p>
+<p>然后会得到一个解锁密码，输入即可解锁。</p>
+<p>然后进入UEFI设置，重置密码即可。</p>
+<h2 id="参考">参考</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hpbmFmaXguY29tL3RocmVhZC0xMDcwOTU3LTEtMS5odG1s">【维修经验】我自己总结的几种笔记本BIOS密码超级密码不拆机解密方法<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JhY2hlcjA5L3B3Z2VuLWZvci1iaW9z">Password generator for BIOS<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React-01</title>
+    <url>/2024/09/18/1/</url>
+    <content><![CDATA[<h2 id="介绍">介绍</h2>
+<p>React 是一个用于构建用户界面的 JavaScript 库。</p>
+<p>使用 React 可以创建复杂的 UI，同时使代码易于理解。</p>
+<p>React:UI = render(data) 单向数据流</p>
+<p>vue:ref 能够直接操作dom，并非是 view model<br>
+react:单向数据流，不能通过双向绑定，实现响应式</p>
+<h2 id="JSX">JSX</h2>
+<p>JSX: JavaScript XML，将 UI 与逻辑层耦合在一起，提高代码的可读性和可维护性，在组件中使用JSX语法，可以直接在 JS 代码中编写 HTML 结构，而不需要用 JS 字符串拼接。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> table-index&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;&quot;</span> <span class="attr">tableIndex</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>支持使用表达式</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 变量</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">const</span> element = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">formatName</span>(<span class="params">user</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> user.<span class="property">firstName</span> + <span class="string">&#x27; &#x27;</span> + user.<span class="property">lastName</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  <span class="attr">firstName</span>: <span class="string">&#x27;Harper&#x27;</span>,</span><br><span class="line">  <span class="attr">lastName</span>: <span class="string">&#x27;Perez&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    Hello, &#123;formatName(user)&#125;!</span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 作为函数的返回</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getGreeting</span>(<span class="params">user</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (user) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;formatName(user)&#125;!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, Stranger.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element2 = <span class="title function_">getGreeting</span>(user)</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>支持指定属性</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">tabIndex</span>=<span class="string">&quot;0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> element = <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;user.avatarUrl&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>React 式预防 XSS 攻击，会对所有的输入进行转义，所以不会导致 XSS 攻击。</p>
+<blockquote>
+<p>XSS 攻击：跨站脚本攻击，是一种代码注入攻击，攻击者在网页中注入恶意脚本，当用户浏览网页时，脚本会被执行，从而达到攻击目的。</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>反射 XSS 攻击</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="attr">https</span>:<span class="comment">//www.baidu.com?name=&lt;script&gt;alert(XSS)&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>存储 XSS 攻击</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;error.png&quot;</span> <span class="attr">onError</span>=<span class="string">&quot;alert(&#x27;XSS&#x27;)&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其实就是使用转义字符，将特殊字符转义为HTML实体，React中使用<code>&#123;&#125;</code>来转义。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 存储XSS攻击</span></span><br><span class="line"><span class="comment">// 评论区</span></span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; comments.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    comments[i] = <span class="string">&#x27;&lt;li&gt;&#x27;</span> + comments[i] + <span class="string">&#x27;&lt;/li&gt;&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;comments&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>JSX 支持对象</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">&quot;greet&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    Hello, world!</span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element = <span class="comment">/*__PURE__*/</span><span class="title class_">React</span>.<span class="title function_">createElement</span>(</span><br><span class="line">  <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">  &#123;<span class="attr">className</span>: <span class="string">&#x27;greet&#x27;</span>&#125;,</span><br><span class="line">  <span class="string">&#x27;Hello, world!&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>JSX 渲染成 DOM</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(element, container)</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;root&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// render 只能够标识当前时刻状态</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">tick</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> element = (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>It is &#123;new Date().toLocaleTimeString()&#125;.<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">  <span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(element, <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setInterval</span>(tick, <span class="number">1000</span>)  <span class="comment">// 每秒更新一次</span></span><br></pre></td></tr></table></figure>
+<h2 id="props-和-state">props 和 state</h2>
+<h3 id="组件">组件</h3>
+<p>组件是 React 应用的基本构建块，通过组件可以将 UI 拆分成独立的、可复用的部分。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数组件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Welcome</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 类组件</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Welcome</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="组件组合以及拆分">组件组合以及拆分</h3>
+<p>组件可以在其输出中引用其他组件，这使得我们可以使用相同组件抽象出任意层次的细节。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">&quot;Sara&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">&quot;Cahal&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">&quot;Edite&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数组件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Welcome</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 类组件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">&quot;Sara&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">&quot;Cahal&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">&quot;Edite&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这段代码会渲染出一个包含三个 Welcome 组件的 App 组件。通过这个例子，我们可以看到组件在输出中可以引用其他组件，这让我们可以用同一组件来抽象出任意层次的细节。按钮、表单、对话框、整个屏幕的内容：在 React 应用中，所有这些通常都会以组件的形式表示。</p>
+</blockquote>
+<p>拆分组件是 React 应用中最常见的模式。这里有一个关于 App 组件如何拆分成更小的组件的示例：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">formatDate</span>(<span class="params">date</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> date.<span class="title function_">toLocaleDateString</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Comment</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Comment&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;UserInfo&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">className</span>=<span class="string">&quot;Avatar&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">src</span>=<span class="string">&#123;props.author.avatarUrl&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">alt</span>=<span class="string">&#123;props.author.name&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;UserInfo-name&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;props.author.name&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Comment-text&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;props.text&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Comment-date&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;formatDate(props.date)&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> comment = &#123;</span><br><span class="line">  <span class="attr">date</span>: <span class="keyword">new</span> <span class="title class_">Date</span>(),</span><br><span class="line">  <span class="attr">text</span>: <span class="string">&#x27;I hope you enjoy learning React!&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> author = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Hello Kitty&#x27;</span>,</span><br><span class="line">  <span class="attr">avatarUrl</span>: <span class="string">&#x27;https://google.com/favicon.ico&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Comment</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">date</span>=<span class="string">&#123;comment.date&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">text</span>=<span class="string">&#123;comment.text&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">author</span>=<span class="string">&#123;author&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">  /&gt;</span></span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个示例演示了如何将一个更复杂的组件拆分成更小的组件。Comment 组件描述了一个评论，包括作者的名字、头像和评论内容。这个组件在其结构中使用了 Avatar、UserInfo 和 UserInfoName 组件，将其拆分成更小的组件有助于理清应用的 UI 架构。</p>
+</blockquote>
+<h3 id="受控组件以及非受控组件">受控组件以及非受控组件</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>受控组件：表单元素的值由 React 控制，表单元素的值由 state 控制，通过 onChange 事件来更新 state。</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NameForm</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">state</span> = &#123;<span class="attr">value</span>: <span class="string">&#x27;&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">handleChange</span> = <span class="variable language_">this</span>.<span class="property">handleChange</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">handleSubmit</span> = <span class="variable language_">this</span>.<span class="property">handleSubmit</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">handleChange</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123;<span class="attr">value</span>: event.<span class="property">target</span>.<span class="property">value</span>&#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">handleSubmit</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;A name was submitted: &#x27;</span> + <span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">value</span>)</span><br><span class="line">    event.<span class="title function_">preventDefault</span>()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;this.handleSubmit&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          Name:</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&#123;this.state.value&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;this.handleChange&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">NameForm</span> /&gt;</span></span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个示例展示了一个受控组件，输入框的值由 React 控制。每次按键时，handleChange 事件处理程序都会被调用，更新 React 的 state，因此输入框的值始终与 state 中的值保持一致。</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>非受控组件：表单元素的值由 DOM 控制，通过 ref 来获取表单元素的值。</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NameForm</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">handleSubmit</span> = <span class="variable language_">this</span>.<span class="property">handleSubmit</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">input</span> = <span class="title class_">React</span>.<span class="title function_">createRef</span>()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">handleSubmit</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;A name was submitted: &#x27;</span> + <span class="variable language_">this</span>.<span class="property">input</span>.<span class="property">current</span>.<span class="property">value</span>)</span><br><span class="line">    event.<span class="title function_">preventDefault</span>()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;this.handleSubmit&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          Name:</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;this.input&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">NameForm</span> /&gt;</span></span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个示例展示了一个非受控组件，输入框的值由 DOM 控制。每次按键时，handleSubmit 事件处理程序都会被调用，从输入框中获取值。</p>
+</blockquote>
+<h3 id="props-和-state-的区别">props 和 state 的区别</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>props：是父组件传递给子组件的数据，子组件不能修改 props，props 是只读的。</p>
+</li>
+<li class="lvl-2">
+<p>state：是组件内部维护的数据，组件内部可以修改 state，当 state 发生变化时，组件会重新渲染。</p>
+</li>
+</ul>
+<h3 id="props-和-state-的使用场景">props 和 state 的使用场景</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>props：用于父子组件通信，父组件通过 props 将数据传递给子组件。</p>
+</li>
+<li class="lvl-2">
+<p>state：用于组件内部管理数据，当组件内部数据发生变化时，组件会重新渲染。</p>
+</li>
+</ul>
+<h3 id="props-和-state-示例">props 和 state 示例</h3>
+<p>props 示例：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Welcome</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">&quot;Sara&quot;</span> /&gt;</span></span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>state 示例：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props)</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">state</span> = &#123;<span class="attr">date</span>: <span class="keyword">new</span> <span class="title class_">Date</span>()&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>It is &#123;this.state.date.toLocaleTimeString()&#125;.<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Clock</span> /&gt;</span></span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这两个示例展示了 props 和 state 的使用场景。Welcome 组件通过 props 接收父组件传递的数据，Clock 组件通过 state 维护内部数据。区别在于：props 是父组件传递给子组件的数据，子组件不能修改 props；state 是组件内部维护的数据，组件内部可以修改 state。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ROG-Strix-G17-2022-超频探索</title>
     <url>/2024/09/07/1/</url>
     <content><![CDATA[<h2 id="玩家国度-魔霸6p-超频探索">玩家国度-魔霸6p-超频探索</h2>
@@ -70,6 +218,64 @@
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NlZXJnZS9nLWhlbHBlcg==">Ghelper<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 </ul>
+<h2 id="踩坑">踩坑</h2>
+<p>莫名重置bios后，想要再次调整内存频率，发现无法调整，直接黑屏，无法开机，这个时候可以尝试长按电源键，然后长按Ctrl+home+电源键，一直按不松手，直到所有指示灯全灭，然后松开所有按键，之后键盘灯会亮，然后键盘灯连闪三次就会开机了。</p>
+<p>但是想要恢复原先的设置，却无论如何都无法调整，直接不启动，可以发现，尽管你已经调整了设置，但并不生效</p>
+<p>我推测应该是第一次设置时会写入完整的配置，但是之后的调整只会写入调整的部分，但 bios 逻辑中并没有对缺失的部分进行处理，导致无法启动</p>
+<p>这个时候，该怎么办呢？</p>
+<ol>
+<li class="lvl-3">
+<p>关闭 BitLocker，这个是导致无法调整的原因之一（因为安全原因，我一般都会开启 BitLocker，但是多次测试，发现 bitlocker 会影响 bios，可能是它会对boot进行校验的原因）</p>
+</li>
+<li class="lvl-3">
+<p>清除你在 bios 里面设置的密码，以及留下的资产信息和联系方式，经过测试，这个是导致无法调整的原因之一（推测是因为这个信息会被写入bios，因为即便降级再升级 bios 这个信息仍然保留，可能与配置文件的二进制地址相冲突，因为可以发现，它对字数有严格要求，而我超频的方法并非是官方支持的，在我另一台Fujitsu的设备，这些信息是不做限制的）</p>
+</li>
+<li class="lvl-3">
+<p>重置 ec 以及 bios 信息，即长按电源键，然后长按Ctrl+home+电源键，一直按不松手，直到所有指示灯全灭，然后松开所有按键，之后键盘灯会亮，然后键盘灯连闪三次就会开机了。</p>
+</li>
+<li class="lvl-3">
+<p>降级 bios，目前该设备由华硕提供的bios有两个版本，一个是 325，一个是 327。先降级到 325，然后再升级到 327</p>
+</li>
+<li class="lvl-3">
+<p>关闭快速启动，以及安全启动，然后保存重启</p>
+</li>
+<li class="lvl-3">
+<p>重新进行超频设置</p>
+<ul class="lvl-2">
+<li class="lvl-6">优先进入 AMD Overclocking,设置PBO</li>
+<li class="lvl-6">一次只调整一个参数，然后保存重启，如果无法启动，就长按电源键，然后长按Ctrl+home+电源键，一直按不松手，直到所有指示灯全灭，然后松开所有按键，之后键盘灯会亮，然后键盘灯连闪三次就会开机了。</li>
+<li class="lvl-6">再调整内存频率</li>
+<li class="lvl-6">然后是FCLK频率</li>
+<li class="lvl-6">之后再调整 MCLK = UCLK</li>
+<li class="lvl-6">最后才是 iGPU 缓存区大小</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>之后依次开启快速启动，安全启动</p>
+</li>
+</ol>
+<p>此番设置，我成功将内存频率调整到了 5000MT/s@c40，上文提到超到c38，这次又不稳定了，三星内存太拉跨了，所以只能调整到c40，延迟也是很高的，但是效能还是比 4800MT/s@c40 要高，因为 infinity fabric 频率提高了，所以效能也提高了</p>
+<p>对了，这电脑暑期的时候，关机的时候换位置断开了 AC 电源，然后开机的时候，电源指示灯无论如何只能亮红灯了（即使充满了电），直到今日也是如此有什么头绪吗？</p>
+<p>对这个问题做过的尝试：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>重置 CMOS</p>
+</li>
+<li class="lvl-2">
+<p>降级 bios</p>
+</li>
+<li class="lvl-2">
+<p>升级 bios</p>
+</li>
+<li class="lvl-2">
+<p>卸载 Asus System Control Interface V3 以及 Armoury Crate</p>
+</li>
+<li class="lvl-2">
+<p>重装奥创以及 MyAsus</p>
+</li>
+</ul>
+<p>对于重装系统，我并没有尝试，因为对于核心驱动我都删除干净再重装，在 Bios 里也无法改变，所以我认为这个问题或许是硬件问题，或许涉及更底层的东西</p>
+<p>如果有人知道解决方案，请告诉我，邮件联系，谢谢！</p>
 ]]></content>
   </entry>
   <entry>
@@ -167,6 +373,24 @@
 </li>
 <li class="lvl-2">
 <p>首部长度：4 位，标识首部的长度</p>
+</li>
+<li class="lvl-2">
+<p>URG：1 位，标识紧急指针是否有效</p>
+</li>
+<li class="lvl-2">
+<p>ACK：1 位，标识确认号是否有效</p>
+</li>
+<li class="lvl-2">
+<p>PSH：1 位，标识接收方是否应该立即交付数据</p>
+</li>
+<li class="lvl-2">
+<p>RST：1 位，标识连接是否重置</p>
+</li>
+<li class="lvl-2">
+<p>SYN：1 位，标识连接是否建立</p>
+</li>
+<li class="lvl-2">
+<p>FIN：1 位，标识连接是否释放</p>
 </li>
 </ul>
 ]]></content>

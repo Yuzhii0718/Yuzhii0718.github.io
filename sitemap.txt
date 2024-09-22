@@ -1,5 +1,7 @@
-https://www.yuzhii0718.eu.org/2024/09/04/1/
+https://www.yuzhii0718.eu.org/2024/09/22/1/
 https://www.yuzhii0718.eu.org/2024/09/07/1/
+https://www.yuzhii0718.eu.org/2024/09/18/1/
+https://www.yuzhii0718.eu.org/2024/09/04/1/
 https://www.yuzhii0718.eu.org/playlist/index.html
 https://www.yuzhii0718.eu.org/2024/03/26/1/
 https://www.yuzhii0718.eu.org/2023/05/27/1/
@@ -148,8 +150,9 @@ https://www.yuzhii0718.eu.org/categories/Go/
 https://www.yuzhii0718.eu.org/categories/MySQL/
 https://www.yuzhii0718.eu.org/categories/Cpp/
 https://www.yuzhii0718.eu.org/categories/Cpp/DataStructure/
-https://www.yuzhii0718.eu.org/categories/ANNs/
 https://www.yuzhii0718.eu.org/categories/PyQt6/
+https://www.yuzhii0718.eu.org/categories/ANNs/
+https://www.yuzhii0718.eu.org/categories/React/
 https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/
 https://www.yuzhii0718.eu.org/categories/Springboot/
 https://www.yuzhii0718.eu.org/categories/AdvancedWeb/
