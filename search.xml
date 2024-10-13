@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>NextJS-01</title>
+      <link href="/2024/10/08/1/"/>
+      <url>/2024/10/08/1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="介绍">介绍</h2><p>Next.js 是一个基于 React 的前端框架，用于构建 React 应用程序。</p><p>Next.js 是一个轻量级的 React 框架，它提供了很多有用的功能，如代码分割、预渲染、静态导出等。</p><h2 id="Step-First-app">Step First app</h2><p>创建一个新的 Next.js 应用程序</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx create-next-app@latest</span><br><span class="line"></span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure><ul class="lvl-0"><li class="lvl-2"><p>awesome page</p></li></ul><p>在 app 目录下创建一个新的文件 <code>awesome/page.js</code>，并添加以下代码：</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">AwesomePage</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Awesome Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>回到浏览器，打开 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL2F3ZXNvbWU=">http://localhost:3000/awesome<i class="fa fa-external-link-alt"></i></span> ，你将看到一个新的页面。</p><h2 id="review-React">review React</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm create vite</span><br><span class="line"></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure><p>打开 <code>src/App.jsx</code> 文件，添加以下代码：</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> React </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>破解富士通平板电脑的UEFI密码</title>
       <link href="/2024/09/22/1/"/>
       <url>/2024/09/22/1/</url>
