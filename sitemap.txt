@@ -1,3 +1,4 @@
+https://www.yuzhii0718.eu.org/2023/10/25/1/
 https://www.yuzhii0718.eu.org/2024/10/14/1/
 https://www.yuzhii0718.eu.org/2024/10/08/1/
 https://www.yuzhii0718.eu.org/2024/09/18/1/
@@ -16,7 +17,6 @@ https://www.yuzhii0718.eu.org/2024/04/18/1/
 https://www.yuzhii0718.eu.org/2024/05/07/1/
 https://www.yuzhii0718.eu.org/2024/04/11/1/
 https://www.yuzhii0718.eu.org/2024/03/24/1/
-https://www.yuzhii0718.eu.org/2023/10/25/1/
 https://www.yuzhii0718.eu.org/2023/10/28/1/
 https://www.yuzhii0718.eu.org/2023/04/09/1/
 https://www.yuzhii0718.eu.org/2023/04/06/1/
@@ -52,7 +52,6 @@ https://www.yuzhii0718.eu.org/2024/02/11/1/
 https://www.yuzhii0718.eu.org/2024/02/07/1/
 https://www.yuzhii0718.eu.org/2024/01/31/1/
 https://www.yuzhii0718.eu.org/2023/07/25/1/
-https://www.yuzhii0718.eu.org/2023/03/23/2/
 https://www.yuzhii0718.eu.org/2023/07/24/1/
 https://www.yuzhii0718.eu.org/2023/07/06/1/
 https://www.yuzhii0718.eu.org/2023/07/14/1/
@@ -152,9 +151,9 @@ https://www.yuzhii0718.eu.org/categories/JavaScript/
 https://www.yuzhii0718.eu.org/categories/Go/
 https://www.yuzhii0718.eu.org/categories/MySQL/
 https://www.yuzhii0718.eu.org/categories/Cpp/
-https://www.yuzhii0718.eu.org/categories/React/
 https://www.yuzhii0718.eu.org/categories/Cpp/DataStructure/
 https://www.yuzhii0718.eu.org/categories/ANNs/
+https://www.yuzhii0718.eu.org/categories/React/
 https://www.yuzhii0718.eu.org/categories/PyQt6/
 https://www.yuzhii0718.eu.org/categories/SoftwareEngineering/
 https://www.yuzhii0718.eu.org/categories/Springboot/
