@@ -77,27 +77,31 @@
 
     <!-- 内容 Start-->
     <div class="column" id="content">
-        <div id="content-top"><h1 id="appcenter"></h1></div>
-        <div id="content-box-1">
-            <div class="content-app" id="app1">
+        <div id="homecontent">
+            <div id="content-top"><h1 id="appcenter"></h1></div>
+            <div id="content-box-1">
+                <div class="content-app" id="app1">
+                </div>
+                <div class="content-app" id="app2">
+                </div>
+                <div class="content-app" id="app3">
+                </div>
+                <div class="content-app" id="app4">
+                </div>
             </div>
-            <div class="content-app" id="app2">
-            </div>
-            <div class="content-app" id="app3">
-            </div>
-            <div class="content-app" id="app4">
+            <div id="content-box-2">
+                <div class="content-app" id="app5">
+                </div>
+                <div class="content-app" id="app6">
+                </div>
+                <div class="content-app" id="app7">
+                </div>
+                <div class="content-app" id="app8">
+                </div>
             </div>
         </div>
-        <div id="content-box-2">
-            <div class="content-app" id="app5">
-            </div>
-            <div class="content-app" id="app6">
-            </div>
-            <div class="content-app" id="app7">
-            </div>
-            <div class="content-app" id="app8">
-            </div>
-        </div>
+        <iframe id="info-iframe" src="./source/information.html" hidden="hidden"></iframe>
+        <iframe id="about-iframe" src="./source/about.html" hidden="hidden"></iframe>
     </div>
     <!-- 内容 End-->
 
@@ -124,7 +128,7 @@
 
 <!--javascript.js-->
 <script src="common/getxml.min.js"></script>
-<script src="js/home-change-page.js"></script>
+<script src="js/home-change-page.min.js"></script>
 <script src="common/loadconfig.min.js"></script>
 
 <!--PC客户端区别-->
@@ -136,10 +140,6 @@
         document.write(decodeURI('%3Cscript src="js/logo-spin.min.js"%3E%3C/script%3E'));
     }
 </script>
-
-<style>
-
-</style>
 
 </body>
 </html>

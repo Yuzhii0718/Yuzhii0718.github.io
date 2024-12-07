@@ -2,7 +2,7 @@
 <harder>
     <fn>
         <id>home</id>
-        <url>index.html</url>
+        <url>0</url>
         <name>首页</name>
         <js>0</js>
         <newpage>0</newpage>
@@ -23,14 +23,14 @@
     </fn>
     <fn>
         <id>info</id>
-        <url>javascript:;</url>
+        <url>0</url>
         <name>资讯</name>
         <js>0</js>
         <newpage>0</newpage>
     </fn>
     <fn>
         <id>about</id>
-        <url>javascript:;</url>
+        <url>0</url>
         <name>关于</name>
         <js>0</js>
         <newpage>0</newpage>
