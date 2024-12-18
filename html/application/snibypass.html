@@ -13,11 +13,12 @@
 
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
-    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABNZJREFUWEe1l3tsVEUUxr9v7nZbSgUE5FFMQIS2bLHQBwgEGzVqBAmGtMVEEkWNqTEkvkspkKwh0C1p0IAkQvABaDRLIRqRIBpUiIqhNdiA3VJBiVGCFkEKpe3unSO33co+7r4A588753znd2fmnDlDxBkibmX6nHNB9QgFM0DcCiANggskTgikUSl8ceayY++oKa9ciqcVa46xJqTFc4cGtoJwUXBAFJuhpR2AgkK2aJlMcjqAAQA6AHlf6cA6ula2pQJiCyDH1typDbUbkE1K5DVOqjlrJyqN7kwMSp8jwkoR3geICeAtxa4VzHVbsAlHFIC0rBmmoQ4oQz/JnJrvEyoEDXpaa6c5hGsFuBtAu1KsZM7SXYn8owDM1rp6HdB70vKX7U/kHDkvAsJX+7gm1wPMAuUNldP1IukOJHUGpG19ujY7PUZe9QupBg+1F19droZ8BCCP4B4OGlLB7MpOO82wFfC3rrlL/NLhnLz8yPUAWL5yqvZm8zJ3E5gl4MG/A51zR0x+9WKkbhiAHF87DzlVnxKQ6wXohfhzY5ac6/hcBDNEsM+4dHIeSzb7Q7XDAXx1Jcxb2ngjgvdrSGv9cC2BQwBuB7HRyK1eEhvgZP1Yjn/51I0EsLR6jq6eajiM7wCmC8yFjryahv4Y4SvQ6BnMkup/bjSApWf6PFVXilZdb4oa2sWJNX9Z38MB3G5Ft1v/HwAibof2pf8I0gXKZiN3WWUUQKLA0lC0AVBj0dG+kE/82pXIPnI+0FJbRrIBgoAS5aKrqi3mXRBVZLxFE6B4PLhqC1jeZOV5SsO63HRrxs8AboNgkzGp+pnkAXYWr4BgVTDiVpY3LU4petDY3+JZrYga6wJT3cbo5AEaio8CyA/qnMWwm0bxnq9ilthYcHLcU6o1vu6tEyLlSQHIh4VT4FDh1ZG4l2VNX6a6CvKLe4juzjjX5ydvJgfQUFwLoDoi2HqWNz2XMoAIdWtdt9XYCHD4PwDxFt4CqrcBGRYtynwQgyK+X4DIsShbsguQ51n+Q7MdnNVD6KwBFwGxYreHAJTcDyX7Uv0jW3tyKcsa19oC/OQp1arvDEDgvwrghkJ+8XIQK3v7vmse8i46A0v4WLNtj6h9dV6BVATlL0Z3RN6S6VCyHUBOSgyGE9o5+CXjob3rYvmZPo91Zl4PmW+x7wk/KxiIDsc6gE9HlmvbZc0aCRkzDUgbECCwX4A9imiCUqcBnQFRBaZpLib5QIT/O3GzoK/0Muz6jASQzOGQ8VYbmFRChbkrwYPxAXYWH4RgdtytMNKg8+YDVCntGIlDzKmeFftdsKtgBHTaHwCMRMp6XCmQNTKR2dV58ryCOZO5Nb7YAN7Cp6DUlghVq526DITXBBk6AZJdmCzAaaX0gv6WPzbAjqKPQc4PUT0BYBH85hk4jO1gyNakZXTp3HkNAOcAsClkAMnzpuitDpFVoQ8d+yz4pDgT3bA6lsxgwdgGZ8YSPvxNR2/98FYYUCeXX2l0rJrh6INkEcqqmnuOtuUbTsNFyGgInEKcFT99jvTfD3PiBqsEhw17AO/MoVA9v1ntHMBnWd74gW367Zg6CzTeAzAOYs5mxZFvk92Hfrs4Z2DKGAQc3Xy0Ke4bT7YVDIShsrnoSEqP0oQAqf7Jtdr/C/g2xhww+h5pAAAAAElFTkSuQmCC" />
+
     <link color="#222" href="/images/logo.svg" rel="mask-icon">
 
-    <title>chromium 浏览器伪造 sni 工具网页版</title>
+    <title>chromium 浏览器伪造 sni 工具网页版(onlyWeb)</title>
 
     <style type="text/css">
         html.bg {
@@ -59,6 +60,12 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             resize: none;
+        }
+
+        textarea[readonly] {
+            background-color: #f9f9f9;
+            color: #333;
+            cursor: not-allowed;
         }
 
         button {
@@ -114,7 +121,7 @@
     </style>
 
     <!-- 导入 jq jQuery v2.2.4  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 
 </head>
 
@@ -130,7 +137,7 @@
     </div>
 
     <div id="content" class="app-content" role="main">
-        <h1>Chromium 浏览器伪造 SNI 工具网页版(Windows)</h1>
+        <h1>Chromium 浏览器伪造 SNI 工具网页版(onlyWeb)</h1>
         <hr />
         <span style="color: #007bff;">输出信息: </span><a id="err">暂无</a>
         <hr />
@@ -157,9 +164,8 @@
         </div>
 
         <hr />
-		<p>完整版：<a href="https://github.com/Yuzhii0718/snibypass-webtools" target="_blank">snibypass-webtools</a></p>
         <p>SNI 规则来源：<a href="https://github.com/SpaceTimee/Cealing-Host" target="_blank">Cealing-Host</a></p>
-		<p>Windows 客户端：<a href="https://github.com/SpaceTimee/Sheas-Cealer" target="_blank">Sheas-Cealer</a></p>
+        <p>Windows 客户端：<a href="https://github.com/SpaceTimee/Sheas-Cealer" target="_blank">Sheas-Cealer</a></p>
 
         <div id="lisence" style="font-weight: bold;">
             <p>本工具仅供仅供抵御网络非法监听和开展网络安全研究使用;</p>
@@ -202,7 +208,7 @@
             }
 
             document.addEventListener('DOMContentLoaded', function () {
-                const agreementText = "本工具仅供仅供抵御网络非法监听和开展网络安全研究使用;\n请遵守符合本地法律要求，不得用于非法用途，否则后果自负。";
+                const agreementText = "本工具仅供仅供抵御网络非法监听和开展网络安全研究使用；\n请遵守符合本地法律要求，不得用于非法用途，否则后果自负。";
                 writeToUserAgreement(agreementText);
             });
 
@@ -215,9 +221,9 @@
             }
 
             const CealHostRulesDict = {};
-            const jsonUrl = 'https://raw.githubusercontent.com/SpaceTimee/Cealing-Host/refs/heads/main/Cealing-Host.json';
+            const jsonUrl = 'https://ghproxy.net/https://raw.githubusercontent.com/SpaceTimee/Cealing-Host/refs/heads/main/Cealing-Host.json';
             function processData(inputValue) {
-                const cealHostName = "CYFM";
+                const cealHostName = "NO";
 
                 try {
                     CealHostRulesDict[cealHostName] = [];
@@ -307,8 +313,8 @@
             window.onload = function () {
                 const googleip = ["2.188.214.157", "91.107.164.5", "188.132.183.152", "49.12.230.233", "209.151.148.106", "82.118.16.109", "185.217.5.3", "190.103.177.131", "185.24.219.130"];
                 const randomIp = googleip[Math.floor(Math.random() * googleip.length)];
-                const defaultData = `[[["*google*","*youtube.com","*.ggpht.com","i.ytimg.com"],"g.cn","CYFM"],[["*github.com"],"","20.200.245.247"],[["*githubusercontent.com"],"","185.199.108.133"]]`;
-                const modifiedData = defaultData.replace('"CYFM"', `"${randomIp}"`);
+                const defaultData = `[[["*google*","*youtube.com"],"g.cn","185.24.219.130"],[["*github.com"],"","20.200.245.247"],[["*githubusercontent.com"],"","185.199.108.133"]]`;
+                const modifiedData = defaultData.replace('"NO"', `"${randomIp}"`);
                 $('#in').val(modifiedData);
                 $('#out').val(processData(JSON.parse(modifiedData)));
                 $('#err').text("默认数据已加载");
