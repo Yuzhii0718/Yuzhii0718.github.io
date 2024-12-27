@@ -1,2 +1,2 @@
 document.addEventListener("page:loaded",(()=>{CONFIG.page.comments&&NexT.utils.loadComments(".utterances-container").then((()=>NexT.utils.getScript("https://utteranc.es/client.js",{attributes:{async:!0,crossOrigin:"anonymous",repo:CONFIG.utterances.repo,"issue-term":CONFIG.utterances.issue_term,theme:CONFIG.utterances.theme},parentNode:document.querySelector(".utterances-container")})))}));
-//# sourceMappingURL=lean-analytics.js.map
+//# sourceMappingURL=firestore.js.map
