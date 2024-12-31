@@ -271,5 +271,5 @@ function eventListenerz() {
 
 window.onload = function () {
     M.init();
-    eventListenerz();
+    // eventListenerz();
 };

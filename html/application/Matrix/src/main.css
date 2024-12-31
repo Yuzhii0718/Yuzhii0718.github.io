@@ -1,7 +1,8 @@
 @import url("http://fonts.googleapis.com/css?family=Carrois+Gothic");
 @font-face {
     font-family: 'matrix-code';
-    src: url('http://neilcarpenter.com/demos/canvas/matrix/font/matrix-code.eot?#iefix') format('embedded-opentype'), url('http://neilcarpenter.com/demos/canvas/matrix/font/matrix-code.woff') format('woff'), url('http://neilcarpenter.com/demos/canvas/matrix/font/matrix-code.ttf') format('truetype'), url('http://neilcarpenter.com/demos/canvas/matrix/font/matrix-code.svg#svgFontName') format('svg');
+    src: url('./matrix-code.eot') format('embedded-opentype'), url('./matrix-code.woff') format('woff'), url('./matrix-code.ttf') format('truetype'), url('./matrix-code.svg') format('svg');
+    /* http://neilcarpenter.com/demos/canvas/matrix/font */
 }
 html,
 body {
