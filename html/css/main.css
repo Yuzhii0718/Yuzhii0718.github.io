@@ -22,6 +22,10 @@ a {
     cursor: url(../images/mouse-arrow/deepin2-dark/Hand.cur), auto;
 }
 
+iframe {
+    border: none;
+}
+
 #container {
     width: 100%;
     height: 81%;

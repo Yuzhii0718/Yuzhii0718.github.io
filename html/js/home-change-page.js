@@ -27,6 +27,7 @@ if (home) {
             iframe.setAttribute('hidden', 'hidden');
             iframe.style.width = '';
             iframe.style.height = '';
+            iframe.style.border = 'none';
         });
         let homeContent = document.getElementById('homecontent');
         if (homeContent) {
