@@ -1,2 +1,2 @@
 let titleTime,favicon=document.querySelector('link[rel="icon"]'),OriginTitle=document.title;document.addEventListener("visibilitychange",(function(){document.hidden?(favicon.href=favicon.dataset.favicon,document.title=" Ciallo~(≧∇≦)ﾉ"+OriginTitle,clearTimeout(titleTime)):(favicon.href=favicon.dataset.favicon,document.title="ヾ(Ő∀Ő3)ノ欢迎回来！"+OriginTitle,titleTime=setTimeout((function(){document.title=OriginTitle}),2e3))})),document.addEventListener("pjax:complete",(function(){favicon=document.querySelector('link[rel="icon"]'),OriginTitle=document.title}));
-//# sourceMappingURL=wavedrom.js.map
+//# sourceMappingURL=livere.js.map
