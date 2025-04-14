@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像工具</title>
+    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link color="#222" href="/images/logo.svg" rel="mask-icon">
+    <link rel="stylesheet" href="src/stylesheets/main.css">
+    <link rel="stylesheet" href="src/stylesheets/universal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="src/stylesheets/ImageCompressionTool.css">
+    <link rel="stylesheet" href="src/stylesheets/ImageFormatConverter.css">
+    <link rel="stylesheet" href="src/stylesheets/ImageResizeTool.css">
+</head>
+
+<body>
+    <!-- Navigation bar start -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">图像工具</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-page="page1">图像裁剪</a></li>
+                <li><a href="#" class="nav-link" data-page="page2">图像压缩</a></li>
+                <li><a href="#" class="nav-link" data-page="page3">图像转换</a></li>
+                <li><a href="#" id="help-btn">帮助</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navigation bar end -->
+
+    <!-- Help start -->
+    <div class="info-section" id="resize-help" style="display: none;">
+        <div class="info-content">
+            <ul>
+                <li><strong>百分比调整</strong>：按原始图片尺寸的百分比进行调整
+                    <ul>
+                        <li>可选择25%、50%、75%等常用比例</li>
+                        <li>自动保持原始宽高比</li>
+                        <li>适合需要等比例缩放的场景</li>
+                    </ul>
+                </li>
+                <li><strong>像素调整</strong>：直接指定目标像素尺寸
+                    <ul>
+                        <li>可选择预设的常用尺寸</li>
+                        <li>自动保持原始宽高比</li>
+                        <li>适合需要特定尺寸的场景</li>
+                    </ul>
+                </li>
+                <li><strong>自定义</strong>：手动输入目标尺寸
+                    <ul>
+                        <li>可自由设置宽度和高度</li>
+                        <li>可选择是否保持宽高比</li>
+                        <li>适合有特殊尺寸要求的场景</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>支持的图片格式</h3>
+            <ul>
+                <li><strong>JPEG/JPG</strong>：适合照片和复杂图像</li>
+                <li><strong>PNG</strong>：适合图标、截图等需要保持清晰边缘的图像</li>
+                <li><strong>BMP</strong>：常见的无压缩位图格式</li>
+                <li><strong>GIF</strong>：支持简单动画的图片格式（注：调整后将失去动画效果）</li>
+            </ul>
+
+            <h3>使用建议</h3>
+            <ol>
+                <li>根据使用场景选择合适的调整模式：
+                    <ul>
+                        <li>网站图片建议使用"百分比调整"模式</li>
+                        <li>社交媒体图片建议使用"像素调整"模式</li>
+                        <li>特殊需求使用"自定义"模式</li>
+                    </ul>
+                </li>
+                <li>调整前请备份原始图片</li>
+                <li>调整后请检查图片质量是否满足需求</li>
+                <li>建议保持原始宽高比，除非有特殊需求</li>
+            </ol>
+        </div>
+    </div>
+    <div class="info-section" id="compress-help" style="display: none;">
+        <div class="info-content">
+            <ul>
+                <li><strong>缩小优先</strong>：适用于需要大幅减小文件大小的场景
+                    <ul>
+                        <li>压缩质量设置为60%</li>
+                        <li>自动限制最大尺寸为1920像素</li>
+                        <li>适合网站图片、邮件附件等场景</li>
+                    </ul>
+                </li>
+                <li><strong>清晰优先</strong>：适用于需要保持较高图片质量的场景
+                    <ul>
+                        <li>压缩质量设置为90%</li>
+                        <li>保持原始尺寸</li>
+                        <li>适合摄影作品、打印图片等场景</li>
+                    </ul>
+                </li>
+                <li><strong>自定义</strong>：根据具体需求自定义压缩参数
+                    <ul>
+                        <li>可调节压缩质量（0-100%）</li>
+                        <li>可设置最大文件大小限制</li>
+                        <li>适合有特定要求的场景</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>支持的图片格式</h3>
+            <ul>
+                <li><strong>JPEG/JPG</strong>：适合照片和复杂图像，支持高压缩率</li>
+                <li><strong>PNG</strong>：适合图标、截图等需要保持清晰边缘的图像</li>
+                <li><strong>BMP</strong>：常见的无压缩位图格式</li>
+                <li><strong>GIF</strong>：支持简单动画的图片格式（注：压缩后将失去动画效果）</li>
+            </ul>
+
+            <h3>使用建议</h3>
+            <ol>
+                <li>根据使用场景选择合适的压缩模式：
+                    <ul>
+                        <li>网站图片建议使用"缩小优先"模式</li>
+                        <li>重要图片建议使用"清晰优先"模式</li>
+                        <li>特殊需求使用"自定义"模式</li>
+                    </ul>
+                </li>
+                <li>压缩前请备份原始图片</li>
+                <li>压缩后请检查图片质量是否满足需求</li>
+                <li>对于大尺寸图片，建议先调整尺寸再进行压缩</li>
+            </ol>
+        </div>
+    </div>
+    <div class="info-section" id="convert-help" style="display: none;">
+        <div class="info-content">
+            <h3>支持的格式</h3>
+            <ul>
+                <li><strong>JPEG/JPG</strong>
+                    <ul>
+                        <li>适合照片和复杂图像</li>
+                        <li>支持质量调整（0-100%）</li>
+                        <li>有损压缩，文件较小</li>
+                    </ul>
+                </li>
+                <li><strong>PNG</strong>
+                    <ul>
+                        <li>适合图标、截图等需要保持清晰边缘的图像</li>
+                        <li>支持透明度</li>
+                        <li>无损压缩，文件较大</li>
+                    </ul>
+                </li>
+                <li><strong>WebP</strong>
+                    <ul>
+                        <li>现代高效的图片格式</li>
+                        <li>支持有损和无损压缩</li>
+                        <li>文件大小比JPEG和PNG更小</li>
+                    </ul>
+                </li>
+                <li><strong>BMP</strong>
+                    <ul>
+                        <li>无压缩位图格式</li>
+                        <li>保持原始图像质量</li>
+                        <li>文件较大</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>使用建议</h3>
+            <ol>
+                <li>根据使用场景选择合适的格式：
+                    <ul>
+                        <li>照片使用JPEG格式</li>
+                        <li>需要透明度的图片使用PNG格式</li>
+                        <li>网页图片优先使用WebP格式</li>
+                        <li>需要原始质量的图片使用BMP格式</li>
+                    </ul>
+                </li>
+                <li>转换前请备份原始图片</li>
+                <li>注意不同格式的特点和限制</li>
+                <li>合理设置图片质量以平衡文件大小和图片质量</li>
+            </ol>
+        </div>
+    </div>
+    <!-- Help end -->
+
+    <!-- Content start -->
+    <div class="content">
+        <div class="converter-container">
+            <div class="file-drop-zone" id="dropZone">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p class="zh-text">拖放图片到这里或点击选择文件</p>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;" wfd-id="id0">
+            </div>
+        </div>
+
+        <!-- Image resize tool satrt -->
+        <div id="page1" class="page active">
+            <div id="resize-box">
+                <div class="options resize-options">
+                    <div class="process-option resize-option active" data-mode="percentage">
+                        <span class="zh-text">百分比调整</span>
+                    </div>
+                    <div class="process-option resize-option" data-mode="pixels">
+                        <span class="zh-text">像素调整</span>
+                    </div>
+                    <div class="process-option resize-option" data-mode="custom">
+                        <span class="zh-text">自定义</span>
+                    </div>
+                </div>
+
+                <div class="panel settings-panel percentage" id="percentagePanel" style="display: none;">
+                    <div class="settings-group">
+                        <label class="zh-text">缩放比例：</label>
+                        <select id="percentageSelect" class="form-select">
+                            <option value="15">15%</option>
+                            <option value="25">25%</option>
+                            <option value="25">33%</option>
+                            <option value="50">50%</option>
+                            <option value="75">75%</option>
+                            <option value="90" selected>90%</option>
+                            <option value="100">100%</option>
+                        </select>
+                        <div class="custom-percentage">
+                            <label class="zh-text">自定义百分比：</label>
+                            <input type="number" id="percentageInput" min="1" max="200" value="90" class="form-select">
+                            %
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel settings-panel pixels" id="pixelsPanel" style="display: none;">
+                    <div class="settings-group">
+                        <label class="zh-text">预设尺寸：</label>
+                        <select id="pixelsSelect" class="form-select">
+                            <option value="800">800px 宽度</option>
+                            <option value="1024">1024px 宽度</option>
+                            <option value="1280">1280px 宽度</option>
+                            <option value="1920">1920px 宽度</option>
+                            <option value="3840">3840px 宽度 (4K)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="panel settings-panel custom" id="customPanel">
+                    <div class="settings-group">
+                        <label class="zh-text">宽度：</label>
+                        <input type="number" id="width" min="1" value="800" wfd-id="id1" class="form-select"> px
+                    </div>
+                    <div class="settings-group">
+                        <label class="zh-text">高度：</label>
+                        <input type="number" id="height" min="1" value="600" wfd-id="id2" class="form-select"> px
+                    </div>
+                    <div class="settings-group">
+                        <label class="zh-text">保持比例：</label>
+                        <input type="checkbox" id="maintainAspect" checked="" wfd-id="id3">
+                    </div>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" id="resizeBtn" disabled="" onclick="resizeImage()">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                    <span class="zh-text">调整尺寸</span>
+                </button>
+            </div>
+        </div>
+        <!-- Image resize tool end -->
+
+        <!-- Image compression tool start -->
+        <div id="page2" class="page">
+            <div id="compress-box">
+                <div class="options compression-options">
+                    <div class="process-option compression-option active" data-mode="size">
+                        <span class="zh-text">缩小优先</span>
+                    </div>
+                    <div class="process-option compression-option" data-mode="quality">
+                        <span class="zh-text">清晰优先</span>
+                    </div>
+                    <div class="process-option compression-option" data-mode="custom">
+                        <span class="zh-text">自定义</span>
+                    </div>
+                </div>
+
+                <div class="panel settings-panel custom" id="settingsPanel">
+                    <div class="settings-group">
+                        <label class="zh-text">压缩质量：</label>
+                        <input type="range" id="compressQualitySlider" min="0" max="100" value="80" wfd-id="id1">
+                        <span id="compressQualityValue">80%</span>
+                    </div>
+                    <div class="settings-group">
+                        <label class="zh-text">最大尺寸：</label>
+                        <input type="number" id="maxSize" value="1024" min="1" wfd-id="id2" class="form-select"> KB
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" id="compressBtn" disabled="" onclick="compressImage()">
+                    <i class="fas fa-compress-alt"></i>
+                    <span class="zh-text">压缩图片</span>
+                </button>
+            </div>
+        </div>
+        <!-- Image compression tool end -->
+
+        <!-- Image format converter tool start -->
+        <div id="page3" class="page">
+            <div id="covert-box">
+                <div class="options format-options">
+                    <div class="process-option format-option active" data-format="jpeg">
+                        <i class="fas fa-file-image"></i>
+                        <span class="zh-text">JPEG</span>
+                    </div>
+                    <div class="process-option format-option" data-format="png">
+                        <i class="fas fa-file-image"></i>
+                        <span class="zh-text">PNG</span>
+                    </div>
+                    <div class="process-option format-option" data-format="webp">
+                        <i class="fas fa-file-image"></i>
+                        <span class="zh-text">WebP</span>
+                    </div>
+                    <div class="process-option format-option" data-format="bmp">
+                        <i class="fas fa-file-image"></i>
+                        <span class="zh-text">BMP</span>
+                    </div>
+                    <div class="process-option format-option" data-format="gif">
+                        <i class="fas fa-file-image"></i>
+                        <span class="zh-text">GIF</span>
+                    </div>
+                    <div class="process-option format-option" data-format="tiff">
+                        <i class="fas fa-file-image"></i>
+                        <span class="zh-text">TIFF</span>
+                    </div>
+                    <div class="process-option format-option" data-format="ico">
+                        <i class="fas fa-file-image"></i>
+                        <span class="zh-text">ICO</span>
+                    </div>
+                    <div class="settings-group">
+                        <label class="zh-text">图片质量：</label>
+                        <input type="range" id="convertQualitySlider" class="quality-slider" min="0" max="100"
+                            value="90" wfd-id="id1">
+                        <span id="convertQualityValue">90%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" id="convertBtn" disabled="" onclick="convertImage()">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span class="zh-text">转换格式</span>
+                </button>
+            </div>
+        </div>
+        <!-- Image format converter tool end -->
+
+        <!-- Function button start -->
+        <div class="button-group">
+            <button class="btn btn-secondary" id="downloadBtn" disabled="">
+                <i class="fas fa-download"></i>
+                <span class="zh-text">下载图片</span>
+            </button>
+            <button class="btn btn-secondary" id="clearBtn" disabled="">
+                <i class="fas fa-trash-alt"></i>
+                <span class="zh-text">清除</span>
+            </button>
+        </div>
+        <!-- Function button end -->
+    </div>
+    <!-- Content end -->
+
+    <!-- Preview start -->
+    <div class="preview-container" id="previewContainer">
+        <div id="info-box">
+            <div class="image-info" id="imageInfo"></div>
+        </div>
+        <h3 class="zh-text">预览</h3>
+        <img id="preview" alt="预览">
+    </div>
+    <!-- Preview end -->
+
+    <!-- Tool-elements start -->
+    <div id="notification" class="notification"></div>
+    <span id="method" style="display: none;" hidden></span>
+    <!-- Tool-elements end -->
+
+    <!-- Modal start -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">帮助</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- 这里将显示当前页面的帮助内容 -->
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+
+    <!-- js start -->
+    <script>
+        // 页面切换逻辑
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // 移除所有导航链接的激活状态
+                    navLinks.forEach(item => item.classList.remove('active'));
+
+                    // 给当前点击的导航链接添加激活状态
+                    link.classList.add('active');
+
+                    // 获取要显示的页面ID
+                    const pageId = link.getAttribute('data-page');
+
+                    // 隐藏所有页面
+                    pages.forEach(page => page.classList.remove('active'));
+
+                    // 显示当前选中的页面
+                    document.getElementById(pageId).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+    <script src="src/javascripts/showNotification.js"></script>
+    <script src="src/javascripts/main.js"></script>
+    <script src="src/javascripts/ImageResizeTool.js"></script>
+    <script src="src/javascripts/ImageCompressionTool.js"></script>
+    <script src="src/javascripts/ImageFormatConverter.js"></script>
+    <!-- js end -->
+
+</body>
+
+</html>

@@ -37,8 +37,8 @@
     </app>
     <app>
         <id>app6</id>
-        <url>https://www.chaip.org/</url>
-        <name>IP检查</name>
+        <url>application/CodeInWord/CodeInWord.html</url>
+        <name>Word代码高亮</name>
         <tag>工具</tag>
         <newpage>1</newpage>
     </app>
@@ -51,9 +51,9 @@
     </app>
     <app>
         <id>app8</id>
-        <url>javascript:void(0);</url>
-        <name>敬请期待</name>
-        <tag>暂未开放</tag>
-        <newpage>0</newpage>
+        <url>application/imageTools/index.html</url>
+        <name>图像处理</name>
+        <tag>工具</tag>
+        <newpage>1</newpage>
     </app>
 </apps>

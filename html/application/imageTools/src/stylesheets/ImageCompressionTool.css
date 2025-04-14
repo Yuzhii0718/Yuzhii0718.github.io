@@ -1,0 +1,12 @@
+.settings-panel {
+    display: none;
+}
+
+.settings-panel.custom {
+    display: block;
+}
+
+.settings-group input[type="range"] {
+    flex: 1;
+    max-width: 300px;
+}
