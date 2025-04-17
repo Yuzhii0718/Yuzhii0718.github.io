@@ -4,9 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- description and keywords -->
-    <meta name="description" content="图像工具 - 图像裁剪、压缩、转换">
-    <meta name="keywords" content="图像工具, 图像裁剪, 图像压缩, 图像转换,格式转换, 图片处理">
     <title>图像工具</title>
     <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
     <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
@@ -192,6 +189,16 @@
                 <i class="fas fa-cloud-upload-alt"></i>
                 <p class="zh-text">拖放图片到这里或点击选择文件</p>
                 <input type="file" id="fileInput" accept="image/*" style="display: none;" wfd-id="id0">
+
+                <!-- Preview start -->
+                <div class="preview-container" id="previewContainer">
+                    <h3 class="zh-text">预览</h3>
+                    <img id="preview" alt="预览">
+                    <div id="info-box">
+                        <div class="image-info" id="imageInfo"></div>
+                    </div>
+                </div>
+                <!-- Preview end -->
             </div>
         </div>
 
@@ -367,16 +374,6 @@
         <!-- Function button end -->
     </div>
     <!-- Content end -->
-
-    <!-- Preview start -->
-    <div class="preview-container" id="previewContainer">
-        <div id="info-box">
-            <div class="image-info" id="imageInfo"></div>
-        </div>
-        <h3 class="zh-text">预览</h3>
-        <img id="preview" alt="预览">
-    </div>
-    <!-- Preview end -->
 
     <!-- Tool-elements start -->
     <div id="notification" class="notification"></div>

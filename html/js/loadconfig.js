@@ -40,6 +40,11 @@ fetch('/html/common/config.json')
             text: data.facebook.text,
             url: data.facebook.url
         };
+        // 点击email
+        window.clickemail = {
+            text: data.email,
+            url: data.click_email.url
+        };
         // 文字内容
         window.sbp1 = data.sbp1.text;
         window.sbp2 = data.sbp2.text;
@@ -78,7 +83,7 @@ document.addEventListener('configLoaded', function () {
     updateInnerHTML('version', window.Version);
     updateInnerHTML('year', window.Year);
     updateInnerHTML('author', window.author);
-    updateInnerHTML('email', window.email);
+    // updateInnerHTML('email', window.email);
     updateInnerHTML('sbp1', window.sbp1);
     updateInnerHTML('sbp2', window.sbp2);
     updateInnerHTML('sbs1', window.sbs1);
@@ -102,6 +107,7 @@ document.addEventListener('configLoaded', function () {
     updateLink('twitter', window.twitter.text, window.twitter.url);
     updateLink('v2ex', window.v2ex.text, window.v2ex.url);
     updateLink('facebook', window.facebook.text, window.facebook.url);
+    updateLink('email', window.clickemail.text, window.clickemail.url);
 
     // 更新标题
     if (document.getElementsByTagName('title')[0]) {
