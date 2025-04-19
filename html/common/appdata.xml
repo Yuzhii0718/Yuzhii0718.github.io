@@ -32,21 +32,21 @@
         <id>app5</id>
         <url>application/ShuangPin/index.html</url>
         <name>双拼</name>
-        <tag>工具</tag>
+        <tag>练习</tag>
         <newpage>1</newpage>
     </app>
     <app>
         <id>app6</id>
         <url>application/CodeInWord/CodeInWord.html</url>
-        <name>Word代码高亮</name>
-        <tag>工具</tag>
+        <name>代码高亮</name>
+        <tag>Word工具</tag>
         <newpage>1</newpage>
     </app>
     <app>
         <id>app7</id>
         <url>application/snibypass.html</url>
         <name>snibypass</name>
-        <tag>工具</tag>
+        <tag>网络安全</tag>
         <newpage>1</newpage>
     </app>
     <app>
