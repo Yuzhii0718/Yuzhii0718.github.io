@@ -123,18 +123,17 @@ document.addEventListener('configLoaded', function () {
             element.href = href;
         }
     }
+});
 
-    // 监听自定义事件
-    document.addEventListener('configLoaded', function () {
-        // 更新彩蛋
-        if (document.getElementById('easteregg')) {
-            // <button type="button" ${value} ${js}>text</button>
-            let element = document.getElementById('easteregg');
-            element.innerHTML += `
-            <button type="button" ${window.easteregg.value} ${window.easteregg.js}>${window.easteregg.text}</button>
-        `;
-        }
+// 监听自定义事件
+document.addEventListener('configLoaded', function () {
+    // 更新彩蛋
+    if (document.getElementById('easteregg')) {
+        let element = document.getElementById('easteregg');
+        element.innerHTML += `
+        <a ${window.easteregg.value} ${window.easteregg.js}>${window.easteregg.text}</a>
+    `;
+    }
 
-        console.log('configLoaded event dispatched');
-    });
+    console.log('configLoaded event dispatched');
 });

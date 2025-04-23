@@ -62,7 +62,7 @@ a {
     color: #fff;
 }
 
-#info, #about {
+#home, #info, #about {
     display: none;
 }
 
@@ -111,6 +111,10 @@ a {
 
 #content-box-2 {
     padding: 20rem 0 30rem 30%;
+}
+
+#appcenter {
+    display: none;
 }
 
 .content-app {
