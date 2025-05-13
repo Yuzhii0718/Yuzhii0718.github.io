@@ -1,2 +1,24 @@
-const imageCiallo=["\t ██████╗██╗ █████╗ ██╗     ██╗      ██████╗     ██╗    ","\t██╔════╝██║██╔══██╗██║     ██║     ██╔═══██╗    ██║    ","\t██║     ██║███████║██║     ██║     ██║   ██║    ██║    ","\t██║     ██║██╔══██║██║     ██║     ██║   ██║    ╚═╝    ","\t╚██████╗██║██║  ██║███████╗███████╗╚██████╔╝    ██╗    ","\t ╚═════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝     ╚═╝    ","                     Ciallo~(∠・ω< )⌒★ !                ","\t\t\t\t\t  欢迎来到 Yuzhii 的博客\t\t\t\t"];console.log(imageCiallo.join("\n"));const Yuzhii_VERSION="3.2.2-NEO",Yuzhii_UPDATE="250508",Yuzhii_LINK="https://yuzhii0718.eu.org",CoreVersion=[" [HEXO_VERSION] = "," [NEXT_THEME_VERSION] = "];console.log("\n %c Yuzhii v3.2.2-NEO-250508 %c "+Yuzhii_LINK+" \n","color: #fadfa3; background: #030307; padding:5px 0;","background: #fadfa3; padding:5px 0;");
-//# sourceMappingURL=wavedrom.js.map
+const imageCiallo = [
+	'	 ██████╗██╗ █████╗ ██╗     ██╗      ██████╗     ██╗    ',
+	'	██╔════╝██║██╔══██╗██║     ██║     ██╔═══██╗    ██║    ',
+	'	██║     ██║███████║██║     ██║     ██║   ██║    ██║    ',
+	'	██║     ██║██╔══██║██║     ██║     ██║   ██║    ╚═╝    ',
+	'	╚██████╗██║██║  ██║███████╗███████╗╚██████╔╝    ██╗    ',
+	'	 ╚═════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝     ╚═╝    ',
+	'                     Ciallo~(∠・ω< )⌒★ !                ',
+	'					  欢迎来到 Yuzhii 的博客				',
+];
+
+console.log(imageCiallo.join('\n'));
+
+const Yuzhii_VERSION = '3.2.2-NEO';
+const Yuzhii_UPDATE = '250508';
+const Yuzhii_LINK = 'https://yuzhii0718.eu.org';
+const CoreVersion = [
+	' [HEXO_VERSION] = ',
+	' [NEXT_THEME_VERSION] = ',
+];
+
+console.log('\n' + ' %c Yuzhii v' + Yuzhii_VERSION + '-' + Yuzhii_UPDATE + ' %c ' + Yuzhii_LINK + ' ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
+
+// console.log(CoreVersion.join('\n'));

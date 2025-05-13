@@ -1,2 +1,10 @@
-!function(){const t=document.querySelector(".sidebar-button button");t&&t.addEventListener("click",(()=>{tidioChatApi.open()}))}();
-//# sourceMappingURL=wavedrom.js.map
+/* global tidioChatApi */
+
+(function() {
+  const chatButton = document.querySelector('.sidebar-button button');
+  if (chatButton) {
+    chatButton.addEventListener('click', () => {
+      tidioChatApi.open();
+    });
+  }
+})();
