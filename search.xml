@@ -9,36 +9,107 @@
 <style>
 .welcome {
   text-align: center;
-  font-size: 24px;
-  color: #333;
-  margin: 20px;
 }
 .welcome p {
-  font-size: 18px;
+  font-size: 24px;
   color: #666;
   margin-top: 10px;
   font-style: italic;
-  font-family: 'Arial', sans-serif;
-  line-height: 1.5;
-}
-.welcome p {
-  color: #007BFF;
-  text-decoration: none;
+  font-family: 'Cinzel Decorative', sans-serif;
+  transition: all 0.2s ease;
 }
 .welcome p:hover {
-  text-decoration: underline;
-}
-.welcome p:visited {
-  color: #0056b3;
-}
-.welcome p:active {
-  color: #004085;
-}
-.welcome p:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    font-size: 28px;
+    color: #4a6cf7;
 }
 </style>
+<style>
+:root {
+  /* 颜色变量 */
+  --primary-color: #4a6cf7;
+  --primary-hover: #3151e4;
+  --text-color: #333;
+  --background: #f9f9f9;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* 动画时间 */
+  --transition-speed: 0.3s;
+}
+
+/* 卡片容器 */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* 卡片样式 */
+.card {
+  width: 300px;
+  padding: 25px;
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: all var(--transition-speed) ease-in-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 鼠标悬停动画效果 */
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+/* 卡片标题 */
+.card-title {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--text-color);
+  position: relative;
+  transition: color var(--transition-speed);
+}
+
+.card:hover .card-title {
+  color: var(--primary-color);
+}
+
+/* 卡片标题下划线动画 */
+.card-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width var(--transition-speed) ease;
+}
+
+.card:hover .card-title::after {
+  width: 50px;
+}
+
+/* 卡片内容 */
+.card-content {
+  color: #666;
+  font-size: 0.95rem;
+}
+</style>
+<!-- <div class="card">
+    <h2 class="card-title">项目展示</h2>
+    <p class="card-content">
+    您可以将这些动画效果应用于您的网站中的各种元素，
+    为用户提供更好的交互体验和视觉反馈。
+    </p>
+    <a href="#" class="btn">查看项目</a>
+</div> -->
 ]]></content>
   </entry>
   <entry>
