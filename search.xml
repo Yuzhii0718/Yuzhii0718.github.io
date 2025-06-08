@@ -569,6 +569,234 @@
       </tags>
   </entry>
   <entry>
+    <title>利用 Cisco Packet Tracer 进行组网实验 1</title>
+    <url>/2024/11/10/2/</url>
+    <content><![CDATA[<h2 id="安装和汉化">安装和汉化</h2>
+<ol>
+<li class="lvl-3">下载安装包官网下载地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cubmV0YWNhZC5jb20vemgtY24vYWJvdXQvY29udGFjdC11cy9wYWNrZXQtdHJhY2Vy">Cisco Packet Tracer<i class="fa fa-external-link-alt"></i></span></li>
+<li class="lvl-3">安装</li>
+<li class="lvl-3">汉化</li>
+</ol>
+<p><img alt="Network Knowledge" src="https://www.netacad.com/sfa-assets/images/svg/netacad_logo_black.svg" decoding="async" width="128" height="128"></p>这个思科的模拟器，我制作了相关汉化<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1l1emhpaTA3MTgvQ2lzY28tUGFja2V0LVRyYWNlci1DaGluZXNl">Cisco-Packet-Tracer-Chinese<i class="fa fa-external-link-alt"></i></span>
+<p>遵循项目中的 <code>README.md</code> 进行操作即可。</p>
+<h2 id="组建对等网">组建对等网</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>画出基本的网络拓扑，然后进行配置。</p>
+<p>放置一台 <code>2950-24</code> 交换机，两台 <code>PT-PC</code><br>
+使用铜直通线连接交换机和电脑</p>
+<p><img src="./%E7%BB%84%E5%BB%BA%E5%AF%B9%E7%AD%89%E7%BD%91.png" alt></p>
+</li>
+<li class="lvl-2">
+<p>在配置页面配置 PC IP 地址</p>
+<p>分别为192.168.2.1/192.168.2.2/192.168.2.3</p>
+</li>
+<li class="lvl-2">
+<p>ping 测试</p>
+<p>在 PC1 中 ping PC2 和 PC3，查看是否能够通信</p>
+</li>
+</ul>
+<p>常见思科交换机命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span> <span class="comment"># 进入特权模式</span></span><br><span class="line">config -t <span class="comment"># 进入全局配置模式 -t 表示进入特定模式</span></span><br><span class="line">int f0/1 <span class="comment"># 进入接口配置模式</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 退出当前模式</span></span><br></pre></td></tr></table></figure>
+<h2 id="跨交换机VLAN通信">跨交换机VLAN通信</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>画出基本的网络拓扑，然后进行配置。</p>
+<p>放置2台 <code>2950-24</code> 交换机，4台 <code>PT-PC</code><br>
+<code>PC1</code> 和 <code>PC2</code> 连接到 <code>Switch0</code>，<code>PC3</code> 和 <code>PC4</code> 连接到 <code>Switch1</code><br>
+<code>PC</code> 与 <code>Switch</code> 之间使用铜直通线连接<br>
+<code>Switch</code> 之间使用交叉线连接</p>
+<p><img src="./%E8%B7%A8%E4%BA%A4%E6%8D%A2%E6%9C%BAVLAN%E9%80%9A%E4%BF%A1.png" alt></p>
+</li>
+<li class="lvl-2">
+<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
+<p><code>PC0</code> 为 <code>192.168.2.1</code><br>
+<code>PC1</code> 为 <code>192.168.3.1</code><br>
+<code>PC2</code> 为 <code>192.168.2.2</code><br>
+<code>PC3</code> 为 <code>192.168.3.2</code></p>
+</li>
+<li class="lvl-2">
+<p>ping 测试</p>
+<p>在 <code>PC0</code> 中 ping <code>PC1</code> 和 <code>PC2</code>，查看是否能够通信</p>
+</li>
+<li class="lvl-2">
+<p>配置 <code>VLAN</code></p>
+<p>两台交换机分别配置 <code>VLAN</code>，并将 <code>PC</code> 分配到不同的 <code>VLAN</code> 中</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">int f0/1</span><br><span class="line">switchport mode access <span class="comment"># 设置端口模式为访问模式</span></span><br><span class="line">switchport access vlan 10 <span class="comment"># 设置端口所属的 VLAN</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">int f0/2</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 20</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>配置 <code>Trunk</code> 端口</p>
+<p>两台交换机之间的连接端口配置为 <code>Trunk</code> 端口</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">int f0/3</span><br><span class="line">switchport mode trunk</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有没有配置成功可以在图形界面上查看端口</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p>ping 测试</p>
+<p>在 <code>PC0</code> 中 ping <code>PC2</code>，查看是否能够通信在 <code>PC1</code> 中 ping <code>PC3</code>，查看是否能够通信</p>
+</li>
+<li class="lvl-2">
+<p>模拟测试</p>
+<p>在 <code>PC0</code> 中使用 <code>ping</code> 命令，在模拟器中查看数据包的传输过程（仅查看 ICMP 以提升效率）</p>
+</li>
+</ul>
+<blockquote>
+<p>trunk 端口是用来连接两台交换机的，可以传输多个 VLAN 的数据，而 access 端口只能传输一个 VLAN 的数据。</p>
+</blockquote>
+<h2 id="路由器和网关">路由器和网关</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>画出基本的网络拓扑，然后进行配置。</p>
+<p>放置1台 <code>1841-Router</code>，2台 <code>PT-PC</code><br>
+<code>PC0</code> 和 <code>PC1</code> 使用铜交叉线连接到 <code>Router</code></p>
+<p><img src="./%E8%B7%AF%E7%94%B1%E5%99%A8%E5%92%8C%E7%BD%91%E5%85%B3.png" alt></p>
+</li>
+<li class="lvl-2">
+<p>配置 <code>Router</code> 的 <code>IP</code> 地址</p>
+<p>FastEthernet0/0 为 <code>192.168.2.1</code><br>
+FastEthernet0/1 为 <code>192.168.3.1</code></p>
+</li>
+<li class="lvl-2">
+<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
+<p><code>PC0</code> 为 <code>192.168.2.2</code><br>
+<code>PC1</code> 为 <code>192.168.3.2</code></p>
+</li>
+<li class="lvl-2">
+<p>配置 <code>PC</code> 的 网关</p>
+<p><code>PC0</code> 的网关为 <code>192.168.2.1</code><br>
+<code>PC1</code> 的网关为 <code>192.168.3.1</code></p>
+</li>
+<li class="lvl-2">
+<p>ping 测试在 <code>PC0</code> 中 ping <code>PC1</code>，查看是否能够通信</p>
+</li>
+</ul>
+<blockquote>
+<p>路由器是用来连接不同网络的设备，可以实现不同网络之间的通信。网关(Gateway)是用来连接不同网络的设备，可以实现不同网络之间的通信。</p>
+</blockquote>
+<h2 id="单臂路由">单臂路由</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>画出基本的网络拓扑，然后进行配置。</p>
+<p>放置一台 <code>2950-24</code> 交换机，两台 <code>PT-PC</code><br>
+使用铜直通线连接交换机和电脑</p>
+<p><img src="./%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1.png" alt></p>
+<p>PC0 连接到 <code>Switch0</code> 的 <code>f0/1</code> 端口<br>
+PC1 连接到 <code>Switch0</code> 的 <code>f0/2</code> 端口<br>
+<code>Switch0</code> 的 <code>f0/3</code> 端口连接到 <code>Router0</code> 的 <code>f0/0</code> 端口</p>
+</li>
+<li class="lvl-2">
+<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
+<p>PC0: 192.168.1.1/24 网关 192.168.1.2<br>
+PC1: 192.168.2.1/24 网关 192.168.2.2</p>
+</li>
+<li class="lvl-2">
+<p>交换机划分 VLAN</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">vlan 10</span><br><span class="line">name vlan10</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">vlan 20</span><br><span class="line">name vlan20</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 10</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/2</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 20</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/3</span><br><span class="line">switchport mode trunk</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>配置路由</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">int f0/0</span><br><span class="line">no shutdown</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/0.1</span><br><span class="line">encapsulation dot1Q 10</span><br><span class="line">ip address 192.168.1.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/0.2</span><br><span class="line">encapsulation dot1Q 20</span><br><span class="line">ip address 192.168.2.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ip routing</span><br><span class="line">show ip route</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>模拟模式中使用 IMCP 协议进行 ping 测试</p>
+<p>PC0 ping<br>
+PC1 ping</p>
+</li>
+<li class="lvl-2">
+<p>实体环境中测试</p>
+</li>
+</ul>
+<h2 id="多层交换机路由">多层交换机路由</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>画出基本的网络拓扑，然后进行配置。</p>
+<p>放置两台 <code>PT-PC</code>，1台 <code>3560-24PS</code> 多层交换机使用铜直通线连接交换机和电脑</p>
+<p><img src="./%E5%A4%9A%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%B7%AF%E7%94%B1.png" alt></p>
+<p>PC0 连接到 <code>MultilayerSwitch0</code> 的 <code>f0/1</code> 端口<br>
+PC1 连接到 <code>MultilayerSwitch0</code> 的 <code>f0/2</code> 端口</p>
+</li>
+<li class="lvl-2">
+<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
+<p>PC0: 192.168.1.1/24 网关 192.168.1.2<br>
+PC1: 192.168.2.1/24 网关 192.168.2.2</p>
+</li>
+<li class="lvl-2">
+<p><code>MultilayerSwitch0</code> 配置</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">int f0/1</span><br><span class="line">no switchport</span><br><span class="line">ip address 192.168.1.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/2</span><br><span class="line">no switchport</span><br><span class="line">ip address 192.168.2.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ip routing</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">show ip route</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>模拟模式中使用 IMCP 协议进行 ping 测试</p>
+<p>PC0 ping<br>
+PC1 ping</p>
+</li>
+<li class="lvl-2">
+<p>实体环境中测试</p>
+</li>
+</ul>
+<h2 id="静态NAT配置">静态NAT配置</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>画出基本的网络拓扑，然后进行配置。</p>
+<p>放置一台 <code>1841</code> 路由器，3台 <code>PT-PC</code>，1台 <code>2950-24</code> 交换机使用铜交叉线连接 <code>Router0</code> 和 <code>PC0</code><br>
+使用铜直通线连接 <code>Switch0</code> 和 <code>PC1</code>, <code>PC2</code></p>
+<p><img src="./%E9%9D%99%E6%80%81NAT%E9%85%8D%E7%BD%AE.png" alt></p>
+<p>PC0 连接到 <code>Router0</code> 的 <code>f0/0</code> 端口<br>
+PC1 连接到 <code>Switch0</code> 的 <code>f0/2</code> 端口<br>
+PC1 连接到 <code>Switch0</code> 的 <code>f0/3</code> 端口<br>
+<code>Switch0</code> 的 <code>f0/1</code> 端口连接到 <code>Router0</code> 的 <code>f0/1</code> 端口</p>
+</li>
+<li class="lvl-2">
+<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
+<p>PC0: 20.20.20.1 网关 20.20.20.2<br>
+PC1: 192.168.2.1 网关 192.168.2.2<br>
+PC2: 192.168.3.1 网关 192.168.3.2</p>
+</li>
+<li class="lvl-2">
+<p>交换机划分 VLAN</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">vlan 10</span><br><span class="line">name vlan10</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">vlan 20</span><br><span class="line">name vlan20</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1</span><br><span class="line">switchport mode trunk</span><br><span class="line">int f0/2</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 10</span><br><span class="line">int f0/3</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 20</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>配置路由</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">int f0/0</span><br><span class="line">ip address 20.20.20.2</span><br><span class="line">no shutdown</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1</span><br><span class="line">no shutdown</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1.1</span><br><span class="line">encapsulation dot1Q 10</span><br><span class="line">ip address 192.168.2.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1.2</span><br><span class="line">encapsulation dot1Q 20</span><br><span class="line">ip address 192.168.3.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ip routing</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>在路由器配置静态NAT</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">int f0/0</span><br><span class="line">ip nat outside</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1</span><br><span class="line">ip nat inside</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ip nat inside <span class="built_in">source</span> static 192.168.2.1 20.20.20.3</span><br><span class="line">ip nat inside <span class="built_in">source</span> static 192.168.3.1 20.20.20.4</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">show ip nat translations</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>测试</p>
+<p>在内网任意一台 <code>PC</code> 上 ping 外网 <code>PC0</code></p>
+</li>
+</ul>
+<h2 id="注意事项1">注意事项1</h2>
+<ol>
+<li class="lvl-3">
+<p>交换机的 <code>Trunk</code> 端口用于连接两台交换机，可以传输多个 <code>VLAN</code> 的数据。</p>
+</li>
+<li class="lvl-3">
+<p>交换机的 <code>Access</code> 端口用于连接 <code>PC</code>，只能传输一个 <code>VLAN</code> 的数据。</p>
+</li>
+<li class="lvl-3">
+<p>通常，路由器的端口默认是关闭的，需要手动打开。</p>
+</li>
+<li class="lvl-3">
+<p>静态路由是在路由器上手动配置的路由，用于指定到达目的网络的下一跳地址。</p>
+</li>
+<li class="lvl-3">
+<p>NAT 配置时，<code>inside</code> 表示内网，<code>outside</code> 表示外网</p>
+</li>
+<li class="lvl-3">
+<p>配置 <code>NAT</code> 时，<code>inside</code> 的 <code>IP</code> 地址是内网 <code>IP</code> 地址，<code>outside</code> 的 <code>IP</code> 地址是外网 <code>IP</code> 地址</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Network</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS3 动画专题(下)</title>
     <url>/2023/10/19/2/</url>
     <content><![CDATA[<div class="note warning"><p>如果看不见内嵌网页或者连接错误，请刷新。</p>
@@ -805,234 +1033,6 @@
       <tags>
         <tag>学习笔记</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>利用 Cisco Packet Tracer 进行组网实验 1</title>
-    <url>/2024/11/10/2/</url>
-    <content><![CDATA[<h2 id="安装和汉化">安装和汉化</h2>
-<ol>
-<li class="lvl-3">下载安装包官网下载地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cubmV0YWNhZC5jb20vemgtY24vYWJvdXQvY29udGFjdC11cy9wYWNrZXQtdHJhY2Vy">Cisco Packet Tracer<i class="fa fa-external-link-alt"></i></span></li>
-<li class="lvl-3">安装</li>
-<li class="lvl-3">汉化</li>
-</ol>
-<p><img alt="Network Knowledge" src="https://www.netacad.com/sfa-assets/images/svg/netacad_logo_black.svg" decoding="async" width="128" height="128"></p>这个思科的模拟器，我制作了相关汉化<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1l1emhpaTA3MTgvQ2lzY28tUGFja2V0LVRyYWNlci1DaGluZXNl">Cisco-Packet-Tracer-Chinese<i class="fa fa-external-link-alt"></i></span>
-<p>遵循项目中的 <code>README.md</code> 进行操作即可。</p>
-<h2 id="组建对等网">组建对等网</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>画出基本的网络拓扑，然后进行配置。</p>
-<p>放置一台 <code>2950-24</code> 交换机，两台 <code>PT-PC</code><br>
-使用铜直通线连接交换机和电脑</p>
-<p><img src="./%E7%BB%84%E5%BB%BA%E5%AF%B9%E7%AD%89%E7%BD%91.png" alt></p>
-</li>
-<li class="lvl-2">
-<p>在配置页面配置 PC IP 地址</p>
-<p>分别为192.168.2.1/192.168.2.2/192.168.2.3</p>
-</li>
-<li class="lvl-2">
-<p>ping 测试</p>
-<p>在 PC1 中 ping PC2 和 PC3，查看是否能够通信</p>
-</li>
-</ul>
-<p>常见思科交换机命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span> <span class="comment"># 进入特权模式</span></span><br><span class="line">config -t <span class="comment"># 进入全局配置模式 -t 表示进入特定模式</span></span><br><span class="line">int f0/1 <span class="comment"># 进入接口配置模式</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 退出当前模式</span></span><br></pre></td></tr></table></figure>
-<h2 id="跨交换机VLAN通信">跨交换机VLAN通信</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>画出基本的网络拓扑，然后进行配置。</p>
-<p>放置2台 <code>2950-24</code> 交换机，4台 <code>PT-PC</code><br>
-<code>PC1</code> 和 <code>PC2</code> 连接到 <code>Switch0</code>，<code>PC3</code> 和 <code>PC4</code> 连接到 <code>Switch1</code><br>
-<code>PC</code> 与 <code>Switch</code> 之间使用铜直通线连接<br>
-<code>Switch</code> 之间使用交叉线连接</p>
-<p><img src="./%E8%B7%A8%E4%BA%A4%E6%8D%A2%E6%9C%BAVLAN%E9%80%9A%E4%BF%A1.png" alt></p>
-</li>
-<li class="lvl-2">
-<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
-<p><code>PC0</code> 为 <code>192.168.2.1</code><br>
-<code>PC1</code> 为 <code>192.168.3.1</code><br>
-<code>PC2</code> 为 <code>192.168.2.2</code><br>
-<code>PC3</code> 为 <code>192.168.3.2</code></p>
-</li>
-<li class="lvl-2">
-<p>ping 测试</p>
-<p>在 <code>PC0</code> 中 ping <code>PC1</code> 和 <code>PC2</code>，查看是否能够通信</p>
-</li>
-<li class="lvl-2">
-<p>配置 <code>VLAN</code></p>
-<p>两台交换机分别配置 <code>VLAN</code>，并将 <code>PC</code> 分配到不同的 <code>VLAN</code> 中</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">int f0/1</span><br><span class="line">switchport mode access <span class="comment"># 设置端口模式为访问模式</span></span><br><span class="line">switchport access vlan 10 <span class="comment"># 设置端口所属的 VLAN</span></span><br></pre></td></tr></table></figure>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">int f0/2</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 20</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>配置 <code>Trunk</code> 端口</p>
-<p>两台交换机之间的连接端口配置为 <code>Trunk</code> 端口</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">int f0/3</span><br><span class="line">switchport mode trunk</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>有没有配置成功可以在图形界面上查看端口</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p>ping 测试</p>
-<p>在 <code>PC0</code> 中 ping <code>PC2</code>，查看是否能够通信在 <code>PC1</code> 中 ping <code>PC3</code>，查看是否能够通信</p>
-</li>
-<li class="lvl-2">
-<p>模拟测试</p>
-<p>在 <code>PC0</code> 中使用 <code>ping</code> 命令，在模拟器中查看数据包的传输过程（仅查看 ICMP 以提升效率）</p>
-</li>
-</ul>
-<blockquote>
-<p>trunk 端口是用来连接两台交换机的，可以传输多个 VLAN 的数据，而 access 端口只能传输一个 VLAN 的数据。</p>
-</blockquote>
-<h2 id="路由器和网关">路由器和网关</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>画出基本的网络拓扑，然后进行配置。</p>
-<p>放置1台 <code>1841-Router</code>，2台 <code>PT-PC</code><br>
-<code>PC0</code> 和 <code>PC1</code> 使用铜交叉线连接到 <code>Router</code></p>
-<p><img src="./%E8%B7%AF%E7%94%B1%E5%99%A8%E5%92%8C%E7%BD%91%E5%85%B3.png" alt></p>
-</li>
-<li class="lvl-2">
-<p>配置 <code>Router</code> 的 <code>IP</code> 地址</p>
-<p>FastEthernet0/0 为 <code>192.168.2.1</code><br>
-FastEthernet0/1 为 <code>192.168.3.1</code></p>
-</li>
-<li class="lvl-2">
-<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
-<p><code>PC0</code> 为 <code>192.168.2.2</code><br>
-<code>PC1</code> 为 <code>192.168.3.2</code></p>
-</li>
-<li class="lvl-2">
-<p>配置 <code>PC</code> 的 网关</p>
-<p><code>PC0</code> 的网关为 <code>192.168.2.1</code><br>
-<code>PC1</code> 的网关为 <code>192.168.3.1</code></p>
-</li>
-<li class="lvl-2">
-<p>ping 测试在 <code>PC0</code> 中 ping <code>PC1</code>，查看是否能够通信</p>
-</li>
-</ul>
-<blockquote>
-<p>路由器是用来连接不同网络的设备，可以实现不同网络之间的通信。网关(Gateway)是用来连接不同网络的设备，可以实现不同网络之间的通信。</p>
-</blockquote>
-<h2 id="单臂路由">单臂路由</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>画出基本的网络拓扑，然后进行配置。</p>
-<p>放置一台 <code>2950-24</code> 交换机，两台 <code>PT-PC</code><br>
-使用铜直通线连接交换机和电脑</p>
-<p><img src="./%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1.png" alt></p>
-<p>PC0 连接到 <code>Switch0</code> 的 <code>f0/1</code> 端口<br>
-PC1 连接到 <code>Switch0</code> 的 <code>f0/2</code> 端口<br>
-<code>Switch0</code> 的 <code>f0/3</code> 端口连接到 <code>Router0</code> 的 <code>f0/0</code> 端口</p>
-</li>
-<li class="lvl-2">
-<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
-<p>PC0: 192.168.1.1/24 网关 192.168.1.2<br>
-PC1: 192.168.2.1/24 网关 192.168.2.2</p>
-</li>
-<li class="lvl-2">
-<p>交换机划分 VLAN</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">vlan 10</span><br><span class="line">name vlan10</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">vlan 20</span><br><span class="line">name vlan20</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 10</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/2</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 20</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/3</span><br><span class="line">switchport mode trunk</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>配置路由</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">int f0/0</span><br><span class="line">no shutdown</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/0.1</span><br><span class="line">encapsulation dot1Q 10</span><br><span class="line">ip address 192.168.1.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/0.2</span><br><span class="line">encapsulation dot1Q 20</span><br><span class="line">ip address 192.168.2.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ip routing</span><br><span class="line">show ip route</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>模拟模式中使用 IMCP 协议进行 ping 测试</p>
-<p>PC0 ping<br>
-PC1 ping</p>
-</li>
-<li class="lvl-2">
-<p>实体环境中测试</p>
-</li>
-</ul>
-<h2 id="多层交换机路由">多层交换机路由</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>画出基本的网络拓扑，然后进行配置。</p>
-<p>放置两台 <code>PT-PC</code>，1台 <code>3560-24PS</code> 多层交换机使用铜直通线连接交换机和电脑</p>
-<p><img src="./%E5%A4%9A%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%B7%AF%E7%94%B1.png" alt></p>
-<p>PC0 连接到 <code>MultilayerSwitch0</code> 的 <code>f0/1</code> 端口<br>
-PC1 连接到 <code>MultilayerSwitch0</code> 的 <code>f0/2</code> 端口</p>
-</li>
-<li class="lvl-2">
-<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
-<p>PC0: 192.168.1.1/24 网关 192.168.1.2<br>
-PC1: 192.168.2.1/24 网关 192.168.2.2</p>
-</li>
-<li class="lvl-2">
-<p><code>MultilayerSwitch0</code> 配置</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">int f0/1</span><br><span class="line">no switchport</span><br><span class="line">ip address 192.168.1.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/2</span><br><span class="line">no switchport</span><br><span class="line">ip address 192.168.2.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ip routing</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">show ip route</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>模拟模式中使用 IMCP 协议进行 ping 测试</p>
-<p>PC0 ping<br>
-PC1 ping</p>
-</li>
-<li class="lvl-2">
-<p>实体环境中测试</p>
-</li>
-</ul>
-<h2 id="静态NAT配置">静态NAT配置</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>画出基本的网络拓扑，然后进行配置。</p>
-<p>放置一台 <code>1841</code> 路由器，3台 <code>PT-PC</code>，1台 <code>2950-24</code> 交换机使用铜交叉线连接 <code>Router0</code> 和 <code>PC0</code><br>
-使用铜直通线连接 <code>Switch0</code> 和 <code>PC1</code>, <code>PC2</code></p>
-<p><img src="./%E9%9D%99%E6%80%81NAT%E9%85%8D%E7%BD%AE.png" alt></p>
-<p>PC0 连接到 <code>Router0</code> 的 <code>f0/0</code> 端口<br>
-PC1 连接到 <code>Switch0</code> 的 <code>f0/2</code> 端口<br>
-PC1 连接到 <code>Switch0</code> 的 <code>f0/3</code> 端口<br>
-<code>Switch0</code> 的 <code>f0/1</code> 端口连接到 <code>Router0</code> 的 <code>f0/1</code> 端口</p>
-</li>
-<li class="lvl-2">
-<p>配置 <code>PC</code> 的 <code>IP</code> 地址</p>
-<p>PC0: 20.20.20.1 网关 20.20.20.2<br>
-PC1: 192.168.2.1 网关 192.168.2.2<br>
-PC2: 192.168.3.1 网关 192.168.3.2</p>
-</li>
-<li class="lvl-2">
-<p>交换机划分 VLAN</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">vlan 10</span><br><span class="line">name vlan10</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">vlan 20</span><br><span class="line">name vlan20</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1</span><br><span class="line">switchport mode trunk</span><br><span class="line">int f0/2</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 10</span><br><span class="line">int f0/3</span><br><span class="line">switchport mode access</span><br><span class="line">switchport access vlan 20</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>配置路由</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enable</span></span><br><span class="line">config -t</span><br><span class="line">int f0/0</span><br><span class="line">ip address 20.20.20.2</span><br><span class="line">no shutdown</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1</span><br><span class="line">no shutdown</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1.1</span><br><span class="line">encapsulation dot1Q 10</span><br><span class="line">ip address 192.168.2.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1.2</span><br><span class="line">encapsulation dot1Q 20</span><br><span class="line">ip address 192.168.3.2 255.255.255.0</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ip routing</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>在路由器配置静态NAT</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">int f0/0</span><br><span class="line">ip nat outside</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">int f0/1</span><br><span class="line">ip nat inside</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">ip nat inside <span class="built_in">source</span> static 192.168.2.1 20.20.20.3</span><br><span class="line">ip nat inside <span class="built_in">source</span> static 192.168.3.1 20.20.20.4</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">show ip nat translations</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>测试</p>
-<p>在内网任意一台 <code>PC</code> 上 ping 外网 <code>PC0</code></p>
-</li>
-</ul>
-<h2 id="注意事项1">注意事项1</h2>
-<ol>
-<li class="lvl-3">
-<p>交换机的 <code>Trunk</code> 端口用于连接两台交换机，可以传输多个 <code>VLAN</code> 的数据。</p>
-</li>
-<li class="lvl-3">
-<p>交换机的 <code>Access</code> 端口用于连接 <code>PC</code>，只能传输一个 <code>VLAN</code> 的数据。</p>
-</li>
-<li class="lvl-3">
-<p>通常，路由器的端口默认是关闭的，需要手动打开。</p>
-</li>
-<li class="lvl-3">
-<p>静态路由是在路由器上手动配置的路由，用于指定到达目的网络的下一跳地址。</p>
-</li>
-<li class="lvl-3">
-<p>NAT 配置时，<code>inside</code> 表示内网，<code>outside</code> 表示外网</p>
-</li>
-<li class="lvl-3">
-<p>配置 <code>NAT</code> 时，<code>inside</code> 的 <code>IP</code> 地址是内网 <code>IP</code> 地址，<code>outside</code> 的 <code>IP</code> 地址是外网 <code>IP</code> 地址</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Network</category>
-      </categories>
   </entry>
   <entry>
     <title>利用 Cisco Packet Tracer 进行组网实验 2</title>
@@ -3720,6 +3720,129 @@ traceroute 是一个常用的网络工具，它用于测试数据报从源主机
       </tags>
   </entry>
   <entry>
+    <title>计算机网络杂记-11</title>
+    <url>/2024/09/04/1/</url>
+    <content><![CDATA[<h2 id="参考资料">参考资料</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="cmVsaWFiaWxpdHlodHRwczovL2hvdWJiLmdpdGh1Yi5pby8yMDE5LzA0LzA1L3Byb3RvY29sLXRjcC1pcC0wNS10Y3AtcmVsaWFiaWxpdHkjOn46dGV4dD1UQ1AlMjAlRTglQTYlODElRTYlQjElODIlRTQlQjglOEQlRTglQUUlQkE=">TCP/IP 协议-05-TCP 如何保证传输的可靠性<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGl4dWVkdWFuLmNvbS9wb3N0cy9uZXR3b3JrLzAzLXRjcC1yZWxpYWJpbGl0eS8=">计算机网络(三)–TCP如何保证传输可靠性<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9ob3ViYi5naXRodWIuaW8vMjAyMy8wMi8yMi9uZXQtMDYtbmV0LXRjcC0xMi10aW1lX3dhaXRfcmVjdl9zeW4=">NET 网络专题汇总-06-12-在 TIME_WAIT 状态的 TCP 连接，收到 SYN 后会发生什么？<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<h2 id="TCP-可靠传输的实现">TCP 可靠传输的实现</h2>
+<p>TCP 基于<strong>以字节为单位的滑动窗口</strong>机制实现可靠传输，TCP 的滑动窗口机制是 TCP 实现可靠传输的核心机制。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的，但在同一时刻，发送方的发送窗口并不总是和接收方的接收窗口大小相等的</p>
+<ul class="lvl-2">
+<li class="lvl-4">网络传送窗口值需要经历一定时间滞后，并且这个时间不是固定的，而是动态变化的</li>
+<li class="lvl-4">发送方还可能根据网络拥塞程度调整发送窗口的大小，发送方的发送窗口大小并不总是和接收方的接收窗口大小相等的</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>对于不按序到达的数据的处理,并无明确的说明</p>
+<ul class="lvl-2">
+<li class="lvl-4">接收方把不按序到达的数据丢弃，那么发送方会重传这些数据，虽然接受窗口的管理比较简单，但是这种方式会导致网络资源的浪费</li>
+<li class="lvl-4">通常将不按序到达的数据缓存起来，等待缺失的数据到达后再交付给应用层，这种方式会增加接收方的复杂度，但是可以减少网络资源的浪费</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>TCP 要求接收方必须有累计确认和捎带确认两种确认方式</p>
+<ul class="lvl-2">
+<li class="lvl-4">这样可以减少传输开销，接收方可以在合适的时候发送确认，也可以在自己有数据要发送时把确认信息捎带上去</li>
+<li class="lvl-4">但接收方不应该过分延迟确认，否则会导致发送方重传数据，浪费网络资源</li>
+<li class="lvl-4">捎带不常用，因为大多数应用程序很少同时在两个方向上传输数据</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>TCP 是全双工通信的，发送方和接收方都有自己的发送窗口和接收窗口</p>
+<ul class="lvl-2">
+<li class="lvl-4">发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的</li>
+<li class="lvl-4">接收方的接收窗口是根据发送方的发送窗口大小和接收方的处理能力动态调整的</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP-运输连接管理">TCP 运输连接管理</h2>
+<h3 id="TCP-连接的建立">TCP 连接的建立</h3>
+<p>TCP 连接的建立是三次握手的过程，三次握手的过程是为了确保双方都能够发送和接收数据。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>第一次握手：客户端发送一个 SYN 报文段给服务器端，请求建立连接</p>
+</li>
+<li class="lvl-2">
+<p>第二次握手：服务器端接收到客户端发送的 SYN 报文段后，发送一个 SYN 报文段和一个 ACK 报文段给客户端，确认客户端的请求</p>
+</li>
+<li class="lvl-2">
+<p>第三次握手：客户端接收到服务器端发送的 SYN 报文段和 ACK 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p>
+</li>
+</ul>
+<h3 id="TCP-连接的释放">TCP 连接的释放</h3>
+<p>TCP 连接的释放是四次挥手的过程，四次挥手的过程是为了确保双方都能够正确关闭连接。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>第一次挥手：客户端发送一个 FIN 报文段给服务器端，请求关闭连接</p>
+</li>
+<li class="lvl-2">
+<p>第二次挥手：服务器端接收到客户端发送的 FIN 报文段后，发送一个 ACK 报文段给客户端，确认客户端的请求</p>
+</li>
+<li class="lvl-2">
+<p>第三次挥手：服务器端发送一个 FIN 报文段给客户端，请求关闭连接</p>
+</li>
+<li class="lvl-2">
+<p>第四次挥手：客户端接收到服务器端发送的 FIN 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p>
+</li>
+</ul>
+<h2 id="TCP-报文段的首部格式">TCP 报文段的首部格式</h2>
+<p>TCP 报文段的首部格式如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>源端口号：16 位，标识发送方的端口号</p>
+</li>
+<li class="lvl-2">
+<p>目的端口号：16 位，标识接收方的端口号</p>
+</li>
+<li class="lvl-2">
+<p>序列号：32 位，标识数据的顺序</p>
+</li>
+<li class="lvl-2">
+<p>确认号：32 位，标识数据的确认</p>
+</li>
+<li class="lvl-2">
+<p>首部长度：4 位，标识首部的长度</p>
+</li>
+<li class="lvl-2">
+<p>URG：1 位，标识紧急指针是否有效</p>
+</li>
+<li class="lvl-2">
+<p>ACK：1 位，标识确认号是否有效</p>
+</li>
+<li class="lvl-2">
+<p>PSH：1 位，标识接收方是否应该立即交付数据</p>
+</li>
+<li class="lvl-2">
+<p>RST：1 位，标识连接是否重置</p>
+</li>
+<li class="lvl-2">
+<p>SYN：1 位，标识连接是否建立</p>
+</li>
+<li class="lvl-2">
+<p>FIN：1 位，标识连接是否释放</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>软件设计模式总结 01</title>
     <url>/2024/10/14/1/</url>
     <content><![CDATA[<h2 id="什么是设计模式">什么是设计模式</h2>
@@ -4289,129 +4412,6 @@ classO .. classP : Link虚线</code></pre>
 ]]></content>
       <categories>
         <category>SoftwareEngineering</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络杂记-11</title>
-    <url>/2024/09/04/1/</url>
-    <content><![CDATA[<h2 id="参考资料">参考资料</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><span class="exturl" data-url="cmVsaWFiaWxpdHlodHRwczovL2hvdWJiLmdpdGh1Yi5pby8yMDE5LzA0LzA1L3Byb3RvY29sLXRjcC1pcC0wNS10Y3AtcmVsaWFiaWxpdHkjOn46dGV4dD1UQ1AlMjAlRTglQTYlODElRTYlQjElODIlRTQlQjglOEQlRTglQUUlQkE=">TCP/IP 协议-05-TCP 如何保证传输的可靠性<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGl4dWVkdWFuLmNvbS9wb3N0cy9uZXR3b3JrLzAzLXRjcC1yZWxpYWJpbGl0eS8=">计算机网络(三)–TCP如何保证传输可靠性<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly9ob3ViYi5naXRodWIuaW8vMjAyMy8wMi8yMi9uZXQtMDYtbmV0LXRjcC0xMi10aW1lX3dhaXRfcmVjdl9zeW4=">NET 网络专题汇总-06-12-在 TIME_WAIT 状态的 TCP 连接，收到 SYN 后会发生什么？<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ul>
-<h2 id="TCP-可靠传输的实现">TCP 可靠传输的实现</h2>
-<p>TCP 基于<strong>以字节为单位的滑动窗口</strong>机制实现可靠传输，TCP 的滑动窗口机制是 TCP 实现可靠传输的核心机制。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的，但在同一时刻，发送方的发送窗口并不总是和接收方的接收窗口大小相等的</p>
-<ul class="lvl-2">
-<li class="lvl-4">网络传送窗口值需要经历一定时间滞后，并且这个时间不是固定的，而是动态变化的</li>
-<li class="lvl-4">发送方还可能根据网络拥塞程度调整发送窗口的大小，发送方的发送窗口大小并不总是和接收方的接收窗口大小相等的</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>对于不按序到达的数据的处理,并无明确的说明</p>
-<ul class="lvl-2">
-<li class="lvl-4">接收方把不按序到达的数据丢弃，那么发送方会重传这些数据，虽然接受窗口的管理比较简单，但是这种方式会导致网络资源的浪费</li>
-<li class="lvl-4">通常将不按序到达的数据缓存起来，等待缺失的数据到达后再交付给应用层，这种方式会增加接收方的复杂度，但是可以减少网络资源的浪费</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>TCP 要求接收方必须有累计确认和捎带确认两种确认方式</p>
-<ul class="lvl-2">
-<li class="lvl-4">这样可以减少传输开销，接收方可以在合适的时候发送确认，也可以在自己有数据要发送时把确认信息捎带上去</li>
-<li class="lvl-4">但接收方不应该过分延迟确认，否则会导致发送方重传数据，浪费网络资源</li>
-<li class="lvl-4">捎带不常用，因为大多数应用程序很少同时在两个方向上传输数据</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>TCP 是全双工通信的，发送方和接收方都有自己的发送窗口和接收窗口</p>
-<ul class="lvl-2">
-<li class="lvl-4">发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的</li>
-<li class="lvl-4">接收方的接收窗口是根据发送方的发送窗口大小和接收方的处理能力动态调整的</li>
-</ul>
-</li>
-</ul>
-<h2 id="TCP-运输连接管理">TCP 运输连接管理</h2>
-<h3 id="TCP-连接的建立">TCP 连接的建立</h3>
-<p>TCP 连接的建立是三次握手的过程，三次握手的过程是为了确保双方都能够发送和接收数据。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>第一次握手：客户端发送一个 SYN 报文段给服务器端，请求建立连接</p>
-</li>
-<li class="lvl-2">
-<p>第二次握手：服务器端接收到客户端发送的 SYN 报文段后，发送一个 SYN 报文段和一个 ACK 报文段给客户端，确认客户端的请求</p>
-</li>
-<li class="lvl-2">
-<p>第三次握手：客户端接收到服务器端发送的 SYN 报文段和 ACK 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p>
-</li>
-</ul>
-<h3 id="TCP-连接的释放">TCP 连接的释放</h3>
-<p>TCP 连接的释放是四次挥手的过程，四次挥手的过程是为了确保双方都能够正确关闭连接。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>第一次挥手：客户端发送一个 FIN 报文段给服务器端，请求关闭连接</p>
-</li>
-<li class="lvl-2">
-<p>第二次挥手：服务器端接收到客户端发送的 FIN 报文段后，发送一个 ACK 报文段给客户端，确认客户端的请求</p>
-</li>
-<li class="lvl-2">
-<p>第三次挥手：服务器端发送一个 FIN 报文段给客户端，请求关闭连接</p>
-</li>
-<li class="lvl-2">
-<p>第四次挥手：客户端接收到服务器端发送的 FIN 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p>
-</li>
-</ul>
-<h2 id="TCP-报文段的首部格式">TCP 报文段的首部格式</h2>
-<p>TCP 报文段的首部格式如下：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>源端口号：16 位，标识发送方的端口号</p>
-</li>
-<li class="lvl-2">
-<p>目的端口号：16 位，标识接收方的端口号</p>
-</li>
-<li class="lvl-2">
-<p>序列号：32 位，标识数据的顺序</p>
-</li>
-<li class="lvl-2">
-<p>确认号：32 位，标识数据的确认</p>
-</li>
-<li class="lvl-2">
-<p>首部长度：4 位，标识首部的长度</p>
-</li>
-<li class="lvl-2">
-<p>URG：1 位，标识紧急指针是否有效</p>
-</li>
-<li class="lvl-2">
-<p>ACK：1 位，标识确认号是否有效</p>
-</li>
-<li class="lvl-2">
-<p>PSH：1 位，标识接收方是否应该立即交付数据</p>
-</li>
-<li class="lvl-2">
-<p>RST：1 位，标识连接是否重置</p>
-</li>
-<li class="lvl-2">
-<p>SYN：1 位，标识连接是否建立</p>
-</li>
-<li class="lvl-2">
-<p>FIN：1 位，标识连接是否释放</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Network</category>
       </categories>
       <tags>
         <tag>学习笔记</tag>
@@ -6818,60 +6818,6 @@ prefix：24</p>
       </tags>
   </entry>
   <entry>
-    <title>JDK17 新特性 Preview 2</title>
-    <url>/2023/06/14/1/</url>
-    <content><![CDATA[<p>接着上一篇 Preview 1，本文将继续介绍 JDK17 的新特性。</p>
-<h2 id="Record-类">Record 类</h2>
-<p>“类似 lombok 的属性只读”。在 JDK 14 中，引入了 Record 类，可以用来创建只读的类，这样就不需要使用 lombok 来实现了。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">record</span> <span class="title class_">Person</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上面的代码可以看出，Record 类的定义和普通类的定义很相似，只是在类名前面加上了 record 关键字。<br>
-Record 类的属性默认是 final 的，且只有 getter 方法，没有 setter 方法，所以 Record 类的属性是只读的。</p>
-<h2 id="优化空指针异常">优化空指针异常</h2>
-<p>在 JDK 17 中，对空指针异常进行了优化，当出现空指针异常时，会打印出更加详细的信息，包括：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>空指针异常的位置</p>
-</li>
-<li class="lvl-2">
-<p>空指针异常的原因</p>
-</li>
-<li class="lvl-2">
-<p>空指针异常的堆栈信息</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NullPointerExceptionDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        System.out.println(str.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 JDK 17 中，运行上面的代码，会打印出如下信息：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.NullPointerException: Cannot invoke <span class="string">&quot;String.length()&quot;</span> because <span class="string">&quot;str&quot;</span> is <span class="literal">null</span></span><br><span class="line">    at com.example.demo.NullPointerExceptionDemo.main(NullPointerExceptionDemo.java:<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<p>可以看出，JDK 17 对空指针异常进行了优化，打印出了更加详细的信息。</p>
-<h2 id="ZGC垃圾回收器">ZGC垃圾回收器</h2>
-<p>在 JDK 17 中，引入了 ZGC 垃圾回收器，ZGC 垃圾回收器是一种低延迟的垃圾回收器，可以在几毫秒内处理几个字节到几个TB的堆。<br>
-ZGC 垃圾回收器的特点：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>低延迟</p>
-</li>
-<li class="lvl-2">
-<p>可以处理几个字节到几个TB的堆</p>
-</li>
-<li class="lvl-2">
-<p>与应用程序线程并发执行</p>
-</li>
-<li class="lvl-2">
-<p>不卡顿</p>
-</li>
-</ul>
-<p>使用 ZGC 垃圾回收器：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -XX:+UseZGC</span><br></pre></td></tr></table></figure>
-<p>在 JVM 启动时，使用 -XX:+UseZGC 参数，就可以使用 ZGC 垃圾回收器。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JDK17 新特性 Preview 1</title>
     <url>/2023/06/11/1/</url>
     <content><![CDATA[<p>2023年，越来越多的开发者和企业将会迁移到 JDK 17，我们学习 Java 也应该跟上时代的步伐。随着 JDK 17 的发布，Java 语言和 JVM 将迎来一些新的特性，本文将介绍 JDK 17 的新特性。</p>
@@ -6942,6 +6888,60 @@ ZGC 垃圾回收器的特点：</p>
 <p>限制子类的继承层级，防止继承层级过多</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JDK17 新特性 Preview 2</title>
+    <url>/2023/06/14/1/</url>
+    <content><![CDATA[<p>接着上一篇 Preview 1，本文将继续介绍 JDK17 的新特性。</p>
+<h2 id="Record-类">Record 类</h2>
+<p>“类似 lombok 的属性只读”。在 JDK 14 中，引入了 Record 类，可以用来创建只读的类，这样就不需要使用 lombok 来实现了。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">record</span> <span class="title class_">Person</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面的代码可以看出，Record 类的定义和普通类的定义很相似，只是在类名前面加上了 record 关键字。<br>
+Record 类的属性默认是 final 的，且只有 getter 方法，没有 setter 方法，所以 Record 类的属性是只读的。</p>
+<h2 id="优化空指针异常">优化空指针异常</h2>
+<p>在 JDK 17 中，对空指针异常进行了优化，当出现空指针异常时，会打印出更加详细的信息，包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>空指针异常的位置</p>
+</li>
+<li class="lvl-2">
+<p>空指针异常的原因</p>
+</li>
+<li class="lvl-2">
+<p>空指针异常的堆栈信息</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NullPointerExceptionDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        System.out.println(str.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 JDK 17 中，运行上面的代码，会打印出如下信息：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.NullPointerException: Cannot invoke <span class="string">&quot;String.length()&quot;</span> because <span class="string">&quot;str&quot;</span> is <span class="literal">null</span></span><br><span class="line">    at com.example.demo.NullPointerExceptionDemo.main(NullPointerExceptionDemo.java:<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>可以看出，JDK 17 对空指针异常进行了优化，打印出了更加详细的信息。</p>
+<h2 id="ZGC垃圾回收器">ZGC垃圾回收器</h2>
+<p>在 JDK 17 中，引入了 ZGC 垃圾回收器，ZGC 垃圾回收器是一种低延迟的垃圾回收器，可以在几毫秒内处理几个字节到几个TB的堆。<br>
+ZGC 垃圾回收器的特点：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>低延迟</p>
+</li>
+<li class="lvl-2">
+<p>可以处理几个字节到几个TB的堆</p>
+</li>
+<li class="lvl-2">
+<p>与应用程序线程并发执行</p>
+</li>
+<li class="lvl-2">
+<p>不卡顿</p>
+</li>
+</ul>
+<p>使用 ZGC 垃圾回收器：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -XX:+UseZGC</span><br></pre></td></tr></table></figure>
+<p>在 JVM 启动时，使用 -XX:+UseZGC 参数，就可以使用 ZGC 垃圾回收器。</p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -10526,111 +10526,6 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
       </tags>
   </entry>
   <entry>
-    <title>Vue3-04</title>
-    <url>/2023/09/19/1/</url>
-    <content><![CDATA[<h2 id="数组变化检测">数组变化检测</h2>
-<p>在 Vue3 中，Vue 会对数组的变化进行检测，但是并不是所有的变化都能被检测到。</p>
-<p>数组的变化检测主要是通过重写数组的原型方法来实现的，所以只有通过这些方法改变数组才能被检测到。</p>
-<blockquote>
-<p>变更方法</p>
-</blockquote>
-<p>Vue 能侦听响应式数组的变化，并在被调用时触发视图更新。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>push()</p>
-</li>
-<li class="lvl-2">
-<p>pop()</p>
-</li>
-<li class="lvl-2">
-<p>shift()</p>
-</li>
-<li class="lvl-2">
-<p>unshift()</p>
-</li>
-<li class="lvl-2">
-<p>splice()</p>
-</li>
-<li class="lvl-2">
-<p>sort()</p>
-</li>
-<li class="lvl-2">
-<p>reverse()</p>
-</li>
-</ul>
-<p>e.g.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;add&quot;</span>&gt;</span>add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;remove&quot;</span>&gt;</span>remove<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;reverse&quot;</span>&gt;</span>reverse<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;sort&quot;</span>&gt;</span>sort<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;splice&quot;</span>&gt;</span>splice<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;push&quot;</span>&gt;</span>push<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;pop&quot;</span>&gt;</span>pop<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;shift&quot;</span>&gt;</span>shift<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;unshift&quot;</span>&gt;</span>unshift<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123; item.name &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">items</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&quot;a&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&quot;b&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">&quot;c&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">add</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">push</span>(&#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">remove</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">splice</span>(<span class="number">0</span>, <span class="number">1</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">reverse</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">reverse</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">sort</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.<span class="property">id</span> - b.<span class="property">id</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">splice</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">splice</span>(<span class="number">0</span>, <span class="number">1</span>, &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">push</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">push</span>(&#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">pop</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">pop</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">shift</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">shift</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">unshift</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">unshift</span>(&#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>替换方法</p>
-</blockquote>
-<p>替换方法会用新数组替换原数组，vue 会对新数组进行响应式处理。</p>
-<p>Vue 不能侦听以下变动的数组：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue</p>
-</li>
-<li class="lvl-2">
-<p>当你修改数组的长度时，例如：vm.items.length = newLength</p>
-</li>
-</ul>
-<p>e.g.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;replace&quot;</span>&gt;</span>replace<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;length&quot;</span>&gt;</span>length<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123; item.name &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">items</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&quot;a&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&quot;b&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">&quot;c&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">replace</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>[<span class="number">0</span>] = &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">length</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">length</span> = <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>解决方法</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Vue.set()</p>
-</li>
-<li class="lvl-2">
-<p>Array.prototype.splice()</p>
-</li>
-</ul>
-<p>e.g.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;replace&quot;</span>&gt;</span>replace<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;length&quot;</span>&gt;</span>length<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123; item.name &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">items</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&quot;a&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&quot;b&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">&quot;c&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">replace</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// this.items[0] = &#123; id: 4, name: &quot;d&quot; &#125;;</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$set(<span class="variable language_">this</span>.<span class="property">items</span>, <span class="number">0</span>, &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">length</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// this.items.length = 2;</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">splice</span>(<span class="number">2</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="计算属性">计算属性</h2>
-<p>模板中放入太多的逻辑会让模板过重且难以维护，因此对于任何复杂逻辑，你都应当使用计算属性。</p>
-<p>计算属性是基于它们的依赖进行缓存的，只有在相关依赖发生改变时，才会重新求值。</p>
-<p>例如，下面的例子将演示一个模板中的逻辑：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; items.name &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; items.content.length &gt; 0 ? &#x27;Yes&#x27;: &#x27;No&#x27; &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">items</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">name</span>:<span class="string">&quot;Yuzhii&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">content</span>:[<span class="string">&quot;Python&quot;</span>,<span class="string">&quot;Vue&quot;</span>,<span class="string">&quot;React&quot;</span>]</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>虽然这个例子很简单，但是模板中的逻辑会变得越来越复杂，这时候就需要使用计算属性。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; name &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; content &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">items</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">name</span>:<span class="string">&quot;Yuzhii&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">content</span>:[<span class="string">&quot;Python&quot;</span>,<span class="string">&quot;Vue&quot;</span>,<span class="string">&quot;React&quot;</span>]</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">computed</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">name</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">name</span></span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">content</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">content</span>.<span class="property">length</span> &gt; <span class="number">0</span> ? <span class="string">&#x27;Yes&#x27;</span>: <span class="string">&#x27;No&#x27;</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可以看见，将模板中的逻辑放到了计算属性中，这样模板就变得简洁了。</p>
-<blockquote>
-<p>虽然 methods 也可以实现同样的效果，但是<strong>计算属性值会给予其响应式依赖被缓存</strong>，只有在相关依赖发生改变时，才会重新求值，而 methods <strong>每次</strong>都会重新计算。</p>
-</blockquote>
-<h2 id="Class-与-Style-绑定">Class 与 Style 绑定</h2>
-<p>在 Vue3 中，可以使用 v-bind 指令绑定 class 和 style。</p>
-<h3 id="Class-绑定">Class 绑定</h3>
-<p>数据绑定的一个常见需求场景是操作元素的 class 列表和它的内联样式。因为它们都是属性，所以我们可以用 v-bind 处理它们：只需要计算出表达式最终的字符串。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classObject&quot;</span>&gt;</span>classObject<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classArray&quot;</span>&gt;</span>classArray<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classObject2&quot;</span>&gt;</span>classObject2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classArray2&quot;</span>&gt;</span>classArray2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">isActive</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">error</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">classObject</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">active</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;text-danger&quot;</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">classArray</span>: [<span class="string">&quot;active&quot;</span>, <span class="string">&quot;text-danger&quot;</span>],</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">classObject2</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">active</span>: <span class="variable language_">this</span>.<span class="property">isActive</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;text-danger&quot;</span>: <span class="variable language_">this</span>.<span class="property">error</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">error</span>.<span class="property">type</span> === <span class="string">&quot;fatal&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">classArray2</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">active</span>: <span class="variable language_">this</span>.<span class="property">isActive</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="string">&quot;text-danger&quot;</span>: <span class="variable language_">this</span>.<span class="property">error</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">error</span>.<span class="property">type</span> === <span class="string">&quot;fatal&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上面这个例子中，classObject 和 classArray 的结果都是 active text-danger，但是 classObject2 和 classArray2 的结果是 active。</p>
-<p><img src="./active.png" alt></p>
-<p>可以增加一个 CSS 样式来验证一下：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.active</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>也可以用三元表达式来实现</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;isActive ? &#x27;active&#x27; : &#x27;&#x27;&quot;</span>&gt;</span>isActive<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;error ? &#x27;text-danger&#x27; : &#x27;&#x27;&quot;</span>&gt;</span>error<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">isActive</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">error</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>提醒</p>
-</blockquote>
-<p>数组与对象嵌套，只能是数组中的对象，不能是对象中的数组</p>
-<h3 id="Style-绑定">Style 绑定</h3>
-<p>v-bind:style 的对象语法十分直观——看着非常像 CSS，其实它是一个 JavaScript 对象。 CSS 属性名可以用驼峰式（camelCase）或短横分隔命名（kebab-case）：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;styleObject&quot;</span>&gt;</span>styleObject<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;styleObject2&quot;</span>&gt;</span>styleObject2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">styleObject</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">fontSize</span>: <span class="string">&quot;30px&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">styleObject2</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="string">&quot;font-size&quot;</span>: <span class="string">&quot;50px&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>此外，还可以绑定数组语法来动态切换多个样式，但是<strong>数组语法只能用在元素的 style 属性上</strong>：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;[styleObject, styleObject2]&quot;</span>&gt;</span>styleObject<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">styleObject</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">fontSize</span>: <span class="string">&quot;30px&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">styleObject2</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="string">&quot;font-size&quot;</span>: <span class="string">&quot;50px&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>但是通常情况下，应用场景比较少。且一般情况下，我们会使用计算属性来处理。</p>
-]]></content>
-      <categories>
-        <category>Vue3</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue3-05</title>
     <url>/2023/10/03/1/</url>
     <content><![CDATA[<h2 id="侦听器">侦听器</h2>
@@ -10773,6 +10668,111 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <p>此外，我们还可以通过 <code>validator</code> 选项来指定自定义验证函数。</p>
 <p>保持 <code>ParentComponent.vue</code> 文件不变。修改 <code>ChildComponent.vue</code> 文件，如下所示。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>子组件<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; name &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">props</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">type</span>: <span class="title class_">String</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">required</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">validator</span>(<span class="params">value</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> value.<span class="property">length</span> &gt; <span class="number">0</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Vue3</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue3-04</title>
+    <url>/2023/09/19/1/</url>
+    <content><![CDATA[<h2 id="数组变化检测">数组变化检测</h2>
+<p>在 Vue3 中，Vue 会对数组的变化进行检测，但是并不是所有的变化都能被检测到。</p>
+<p>数组的变化检测主要是通过重写数组的原型方法来实现的，所以只有通过这些方法改变数组才能被检测到。</p>
+<blockquote>
+<p>变更方法</p>
+</blockquote>
+<p>Vue 能侦听响应式数组的变化，并在被调用时触发视图更新。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>push()</p>
+</li>
+<li class="lvl-2">
+<p>pop()</p>
+</li>
+<li class="lvl-2">
+<p>shift()</p>
+</li>
+<li class="lvl-2">
+<p>unshift()</p>
+</li>
+<li class="lvl-2">
+<p>splice()</p>
+</li>
+<li class="lvl-2">
+<p>sort()</p>
+</li>
+<li class="lvl-2">
+<p>reverse()</p>
+</li>
+</ul>
+<p>e.g.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;add&quot;</span>&gt;</span>add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;remove&quot;</span>&gt;</span>remove<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;reverse&quot;</span>&gt;</span>reverse<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;sort&quot;</span>&gt;</span>sort<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;splice&quot;</span>&gt;</span>splice<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;push&quot;</span>&gt;</span>push<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;pop&quot;</span>&gt;</span>pop<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;shift&quot;</span>&gt;</span>shift<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;unshift&quot;</span>&gt;</span>unshift<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123; item.name &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">items</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&quot;a&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&quot;b&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">&quot;c&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">add</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">push</span>(&#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">remove</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">splice</span>(<span class="number">0</span>, <span class="number">1</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">reverse</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">reverse</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">sort</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.<span class="property">id</span> - b.<span class="property">id</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">splice</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">splice</span>(<span class="number">0</span>, <span class="number">1</span>, &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">push</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">push</span>(&#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">pop</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">pop</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">shift</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">shift</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">unshift</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">unshift</span>(&#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>替换方法</p>
+</blockquote>
+<p>替换方法会用新数组替换原数组，vue 会对新数组进行响应式处理。</p>
+<p>Vue 不能侦听以下变动的数组：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue</p>
+</li>
+<li class="lvl-2">
+<p>当你修改数组的长度时，例如：vm.items.length = newLength</p>
+</li>
+</ul>
+<p>e.g.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;replace&quot;</span>&gt;</span>replace<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;length&quot;</span>&gt;</span>length<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123; item.name &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">items</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&quot;a&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&quot;b&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">&quot;c&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">replace</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>[<span class="number">0</span>] = &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">length</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">length</span> = <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Vue.set()</p>
+</li>
+<li class="lvl-2">
+<p>Array.prototype.splice()</p>
+</li>
+</ul>
+<p>e.g.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;replace&quot;</span>&gt;</span>replace<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;length&quot;</span>&gt;</span>length<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123; item.name &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">items</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&quot;a&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&quot;b&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">&quot;c&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">replace</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// this.items[0] = &#123; id: 4, name: &quot;d&quot; &#125;;</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$set(<span class="variable language_">this</span>.<span class="property">items</span>, <span class="number">0</span>, &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">&quot;d&quot;</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">length</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// this.items.length = 2;</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">splice</span>(<span class="number">2</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="计算属性">计算属性</h2>
+<p>模板中放入太多的逻辑会让模板过重且难以维护，因此对于任何复杂逻辑，你都应当使用计算属性。</p>
+<p>计算属性是基于它们的依赖进行缓存的，只有在相关依赖发生改变时，才会重新求值。</p>
+<p>例如，下面的例子将演示一个模板中的逻辑：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; items.name &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; items.content.length &gt; 0 ? &#x27;Yes&#x27;: &#x27;No&#x27; &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">items</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">name</span>:<span class="string">&quot;Yuzhii&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">content</span>:[<span class="string">&quot;Python&quot;</span>,<span class="string">&quot;Vue&quot;</span>,<span class="string">&quot;React&quot;</span>]</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>虽然这个例子很简单，但是模板中的逻辑会变得越来越复杂，这时候就需要使用计算属性。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; name &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; content &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">items</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">name</span>:<span class="string">&quot;Yuzhii&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">content</span>:[<span class="string">&quot;Python&quot;</span>,<span class="string">&quot;Vue&quot;</span>,<span class="string">&quot;React&quot;</span>]</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">computed</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">name</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">name</span></span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">content</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">items</span>.<span class="property">content</span>.<span class="property">length</span> &gt; <span class="number">0</span> ? <span class="string">&#x27;Yes&#x27;</span>: <span class="string">&#x27;No&#x27;</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看见，将模板中的逻辑放到了计算属性中，这样模板就变得简洁了。</p>
+<blockquote>
+<p>虽然 methods 也可以实现同样的效果，但是<strong>计算属性值会给予其响应式依赖被缓存</strong>，只有在相关依赖发生改变时，才会重新求值，而 methods <strong>每次</strong>都会重新计算。</p>
+</blockquote>
+<h2 id="Class-与-Style-绑定">Class 与 Style 绑定</h2>
+<p>在 Vue3 中，可以使用 v-bind 指令绑定 class 和 style。</p>
+<h3 id="Class-绑定">Class 绑定</h3>
+<p>数据绑定的一个常见需求场景是操作元素的 class 列表和它的内联样式。因为它们都是属性，所以我们可以用 v-bind 处理它们：只需要计算出表达式最终的字符串。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classObject&quot;</span>&gt;</span>classObject<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classArray&quot;</span>&gt;</span>classArray<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classObject2&quot;</span>&gt;</span>classObject2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;classArray2&quot;</span>&gt;</span>classArray2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">isActive</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">error</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">classObject</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">active</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;text-danger&quot;</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">classArray</span>: [<span class="string">&quot;active&quot;</span>, <span class="string">&quot;text-danger&quot;</span>],</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">classObject2</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">active</span>: <span class="variable language_">this</span>.<span class="property">isActive</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;text-danger&quot;</span>: <span class="variable language_">this</span>.<span class="property">error</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">error</span>.<span class="property">type</span> === <span class="string">&quot;fatal&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">classArray2</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">active</span>: <span class="variable language_">this</span>.<span class="property">isActive</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="string">&quot;text-danger&quot;</span>: <span class="variable language_">this</span>.<span class="property">error</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">error</span>.<span class="property">type</span> === <span class="string">&quot;fatal&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面这个例子中，classObject 和 classArray 的结果都是 active text-danger，但是 classObject2 和 classArray2 的结果是 active。</p>
+<p><img src="./active.png" alt></p>
+<p>可以增加一个 CSS 样式来验证一下：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.active</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以用三元表达式来实现</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;isActive ? &#x27;active&#x27; : &#x27;&#x27;&quot;</span>&gt;</span>isActive<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">&quot;error ? &#x27;text-danger&#x27; : &#x27;&#x27;&quot;</span>&gt;</span>error<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">isActive</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">error</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提醒</p>
+</blockquote>
+<p>数组与对象嵌套，只能是数组中的对象，不能是对象中的数组</p>
+<h3 id="Style-绑定">Style 绑定</h3>
+<p>v-bind:style 的对象语法十分直观——看着非常像 CSS，其实它是一个 JavaScript 对象。 CSS 属性名可以用驼峰式（camelCase）或短横分隔命名（kebab-case）：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;styleObject&quot;</span>&gt;</span>styleObject<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;styleObject2&quot;</span>&gt;</span>styleObject2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">styleObject</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">fontSize</span>: <span class="string">&quot;30px&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">styleObject2</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="string">&quot;font-size&quot;</span>: <span class="string">&quot;50px&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此外，还可以绑定数组语法来动态切换多个样式，但是<strong>数组语法只能用在元素的 style 属性上</strong>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">&quot;[styleObject, styleObject2]&quot;</span>&gt;</span>styleObject<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">styleObject</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">fontSize</span>: <span class="string">&quot;30px&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">styleObject2</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="string">&quot;font-size&quot;</span>: <span class="string">&quot;50px&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是通常情况下，应用场景比较少。且一般情况下，我们会使用计算属性来处理。</p>
 ]]></content>
       <categories>
         <category>Vue3</category>
@@ -11611,6 +11611,7 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <p>SPI NAND: 256MB:<span class="exturl" data-url="aHR0cHM6Ly9pdGVtLnN6bGNzYy5jb20vODQxNzk4NS5odG1s">HYF2GQ4UTACAE<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 </ul>
+<p>另外提一嘴，还有一个型号是 SDG400T，使用双核900MHz的处理器512MB，SDG400L使用双核1GHz的处理器256MB，估计什么配置应该都能猜出来。</p>
 <h2 id="拆机">拆机</h2>
 <p><img src="./converted_sdg320.png" alt></p>
 <h2 id="开-SSH-telnet-CONSOLE">开 SSH/telnet/CONSOLE</h2>
@@ -11634,7 +11635,7 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
   min-width: 280px; /* 设置最小宽度，防止卡片太小 */
   scroll-snap-align: center; /* 改为center以便居中对齐 */
   transition: all 0.3s ease; /* 添加过渡效果 */
-  height: 300px; /* 卡片高度 */
+  height: 270px; /* 卡片高度 */
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 15px var(--shadow-color);
@@ -11698,7 +11699,7 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <div class="card" hidden="true">
     <h2 class="card-title">下载解锁配置</h2>
     <p class="card-content">
-    里面的内容会覆盖路由器的配置文件，包括mac地址等信息，非必要不要导入，而是自己手动修改配置文件。
+    里面的内容会覆盖路由器的配置文件，包括mac地址等信息，非必要不要导入，而是自己手动修改配置文件。<b>注意备份原始配置文件</b>
     </p>
     <a href="./romfile-unlocked.cfg" download="romfile-unlocked.cfg" target="_blank" class="btn" data-pjax-state="load">下载</a>
 </div>
@@ -11713,9 +11714,84 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <h2 id="tftp-备份">tftp 备份</h2>
 <p>电脑上打开 tftp32 服务器，记得关闭杀毒软件和防火墙。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/mtd</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mtdx of=/tmp/backup/mtdx.img</span><br><span class="line">tftp -pl /tmp/backup/mtdx.img 192.168.10.2</span><br></pre></td></tr></table></figure>
+<p>linux 从 tftp 服务器下载文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tftp -g -r example.img 192.168.10.2</span><br></pre></td></tr></table></figure>
 <h2 id="玩机部分">玩机部分</h2>
 <p>这玩意能玩的也就只有 web 页面的主题了，使用 php 编写，定制你的精美主题吧！（哀）</p>
+<div class="card">
+    <h2 class="card-title">下载 WEB 美化</h2>
+    <p class="card-content">
+    <b>注意备份原始文件</b>
+    <a>先进入 /www，使用 ls -la 查看软链接位置，然后逐个替换。</a>
+    <a>使用 tftp -gr file host 下载文件</a>
+    <a>替换后，赋予 755 权限，所有者以及用户组 1005:1005。</a>
+    </p>
+    <a href="./UIWEB.tar.gz" download="UIWEB.tar.gz" target="_blank" class="btn" data-pjax-state="load">下载</a>
+</div>
+<blockquote>
+<p>scp 连接不要想了，这玩意有问题。</p>
+</blockquote>
 <p>tm 的，某鱼上看到这玩意，5根天线，ax3000，还是企业级，我一看这玩意，心想运气好估计是个 mt7981，结果一看，肠子悔青，跟海思、ZXIC、螃蟹坐一桌。</p>
+<h2 id="可疑文件">可疑文件</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>/sbin/check_patch_files.sh</p>
+</li>
+<li class="lvl-2">
+<p>/sbin/run_cmcc_plugin_task.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/etc/com.chinamobile.smartgateway.cmccdpi.jar</p>
+</li>
+<li class="lvl-2">
+<p>/usr/gmf/bin/gmfplugin</p>
+</li>
+<li class="lvl-2">
+<p>/usr/gmf/bin/gmfplugin.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/gmf/etc/webroot_default.tar.gz</p>
+</li>
+<li class="lvl-2">
+<p>/usr/gmf/lib/*</p>
+</li>
+<li class="lvl-2">
+<p>/usr/gmf/start.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/gmf/stop.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/script/CMCC_p1.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/script/CMCC_p2_V1.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/script/CMCC_p2_V2.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/script/CMCC_restart.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/script/jamvm.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/script/jvm.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/script/jvm_evm.sh</p>
+</li>
+<li class="lvl-2">
+<p>/usr/script/osgi_upg.sh</p>
+</li>
+<li class="lvl-2">
+<p>/etc/com.chinamobile.smartgateway.cmccdpi.jar</p>
+</li>
+</ul>
+<p>这些文件非常可疑，但是我的意思不是要你去删除它们，实际上在这台设备上，这些似乎没有运行。</p>
+<p>并且某些文件可能还夹杂着有用的东西，删除后可能会导致设备无法正常工作。</p>
+<p>所以结论是不用去管他们，除非你知道自己在做什么。</p>
 ]]></content>
   </entry>
   <entry>
@@ -12150,188 +12226,6 @@ Ethernet: 1xWAN + 3xLAN (1G)</p>
       <tags>
         <tag>分享</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>RT-AC68U TM-AC1900</title>
-    <url>/2025/04/25/1/</url>
-    <content><![CDATA[<p>前面提到，痛失 hy3000 这台路由器，MTK 没得玩了，然而家里全是博通的设备，购物软件看了一下，即使博通的基本没固件玩，然而 MT798x 系列的路由器，要么配置合适，价格不合适，要么价格合适，配置不合适，最后还是选择了把家里这台老路由器折腾一下。</p>
-<p>当初买的是美版 TM-AC1900，这款路由器的硬件配置和 AC68U 一模一样。</p>
-<h2 id="基本信息">基本信息</h2>
-<p>CPU: <span class="exturl" data-url="aHR0cHM6Ly90ZWNoaW5mb2RlcG90LnNob3V0d2lraS5jb20vd2lraS9Ccm9hZGNvbV9CQ000NzA4">BCM4708<i class="fa fa-external-link-alt"></i></span> 2CORE @ 800MHz<br>
-RAM: 256MB DDR3@ 666MHz<br>
-FLASH: 128MB NAND<br>
-5G&amp;2.4G: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYnJvYWRjb20uY29tL3Byb2R1Y3RzL3dpcmVsZXNzL3dpcmVsZXNzLWxhbi1pbmZyYXN0cnVjdHVyZS9iY200MzYw">BCM4360<i class="fa fa-external-link-alt"></i></span> x2<br>
-USB: 3.0 x1, 2.0 x1<br>
-WAN: 1000M x1<br>
-LAN: 1000M x4</p>
-<h2 id="固件">固件</h2>
-<ol>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYXN1cy5jb20uY24vc3VwcG9ydG9ubHkvcnRhYzY4dS9oZWxwZGVza19iaW9zLz9tb2RlbDJOYW1lPVJUQUM2OFU=">ASUS Official<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9hZHZhbmNlZHRvbWF0by5jb20vZG93bmxvYWRzL3JvdXRlci9ydC1hYzY4dQ==">AdvancedTomato<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly90b21hdG8uZ3Jvb3YucGwvZG93bmxvYWQvSzI2QVJNLw==">Tomato by Shibby<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZC13cnQuY29tL3N1cHBvcnQvcm91dGVyLWRhdGFiYXNlLz9tb2RlbD1SVC1BQzY4VSUyMChBQzE5MDApXy0=">DD-WRT<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9vcGVud3J0Lm9yZy90b2gvaHdkYXRhL2FzdXMvYXN1c19ydC1hYzY4dQ==">OpenWrt<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYXN1c3dydC1tZXJsaW4ubmV0">Merlin<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cua29vbGNlbnRlci5jb20vYXJ0aWNsZS9maXJtd2FyZS82X2Rvd25sb2FkL21lcmxpbl9tb2QvNzBfcnQtYWM2OHVfbWVybGluX21vZC8=">Koolshare<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnBhbGRpZXIuY29tL3J0LWFjNjh1Lw==">SWRT<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-3">
-<p><span class="exturl" data-url="aHR0cHM6Ly9mcmVzaHRvbWF0by5vcmcvZG93bmxvYWRzL2ZyZXNodG9tYXRvLWFybS8=">FreshTomato<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ol>
-<blockquote>
-<p>OpenWrt 缺少驱动，无法使用 ac 频段。</p>
-</blockquote>
-<h2 id="AC1900-转-AC68U-并开启-AIMESH">AC1900 转 AC68U 并开启 AIMESH</h2>
-<p>流程改编自此<span class="exturl" data-url="aHR0cHM6Ly9tb3JlbGVzcy5tZWRpdW0uY29tL2ZsYXNoLXRtLWFjLTE5MDAtdG8tcnQtYWM2OHUtdG8tdXNlLWFpbWVzaC04MGI4NDM4NzM1OGE=">How to config ASUS RT-AC68U to use AiMesh<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="下载固件和工具">下载固件和工具</h3>
-<p>从 <span class="exturl" data-url="aHR0cHM6Ly9tZWdhLm56L2ZpbGUvakFFaTBTNVMjSnZXWjBzOUc0cHdNTHBhSVc4alFfcS1aZDhNQmRpaGNoM1pTU0FzOFZzMA==">TM-AC1900toRT-AC68U.7z<i class="fa fa-external-link-alt"></i></span>下载</p>
-<p><code>TM-AC1900_3.0.0.4_376_1703-g0ffdbba.trx</code> 用于降级当前固件以允许使用 SSH。</p>
-<p><code>mtd-write</code> 是用于更改引导加载程序和固件的工具。</p>
-<p><code>FW_RT_AC68U_30043763626.trx</code> 是将 TM-AC1900 升级为 RT-AC68U 的固件。</p>
-<p>将文件解压到可以轻松使用安全复制 (scp) 的位置。我使用了“下载”文件夹，并将其挂载为 Linux 驱动器。</p>
-<h3 id="启用-SSH">启用 SSH</h3>
-<p>TM-AC1900 很可能预装了禁用 SSH 的固件版本。</p>
-<p>路由器不允许直接降级固件。需要将其置于救援模式。</p>
-<ol>
-<li class="lvl-3">
-<p>按住重置按钮 10 秒。</p>
-</li>
-<li class="lvl-3">
-<p>按住重置按钮并关闭 TM-AC1900。</p>
-</li>
-<li class="lvl-3">
-<p>继续按住重置按钮，等待 10 秒。</p>
-</li>
-<li class="lvl-3">
-<p>打开 TM-AC1900，并继续按住重置按钮 10 秒。</p>
-</li>
-<li class="lvl-3">
-<p>前面板的电源 LED 指示灯缓慢闪烁，表示无线路由器处于救援模式。</p>
-</li>
-</ol>
-<p>连接到恢复模式下的路由器。</p>
-<ol>
-<li class="lvl-3">
-<p>通过以太网将您的计算机连接到路由器。</p>
-</li>
-<li class="lvl-3">
-<p>将您的计算机设置为使用静态 IPv4 地址 192.168.29.5，子网掩码 255.255.255.0。</p>
-</li>
-<li class="lvl-3">
-<p>打开 Web 浏览器。</p>
-</li>
-<li class="lvl-3">
-<p>导航至 192.168.29.1。</p>
-</li>
-</ol>
-<p>选择 <code>TM-AC1900_3.0.0.4_376_1703-g0ffdbba.trx</code> 作为文件，然后点击上传。</p>
-<p>刷机完成并重启路由器后，刷新网页至 192.168.29.1。</p>
-<p>由于默认设置不起作用，我不得不重新设置管理员密码（设置得简单一些）。我保留了路由器的设置。您可以将其设置为接入点，但 IP 地址和子网掩码需要手动设置。</p>
-<p>在 Web 图形用户界面中，依次选择“管理”&gt;“系统”。</p>
-<p>点击启用 SSH 并应用。</p>
-<h3 id="通过-SSH-连接到路由器">通过 SSH 连接到路由器</h3>
-<p>打开终端并输入 <code>ssh admin@192.168.29.1</code>。</p>
-<p>如果成功，请输入之前设置的管理员密码。</p>
-<p>您将看到类似以下内容的提示：</p>
-<p>admin@(none):/tmp/home/root#</p>
-<h3 id="导出-Bootloader">导出 Bootloader</h3>
-<p>首先要做的是复制引导加载程序 cfe。输入：</p>
-<p>cat /dev/mtd0 &gt; original-cfe.bin</p>
-<p>这会获取 <code>cat /dev/mtd0</code> 的输出，并将其保存到位于 /tmp/home/root/ 的 <code>original-cfe.bin</code> 中。</p>
-<p>通过 WinSCP 或其他 SSH 客户端将 <code>original-cfe.bin</code> 复制到计算机。</p>
-<p>使用 <span class="exturl" data-url="aHR0cHM6Ly9jZmVkaXRvci5mZW5nLnNpLw==">CFEditor<i class="fa fa-external-link-alt"></i></span> 进行编辑，</p>
-<p>之后使用本地 CFEditor 进行CFE编辑(可选，这一步主要是为了进行超频和改善信号)</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">0:ccode=<span class="comment">#a</span></span><br><span class="line">1:ccode=<span class="comment">#a</span></span><br><span class="line">0:<span class="attr">maxp2ga0</span>=<span class="number">110</span></span><br><span class="line">0:<span class="attr">maxp2ga1</span>=<span class="number">110</span></span><br><span class="line">0:<span class="attr">maxp2ga2</span>=<span class="number">110</span></span><br><span class="line">1:<span class="attr">maxp5ga0</span>=<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span></span><br><span class="line">1:<span class="attr">maxp5ga1</span>=<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span></span><br><span class="line">1:<span class="attr">maxp5ga2</span>=<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span></span><br><span class="line"><span class="attr">clkfreq</span>=<span class="number">1200</span>,<span class="number">800</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>地区如果是US则信号强度会固定，这里进行了超频，频率为 1200MHz，内存频率为 800MHz，如果不需要超频可以不改。</p>
-</blockquote>
-<p>上传 <code>original-cfe.bin</code>，选择 1.0.2.0 US AiMesh (RT-AC68U)，并将目标 CFE 下载到 Downloads 文件夹。</p>
-<p>将名称更改为 <code>new-cfe.bin</code>。</p>
-<h3 id="引导加载程序、固件和工具导入">引导加载程序、固件和工具导入</h3>
-<p>更新引导加载程序和固件切换到通过 SSH 连接到路由器的终端。</p>
-<p>mtd-write 需要赋予可执行权限。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u+x mtd-write</span><br></pre></td></tr></table></figure>
-<p>接下来更新引导加载程序。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./mtd-write new_cfe.bin boot</span><br></pre></td></tr></table></figure>
-<p>最后，添加新固件。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mtd-write2 FW_RT_AC68U_30043763626.trx linux</span><br></pre></td></tr></table></figure>
-<p>执行 NVRAM 重置。</p>
-<ol>
-<li class="lvl-3">
-<p>关闭路由器。</p>
-</li>
-<li class="lvl-3">
-<p>等待 10 秒。</p>
-</li>
-<li class="lvl-3">
-<p>按住 WPS 按钮。</p>
-</li>
-<li class="lvl-3">
-<p>启动路由器，并继续按住 WPS 按钮 15-20 秒，直到电源 LED 开始快速闪烁。配置 RT-AC68U<br>
-路由器现在是 RT-AC68U，默认地址为 192.168.1.1/24，但只有在移除 mtd5 分区后才能升级固件。</p>
-</li>
-</ol>
-<p>需要重新设置并启用 SSH。</p>
-<p>通过 SSH 连接到路由器。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh admin@192.168.1.1</span><br></pre></td></tr></table></figure>
-<p>输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /dev/mtd5 &gt; /jffs/mtd5_backup.bin</span><br><span class="line"><span class="built_in">mkdir</span> /tmp/asus_jffs</span><br><span class="line">mount -t jffs2 /dev/mtdblock5 /tmp/asus_jffs</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/asus_jffs/*</span><br><span class="line"><span class="built_in">sync</span> &amp;&amp; umount /tmp/asus_jffs</span><br><span class="line"><span class="built_in">rm</span> -rf /jffs/.sys/RT-AC68U</span><br><span class="line">nvram <span class="built_in">unset</span> fw_check &amp;&amp; nvram commit &amp;&amp; restart</span><br></pre></td></tr></table></figure>
-<p>现在可以通过网页界面升级固件了。</p>
-<h3 id="验证">验证</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strings /dev/mtd5</span><br></pre></td></tr></table></figure>
-<p>成功转换为 RT-AC68U 后，返回应该是空，不会有任何内容。然而如果没有成功转换，返回的内容应该是一些不明的字符。</p>
-<p>此时执行:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /sbin/rc mtd-erase</span><br><span class="line">./mtd-erase -d asus</span><br></pre></td></tr></table></figure>
-<p>如果并重复之前的操作，直到成功为止。</p>
-<h3 id="验证-AIMESH">验证 AIMESH</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strings /dev/mtd0 | grep odmpid</span><br></pre></td></tr></table></figure>
-<p>如果返回 <code>odmpid=RT-AC68U</code>，则正确安装了 1.0.2.0 US AiMesh CFE。如果显示 <code>odmpid=ASUS</code>，那就是非 AiMesh 的那个。</p>
-<h2 id="杂七杂八">杂七杂八</h2>
-<p>一下是相关可能有用的命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wl -i eth1 txpwr_target_max &amp;&amp; wl -i eth2 txpwr_target_max <span class="comment"># 查看双频信号强度</span></span><br><span class="line">nvram get clkfreq <span class="comment"># 查看频率</span></span><br><span class="line">nvram get bl_version <span class="comment"># 查看CFE版本</span></span><br><span class="line"><span class="built_in">cat</span> /proc/cpuinfo <span class="comment"># 查看CPU信息</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> `nvram show | grep =$ `; <span class="keyword">do</span> var=<span class="variable">$&#123;line%*=&#125;</span>; nvram <span class="built_in">unset</span> <span class="variable">$var</span>; <span class="keyword">done</span>; nvram commit <span class="comment">## 清理NVRAM</span></span><br><span class="line">nvram <span class="built_in">set</span> local_domain=$(nvram get lan_ipaddr) <span class="comment">## 禁止跳转 router.asus.com</span></span><br><span class="line">nvram commit &amp;&amp; reboot <span class="comment">## 提交修改</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考">参考</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly9tb3JlbGVzcy5tZWRpdW0uY29tL2ZsYXNoLXRtLWFjLTE5MDAtdG8tcnQtYWM2OHUtdG8tdXNlLWFpbWVzaC04MGI4NDM4NzM1OGE=">如何设定 ASUS RT-AC68U 以使用 AiMesh<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYXJwMjc1L1RNLUFDMTkwMC10by1SVC1BQzY4VS9ibG9iL21haW4vUmVhZG1lLm1k">Asus TM-AC1900 to RT-AC68U<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC0xOTc2NjgtMS0xLmh0bWw=">TM-AC1900（美国T-MOBILE马甲AC68U）到手 改造刷梅林成功<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly8weG8ubmV0LzE4MjM=">TM-AC1900 3199 版本固件刷回 AC68U 支持 AiMesh 及AC68U最新固件下载<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2xvdDQubmV0LzIwMTQvMDkvMDYvcnQtYWM2OHUtJUU0JUJGJUFFJUU2JTk0JUI5LWNmZS8=">一劳永逸，华硕 RT-AC68U 修改 CFE 改区成功<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hpcGhlbGwuY29tL3RocmVhZC0yNDM3OTcwLTEtMS5odG1s">老旧AC68U解锁AiMesh<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ul>
-<h2 id="题外话">题外话</h2>
-<p>看到有一款博通芯片的路由器，Mifon x1，看起来不错，和 AX86U 配置差不多（强一点），但是没适配固件，然而直接刷 AX86U 的固件也可以用，但是5G频段，只有G1的1200MHz能用，G2的4800MHz的频率直接废了。那这直接变成AX1800了。。。(所以暂时观望中，看了一下Merlin.ng的源码，发现全是编译的.o文件，这怎么搞适配，还没有什么头绪，或许硬改成AX86U的硬件格局，直接上AX86U的固件就可以了？但我还是希望通过软件来实现，毕竟硬改还是有点麻烦的。)</p>
-<h2 id="后续">后续</h2>
-<p>在救援模式里，使用华硕官方下的新固件怎么都刷不进去，刷老固件才刷进去。也不知道这是怎么回事。</p>
-<p>AC68U 的 MESH 是残废的，即使强开了，硬件有缺，没什么用，不如去闲鱼淘两个30块的 AX1800 刷梅林组MESH。</p>
-]]></content>
   </entry>
   <entry>
     <title>飞利浦 幻域3000 philips hy3000 探索</title>
@@ -12888,6 +12782,235 @@ linux 工具 quilt 可能会执行相当长时间，不要以为卡住了，不�
       </tags>
   </entry>
   <entry>
+    <title>RT-AC68U TM-AC1900</title>
+    <url>/2025/04/25/1/</url>
+    <content><![CDATA[<p>前面提到，痛失 hy3000 这台路由器，MTK 没得玩了，然而家里全是博通的设备，购物软件看了一下，即使博通的基本没固件玩，然而 MT798x 系列的路由器，要么配置合适，价格不合适，要么价格合适，配置不合适，最后还是选择了把家里这台老路由器折腾一下。</p>
+<p>当初买的是美版 TM-AC1900，这款路由器的硬件配置和 AC68U 一模一样。</p>
+<h2 id="基本信息">基本信息</h2>
+<p>CPU: <span class="exturl" data-url="aHR0cHM6Ly90ZWNoaW5mb2RlcG90LnNob3V0d2lraS5jb20vd2lraS9Ccm9hZGNvbV9CQ000NzA4">BCM4708<i class="fa fa-external-link-alt"></i></span> 2CORE @ 800MHz<br>
+RAM: 256MB DDR3@ 666MHz<br>
+FLASH: 128MB NAND<br>
+5G&amp;2.4G: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYnJvYWRjb20uY29tL3Byb2R1Y3RzL3dpcmVsZXNzL3dpcmVsZXNzLWxhbi1pbmZyYXN0cnVjdHVyZS9iY200MzYw">BCM4360<i class="fa fa-external-link-alt"></i></span> x2<br>
+USB: 3.0 x1, 2.0 x1<br>
+WAN: 1000M x1<br>
+LAN: 1000M x4</p>
+<h2 id="固件">固件</h2>
+<ol>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYXN1cy5jb20uY24vc3VwcG9ydG9ubHkvcnRhYzY4dS9oZWxwZGVza19iaW9zLz9tb2RlbDJOYW1lPVJUQUM2OFU=">ASUS Official<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9hZHZhbmNlZHRvbWF0by5jb20vZG93bmxvYWRzL3JvdXRlci9ydC1hYzY4dQ==">AdvancedTomato<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly90b21hdG8uZ3Jvb3YucGwvZG93bmxvYWQvSzI2QVJNLw==">Tomato by Shibby<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZC13cnQuY29tL3N1cHBvcnQvcm91dGVyLWRhdGFiYXNlLz9tb2RlbD1SVC1BQzY4VSUyMChBQzE5MDApXy0=">DD-WRT<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9vcGVud3J0Lm9yZy90b2gvaHdkYXRhL2FzdXMvYXN1c19ydC1hYzY4dQ==">OpenWrt<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYXN1c3dydC1tZXJsaW4ubmV0">Merlin<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cua29vbGNlbnRlci5jb20vYXJ0aWNsZS9maXJtd2FyZS82X2Rvd25sb2FkL21lcmxpbl9tb2QvNzBfcnQtYWM2OHVfbWVybGluX21vZC8=">Koolshare<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnBhbGRpZXIuY29tL3J0LWFjNjh1Lw==">SWRT<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p><span class="exturl" data-url="aHR0cHM6Ly9mcmVzaHRvbWF0by5vcmcvZG93bmxvYWRzL2ZyZXNodG9tYXRvLWFybS8=">FreshTomato<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ol>
+<blockquote>
+<p>OpenWrt 缺少驱动，无法使用 ac 频段。</p>
+</blockquote>
+<h2 id="AC1900-转-AC68U-并开启-AIMESH">AC1900 转 AC68U 并开启 AIMESH</h2>
+<p>流程改编自此<span class="exturl" data-url="aHR0cHM6Ly9tb3JlbGVzcy5tZWRpdW0uY29tL2ZsYXNoLXRtLWFjLTE5MDAtdG8tcnQtYWM2OHUtdG8tdXNlLWFpbWVzaC04MGI4NDM4NzM1OGE=">How to config ASUS RT-AC68U to use AiMesh<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="下载固件和工具">下载固件和工具</h3>
+<p>从 <span class="exturl" data-url="aHR0cHM6Ly9tZWdhLm56L2ZpbGUvakFFaTBTNVMjSnZXWjBzOUc0cHdNTHBhSVc4alFfcS1aZDhNQmRpaGNoM1pTU0FzOFZzMA==">TM-AC1900toRT-AC68U.7z<i class="fa fa-external-link-alt"></i></span>下载</p>
+<p><code>TM-AC1900_3.0.0.4_376_1703-g0ffdbba.trx</code> 用于降级当前固件以允许使用 SSH。</p>
+<p><code>mtd-write</code> 是用于更改引导加载程序和固件的工具。</p>
+<p><code>FW_RT_AC68U_30043763626.trx</code> 是将 TM-AC1900 升级为 RT-AC68U 的固件。</p>
+<p>将文件解压到可以轻松使用安全复制 (scp) 的位置。我使用了“下载”文件夹，并将其挂载为 Linux 驱动器。</p>
+<h3 id="启用-SSH">启用 SSH</h3>
+<p>TM-AC1900 很可能预装了禁用 SSH 的固件版本。</p>
+<p>路由器不允许直接降级固件。需要将其置于救援模式。</p>
+<ol>
+<li class="lvl-3">
+<p>按住重置按钮 10 秒。</p>
+</li>
+<li class="lvl-3">
+<p>按住重置按钮并关闭 TM-AC1900。</p>
+</li>
+<li class="lvl-3">
+<p>继续按住重置按钮，等待 10 秒。</p>
+</li>
+<li class="lvl-3">
+<p>打开 TM-AC1900，并继续按住重置按钮 10 秒。</p>
+</li>
+<li class="lvl-3">
+<p>前面板的电源 LED 指示灯缓慢闪烁，表示无线路由器处于救援模式。</p>
+</li>
+</ol>
+<p>连接到恢复模式下的路由器。</p>
+<ol>
+<li class="lvl-3">
+<p>通过以太网将您的计算机连接到路由器。</p>
+</li>
+<li class="lvl-3">
+<p>将您的计算机设置为使用静态 IPv4 地址 192.168.29.5，子网掩码 255.255.255.0。</p>
+</li>
+<li class="lvl-3">
+<p>打开 Web 浏览器。</p>
+</li>
+<li class="lvl-3">
+<p>导航至 192.168.29.1。</p>
+</li>
+</ol>
+<p>选择 <code>TM-AC1900_3.0.0.4_376_1703-g0ffdbba.trx</code> 作为文件，然后点击上传。</p>
+<p>刷机完成并重启路由器后，刷新网页至 192.168.29.1。</p>
+<p>由于默认设置不起作用，我不得不重新设置管理员密码（设置得简单一些）。我保留了路由器的设置。您可以将其设置为接入点，但 IP 地址和子网掩码需要手动设置。</p>
+<p>在 Web 图形用户界面中，依次选择“管理”&gt;“系统”。</p>
+<p>点击启用 SSH 并应用。</p>
+<h3 id="通过-SSH-连接到路由器">通过 SSH 连接到路由器</h3>
+<p>打开终端并输入 <code>ssh admin@192.168.29.1</code>。</p>
+<p>如果成功，请输入之前设置的管理员密码。</p>
+<p>您将看到类似以下内容的提示：</p>
+<p>admin@(none):/tmp/home/root#</p>
+<h3 id="导出-Bootloader">导出 Bootloader</h3>
+<p>首先要做的是复制引导加载程序 cfe。输入：</p>
+<p>cat /dev/mtd0 &gt; original-cfe.bin</p>
+<p>这会获取 <code>cat /dev/mtd0</code> 的输出，并将其保存到位于 /tmp/home/root/ 的 <code>original-cfe.bin</code> 中。</p>
+<p>通过 WinSCP 或其他 SSH 客户端将 <code>original-cfe.bin</code> 复制到计算机。</p>
+<p>使用 <span class="exturl" data-url="aHR0cHM6Ly9jZmVkaXRvci5mZW5nLnNpLw==">CFEditor<i class="fa fa-external-link-alt"></i></span> 进行编辑，</p>
+<p>之后使用本地 CFEditor 进行CFE编辑(可选，这一步主要是为了进行超频和改善信号)</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">0:ccode=<span class="comment">#a</span></span><br><span class="line">1:ccode=<span class="comment">#a</span></span><br><span class="line">0:<span class="attr">maxp2ga0</span>=<span class="number">110</span></span><br><span class="line">0:<span class="attr">maxp2ga1</span>=<span class="number">110</span></span><br><span class="line">0:<span class="attr">maxp2ga2</span>=<span class="number">110</span></span><br><span class="line">1:<span class="attr">maxp5ga0</span>=<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span></span><br><span class="line">1:<span class="attr">maxp5ga1</span>=<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span></span><br><span class="line">1:<span class="attr">maxp5ga2</span>=<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span>,<span class="number">110</span></span><br><span class="line"><span class="attr">clkfreq</span>=<span class="number">1200</span>,<span class="number">800</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>地区如果是US则信号强度会固定，这里进行了超频，频率为 1200MHz，内存频率为 800MHz，如果不需要超频可以不改。</p>
+</blockquote>
+<p>上传 <code>original-cfe.bin</code>，选择 1.0.2.0 US AiMesh (RT-AC68U)，并将目标 CFE 下载到 Downloads 文件夹。</p>
+<p>将名称更改为 <code>new-cfe.bin</code>。</p>
+<h3 id="引导加载程序、固件和工具导入">引导加载程序、固件和工具导入</h3>
+<p>更新引导加载程序和固件切换到通过 SSH 连接到路由器的终端。</p>
+<p>mtd-write 需要赋予可执行权限。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u+x mtd-write</span><br></pre></td></tr></table></figure>
+<p>接下来更新引导加载程序。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./mtd-write new_cfe.bin boot</span><br></pre></td></tr></table></figure>
+<p>最后，添加新固件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mtd-write2 FW_RT_AC68U_30043763626.trx linux</span><br></pre></td></tr></table></figure>
+<p>执行 NVRAM 重置。</p>
+<ol>
+<li class="lvl-3">
+<p>关闭路由器。</p>
+</li>
+<li class="lvl-3">
+<p>等待 10 秒。</p>
+</li>
+<li class="lvl-3">
+<p>按住 WPS 按钮。</p>
+</li>
+<li class="lvl-3">
+<p>启动路由器，并继续按住 WPS 按钮 15-20 秒，直到电源 LED 开始快速闪烁。配置 RT-AC68U<br>
+路由器现在是 RT-AC68U，默认地址为 192.168.1.1/24，但只有在移除 mtd5 分区后才能升级固件。</p>
+</li>
+</ol>
+<p>需要重新设置并启用 SSH。</p>
+<p>通过 SSH 连接到路由器。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh admin@192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /dev/mtd5 &gt; /jffs/mtd5_backup.bin</span><br><span class="line"><span class="built_in">mkdir</span> /tmp/asus_jffs</span><br><span class="line">mount -t jffs2 /dev/mtdblock5 /tmp/asus_jffs</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/asus_jffs/*</span><br><span class="line"><span class="built_in">sync</span> &amp;&amp; umount /tmp/asus_jffs</span><br><span class="line"><span class="built_in">rm</span> -rf /jffs/.sys/RT-AC68U</span><br><span class="line">nvram <span class="built_in">unset</span> fw_check &amp;&amp; nvram commit &amp;&amp; restart</span><br></pre></td></tr></table></figure>
+<p>现在可以通过网页界面升级固件了。</p>
+<h3 id="验证">验证</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strings /dev/mtd5</span><br></pre></td></tr></table></figure>
+<p>成功转换为 RT-AC68U 后，返回应该是空，不会有任何内容。然而如果没有成功转换，返回的内容应该是一些不明的字符。</p>
+<p>此时执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /sbin/rc mtd-erase</span><br><span class="line">./mtd-erase -d asus</span><br></pre></td></tr></table></figure>
+<p>如果并重复之前的操作，直到成功为止。</p>
+<h3 id="验证-AIMESH">验证 AIMESH</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strings /dev/mtd0 | grep odmpid</span><br></pre></td></tr></table></figure>
+<p>如果返回 <code>odmpid=RT-AC68U</code>，则正确安装了 1.0.2.0 US AiMesh CFE。如果显示 <code>odmpid=ASUS</code>，那就是非 AiMesh 的那个。</p>
+<h2 id="杂七杂八">杂七杂八</h2>
+<p>一下是相关可能有用的命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wl -i eth1 txpwr_target_max &amp;&amp; wl -i eth2 txpwr_target_max <span class="comment"># 查看双频信号强度</span></span><br><span class="line">nvram get clkfreq <span class="comment"># 查看频率</span></span><br><span class="line">nvram get bl_version <span class="comment"># 查看CFE版本</span></span><br><span class="line"><span class="built_in">cat</span> /proc/cpuinfo <span class="comment"># 查看CPU信息</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> `nvram show | grep =$ `; <span class="keyword">do</span> var=<span class="variable">$&#123;line%*=&#125;</span>; nvram <span class="built_in">unset</span> <span class="variable">$var</span>; <span class="keyword">done</span>; nvram commit <span class="comment">## 清理NVRAM</span></span><br><span class="line">nvram <span class="built_in">set</span> local_domain=$(nvram get lan_ipaddr) <span class="comment">## 禁止跳转 router.asus.com</span></span><br><span class="line">nvram commit &amp;&amp; reboot <span class="comment">## 提交修改</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9tb3JlbGVzcy5tZWRpdW0uY29tL2ZsYXNoLXRtLWFjLTE5MDAtdG8tcnQtYWM2OHUtdG8tdXNlLWFpbWVzaC04MGI4NDM4NzM1OGE=">如何设定 ASUS RT-AC68U 以使用 AiMesh<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYXJwMjc1L1RNLUFDMTkwMC10by1SVC1BQzY4VS9ibG9iL21haW4vUmVhZG1lLm1k">Asus TM-AC1900 to RT-AC68U<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC0xOTc2NjgtMS0xLmh0bWw=">TM-AC1900（美国T-MOBILE马甲AC68U）到手 改造刷梅林成功<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly8weG8ubmV0LzE4MjM=">TM-AC1900 3199 版本固件刷回 AC68U 支持 AiMesh 及AC68U最新固件下载<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2xvdDQubmV0LzIwMTQvMDkvMDYvcnQtYWM2OHUtJUU0JUJGJUFFJUU2JTk0JUI5LWNmZS8=">一劳永逸，华硕 RT-AC68U 修改 CFE 改区成功<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hpcGhlbGwuY29tL3RocmVhZC0yNDM3OTcwLTEtMS5odG1s">老旧AC68U解锁AiMesh<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<h2 id="题外话">题外话</h2>
+<p>看到有一款博通芯片的路由器，Mifon x1，看起来不错，和 AX86U 配置差不多（强一点），但是没适配固件，然而直接刷 AX86U 的固件也可以用，但是5G频段，只有G1的1200MHz能用，G2的4800MHz的频率直接废了。那这直接变成AX1800了。。。(所以暂时观望中，看了一下Merlin.ng的源码，发现全是编译的.o文件，这怎么搞适配，还没有什么头绪，或许硬改成AX86U的硬件格局，直接上AX86U的固件就可以了？但我还是希望通过软件来实现，毕竟硬改还是有点麻烦的。)</p>
+<h2 id="后续">后续</h2>
+<p>在救援模式里，使用华硕官方下的新固件怎么都刷不进去，刷老固件才刷进去。也不知道这是怎么回事。</p>
+<p>AC68U 的 MESH 是残废的，即使强开了，硬件有缺，没什么用，不如去闲鱼淘两个30块的 AX1800 刷梅林组MESH。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>一流的练习打字的网站</title>
+    <url>/2023/03/02/2/</url>
+    <content><![CDATA[<p>目前学习计算机专业，需要经常打字，使用键盘操作，所以需要练习打字，这里推荐两个好的练习打字的网站。</p>
+<h2 id="1-Typing-com">1. <span class="exturl" data-url="aHR0cHM6Ly93d3cudHlwaW5nLmNvbQ==">Typing.com<i class="fa fa-external-link-alt"></i></span></h2>
+<p>Typing.com是一个练习打字的网站，可以练习打字，UI精美，指导性很强，非常适合初学者。</p>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cDovL1R5cGluZy5jb20=">Typing.com<i class="fa fa-external-link-alt"></i></span> is a free online typing tutor. Learn touch typing, practice your keyboarding skills, take typing tests and find your true typing speed.</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>适合初学者</p>
+</li>
+</ul>
+<p><img src="./typing%20the%20home.png" alt></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>指导性强</p>
+</li>
+</ul>
+<p><img src="./typing%20tips.png" alt></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>按键指导</p>
+</li>
+</ul>
+<p><img src="./typing%20keyboard%20guide.png" alt></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>打字练习</p>
+</li>
+</ul>
+<p><img src="./typing%20pracice.png" alt></p>
+<h2 id="2-qwerty-kaiyi-cool">2. <span class="exturl" data-url="aHR0cHM6Ly9xd2VydHkua2FpeWkuY29vbC8=">qwerty.kaiyi.cool<i class="fa fa-external-link-alt"></i></span></h2>
+<p>qwerty.kaiyi.cool是一个练习打字的网站，可以练习打字，UI简洁，指导性不强，适合熟悉打字的人。</p>
+<blockquote>
+<p>但其内容实用性强，有CET4/6，GMAT，GRE，TOEFL，雅思，托福，SAT，ACT，英语专四，英八，PTE，计算机代码练习，甚至日语罗马音······等</p>
+</blockquote>
+<p>在其中，你能在熟练打字的同时，学习到你需要的知识。</p>
+<p><img src="./qwert1.png" alt></p>
+<p><img src="./qwert2.png" alt></p>
+<p><img src="./qwert3.png" alt></p>
+]]></content>
+      <tags>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>欢迎来到 Yuzhii 的博客</title>
     <url>/1970/01/01/1/</url>
     <content><![CDATA[<div class="welcome">
@@ -13051,52 +13174,5 @@ linux 工具 quilt 可能会执行相当长时间，不要以为卡住了，不�
   });
 </script>
 ]]></content>
-  </entry>
-  <entry>
-    <title>一流的练习打字的网站</title>
-    <url>/2023/03/02/2/</url>
-    <content><![CDATA[<p>目前学习计算机专业，需要经常打字，使用键盘操作，所以需要练习打字，这里推荐两个好的练习打字的网站。</p>
-<h2 id="1-Typing-com">1. <span class="exturl" data-url="aHR0cHM6Ly93d3cudHlwaW5nLmNvbQ==">Typing.com<i class="fa fa-external-link-alt"></i></span></h2>
-<p>Typing.com是一个练习打字的网站，可以练习打字，UI精美，指导性很强，非常适合初学者。</p>
-<blockquote>
-<p><span class="exturl" data-url="aHR0cDovL1R5cGluZy5jb20=">Typing.com<i class="fa fa-external-link-alt"></i></span> is a free online typing tutor. Learn touch typing, practice your keyboarding skills, take typing tests and find your true typing speed.</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>适合初学者</p>
-</li>
-</ul>
-<p><img src="./typing%20the%20home.png" alt></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>指导性强</p>
-</li>
-</ul>
-<p><img src="./typing%20tips.png" alt></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>按键指导</p>
-</li>
-</ul>
-<p><img src="./typing%20keyboard%20guide.png" alt></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>打字练习</p>
-</li>
-</ul>
-<p><img src="./typing%20pracice.png" alt></p>
-<h2 id="2-qwerty-kaiyi-cool">2. <span class="exturl" data-url="aHR0cHM6Ly9xd2VydHkua2FpeWkuY29vbC8=">qwerty.kaiyi.cool<i class="fa fa-external-link-alt"></i></span></h2>
-<p>qwerty.kaiyi.cool是一个练习打字的网站，可以练习打字，UI简洁，指导性不强，适合熟悉打字的人。</p>
-<blockquote>
-<p>但其内容实用性强，有CET4/6，GMAT，GRE，TOEFL，雅思，托福，SAT，ACT，英语专四，英八，PTE，计算机代码练习，甚至日语罗马音······等</p>
-</blockquote>
-<p>在其中，你能在熟练打字的同时，学习到你需要的知识。</p>
-<p><img src="./qwert1.png" alt></p>
-<p><img src="./qwert2.png" alt></p>
-<p><img src="./qwert3.png" alt></p>
-]]></content>
-      <tags>
-        <tag>分享</tag>
-      </tags>
   </entry>
 </search>
