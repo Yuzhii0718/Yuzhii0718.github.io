@@ -465,6 +465,110 @@
       </tags>
   </entry>
   <entry>
+    <title>⟪天使な小生意気⟫ 专题现已推出！</title>
+    <url>/2024/03/26/1/</url>
+    <content><![CDATA[<h2 id="专题现已推出">专题现已推出</h2>
+<p>这部让我感触颇深的作品，我为此专门开设了一个专题！</p>
+<div class="note default"><p><a href="/html/application/a-cheeky-angel/">点击这里查看专题</a></p>
+</div>
+<p><img src="./Tenshinakonamaiki.webp" alt></p>
+<hr>
+<h2 id="更新">更新</h2>
+<p>3.15 更新</p>
+<p>基本路由和页面的搭建资源页面的搭建</p>
+<p>3.18 更新</p>
+<p>Markdown 查看实现</p>
+<p>3.22 更新</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>概要</p>
+</li>
+<li class="lvl-2">
+<p>问题</p>
+</li>
+</ul>
+<p>3.23 更新</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关于</p>
+</li>
+<li class="lvl-2">
+<p>评论01</p>
+</li>
+<li class="lvl-2">
+<p>评论03</p>
+</li>
+</ul>
+<p>更新 Markdown 的查看</p>
+<p>3.26 更新</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>评论02</p>
+</li>
+<li class="lvl-2">
+<p>名场面以及伏笔01</p>
+</li>
+</ul>
+<p>恢复暗色模式下 Markdown 的查看不正常的问题</p>
+<p>3.31 更新</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>名场面以及伏笔02</p>
+</li>
+</ul>
+<p>更新 MarkdownView 的实现</p>
+<p>6.23 更新</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>名场面以及伏笔05</p>
+</li>
+</ul>
+<p>6.24 更新</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>名场面以及伏笔06</p>
+</li>
+</ul>
+<p>11.6 更新</p>
+<p>上个月去看的时候，发现这个专题的页面有问题，banner 图片加载不出来，因为这个是从日本一个同人社区直接取的图片，然而那个社区已经关闭了，所以这个图片也就加载不出来了。今天写博客记起这件事，就说明一下。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>ほんとにごめんなさい！🥲</p>
+</li>
+</ul>
+<p>24年 终了</p>
+<p>25年</p>
+<p>1.1 更新</p>
+<p>今天想去再翻译几篇文章，结果发现原作者的网站炸了，好在有互联网档案馆，可以找到一些文章的备份</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>名场面以及伏笔07</p>
+</li>
+<li class="lvl-2">
+<p>名场面以及伏笔08</p>
+</li>
+<li class="lvl-2">
+<p>名场面以及伏笔09</p>
+</li>
+</ul>
+<p>25.4.19</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>名场面以及伏笔11</p>
+</li>
+<li class="lvl-2">
+<p>名场面以及伏笔12</p>
+</li>
+<li class="lvl-2">
+<p>名场面以及伏笔13</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS3 动画专题(下)</title>
     <url>/2023/10/19/2/</url>
     <content><![CDATA[<div class="note warning"><p>如果看不见内嵌网页或者连接错误，请刷新。</p>
@@ -929,278 +1033,6 @@ PC2: 192.168.3.1 网关 192.168.3.2</p>
       <categories>
         <category>Network</category>
       </categories>
-  </entry>
-  <entry>
-    <title>⟪天使な小生意気⟫ 专题现已推出！</title>
-    <url>/2024/03/26/1/</url>
-    <content><![CDATA[<h2 id="专题现已推出">专题现已推出</h2>
-<p>这部让我感触颇深的作品，我为此专门开设了一个专题！</p>
-<div class="note default"><p><a href="/html/application/a-cheeky-angel/">点击这里查看专题</a></p>
-</div>
-<p><img src="./Tenshinakonamaiki.webp" alt></p>
-<hr>
-<h2 id="更新">更新</h2>
-<p>3.15 更新</p>
-<p>基本路由和页面的搭建资源页面的搭建</p>
-<p>3.18 更新</p>
-<p>Markdown 查看实现</p>
-<p>3.22 更新</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>概要</p>
-</li>
-<li class="lvl-2">
-<p>问题</p>
-</li>
-</ul>
-<p>3.23 更新</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>关于</p>
-</li>
-<li class="lvl-2">
-<p>评论01</p>
-</li>
-<li class="lvl-2">
-<p>评论03</p>
-</li>
-</ul>
-<p>更新 Markdown 的查看</p>
-<p>3.26 更新</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>评论02</p>
-</li>
-<li class="lvl-2">
-<p>名场面以及伏笔01</p>
-</li>
-</ul>
-<p>恢复暗色模式下 Markdown 的查看不正常的问题</p>
-<p>3.31 更新</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>名场面以及伏笔02</p>
-</li>
-</ul>
-<p>更新 MarkdownView 的实现</p>
-<p>6.23 更新</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>名场面以及伏笔05</p>
-</li>
-</ul>
-<p>6.24 更新</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>名场面以及伏笔06</p>
-</li>
-</ul>
-<p>11.6 更新</p>
-<p>上个月去看的时候，发现这个专题的页面有问题，banner 图片加载不出来，因为这个是从日本一个同人社区直接取的图片，然而那个社区已经关闭了，所以这个图片也就加载不出来了。今天写博客记起这件事，就说明一下。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>ほんとにごめんなさい！🥲</p>
-</li>
-</ul>
-<p>24年 终了</p>
-<p>25年</p>
-<p>1.1 更新</p>
-<p>今天想去再翻译几篇文章，结果发现原作者的网站炸了，好在有互联网档案馆，可以找到一些文章的备份</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>名场面以及伏笔07</p>
-</li>
-<li class="lvl-2">
-<p>名场面以及伏笔08</p>
-</li>
-<li class="lvl-2">
-<p>名场面以及伏笔09</p>
-</li>
-</ul>
-<p>25.4.19</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>名场面以及伏笔11</p>
-</li>
-<li class="lvl-2">
-<p>名场面以及伏笔12</p>
-</li>
-<li class="lvl-2">
-<p>名场面以及伏笔13</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络杂记-02</title>
-    <url>/2023/10/30/1/</url>
-    <content><![CDATA[<h2 id="网络体系中的物理层">网络体系中的物理层</h2>
-<p>物理层的作用是：通过物理媒体传输比特流。</p>
-<p>物理层协议的主要任务</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>机械特性：规定了物理连接器的形状、引脚数目、引脚的用途、固定器件的位置等。</p>
-</li>
-<li class="lvl-2">
-<p>电气特性：规定了电压的高低、电平的定义、接口的电流等。</p>
-</li>
-<li class="lvl-2">
-<p>功能特性：规定了接口的功能，如何检测和控制数据的流动，如何检测和控制数据的流动，如何检测和控制错误，如何同步等。</p>
-</li>
-<li class="lvl-2">
-<p>过程特性：规定了通信的建立和拆除的步骤，如何管理通信线路等。</p>
-</li>
-</ul>
-<h3 id="传输媒体">传输媒体</h3>
-<p>传输媒体分为两大类：导引型传输媒体和非导引型传输媒体。</p>
-<blockquote>
-<p>导引型传输媒体</p>
-</blockquote>
-<p>又称为有线传输媒体，是指能够传输电磁波的传输媒体。如双绞线、同轴电缆、光纤等。</p>
-<ol>
-<li class="lvl-3">
-<p>双绞线双绞线是一种双股绝缘导线，两股导线以一定的规则绞合在一起，用来传输信号。</p>
-</li>
-<li class="lvl-3">
-<p>同轴电缆同轴电缆是一种中心导线被绝缘层包围，绝缘层外面又有一层金属网的传输媒体。</p>
-</li>
-<li class="lvl-3">
-<p>光纤光纤是一种以光的形式传输信号的传输媒体。</p>
-</li>
-</ol>
-<blockquote>
-<p>非导引型传输媒体</p>
-</blockquote>
-<p>又称为无线传输媒体，是指能够传输电磁波的传输媒体。如无线电波、微波、红外线等。</p>
-<h3 id="传输方式">传输方式</h3>
-<p>传输方式分为两大类：串行传输和并行传输。</p>
-<blockquote>
-<p>串行传输</p>
-</blockquote>
-<p>串行传输是指在传输数据时，每次只传输一位数据。串行传输的优点是：传输距离远，传输速率高，传输线路简单。</p>
-<blockquote>
-<p>并行传输</p>
-</blockquote>
-<p>并行传输是指在传输数据时，每次传输多位数据。并行传输的优点是：传输速率高，传输效率高。</p>
-<p>此外，还有同步传输和异步传输。</p>
-<blockquote>
-<p>同步传输</p>
-</blockquote>
-<p>同步传输是指在传输数据时，发送方和接收方的时钟信号是同步的。</p>
-<blockquote>
-<p>异步传输</p>
-</blockquote>
-<p>异步传输是指在传输数据时，发送方和接收方的时钟信号是异步的。</p>
-<p>单工传输、半双工传输和全双工传输。</p>
-<p>这些传输方式的区别在于：传输方向、传输速率、传输效率、传输距离、传输线路复杂程度。</p>
-<p>单工传输是指在传输数据时，数据只能单向传输。如广播电台。</p>
-<p>半双工传输是指在传输数据时，数据可以双向传输，但是不能同时双向传输。如对讲机。</p>
-<p>全双工传输是指在传输数据时，数据可以双向传输，而且可以同时双向传输。如电话机。</p>
-<h3 id="编码与调制">编码与调制</h3>
-<p>编码是指将数字信号转换为模拟信号的过程。</p>
-<p>调制是指将数字信号转换为模拟信号的过程。</p>
-<p>我们使用一个树状图来表示编码和调制的过程。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">消息</span><br><span class="line">↓ 运送消息的实体</span><br><span class="line">数据</span><br><span class="line">↓ 数据的电磁形式</span><br><span class="line">信号</span><br><span class="line">↓ 信源发出的原始电信号</span><br><span class="line">基带信号</span><br><span class="line">|-------------------|</span><br><span class="line">↓                   ↓</span><br><span class="line">数字信号            模拟信号</span><br><span class="line">|-----|            |-----|</span><br><span class="line">↓     ↓            ↓     ↓</span><br><span class="line">编码  调制          编码  调制</span><br></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>码元：是指数字信号中的一个离散值。</p>
-</li>
-</ul>
-<p>传输媒体与信道不能直接划等号，信道是指传输媒体的一部分。</p>
-<blockquote>
-<p>常用编码</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>非归零编码非归零编码是指在传输数据时，每个码元的电平都有一个基准电平，码元的电平要么是高于基准电平，要么是低于基准电平。</p>
-</li>
-<li class="lvl-2">
-<p>归零编码归零编码是指在传输数据时，每个码元的电平都有一个基准电平，码元的电平要么是高于基准电平，要么是低于基准电平，但是每个码元的电平都会回到基准电平。</p>
-</li>
-<li class="lvl-2">
-<p>曼彻斯特编码曼彻斯特编码是指在传输数据时，每个码元的电平都有一个基准电平，码元的电平要么是高于基准电平，要么是低于基准电平，但是每个码元的电平都会回到基准电平，而且每个码元的中间都会有一个电平跳变。</p>
-</li>
-<li class="lvl-2">
-<p>差分曼彻斯特编码差分曼彻斯特编码是指在传输数据时，每个码元的电平都有一个基准电平，码元的电平要么是高于基准电平，要么是低于基准电平，但是每个码元的电平都会回到基准电平，而且每个码元的中间都会有一个电平跳变，而且每个码元的中间都会有一个电平跳变，而且每个码元的中间都会有一个电平跳变，而且每个码元的中间都会有一个电平跳变。</p>
-</li>
-</ul>
-<blockquote>
-<p>基本调制方法</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>调幅 AM<br>
-调幅是指在传输数据时，通过改变信号的幅度来传输数据。</p>
-</li>
-<li class="lvl-2">
-<p>调频 FM<br>
-调频是指在传输数据时，通过改变信号的频率来传输数据。</p>
-</li>
-<li class="lvl-2">
-<p>调相 PM<br>
-调相是指在传输数据时，通过改变信号的相位来传输数据。</p>
-</li>
-<li class="lvl-2">
-<p>数字基带调制数字基带调制是指在传输数据时，通过改变信号的幅度、频率、相位来传输数据。</p>
-</li>
-</ul>
-<blockquote>
-<p>混合调制</p>
-</blockquote>
-<p>混合调制是指在传输数据时，通过改变信号的幅度、频率、相位来传输数据。</p>
-<p>通常情况下，相位和振幅可以结合在一起，称为正交相幅调制 QAM。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>QAM-16</p>
-<ul class="lvl-2">
-<li class="lvl-4">12种相位</li>
-<li class="lvl-4">每种相位有 1/2 种振幅</li>
-<li class="lvl-4">可以调出 16 种码元，每种码元可以表示 4 个比特</li>
-<li class="lvl-4">码元与 4 个比特的对应关系采用格雷码</li>
-<li class="lvl-4">任意两个相邻码元只有一个比特不同</li>
-</ul>
-</li>
-</ul>
-<h3 id="信道的极限容量">信道的极限容量</h3>
-<p>信道的极限容量是指在单位时间内，信道所能传输的最大数据量。</p>
-<p>码间串扰是指在传输数据时，由于信号的干扰，导致接收方无法正确识别发送方发送的信号。</p>
-<p>失真的因素</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>码元传输速率</p>
-</li>
-<li class="lvl-2">
-<p>信号传输距离</p>
-</li>
-<li class="lvl-2">
-<p>噪声干扰</p>
-</li>
-<li class="lvl-2">
-<p>传输媒体质量</p>
-</li>
-</ul>
-<blockquote>
-<p>奈氏准则</p>
-</blockquote>
-<p>奈氏准则是指在传输数据时，信道的极限容量与信道的带宽和信噪比有关。</p>
-<p>理想低通信道的最高码元传输速率 = <code>2 * 带宽 * log2V</code><br>
-理想带通信道的最高码元传输速率 = <code>带宽 * log2V</code></p>
-<blockquote>
-<p>香农定理</p>
-</blockquote>
-<p>香农定理是指在传输数据时，信道的极限容量与信道的带宽和信噪比有关。</p>
-<p><code>c = W * log2(1 + S/N)</code>单位：比特/秒</p>
-<p>其中，c 是信道的极限容量，W 是信道的带宽，S 是信道的信号功率，N 是信道的噪声功率。</p>
-]]></content>
-      <categories>
-        <category>Network</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>利用 Cisco Packet Tracer 进行组网实验 2</title>
@@ -1918,154 +1750,165 @@ U = D0 / (D0 + D)</p>
       </tags>
   </entry>
   <entry>
-    <title>计算机网络杂记-04</title>
-    <url>/2023/11/07/1/</url>
-    <content><![CDATA[<h2 id="点对点协议PPP-Point-to-Point-Protocol">点对点协议PPP Point-to-Point Protocol</h2>
-<p>PPP是一种数据链路层协议，它规定了点对点通信的协议标准。</p>
+    <title>计算机网络杂记-02</title>
+    <url>/2023/10/30/1/</url>
+    <content><![CDATA[<h2 id="网络体系中的物理层">网络体系中的物理层</h2>
+<p>物理层的作用是：通过物理媒体传输比特流。</p>
+<p>物理层协议的主要任务</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>PPP 为在点对点通信链路上传输网络层数据报提供了一种标准方法。</p>
-<ul class="lvl-2">
-<li class="lvl-4">PPP 为多种网络层协议提供了一种通用的封装方法。（封装成帧）</li>
-<li class="lvl-4">PPP 为在两数据链路层提供了<code>链路控制协议LCP</code>，用于建立、配置和测试数据链路连接。</li>
-<li class="lvl-4">PPP 为在两数据链路层提供了<code>网络控制协议NCP</code>，用于在两个节点之间传输网络层协议的数据包。</li>
-</ul>
+<p>机械特性：规定了物理连接器的形状、引脚数目、引脚的用途、固定器件的位置等。</p>
+</li>
+<li class="lvl-2">
+<p>电气特性：规定了电压的高低、电平的定义、接口的电流等。</p>
+</li>
+<li class="lvl-2">
+<p>功能特性：规定了接口的功能，如何检测和控制数据的流动，如何检测和控制数据的流动，如何检测和控制错误，如何同步等。</p>
+</li>
+<li class="lvl-2">
+<p>过程特性：规定了通信的建立和拆除的步骤，如何管理通信线路等。</p>
 </li>
 </ul>
+<h3 id="传输媒体">传输媒体</h3>
+<p>传输媒体分为两大类：导引型传输媒体和非导引型传输媒体。</p>
 <blockquote>
-<p>帧格式</p>
+<p>导引型传输媒体</p>
 </blockquote>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">帧的首部                            |     数据     | 帧的尾部</span><br><span class="line">|   F   |   A    |   C    |   P    |    DATA     |   FSC  |   F    |</span><br><span class="line">| 1 byte| 1 byte | 1 byte | 2 byte | 0~1500 byte | 2 byte | 1 byte |</span><br></pre></td></tr></table></figure>
-<p>标志 Flag 字段 F：标志字段是一个字节，它的值为 0x7E，表示帧的开始和结束。地址 Address 字段 A：地址字段是一个字节，它的值为 0xFF，表示广播地址。预留，但目前没有使用。控制 Control 字段 C：控制字段是一个字节，它的值为 0x03，表示无控制信息。预留，但目前没有使用。协议 Protocol 字段 P：协议字段是两个字节，指明上层协议类型。如 0x0021 表示 IP 协议、0xC021 表示 LCP 协议、0x8021 表示 IPX 协议、0x8023 表示 IPX 协议。数据 Data 字段：数据字段是 0~1500 个字节，表示上层协议的数据。帧检验序列 FCS 字段：帧检验序列字段是两个字节，用于差错检测。</p>
-<blockquote>
-<p>透明传输</p>
-</blockquote>
-<p>如果在帧的数据部分出现了和帧首部相同的字符，数据链路层就会误认为帧结束，因此，数据链路层必须对数据进行处理，以免出现这种情况。</p>
-<p>数据链路层对数据进行处理的方法是：在数据中出现特定字符时，数据链路层自动在该字符前面插入一个转义字符，以免与帧的定界符混淆。</p>
-<p>发送方的处理：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>出现的每一个 0x7E 字符，都用 0x7D 0x5E 代替。</p>
-</li>
-<li class="lvl-2">
-<p>出现的每一个 0x7D 字符，都用 0x7D 0x5D 代替。</p>
-</li>
-<li class="lvl-2">
-<p>出现每一个 ASCII 码小于 0x20 的字符，都用 0x7D 加上该字符的 ASCII 码的值加上 0x20 代替。</p>
-</li>
-</ul>
-<p>接收方的处理：只需要将 0x7D 0x5E 转换为 0x7E，将 0x7D 0x5D 转换为 0x7D，将 0x7D 加上 0x20 的值转换为原来的字符即可。</p>
-<blockquote>
-<p>面向比特的同步链路采用插入比特0的比特填充方法</p>
-</blockquote>
-<p>对发送方的处理:</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>在数据中出现 5 个连续的 1 时，就在后面插入一个 0。</p>
-</li>
-</ul>
-<p>对接收方的处理:</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>在接收到 5 个连续的 1 时，就删除后面的 0。</p>
-</li>
-</ul>
-<blockquote>
-<p>差错侦测</p>
-</blockquote>
-<p>在FCS字段中使用CRC-CCITT差错检测码。</p>
-<p>CRC-CCITT生成多项式为：$x<sup>{16}+x</sup>{12}+x^5+1$</p>
-<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9kYXRhdHJhY2tlci5pZXRmLm9yZy9kb2MvaHRtbC9yZmMxNjYyI2FwcGVuZGl4LUMuMg==">RFC 1662<i class="fa fa-external-link-alt"></i></span></p>
-<p>接收方在接收到帧后，对帧进行差错检测，如果发现差错，则丢弃该帧。</p>
-<blockquote>
-<p>PPP 的工作状态</p>
-</blockquote>
-<p><img src="./ppp_status.png" alt></p>
-<h2 id="媒体接入控制">媒体接入控制</h2>
-<p>由于多路访问信道是由多个节点共享的，因此，必须对多路访问信道进行管理，以便在多个节点同时发送数据时，不会发生冲突。</p>
-<p>这时，就需要使用媒体接入控制（MAC Media Access Control）子层。</p>
-<p>媒体接入控制分为两种类型：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>静态媒体接入控制</p>
-<ul class="lvl-2">
-<li class="lvl-4">频分多址</li>
-<li class="lvl-4">时分多址</li>
-<li class="lvl-4">码分多址</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>动态媒体接入控制</p>
-<ul class="lvl-2">
-<li class="lvl-4">受控接入
-<ul class="lvl-4">
-<li class="lvl-6">集中控制</li>
-<li class="lvl-6">分布控制</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>随机接入</p>
-</li>
-</ul>
-<p>预先固定分配好信道的使用权，这类方法非常不灵活，对于突发性的数据传输，效率很低。通常在无线网络物理层使用。</p>
-<p>在动态接入控制中的集中控制，有一个主站以循环的方式向各个节点询问是否有数据要发送，如果有，则允许发送，否则，就询问下一个节点。缺点是主站成为了系统的瓶颈，如果主站出现故障，整个系统就无法工作。</p>
-<p>而分布控制则是将主站的功能分散到各个节点，各个节点之间通过协商的方式来决定谁有权利发送数据。这种方法的缺点是，如果各个节点之间的协商出现问题，就会导致系统无法工作。</p>
-<p>以上两种方式现在竞争中被淘汰了。</p>
-<p>随机接入是一种分布式的媒体接入控制方法，它不需要主站，各个节点之间也不需要协商，而是通过一定的算法来决定谁有权利发送数据。</p>
-<h3 id="静态划分信道">静态划分信道</h3>
-<blockquote>
-<p>信道复用</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>复用 Multiplexing：将多个信号合成一个信号的过程。</p>
-</li>
-<li class="lvl-2">
-<p>分用 Demultiplexing：将复用后的信号分解成多个信号的过程。</p>
-</li>
-<li class="lvl-2">
-<p>当网络传输媒体的带宽有限时，就需要对带宽进行复用，以便多个用户共享带宽。</p>
-</li>
-</ul>
-<blockquote>
-<p>常见复用技术</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>频分复用 FDM Frequency Division Multiplexing</p>
-</li>
-<li class="lvl-2">
-<p>时分复用 TDM Time Division Multiplexing</p>
-</li>
-<li class="lvl-2">
-<p>波分复用 WDM Wave Division Multiplexing</p>
-</li>
-<li class="lvl-2">
-<p>码分复用 CDM Code Division Multiplexing</p>
-</li>
-</ul>
-<p>码片 Chip：在 CDMA 中，每一个比特时间被分为多个小的时间间隔，每一个小的时间间隔称为一个码片，每一个码片都有一个唯一的码片序列，每一个用户都有一个唯一的码片序列，用户的数据就是通过这个码片序列来进行传输的。</p>
-<p>使用 CDMA 时，每一个用户都有一个唯一的码片序列，这样，即使多个用户同时发送数据，也不会发生冲突。这个叫 m bit 的码片序列（Chip Sequence）。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>一个站如果发送比特1，则发送它自己的 m 个码片序列。</p>
-</li>
-<li class="lvl-2">
-<p>一个站如果发送比特0，则发送它自己的 m 个码片序列的二进制反码。</p>
-</li>
-</ul>
-<p>上面这种通讯方式叫做直接序列扩频通讯（DS-CDMA Direct Sequence Code Division Multiple Access）。</p>
-<p>码片的挑选规则：</p>
+<p>又称为有线传输媒体，是指能够传输电磁波的传输媒体。如双绞线、同轴电缆、光纤等。</p>
 <ol>
 <li class="lvl-3">
-<p>分配给每个用户的码片序列必须是正交的。（规格化内积为0）</p>
+<p>双绞线双绞线是一种双股绝缘导线，两股导线以一定的规则绞合在一起，用来传输信号。</p>
 </li>
 <li class="lvl-3">
-<p>分配给每个用户的码片序列必须各不相同。</p>
+<p>同轴电缆同轴电缆是一种中心导线被绝缘层包围，绝缘层外面又有一层金属网的传输媒体。</p>
+</li>
+<li class="lvl-3">
+<p>光纤光纤是一种以光的形式传输信号的传输媒体。</p>
 </li>
 </ol>
+<blockquote>
+<p>非导引型传输媒体</p>
+</blockquote>
+<p>又称为无线传输媒体，是指能够传输电磁波的传输媒体。如无线电波、微波、红外线等。</p>
+<h3 id="传输方式">传输方式</h3>
+<p>传输方式分为两大类：串行传输和并行传输。</p>
+<blockquote>
+<p>串行传输</p>
+</blockquote>
+<p>串行传输是指在传输数据时，每次只传输一位数据。串行传输的优点是：传输距离远，传输速率高，传输线路简单。</p>
+<blockquote>
+<p>并行传输</p>
+</blockquote>
+<p>并行传输是指在传输数据时，每次传输多位数据。并行传输的优点是：传输速率高，传输效率高。</p>
+<p>此外，还有同步传输和异步传输。</p>
+<blockquote>
+<p>同步传输</p>
+</blockquote>
+<p>同步传输是指在传输数据时，发送方和接收方的时钟信号是同步的。</p>
+<blockquote>
+<p>异步传输</p>
+</blockquote>
+<p>异步传输是指在传输数据时，发送方和接收方的时钟信号是异步的。</p>
+<p>单工传输、半双工传输和全双工传输。</p>
+<p>这些传输方式的区别在于：传输方向、传输速率、传输效率、传输距离、传输线路复杂程度。</p>
+<p>单工传输是指在传输数据时，数据只能单向传输。如广播电台。</p>
+<p>半双工传输是指在传输数据时，数据可以双向传输，但是不能同时双向传输。如对讲机。</p>
+<p>全双工传输是指在传输数据时，数据可以双向传输，而且可以同时双向传输。如电话机。</p>
+<h3 id="编码与调制">编码与调制</h3>
+<p>编码是指将数字信号转换为模拟信号的过程。</p>
+<p>调制是指将数字信号转换为模拟信号的过程。</p>
+<p>我们使用一个树状图来表示编码和调制的过程。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">消息</span><br><span class="line">↓ 运送消息的实体</span><br><span class="line">数据</span><br><span class="line">↓ 数据的电磁形式</span><br><span class="line">信号</span><br><span class="line">↓ 信源发出的原始电信号</span><br><span class="line">基带信号</span><br><span class="line">|-------------------|</span><br><span class="line">↓                   ↓</span><br><span class="line">数字信号            模拟信号</span><br><span class="line">|-----|            |-----|</span><br><span class="line">↓     ↓            ↓     ↓</span><br><span class="line">编码  调制          编码  调制</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>码元：是指数字信号中的一个离散值。</p>
+</li>
+</ul>
+<p>传输媒体与信道不能直接划等号，信道是指传输媒体的一部分。</p>
+<blockquote>
+<p>常用编码</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>非归零编码非归零编码是指在传输数据时，每个码元的电平都有一个基准电平，码元的电平要么是高于基准电平，要么是低于基准电平。</p>
+</li>
+<li class="lvl-2">
+<p>归零编码归零编码是指在传输数据时，每个码元的电平都有一个基准电平，码元的电平要么是高于基准电平，要么是低于基准电平，但是每个码元的电平都会回到基准电平。</p>
+</li>
+<li class="lvl-2">
+<p>曼彻斯特编码曼彻斯特编码是指在传输数据时，每个码元的电平都有一个基准电平，码元的电平要么是高于基准电平，要么是低于基准电平，但是每个码元的电平都会回到基准电平，而且每个码元的中间都会有一个电平跳变。</p>
+</li>
+<li class="lvl-2">
+<p>差分曼彻斯特编码差分曼彻斯特编码是指在传输数据时，每个码元的电平都有一个基准电平，码元的电平要么是高于基准电平，要么是低于基准电平，但是每个码元的电平都会回到基准电平，而且每个码元的中间都会有一个电平跳变，而且每个码元的中间都会有一个电平跳变，而且每个码元的中间都会有一个电平跳变，而且每个码元的中间都会有一个电平跳变。</p>
+</li>
+</ul>
+<blockquote>
+<p>基本调制方法</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>调幅 AM<br>
+调幅是指在传输数据时，通过改变信号的幅度来传输数据。</p>
+</li>
+<li class="lvl-2">
+<p>调频 FM<br>
+调频是指在传输数据时，通过改变信号的频率来传输数据。</p>
+</li>
+<li class="lvl-2">
+<p>调相 PM<br>
+调相是指在传输数据时，通过改变信号的相位来传输数据。</p>
+</li>
+<li class="lvl-2">
+<p>数字基带调制数字基带调制是指在传输数据时，通过改变信号的幅度、频率、相位来传输数据。</p>
+</li>
+</ul>
+<blockquote>
+<p>混合调制</p>
+</blockquote>
+<p>混合调制是指在传输数据时，通过改变信号的幅度、频率、相位来传输数据。</p>
+<p>通常情况下，相位和振幅可以结合在一起，称为正交相幅调制 QAM。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>QAM-16</p>
+<ul class="lvl-2">
+<li class="lvl-4">12种相位</li>
+<li class="lvl-4">每种相位有 1/2 种振幅</li>
+<li class="lvl-4">可以调出 16 种码元，每种码元可以表示 4 个比特</li>
+<li class="lvl-4">码元与 4 个比特的对应关系采用格雷码</li>
+<li class="lvl-4">任意两个相邻码元只有一个比特不同</li>
+</ul>
+</li>
+</ul>
+<h3 id="信道的极限容量">信道的极限容量</h3>
+<p>信道的极限容量是指在单位时间内，信道所能传输的最大数据量。</p>
+<p>码间串扰是指在传输数据时，由于信号的干扰，导致接收方无法正确识别发送方发送的信号。</p>
+<p>失真的因素</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>码元传输速率</p>
+</li>
+<li class="lvl-2">
+<p>信号传输距离</p>
+</li>
+<li class="lvl-2">
+<p>噪声干扰</p>
+</li>
+<li class="lvl-2">
+<p>传输媒体质量</p>
+</li>
+</ul>
+<blockquote>
+<p>奈氏准则</p>
+</blockquote>
+<p>奈氏准则是指在传输数据时，信道的极限容量与信道的带宽和信噪比有关。</p>
+<p>理想低通信道的最高码元传输速率 = <code>2 * 带宽 * log2V</code><br>
+理想带通信道的最高码元传输速率 = <code>带宽 * log2V</code></p>
+<blockquote>
+<p>香农定理</p>
+</blockquote>
+<p>香农定理是指在传输数据时，信道的极限容量与信道的带宽和信噪比有关。</p>
+<p><code>c = W * log2(1 + S/N)</code>单位：比特/秒</p>
+<p>其中，c 是信道的极限容量，W 是信道的带宽，S 是信道的信号功率，N 是信道的噪声功率。</p>
 ]]></content>
       <categories>
         <category>Network</category>
@@ -2382,6 +2225,163 @@ NCK：否定确认帧，表示接收方没有正确收到帧。</p>
 <p>WR &gt; 2^(n-1) 时，无意义。</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络杂记-04</title>
+    <url>/2023/11/07/1/</url>
+    <content><![CDATA[<h2 id="点对点协议PPP-Point-to-Point-Protocol">点对点协议PPP Point-to-Point Protocol</h2>
+<p>PPP是一种数据链路层协议，它规定了点对点通信的协议标准。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>PPP 为在点对点通信链路上传输网络层数据报提供了一种标准方法。</p>
+<ul class="lvl-2">
+<li class="lvl-4">PPP 为多种网络层协议提供了一种通用的封装方法。（封装成帧）</li>
+<li class="lvl-4">PPP 为在两数据链路层提供了<code>链路控制协议LCP</code>，用于建立、配置和测试数据链路连接。</li>
+<li class="lvl-4">PPP 为在两数据链路层提供了<code>网络控制协议NCP</code>，用于在两个节点之间传输网络层协议的数据包。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>帧格式</p>
+</blockquote>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">帧的首部                            |     数据     | 帧的尾部</span><br><span class="line">|   F   |   A    |   C    |   P    |    DATA     |   FSC  |   F    |</span><br><span class="line">| 1 byte| 1 byte | 1 byte | 2 byte | 0~1500 byte | 2 byte | 1 byte |</span><br></pre></td></tr></table></figure>
+<p>标志 Flag 字段 F：标志字段是一个字节，它的值为 0x7E，表示帧的开始和结束。地址 Address 字段 A：地址字段是一个字节，它的值为 0xFF，表示广播地址。预留，但目前没有使用。控制 Control 字段 C：控制字段是一个字节，它的值为 0x03，表示无控制信息。预留，但目前没有使用。协议 Protocol 字段 P：协议字段是两个字节，指明上层协议类型。如 0x0021 表示 IP 协议、0xC021 表示 LCP 协议、0x8021 表示 IPX 协议、0x8023 表示 IPX 协议。数据 Data 字段：数据字段是 0~1500 个字节，表示上层协议的数据。帧检验序列 FCS 字段：帧检验序列字段是两个字节，用于差错检测。</p>
+<blockquote>
+<p>透明传输</p>
+</blockquote>
+<p>如果在帧的数据部分出现了和帧首部相同的字符，数据链路层就会误认为帧结束，因此，数据链路层必须对数据进行处理，以免出现这种情况。</p>
+<p>数据链路层对数据进行处理的方法是：在数据中出现特定字符时，数据链路层自动在该字符前面插入一个转义字符，以免与帧的定界符混淆。</p>
+<p>发送方的处理：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>出现的每一个 0x7E 字符，都用 0x7D 0x5E 代替。</p>
+</li>
+<li class="lvl-2">
+<p>出现的每一个 0x7D 字符，都用 0x7D 0x5D 代替。</p>
+</li>
+<li class="lvl-2">
+<p>出现每一个 ASCII 码小于 0x20 的字符，都用 0x7D 加上该字符的 ASCII 码的值加上 0x20 代替。</p>
+</li>
+</ul>
+<p>接收方的处理：只需要将 0x7D 0x5E 转换为 0x7E，将 0x7D 0x5D 转换为 0x7D，将 0x7D 加上 0x20 的值转换为原来的字符即可。</p>
+<blockquote>
+<p>面向比特的同步链路采用插入比特0的比特填充方法</p>
+</blockquote>
+<p>对发送方的处理:</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在数据中出现 5 个连续的 1 时，就在后面插入一个 0。</p>
+</li>
+</ul>
+<p>对接收方的处理:</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在接收到 5 个连续的 1 时，就删除后面的 0。</p>
+</li>
+</ul>
+<blockquote>
+<p>差错侦测</p>
+</blockquote>
+<p>在FCS字段中使用CRC-CCITT差错检测码。</p>
+<p>CRC-CCITT生成多项式为：$x<sup>{16}+x</sup>{12}+x^5+1$</p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9kYXRhdHJhY2tlci5pZXRmLm9yZy9kb2MvaHRtbC9yZmMxNjYyI2FwcGVuZGl4LUMuMg==">RFC 1662<i class="fa fa-external-link-alt"></i></span></p>
+<p>接收方在接收到帧后，对帧进行差错检测，如果发现差错，则丢弃该帧。</p>
+<blockquote>
+<p>PPP 的工作状态</p>
+</blockquote>
+<p><img src="./ppp_status.png" alt></p>
+<h2 id="媒体接入控制">媒体接入控制</h2>
+<p>由于多路访问信道是由多个节点共享的，因此，必须对多路访问信道进行管理，以便在多个节点同时发送数据时，不会发生冲突。</p>
+<p>这时，就需要使用媒体接入控制（MAC Media Access Control）子层。</p>
+<p>媒体接入控制分为两种类型：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>静态媒体接入控制</p>
+<ul class="lvl-2">
+<li class="lvl-4">频分多址</li>
+<li class="lvl-4">时分多址</li>
+<li class="lvl-4">码分多址</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>动态媒体接入控制</p>
+<ul class="lvl-2">
+<li class="lvl-4">受控接入
+<ul class="lvl-4">
+<li class="lvl-6">集中控制</li>
+<li class="lvl-6">分布控制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>随机接入</p>
+</li>
+</ul>
+<p>预先固定分配好信道的使用权，这类方法非常不灵活，对于突发性的数据传输，效率很低。通常在无线网络物理层使用。</p>
+<p>在动态接入控制中的集中控制，有一个主站以循环的方式向各个节点询问是否有数据要发送，如果有，则允许发送，否则，就询问下一个节点。缺点是主站成为了系统的瓶颈，如果主站出现故障，整个系统就无法工作。</p>
+<p>而分布控制则是将主站的功能分散到各个节点，各个节点之间通过协商的方式来决定谁有权利发送数据。这种方法的缺点是，如果各个节点之间的协商出现问题，就会导致系统无法工作。</p>
+<p>以上两种方式现在竞争中被淘汰了。</p>
+<p>随机接入是一种分布式的媒体接入控制方法，它不需要主站，各个节点之间也不需要协商，而是通过一定的算法来决定谁有权利发送数据。</p>
+<h3 id="静态划分信道">静态划分信道</h3>
+<blockquote>
+<p>信道复用</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>复用 Multiplexing：将多个信号合成一个信号的过程。</p>
+</li>
+<li class="lvl-2">
+<p>分用 Demultiplexing：将复用后的信号分解成多个信号的过程。</p>
+</li>
+<li class="lvl-2">
+<p>当网络传输媒体的带宽有限时，就需要对带宽进行复用，以便多个用户共享带宽。</p>
+</li>
+</ul>
+<blockquote>
+<p>常见复用技术</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>频分复用 FDM Frequency Division Multiplexing</p>
+</li>
+<li class="lvl-2">
+<p>时分复用 TDM Time Division Multiplexing</p>
+</li>
+<li class="lvl-2">
+<p>波分复用 WDM Wave Division Multiplexing</p>
+</li>
+<li class="lvl-2">
+<p>码分复用 CDM Code Division Multiplexing</p>
+</li>
+</ul>
+<p>码片 Chip：在 CDMA 中，每一个比特时间被分为多个小的时间间隔，每一个小的时间间隔称为一个码片，每一个码片都有一个唯一的码片序列，每一个用户都有一个唯一的码片序列，用户的数据就是通过这个码片序列来进行传输的。</p>
+<p>使用 CDMA 时，每一个用户都有一个唯一的码片序列，这样，即使多个用户同时发送数据，也不会发生冲突。这个叫 m bit 的码片序列（Chip Sequence）。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一个站如果发送比特1，则发送它自己的 m 个码片序列。</p>
+</li>
+<li class="lvl-2">
+<p>一个站如果发送比特0，则发送它自己的 m 个码片序列的二进制反码。</p>
+</li>
+</ul>
+<p>上面这种通讯方式叫做直接序列扩频通讯（DS-CDMA Direct Sequence Code Division Multiple Access）。</p>
+<p>码片的挑选规则：</p>
+<ol>
+<li class="lvl-3">
+<p>分配给每个用户的码片序列必须是正交的。（规格化内积为0）</p>
+</li>
+<li class="lvl-3">
+<p>分配给每个用户的码片序列必须各不相同。</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>Network</category>
@@ -3531,129 +3531,6 @@ traceroute 是一个常用的网络工具，它用于测试数据报从源主机
       </tags>
   </entry>
   <entry>
-    <title>计算机网络杂记-11</title>
-    <url>/2024/09/04/1/</url>
-    <content><![CDATA[<h2 id="参考资料">参考资料</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><span class="exturl" data-url="cmVsaWFiaWxpdHlodHRwczovL2hvdWJiLmdpdGh1Yi5pby8yMDE5LzA0LzA1L3Byb3RvY29sLXRjcC1pcC0wNS10Y3AtcmVsaWFiaWxpdHkjOn46dGV4dD1UQ1AlMjAlRTglQTYlODElRTYlQjElODIlRTQlQjglOEQlRTglQUUlQkE=">TCP/IP 协议-05-TCP 如何保证传输的可靠性<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGl4dWVkdWFuLmNvbS9wb3N0cy9uZXR3b3JrLzAzLXRjcC1yZWxpYWJpbGl0eS8=">计算机网络(三)–TCP如何保证传输可靠性<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly9ob3ViYi5naXRodWIuaW8vMjAyMy8wMi8yMi9uZXQtMDYtbmV0LXRjcC0xMi10aW1lX3dhaXRfcmVjdl9zeW4=">NET 网络专题汇总-06-12-在 TIME_WAIT 状态的 TCP 连接，收到 SYN 后会发生什么？<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ul>
-<h2 id="TCP-可靠传输的实现">TCP 可靠传输的实现</h2>
-<p>TCP 基于<strong>以字节为单位的滑动窗口</strong>机制实现可靠传输，TCP 的滑动窗口机制是 TCP 实现可靠传输的核心机制。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的，但在同一时刻，发送方的发送窗口并不总是和接收方的接收窗口大小相等的</p>
-<ul class="lvl-2">
-<li class="lvl-4">网络传送窗口值需要经历一定时间滞后，并且这个时间不是固定的，而是动态变化的</li>
-<li class="lvl-4">发送方还可能根据网络拥塞程度调整发送窗口的大小，发送方的发送窗口大小并不总是和接收方的接收窗口大小相等的</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>对于不按序到达的数据的处理,并无明确的说明</p>
-<ul class="lvl-2">
-<li class="lvl-4">接收方把不按序到达的数据丢弃，那么发送方会重传这些数据，虽然接受窗口的管理比较简单，但是这种方式会导致网络资源的浪费</li>
-<li class="lvl-4">通常将不按序到达的数据缓存起来，等待缺失的数据到达后再交付给应用层，这种方式会增加接收方的复杂度，但是可以减少网络资源的浪费</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>TCP 要求接收方必须有累计确认和捎带确认两种确认方式</p>
-<ul class="lvl-2">
-<li class="lvl-4">这样可以减少传输开销，接收方可以在合适的时候发送确认，也可以在自己有数据要发送时把确认信息捎带上去</li>
-<li class="lvl-4">但接收方不应该过分延迟确认，否则会导致发送方重传数据，浪费网络资源</li>
-<li class="lvl-4">捎带不常用，因为大多数应用程序很少同时在两个方向上传输数据</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>TCP 是全双工通信的，发送方和接收方都有自己的发送窗口和接收窗口</p>
-<ul class="lvl-2">
-<li class="lvl-4">发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的</li>
-<li class="lvl-4">接收方的接收窗口是根据发送方的发送窗口大小和接收方的处理能力动态调整的</li>
-</ul>
-</li>
-</ul>
-<h2 id="TCP-运输连接管理">TCP 运输连接管理</h2>
-<h3 id="TCP-连接的建立">TCP 连接的建立</h3>
-<p>TCP 连接的建立是三次握手的过程，三次握手的过程是为了确保双方都能够发送和接收数据。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>第一次握手：客户端发送一个 SYN 报文段给服务器端，请求建立连接</p>
-</li>
-<li class="lvl-2">
-<p>第二次握手：服务器端接收到客户端发送的 SYN 报文段后，发送一个 SYN 报文段和一个 ACK 报文段给客户端，确认客户端的请求</p>
-</li>
-<li class="lvl-2">
-<p>第三次握手：客户端接收到服务器端发送的 SYN 报文段和 ACK 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p>
-</li>
-</ul>
-<h3 id="TCP-连接的释放">TCP 连接的释放</h3>
-<p>TCP 连接的释放是四次挥手的过程，四次挥手的过程是为了确保双方都能够正确关闭连接。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>第一次挥手：客户端发送一个 FIN 报文段给服务器端，请求关闭连接</p>
-</li>
-<li class="lvl-2">
-<p>第二次挥手：服务器端接收到客户端发送的 FIN 报文段后，发送一个 ACK 报文段给客户端，确认客户端的请求</p>
-</li>
-<li class="lvl-2">
-<p>第三次挥手：服务器端发送一个 FIN 报文段给客户端，请求关闭连接</p>
-</li>
-<li class="lvl-2">
-<p>第四次挥手：客户端接收到服务器端发送的 FIN 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p>
-</li>
-</ul>
-<h2 id="TCP-报文段的首部格式">TCP 报文段的首部格式</h2>
-<p>TCP 报文段的首部格式如下：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>源端口号：16 位，标识发送方的端口号</p>
-</li>
-<li class="lvl-2">
-<p>目的端口号：16 位，标识接收方的端口号</p>
-</li>
-<li class="lvl-2">
-<p>序列号：32 位，标识数据的顺序</p>
-</li>
-<li class="lvl-2">
-<p>确认号：32 位，标识数据的确认</p>
-</li>
-<li class="lvl-2">
-<p>首部长度：4 位，标识首部的长度</p>
-</li>
-<li class="lvl-2">
-<p>URG：1 位，标识紧急指针是否有效</p>
-</li>
-<li class="lvl-2">
-<p>ACK：1 位，标识确认号是否有效</p>
-</li>
-<li class="lvl-2">
-<p>PSH：1 位，标识接收方是否应该立即交付数据</p>
-</li>
-<li class="lvl-2">
-<p>RST：1 位，标识连接是否重置</p>
-</li>
-<li class="lvl-2">
-<p>SYN：1 位，标识连接是否建立</p>
-</li>
-<li class="lvl-2">
-<p>FIN：1 位，标识连接是否释放</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Network</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机网络杂记-10</title>
     <url>/2024/03/24/1/</url>
     <content><![CDATA[<h2 id="运输层">运输层</h2>
@@ -3834,6 +3711,129 @@ traceroute 是一个常用的网络工具，它用于测试数据报从源主机
 <p>出现超时重传时无法准确计算 RTT 的问题，Karn 算法是解决这个问题的一个方法，在计算加权平均 RTT 时，只要报文段重传了，就不计算这个报文段的 RTT。也就是说，出现重传时，不计算 RTT。而超时重传时间RTO也不会被更新。</p>
 <p>但是这样引发了新的问题：如果报文段的时延突然增大了许多，并且长时间不变，那么这个时延就会被忽略，在原来的重传时间内，不会收到确认，导致重传。重传时间无法更新，导致报文段反复重传。</p>
 <p>所以要对 Karn 算法进行改进，当报文段重传时，把超时重传时间RTO增大一些，经典的做法是将 RTO 增大一倍。</p>
+]]></content>
+      <categories>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络杂记-11</title>
+    <url>/2024/09/04/1/</url>
+    <content><![CDATA[<h2 id="参考资料">参考资料</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="cmVsaWFiaWxpdHlodHRwczovL2hvdWJiLmdpdGh1Yi5pby8yMDE5LzA0LzA1L3Byb3RvY29sLXRjcC1pcC0wNS10Y3AtcmVsaWFiaWxpdHkjOn46dGV4dD1UQ1AlMjAlRTglQTYlODElRTYlQjElODIlRTQlQjglOEQlRTglQUUlQkE=">TCP/IP 协议-05-TCP 如何保证传输的可靠性<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGl4dWVkdWFuLmNvbS9wb3N0cy9uZXR3b3JrLzAzLXRjcC1yZWxpYWJpbGl0eS8=">计算机网络(三)–TCP如何保证传输可靠性<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9ob3ViYi5naXRodWIuaW8vMjAyMy8wMi8yMi9uZXQtMDYtbmV0LXRjcC0xMi10aW1lX3dhaXRfcmVjdl9zeW4=">NET 网络专题汇总-06-12-在 TIME_WAIT 状态的 TCP 连接，收到 SYN 后会发生什么？<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<h2 id="TCP-可靠传输的实现">TCP 可靠传输的实现</h2>
+<p>TCP 基于<strong>以字节为单位的滑动窗口</strong>机制实现可靠传输，TCP 的滑动窗口机制是 TCP 实现可靠传输的核心机制。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的，但在同一时刻，发送方的发送窗口并不总是和接收方的接收窗口大小相等的</p>
+<ul class="lvl-2">
+<li class="lvl-4">网络传送窗口值需要经历一定时间滞后，并且这个时间不是固定的，而是动态变化的</li>
+<li class="lvl-4">发送方还可能根据网络拥塞程度调整发送窗口的大小，发送方的发送窗口大小并不总是和接收方的接收窗口大小相等的</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>对于不按序到达的数据的处理,并无明确的说明</p>
+<ul class="lvl-2">
+<li class="lvl-4">接收方把不按序到达的数据丢弃，那么发送方会重传这些数据，虽然接受窗口的管理比较简单，但是这种方式会导致网络资源的浪费</li>
+<li class="lvl-4">通常将不按序到达的数据缓存起来，等待缺失的数据到达后再交付给应用层，这种方式会增加接收方的复杂度，但是可以减少网络资源的浪费</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>TCP 要求接收方必须有累计确认和捎带确认两种确认方式</p>
+<ul class="lvl-2">
+<li class="lvl-4">这样可以减少传输开销，接收方可以在合适的时候发送确认，也可以在自己有数据要发送时把确认信息捎带上去</li>
+<li class="lvl-4">但接收方不应该过分延迟确认，否则会导致发送方重传数据，浪费网络资源</li>
+<li class="lvl-4">捎带不常用，因为大多数应用程序很少同时在两个方向上传输数据</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>TCP 是全双工通信的，发送方和接收方都有自己的发送窗口和接收窗口</p>
+<ul class="lvl-2">
+<li class="lvl-4">发送方的发送窗口是根据接收方的接收窗口大小和网络拥塞程度动态调整的</li>
+<li class="lvl-4">接收方的接收窗口是根据发送方的发送窗口大小和接收方的处理能力动态调整的</li>
+</ul>
+</li>
+</ul>
+<h2 id="TCP-运输连接管理">TCP 运输连接管理</h2>
+<h3 id="TCP-连接的建立">TCP 连接的建立</h3>
+<p>TCP 连接的建立是三次握手的过程，三次握手的过程是为了确保双方都能够发送和接收数据。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>第一次握手：客户端发送一个 SYN 报文段给服务器端，请求建立连接</p>
+</li>
+<li class="lvl-2">
+<p>第二次握手：服务器端接收到客户端发送的 SYN 报文段后，发送一个 SYN 报文段和一个 ACK 报文段给客户端，确认客户端的请求</p>
+</li>
+<li class="lvl-2">
+<p>第三次握手：客户端接收到服务器端发送的 SYN 报文段和 ACK 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p>
+</li>
+</ul>
+<h3 id="TCP-连接的释放">TCP 连接的释放</h3>
+<p>TCP 连接的释放是四次挥手的过程，四次挥手的过程是为了确保双方都能够正确关闭连接。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>第一次挥手：客户端发送一个 FIN 报文段给服务器端，请求关闭连接</p>
+</li>
+<li class="lvl-2">
+<p>第二次挥手：服务器端接收到客户端发送的 FIN 报文段后，发送一个 ACK 报文段给客户端，确认客户端的请求</p>
+</li>
+<li class="lvl-2">
+<p>第三次挥手：服务器端发送一个 FIN 报文段给客户端，请求关闭连接</p>
+</li>
+<li class="lvl-2">
+<p>第四次挥手：客户端接收到服务器端发送的 FIN 报文段后，发送一个 ACK 报文段给服务器端，确认服务器端的请求</p>
+</li>
+</ul>
+<h2 id="TCP-报文段的首部格式">TCP 报文段的首部格式</h2>
+<p>TCP 报文段的首部格式如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>源端口号：16 位，标识发送方的端口号</p>
+</li>
+<li class="lvl-2">
+<p>目的端口号：16 位，标识接收方的端口号</p>
+</li>
+<li class="lvl-2">
+<p>序列号：32 位，标识数据的顺序</p>
+</li>
+<li class="lvl-2">
+<p>确认号：32 位，标识数据的确认</p>
+</li>
+<li class="lvl-2">
+<p>首部长度：4 位，标识首部的长度</p>
+</li>
+<li class="lvl-2">
+<p>URG：1 位，标识紧急指针是否有效</p>
+</li>
+<li class="lvl-2">
+<p>ACK：1 位，标识确认号是否有效</p>
+</li>
+<li class="lvl-2">
+<p>PSH：1 位，标识接收方是否应该立即交付数据</p>
+</li>
+<li class="lvl-2">
+<p>RST：1 位，标识连接是否重置</p>
+</li>
+<li class="lvl-2">
+<p>SYN：1 位，标识连接是否建立</p>
+</li>
+<li class="lvl-2">
+<p>FIN：1 位，标识连接是否释放</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Network</category>
@@ -6202,87 +6202,6 @@ prefix：24</p>
       </tags>
   </entry>
   <entry>
-    <title>让 Github Page 使用 eu.org 域名</title>
-    <url>/2024/02/16/1/</url>
-    <content><![CDATA[<h2 id="让-Github-Page-使用-eu-org-域名">让 Github Page 使用 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 域名</h2>
-<p>目前，由于受到 DNS 污染以及 SNI 阻断，大陆地区的用户访问 Github Page 会遇到很多问题。</p>
-<p>这让我不得不寻找一种替代方案，让我能够让我的网站能够被大陆地区的用户访问。</p>
-<h2 id="注册-eu-org-域名">注册 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 域名</h2>
-<p>访问 <span class="exturl" data-url="aHR0cHM6Ly9ldS5vcmc=">eu.org<i class="fa fa-external-link-alt"></i></span> 注册一个域名，这网上教程很多，这里不再赘述。</p>
-<p>注意的是大陆地区的用户可能要花费很长时间才能收到注册成功的邮件。根据网上网友的反馈，大约是 2个月到1年不等。</p>
-<p>我的是 3 个月左右收到的邮件。</p>
-<h2 id="配置-DNS">配置 DNS</h2>
-<p>在 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 网站上，找到你注册的域名，然后配置 DNS。</p>
-<h3 id="HOSTRY">HOSTRY</h3>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaG9zdHJ5LmNvbS8=">HOSTRY<i class="fa fa-external-link-alt"></i></span> 是一个免费的 DNS 服务商，注册一个账号，然后添加域名。</p>
-<p>但是，这只是用于初步测试的</p>
-<p>在 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 网站上，找到你注册的域名，然后配置 DNS。</p>
-<h3 id="Github-Page">Github Page</h3>
-<p>在你的 Github Page 仓库中，找到 <code>Settings</code> -&gt; <code>Pages</code> -&gt; <code>Custom domain</code>，然后输入你的域名。</p>
-<p><mark>这个域名需要有前缀 <code>www</code>，例如 <code>www.example.eu.org</code>。</mark></p>
-<h3 id="CLOUDFLARE">CLOUDFLARE</h3>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2xvdWRmbGFyZS5jb20v">Cloudflare<i class="fa fa-external-link-alt"></i></span> 是一个免费的 DNS 服务商，注册一个账号，然后添加域名。</p>
-<p>这个的作用是，你的域名需要有一个 DNS 服务器，这个服务器会解析你的域名，然后指向你的 Github Page。</p>
-<p>在这里，你需要添加 A 记录、AAAA 记录、CNAME 记录。</p>
-<h4 id="1-添加-A-记录">1. 添加 A 记录</h4>
-<p>在 Cloudflare 上，添加 A 记录，指向 Github Page 的 IP 地址。</p>
-<h4 id="2-添加-AAAA-记录">2. 添加 AAAA 记录</h4>
-<p>在 Cloudflare 上，添加 AAAA 记录，指向 Github Page 的 IP 地址。</p>
-<h4 id="3-添加-CNAME-记录">3. 添加 CNAME 记录</h4>
-<p>在 Cloudflare 上，添加 CNAME 记录，指向你的 Github Page。</p>
-<h3 id="eg">eg</h3>
-<p><img src="./clouldflare-record.png" alt></p>
-<blockquote>
-<p>这些 ipv4 和 ipv6 地址是 Github Page 的地址，你可以在 Github Page 的文档中找到。</p>
-</blockquote>
-<h3 id="等待">等待</h3>
-<p>等待一段时间，然后访问你的域名，如果能访问你的 Github Page，那么就成功了。</p>
-<h2 id="安全性">安全性</h2>
-<p>这里需要注意的是，你的域名需要使用 HTTPS，这样才能保证你的网站的安全性。</p>
-<p>所以我们需要在 Cloudflare 上配置一些东西。</p>
-<h3 id="DNS">DNS</h3>
-<p>这里，我们让 Cloudflare 代理我们的域名，这样我们的域名就能使用 HTTPS。</p>
-<h3 id="SSL-TLS">SSL/TLS</h3>
-<p>在 Cloudflare 上，找到 <code>SSL/TLS</code>，然后配置 <code>Full</code>。</p>
-<p>边缘证书需要配置 <code>始终使用 HTTPS</code>、<code>随机加密</code>、<code>LTS 1.3</code>、<code>自动 HTTPS 重写</code>。</p>
-<p>源服务器证书需要配置 <code>经过身份验证的源服务器拉取</code>。</p>
-<h2 id="问题">问题</h2>
-<p>我在这里遇到了一个问题，就是 Github Page 无法强制使用 HTTPS。</p>
-<p>这个问题我还没有解决，如果有人知道，希望能够告诉我。</p>
-<p><img src="./githubpage-settings.png" alt></p>
-<p>此外，出于某些原因，例如 CORS 策略问题，我不得不将 Cloudflare 的安全性设置为 <code>低</code>，并且关闭<code>浏览器完整性检查</code>。</p>
-<h3 id="24年3月25日更新">24年3月25日更新</h3>
-<p>需要把 Cloudflare DNS 的代理模式设置为 DNS only，这样 Github Page 才能强制使用 HTTPS。</p>
-<p>但是其实无所谓了，使用 Cloudflare 的代理模式，也能够使用 HTTPS。</p>
-<p>因为是基于 Github Page 的，所以也没办法在服务器上安装证书，Cloudflare 也只能使用 完全 SSL/TLS。</p>
-<h3 id="24年5月9日更新">24年5月9日更新</h3>
-<p>大约在4月中旬的时候，我发现我的域名无法访问了，然后利用网路上的gfw检测工具，发现我的域名被墙了。</p>
-<p>然后神奇的是，这个好像只是地区性的，有的地区可以访问，有的地区无法访问。但是并没有被污染。</p>
-<p>并在在5月初的时候，我发现我的域名可以访问了。</p>
-<p>这个防火墙，把我气笑了。</p>
-<h2 id="参考">参考</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubW9kYi5wcm8vZGIvNTE0MDQy">免费注册申请永久的eu.org顶级域名创建属于自己的域名,再也不用给博客域名续费了!<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vemgvcGFnZXMvY29uZmlndXJpbmctYS1jdXN0b20tZG9tYWluLWZvci15b3VyLWdpdGh1Yi1wYWdlcy1zaXRlL21hbmFnaW5nLWEtY3VzdG9tLWRvbWFpbi1mb3IteW91ci1naXRodWItcGFnZXMtc2l0ZQ==">管理 GitHub Pages 站点的自定义域<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ul>
-<h2 id="24年12月9日更新">24年12月9日更新</h2>
-<h3 id="Cloudflare访问速率限制">Cloudflare访问速率限制</h3>
-<p>进入域名，找到 防火墙 &gt; WAF &gt; 访问速率限制，然后配置。</p>
-<p><img src="./rate-limit.png" alt></p>
-<h3 id="CloudFlare-解决-CORS-跨域问题">CloudFlare 解决 CORS 跨域问题</h3>
-<p>规则 &gt; 转换规则 &gt; 修改相应头</p>
-<p><img src="./responseheader.png" alt></p>
-<p>参考 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLjE3bGFpLnNpdGUvcG9zdHMvNTMxMWI2MTkvI2Nsb3VkZmxhcmUtUGFnZXMtJUU5JTgzJUE4JUU3JUJEJUIy">基于Hexo的matery主题搭建博客增强部署篇4<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <tags>
-        <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>免费获取 Cyberpunk-2077 DLC</title>
     <url>/2023/10/09/1/</url>
     <content><![CDATA[<h2 id="为什么要写这篇文章">为什么要写这篇文章</h2>
@@ -6358,6 +6277,87 @@ prefix：24</p>
 </ul>
 <h2 id="23-10-19-更新">23-10-19 更新</h2>
 <p>哈哈😅最近玩嗨了，进一周没更新博客了。斯安威斯坦+刀剑真是太有意思了。😺</p>
+]]></content>
+      <tags>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>让 Github Page 使用 eu.org 域名</title>
+    <url>/2024/02/16/1/</url>
+    <content><![CDATA[<h2 id="让-Github-Page-使用-eu-org-域名">让 Github Page 使用 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 域名</h2>
+<p>目前，由于受到 DNS 污染以及 SNI 阻断，大陆地区的用户访问 Github Page 会遇到很多问题。</p>
+<p>这让我不得不寻找一种替代方案，让我能够让我的网站能够被大陆地区的用户访问。</p>
+<h2 id="注册-eu-org-域名">注册 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 域名</h2>
+<p>访问 <span class="exturl" data-url="aHR0cHM6Ly9ldS5vcmc=">eu.org<i class="fa fa-external-link-alt"></i></span> 注册一个域名，这网上教程很多，这里不再赘述。</p>
+<p>注意的是大陆地区的用户可能要花费很长时间才能收到注册成功的邮件。根据网上网友的反馈，大约是 2个月到1年不等。</p>
+<p>我的是 3 个月左右收到的邮件。</p>
+<h2 id="配置-DNS">配置 DNS</h2>
+<p>在 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 网站上，找到你注册的域名，然后配置 DNS。</p>
+<h3 id="HOSTRY">HOSTRY</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaG9zdHJ5LmNvbS8=">HOSTRY<i class="fa fa-external-link-alt"></i></span> 是一个免费的 DNS 服务商，注册一个账号，然后添加域名。</p>
+<p>但是，这只是用于初步测试的</p>
+<p>在 <span class="exturl" data-url="aHR0cDovL2V1Lm9yZw==">eu.org<i class="fa fa-external-link-alt"></i></span> 网站上，找到你注册的域名，然后配置 DNS。</p>
+<h3 id="Github-Page">Github Page</h3>
+<p>在你的 Github Page 仓库中，找到 <code>Settings</code> -&gt; <code>Pages</code> -&gt; <code>Custom domain</code>，然后输入你的域名。</p>
+<p><mark>这个域名需要有前缀 <code>www</code>，例如 <code>www.example.eu.org</code>。</mark></p>
+<h3 id="CLOUDFLARE">CLOUDFLARE</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2xvdWRmbGFyZS5jb20v">Cloudflare<i class="fa fa-external-link-alt"></i></span> 是一个免费的 DNS 服务商，注册一个账号，然后添加域名。</p>
+<p>这个的作用是，你的域名需要有一个 DNS 服务器，这个服务器会解析你的域名，然后指向你的 Github Page。</p>
+<p>在这里，你需要添加 A 记录、AAAA 记录、CNAME 记录。</p>
+<h4 id="1-添加-A-记录">1. 添加 A 记录</h4>
+<p>在 Cloudflare 上，添加 A 记录，指向 Github Page 的 IP 地址。</p>
+<h4 id="2-添加-AAAA-记录">2. 添加 AAAA 记录</h4>
+<p>在 Cloudflare 上，添加 AAAA 记录，指向 Github Page 的 IP 地址。</p>
+<h4 id="3-添加-CNAME-记录">3. 添加 CNAME 记录</h4>
+<p>在 Cloudflare 上，添加 CNAME 记录，指向你的 Github Page。</p>
+<h3 id="eg">eg</h3>
+<p><img src="./clouldflare-record.png" alt></p>
+<blockquote>
+<p>这些 ipv4 和 ipv6 地址是 Github Page 的地址，你可以在 Github Page 的文档中找到。</p>
+</blockquote>
+<h3 id="等待">等待</h3>
+<p>等待一段时间，然后访问你的域名，如果能访问你的 Github Page，那么就成功了。</p>
+<h2 id="安全性">安全性</h2>
+<p>这里需要注意的是，你的域名需要使用 HTTPS，这样才能保证你的网站的安全性。</p>
+<p>所以我们需要在 Cloudflare 上配置一些东西。</p>
+<h3 id="DNS">DNS</h3>
+<p>这里，我们让 Cloudflare 代理我们的域名，这样我们的域名就能使用 HTTPS。</p>
+<h3 id="SSL-TLS">SSL/TLS</h3>
+<p>在 Cloudflare 上，找到 <code>SSL/TLS</code>，然后配置 <code>Full</code>。</p>
+<p>边缘证书需要配置 <code>始终使用 HTTPS</code>、<code>随机加密</code>、<code>LTS 1.3</code>、<code>自动 HTTPS 重写</code>。</p>
+<p>源服务器证书需要配置 <code>经过身份验证的源服务器拉取</code>。</p>
+<h2 id="问题">问题</h2>
+<p>我在这里遇到了一个问题，就是 Github Page 无法强制使用 HTTPS。</p>
+<p>这个问题我还没有解决，如果有人知道，希望能够告诉我。</p>
+<p><img src="./githubpage-settings.png" alt></p>
+<p>此外，出于某些原因，例如 CORS 策略问题，我不得不将 Cloudflare 的安全性设置为 <code>低</code>，并且关闭<code>浏览器完整性检查</code>。</p>
+<h3 id="24年3月25日更新">24年3月25日更新</h3>
+<p>需要把 Cloudflare DNS 的代理模式设置为 DNS only，这样 Github Page 才能强制使用 HTTPS。</p>
+<p>但是其实无所谓了，使用 Cloudflare 的代理模式，也能够使用 HTTPS。</p>
+<p>因为是基于 Github Page 的，所以也没办法在服务器上安装证书，Cloudflare 也只能使用 完全 SSL/TLS。</p>
+<h3 id="24年5月9日更新">24年5月9日更新</h3>
+<p>大约在4月中旬的时候，我发现我的域名无法访问了，然后利用网路上的gfw检测工具，发现我的域名被墙了。</p>
+<p>然后神奇的是，这个好像只是地区性的，有的地区可以访问，有的地区无法访问。但是并没有被污染。</p>
+<p>并在在5月初的时候，我发现我的域名可以访问了。</p>
+<p>这个防火墙，把我气笑了。</p>
+<h2 id="参考">参考</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubW9kYi5wcm8vZGIvNTE0MDQy">免费注册申请永久的eu.org顶级域名创建属于自己的域名,再也不用给博客域名续费了!<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vemgvcGFnZXMvY29uZmlndXJpbmctYS1jdXN0b20tZG9tYWluLWZvci15b3VyLWdpdGh1Yi1wYWdlcy1zaXRlL21hbmFnaW5nLWEtY3VzdG9tLWRvbWFpbi1mb3IteW91ci1naXRodWItcGFnZXMtc2l0ZQ==">管理 GitHub Pages 站点的自定义域<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<h2 id="24年12月9日更新">24年12月9日更新</h2>
+<h3 id="Cloudflare访问速率限制">Cloudflare访问速率限制</h3>
+<p>进入域名，找到 防火墙 &gt; WAF &gt; 访问速率限制，然后配置。</p>
+<p><img src="./rate-limit.png" alt></p>
+<h3 id="CloudFlare-解决-CORS-跨域问题">CloudFlare 解决 CORS 跨域问题</h3>
+<p>规则 &gt; 转换规则 &gt; 修改相应头</p>
+<p><img src="./responseheader.png" alt></p>
+<p>参考 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLjE3bGFpLnNpdGUvcG9zdHMvNTMxMWI2MTkvI2Nsb3VkZmxhcmUtUGFnZXMtJUU5JTgzJUE4JUU3JUJEJUIy">基于Hexo的matery主题搭建博客增强部署篇4<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <tags>
         <tag>分享</tag>
@@ -6897,6 +6897,60 @@ prefix：24</p>
       </tags>
   </entry>
   <entry>
+    <title>JDK17 新特性 Preview 2</title>
+    <url>/2023/06/14/1/</url>
+    <content><![CDATA[<p>接着上一篇 Preview 1，本文将继续介绍 JDK17 的新特性。</p>
+<h2 id="Record-类">Record 类</h2>
+<p>“类似 lombok 的属性只读”。在 JDK 14 中，引入了 Record 类，可以用来创建只读的类，这样就不需要使用 lombok 来实现了。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">record</span> <span class="title class_">Person</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面的代码可以看出，Record 类的定义和普通类的定义很相似，只是在类名前面加上了 record 关键字。<br>
+Record 类的属性默认是 final 的，且只有 getter 方法，没有 setter 方法，所以 Record 类的属性是只读的。</p>
+<h2 id="优化空指针异常">优化空指针异常</h2>
+<p>在 JDK 17 中，对空指针异常进行了优化，当出现空指针异常时，会打印出更加详细的信息，包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>空指针异常的位置</p>
+</li>
+<li class="lvl-2">
+<p>空指针异常的原因</p>
+</li>
+<li class="lvl-2">
+<p>空指针异常的堆栈信息</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NullPointerExceptionDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        System.out.println(str.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 JDK 17 中，运行上面的代码，会打印出如下信息：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.NullPointerException: Cannot invoke <span class="string">&quot;String.length()&quot;</span> because <span class="string">&quot;str&quot;</span> is <span class="literal">null</span></span><br><span class="line">    at com.example.demo.NullPointerExceptionDemo.main(NullPointerExceptionDemo.java:<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>可以看出，JDK 17 对空指针异常进行了优化，打印出了更加详细的信息。</p>
+<h2 id="ZGC垃圾回收器">ZGC垃圾回收器</h2>
+<p>在 JDK 17 中，引入了 ZGC 垃圾回收器，ZGC 垃圾回收器是一种低延迟的垃圾回收器，可以在几毫秒内处理几个字节到几个TB的堆。<br>
+ZGC 垃圾回收器的特点：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>低延迟</p>
+</li>
+<li class="lvl-2">
+<p>可以处理几个字节到几个TB的堆</p>
+</li>
+<li class="lvl-2">
+<p>与应用程序线程并发执行</p>
+</li>
+<li class="lvl-2">
+<p>不卡顿</p>
+</li>
+</ul>
+<p>使用 ZGC 垃圾回收器：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -XX:+UseZGC</span><br></pre></td></tr></table></figure>
+<p>在 JVM 启动时，使用 -XX:+UseZGC 参数，就可以使用 ZGC 垃圾回收器。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Let&#39;s Go 1</title>
     <url>/2023/08/04/2/</url>
     <content><![CDATA[<h2 id="Go">Go</h2>
@@ -7193,60 +7247,6 @@ prefix：24</p>
 ]]></content>
       <categories>
         <category>Go</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JDK17 新特性 Preview 2</title>
-    <url>/2023/06/14/1/</url>
-    <content><![CDATA[<p>接着上一篇 Preview 1，本文将继续介绍 JDK17 的新特性。</p>
-<h2 id="Record-类">Record 类</h2>
-<p>“类似 lombok 的属性只读”。在 JDK 14 中，引入了 Record 类，可以用来创建只读的类，这样就不需要使用 lombok 来实现了。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">record</span> <span class="title class_">Person</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上面的代码可以看出，Record 类的定义和普通类的定义很相似，只是在类名前面加上了 record 关键字。<br>
-Record 类的属性默认是 final 的，且只有 getter 方法，没有 setter 方法，所以 Record 类的属性是只读的。</p>
-<h2 id="优化空指针异常">优化空指针异常</h2>
-<p>在 JDK 17 中，对空指针异常进行了优化，当出现空指针异常时，会打印出更加详细的信息，包括：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>空指针异常的位置</p>
-</li>
-<li class="lvl-2">
-<p>空指针异常的原因</p>
-</li>
-<li class="lvl-2">
-<p>空指针异常的堆栈信息</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NullPointerExceptionDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        System.out.println(str.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 JDK 17 中，运行上面的代码，会打印出如下信息：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.NullPointerException: Cannot invoke <span class="string">&quot;String.length()&quot;</span> because <span class="string">&quot;str&quot;</span> is <span class="literal">null</span></span><br><span class="line">    at com.example.demo.NullPointerExceptionDemo.main(NullPointerExceptionDemo.java:<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<p>可以看出，JDK 17 对空指针异常进行了优化，打印出了更加详细的信息。</p>
-<h2 id="ZGC垃圾回收器">ZGC垃圾回收器</h2>
-<p>在 JDK 17 中，引入了 ZGC 垃圾回收器，ZGC 垃圾回收器是一种低延迟的垃圾回收器，可以在几毫秒内处理几个字节到几个TB的堆。<br>
-ZGC 垃圾回收器的特点：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>低延迟</p>
-</li>
-<li class="lvl-2">
-<p>可以处理几个字节到几个TB的堆</p>
-</li>
-<li class="lvl-2">
-<p>与应用程序线程并发执行</p>
-</li>
-<li class="lvl-2">
-<p>不卡顿</p>
-</li>
-</ul>
-<p>使用 ZGC 垃圾回收器：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -XX:+UseZGC</span><br></pre></td></tr></table></figure>
-<p>在 JVM 启动时，使用 -XX:+UseZGC 参数，就可以使用 ZGC 垃圾回收器。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
       </categories>
       <tags>
         <tag>学习笔记</tag>
@@ -10031,6 +10031,67 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
       </tags>
   </entry>
   <entry>
+    <title>Torch 基础</title>
+    <url>/2023/10/28/1/</url>
+    <content><![CDATA[<h2 id="Troch-输入输出">Troch 输入输出</h2>
+<p>创建一个 <code>tensor</code> 变量</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = torch.tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<p>转换类型</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = x.<span class="built_in">float</span>()</span><br></pre></td></tr></table></figure>
+<p>并使用 <code>cuda()</code> 函数将变量转移到 GPU 上。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = x.cuda()</span><br></pre></td></tr></table></figure>
+<p>同样，我们可以使用 <code>cpu()</code> 函数将变量转移到 CPU 上。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = x.cpu()</span><br></pre></td></tr></table></figure>
+<p>完整的代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">x = torch.tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = torch.tensor([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Before cuda&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;x: <span class="subst">&#123;x&#125;</span>, <span class="subst">&#123;x.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;x.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;y: <span class="subst">&#123;y&#125;</span>, <span class="subst">&#123;y.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;y.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;#######################################################&quot;</span>)</span><br><span class="line"></span><br><span class="line">x = x.<span class="built_in">float</span>()</span><br><span class="line">y = y.<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">x = x.cuda()</span><br><span class="line">y = y.cuda()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;After cuda&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;x: <span class="subst">&#123;x&#125;</span>, <span class="subst">&#123;x.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;x.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;y: <span class="subst">&#123;y&#125;</span>, <span class="subst">&#123;y.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;y.size()&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Before cuda</span><br><span class="line">x: tensor([1, 2, 3, 4]), torch.LongTensor, torch.Size([4])</span><br><span class="line">y: tensor([[1, 2],</span><br><span class="line">        [3, 4]]), torch.LongTensor, torch.Size([2, 2])</span><br><span class="line"><span class="comment">#######################################################</span></span><br><span class="line">After cuda</span><br><span class="line">x: tensor([1., 2., 3., 4.], device=<span class="string">&#x27;cuda:0&#x27;</span>), torch.cuda.FloatTensor, torch.Size([4])</span><br><span class="line">y: tensor([[1., 2.],</span><br><span class="line">        [3., 4.]], device=<span class="string">&#x27;cuda:0&#x27;</span>), torch.cuda.FloatTensor, torch.Size([2, 2])</span><br></pre></td></tr></table></figure>
+<h2 id="构建网络结构">构建网络结构</h2>
+<p>使用 <code>torch.nn</code> 构建网络结构。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">myNet = nn.Sequential(</span><br><span class="line">    nn.Linear(<span class="number">2</span>, <span class="number">3</span>),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(<span class="number">3</span>, <span class="number">1</span>),</span><br><span class="line">    nn.Sigmoid()</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>使用类的形式构建网络结构。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">myNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(myNet, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()</span><br><span class="line">        <span class="variable language_">self</span>.sigmoid = nn.Sigmoid()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.sigmoid(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>上面两种方式都可以，但是第二种方式更加灵活，可以自定义网络结构。但是，它们都使用 CPU 计算，如果需要使用 GPU 计算，需要在构建网络结构的时候加上 <code>.cuda()</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">myNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(myNet, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">2</span>, <span class="number">3</span>).cuda()</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">3</span>, <span class="number">1</span>).cuda()</span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU().cuda()</span><br><span class="line">        <span class="variable language_">self</span>.sigmoid = nn.Sigmoid().cuda()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.sigmoid(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<h2 id="优化器与损失函数">优化器与损失函数</h2>
+<p>使用 <code>torch.optim</code> 构建优化器。</p>
+<p>这里使用了随机梯度下降法（SGD）。还有其他的优化器，如 Adam、RMSProp 等。参考：<span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLm9yZy9kb2NzL3N0YWJsZS9vcHRpbS5odG1s">torch.optim<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.SGD(myNet.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure>
+<p>使用 <code>torch.nn</code> 构建损失函数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">criterion = nn.MSELoss()</span><br></pre></td></tr></table></figure>
+<h2 id="保存与加载模型">保存与加载模型</h2>
+<p>保存模型</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这种方式只保存模型的参数</span></span><br><span class="line">torch.save(myNet.state_dict(), <span class="string">&#x27;myNet.pth&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="comment"># 这种方式保存整个模型</span></span><br><span class="line">torch.save(myNet, <span class="string">&#x27;myNet.pth&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>加载模型</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">myNet.load_state_dict(torch.load(<span class="string">&#x27;myNet.pth&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="训练一个简单的网络学习-XOR">训练一个简单的网络学习 XOR</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(MyNet, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.net = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">2</span>, <span class="number">20</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">20</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        <span class="variable language_">self</span>.optimizer = torch.optim.SGD(<span class="variable language_">self</span>.net.parameters(), lr=<span class="number">0.05</span>)</span><br><span class="line">        <span class="variable language_">self</span>.loss_func = nn.MSELoss()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.net(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train_xor</span>(<span class="params">self, x, y, epochs=<span class="number">5000</span></span>):</span><br><span class="line">        <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">            out = <span class="variable language_">self</span>.forward(x)</span><br><span class="line">            loss = <span class="variable language_">self</span>.loss_func(out, y)</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">self</span>.optimizer.zero_grad()</span><br><span class="line">            loss.backward()</span><br><span class="line">            <span class="variable language_">self</span>.optimizer.step()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> epoch % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&#x27;epoch: <span class="subst">&#123;epoch&#125;</span>, loss: <span class="subst">&#123;loss&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        out = <span class="variable language_">self</span>.forward(x)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;out.data&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        torch.save(<span class="variable language_">self</span>.net, <span class="string">&#x27;net_EOR_CPU.pkl&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    x = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">    y = [[<span class="number">0</span>], [<span class="number">1</span>], [<span class="number">1</span>], [<span class="number">0</span>]]</span><br><span class="line">    x_tensor = torch.tensor(x).<span class="built_in">float</span>()</span><br><span class="line">    y_tensor = torch.tensor(y).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    net = MyNet()</span><br><span class="line">    <span class="built_in">print</span>(net)</span><br><span class="line"></span><br><span class="line">    net.train_xor(x_tensor, y_tensor)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>测试模型</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyNet</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, model_path</span>):</span><br><span class="line">        <span class="variable language_">self</span>.net = torch.load(model_path, map_location=<span class="string">&#x27;cpu&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, x</span>):</span><br><span class="line">        out = <span class="variable language_">self</span>.net(x)</span><br><span class="line">        outfinal = out.data</span><br><span class="line">        <span class="keyword">return</span> outfinal</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    x = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">    x_tensor = torch.tensor(x).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    net = MyNet(<span class="string">&#x27;net_EOR_CPU.pkl&#x27;</span>)</span><br><span class="line">    outfinal = net.predict(x_tensor)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        <span class="keyword">if</span> outfinal[i] &lt; <span class="number">0.5</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal[i]&#125;</span>, 0&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal[i]&#125;</span>, 1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这个例子中，我们使用了 <code>torch.nn</code> 构建了一个网络结构，使用了 <code>torch.optim</code> 构建了一个优化器，使用了 <code>torch.nn</code> 构建了一个损失函数，使用了 <code>torch.save</code> 保存了模型，使用了 <code>torch.load</code> 加载了模型。</p>
+<p>并且使用的是 CPU 计算，如果需要使用 GPU 计算，需要在构建网络结构的时候加上 <code>.cuda()</code>。</p>
+<p>最后 <code>print</code> 时，将结果cpu化，即 <code>print(net(x).cpu())</code>。这样才能在 CPU 上打印出结果。</p>
+<h2 id="参考">参考</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLm9yZy9kb2NzL3N0YWJsZS9pbmRleC5odG1s">PyTorch官方文档<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLWNuLnJlYWR0aGVkb2NzLmlvL3poL2xhdGVzdC8=">PyTorch中文文档<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p>⟪Python 神经网络入门与实战⟫ ———— 王凯编著，北京大学出版社，2020年11月第1版</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>ANNs</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tyrano Studio 汉化</title>
     <url>/2025/04/27/1/</url>
     <content><![CDATA[<p>最近下了一个视觉小说游戏，发现是 Electron 打包的，使用了 Tyrano Studio 制作的。于是就想给它汉化一下。经过一番折腾，终于成功了。</p>
@@ -10098,67 +10159,6 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <h2 id="Tyrano-Script-游戏汉化">Tyrano Script 游戏汉化</h2>
 <p>下载 Translator++，导入工程文件，然后选择需要汉化的文本，进行翻译和导出。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Torch 基础</title>
-    <url>/2023/10/28/1/</url>
-    <content><![CDATA[<h2 id="Troch-输入输出">Troch 输入输出</h2>
-<p>创建一个 <code>tensor</code> 变量</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = torch.tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
-<p>转换类型</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = x.<span class="built_in">float</span>()</span><br></pre></td></tr></table></figure>
-<p>并使用 <code>cuda()</code> 函数将变量转移到 GPU 上。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = x.cuda()</span><br></pre></td></tr></table></figure>
-<p>同样，我们可以使用 <code>cpu()</code> 函数将变量转移到 CPU 上。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = x.cpu()</span><br></pre></td></tr></table></figure>
-<p>完整的代码如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">x = torch.tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">y = torch.tensor([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Before cuda&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;x: <span class="subst">&#123;x&#125;</span>, <span class="subst">&#123;x.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;x.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;y: <span class="subst">&#123;y&#125;</span>, <span class="subst">&#123;y.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;y.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;#######################################################&quot;</span>)</span><br><span class="line"></span><br><span class="line">x = x.<span class="built_in">float</span>()</span><br><span class="line">y = y.<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">x = x.cuda()</span><br><span class="line">y = y.cuda()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;After cuda&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;x: <span class="subst">&#123;x&#125;</span>, <span class="subst">&#123;x.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;x.size()&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;y: <span class="subst">&#123;y&#125;</span>, <span class="subst">&#123;y.<span class="built_in">type</span>()&#125;</span>, <span class="subst">&#123;y.size()&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>输出结果如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Before cuda</span><br><span class="line">x: tensor([1, 2, 3, 4]), torch.LongTensor, torch.Size([4])</span><br><span class="line">y: tensor([[1, 2],</span><br><span class="line">        [3, 4]]), torch.LongTensor, torch.Size([2, 2])</span><br><span class="line"><span class="comment">#######################################################</span></span><br><span class="line">After cuda</span><br><span class="line">x: tensor([1., 2., 3., 4.], device=<span class="string">&#x27;cuda:0&#x27;</span>), torch.cuda.FloatTensor, torch.Size([4])</span><br><span class="line">y: tensor([[1., 2.],</span><br><span class="line">        [3., 4.]], device=<span class="string">&#x27;cuda:0&#x27;</span>), torch.cuda.FloatTensor, torch.Size([2, 2])</span><br></pre></td></tr></table></figure>
-<h2 id="构建网络结构">构建网络结构</h2>
-<p>使用 <code>torch.nn</code> 构建网络结构。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">myNet = nn.Sequential(</span><br><span class="line">    nn.Linear(<span class="number">2</span>, <span class="number">3</span>),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(<span class="number">3</span>, <span class="number">1</span>),</span><br><span class="line">    nn.Sigmoid()</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>使用类的形式构建网络结构。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">myNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(myNet, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU()</span><br><span class="line">        <span class="variable language_">self</span>.sigmoid = nn.Sigmoid()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.sigmoid(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
-<p>上面两种方式都可以，但是第二种方式更加灵活，可以自定义网络结构。但是，它们都使用 CPU 计算，如果需要使用 GPU 计算，需要在构建网络结构的时候加上 <code>.cuda()</code>。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">myNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(myNet, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">2</span>, <span class="number">3</span>).cuda()</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">3</span>, <span class="number">1</span>).cuda()</span><br><span class="line">        <span class="variable language_">self</span>.relu = nn.ReLU().cuda()</span><br><span class="line">        <span class="variable language_">self</span>.sigmoid = nn.Sigmoid().cuda()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.fc1(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.relu(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.sigmoid(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
-<h2 id="优化器与损失函数">优化器与损失函数</h2>
-<p>使用 <code>torch.optim</code> 构建优化器。</p>
-<p>这里使用了随机梯度下降法（SGD）。还有其他的优化器，如 Adam、RMSProp 等。参考：<span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLm9yZy9kb2NzL3N0YWJsZS9vcHRpbS5odG1s">torch.optim<i class="fa fa-external-link-alt"></i></span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.SGD(myNet.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure>
-<p>使用 <code>torch.nn</code> 构建损失函数。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line">criterion = nn.MSELoss()</span><br></pre></td></tr></table></figure>
-<h2 id="保存与加载模型">保存与加载模型</h2>
-<p>保存模型</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这种方式只保存模型的参数</span></span><br><span class="line">torch.save(myNet.state_dict(), <span class="string">&#x27;myNet.pth&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="comment"># 这种方式保存整个模型</span></span><br><span class="line">torch.save(myNet, <span class="string">&#x27;myNet.pth&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>加载模型</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">myNet.load_state_dict(torch.load(<span class="string">&#x27;myNet.pth&#x27;</span>))</span><br></pre></td></tr></table></figure>
-<h2 id="训练一个简单的网络学习-XOR">训练一个简单的网络学习 XOR</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(MyNet, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.net = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">2</span>, <span class="number">20</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">20</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        <span class="variable language_">self</span>.optimizer = torch.optim.SGD(<span class="variable language_">self</span>.net.parameters(), lr=<span class="number">0.05</span>)</span><br><span class="line">        <span class="variable language_">self</span>.loss_func = nn.MSELoss()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.net(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train_xor</span>(<span class="params">self, x, y, epochs=<span class="number">5000</span></span>):</span><br><span class="line">        <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">            out = <span class="variable language_">self</span>.forward(x)</span><br><span class="line">            loss = <span class="variable language_">self</span>.loss_func(out, y)</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">self</span>.optimizer.zero_grad()</span><br><span class="line">            loss.backward()</span><br><span class="line">            <span class="variable language_">self</span>.optimizer.step()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> epoch % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&#x27;epoch: <span class="subst">&#123;epoch&#125;</span>, loss: <span class="subst">&#123;loss&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        out = <span class="variable language_">self</span>.forward(x)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;out.data&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        torch.save(<span class="variable language_">self</span>.net, <span class="string">&#x27;net_EOR_CPU.pkl&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    x = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">    y = [[<span class="number">0</span>], [<span class="number">1</span>], [<span class="number">1</span>], [<span class="number">0</span>]]</span><br><span class="line">    x_tensor = torch.tensor(x).<span class="built_in">float</span>()</span><br><span class="line">    y_tensor = torch.tensor(y).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    net = MyNet()</span><br><span class="line">    <span class="built_in">print</span>(net)</span><br><span class="line"></span><br><span class="line">    net.train_xor(x_tensor, y_tensor)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>测试模型</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyNet</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, model_path</span>):</span><br><span class="line">        <span class="variable language_">self</span>.net = torch.load(model_path, map_location=<span class="string">&#x27;cpu&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, x</span>):</span><br><span class="line">        out = <span class="variable language_">self</span>.net(x)</span><br><span class="line">        outfinal = out.data</span><br><span class="line">        <span class="keyword">return</span> outfinal</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    x = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line">    x_tensor = torch.tensor(x).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    net = MyNet(<span class="string">&#x27;net_EOR_CPU.pkl&#x27;</span>)</span><br><span class="line">    outfinal = net.predict(x_tensor)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        <span class="keyword">if</span> outfinal[i] &lt; <span class="number">0.5</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal[i]&#125;</span>, 0&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&#x27;out: <span class="subst">&#123;outfinal[i]&#125;</span>, 1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>这个例子中，我们使用了 <code>torch.nn</code> 构建了一个网络结构，使用了 <code>torch.optim</code> 构建了一个优化器，使用了 <code>torch.nn</code> 构建了一个损失函数，使用了 <code>torch.save</code> 保存了模型，使用了 <code>torch.load</code> 加载了模型。</p>
-<p>并且使用的是 CPU 计算，如果需要使用 GPU 计算，需要在构建网络结构的时候加上 <code>.cuda()</code>。</p>
-<p>最后 <code>print</code> 时，将结果cpu化，即 <code>print(net(x).cpu())</code>。这样才能在 CPU 上打印出结果。</p>
-<h2 id="参考">参考</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLm9yZy9kb2NzL3N0YWJsZS9pbmRleC5odG1s">PyTorch官方文档<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLWNuLnJlYWR0aGVkb2NzLmlvL3poL2xhdGVzdC8=">PyTorch中文文档<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p>⟪Python 神经网络入门与实战⟫ ———— 王凯编著，北京大学出版社，2020年11月第1版</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>ANNs</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>Vue-issue-and-typescript</title>
@@ -11622,8 +11622,8 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
   min-width: 280px; /* 设置最小宽度，防止卡片太小 */
   scroll-snap-align: center; /* 改为center以便居中对齐 */
   transition: all 0.3s ease; /* 添加过渡效果 */
-  height: 200px; /* 卡片高度 */
-  padding: 25px;
+  height: 160px; /* 卡片高度 */
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 15px var(--shadow-color);
   cursor: pointer;
@@ -11697,10 +11697,10 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <p>SPI NAND: 256MB:<span class="exturl" data-url="aHR0cHM6Ly9pdGVtLnN6bGNzYy5jb20vODQxNzk4NS5odG1s">HYF2GQ4UTACAE<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 </ul>
-<p>（这颗SoC的频率可能是900MHZ、950MHZ 1GHZ，看厂家设置，好像还包含以一个 NPU，而且现在 ECONET 貌似是 MTK 子公司。）</p>
+<p>（这颗 SoC 的频率可能是 900MHZ、950MHZ 1GHZ，看厂家设置，好像还包含以一个 NPU，而且现在 ECONET 貌似是 MTK 子公司。）</p>
 <p>末尾的 CT 指的是支持 XGPON 的意思，但是这台设备是纯路由器。CT相比DT，少了一个 NPU。还有一个 CU 版本，集成 512MB 内存。</p>
 <p>但是这台机器，我严重怀疑，他的 NPU 根本没用上，没有开启硬件加速，因为测试下来，比 MT7621AT@880Mhz（enable MediaTek HWNat） 还慢，但是看编译选项，HWNat又是开启的。</p>
-<p>另外提一嘴，还有一个型号是 SDG400T，使用双核900MHz的处理器512MB（估计是一个东西对应不同采购），SDG400L使用双核1GHz的处理器256MB，还有个上海的 SDG440（内置 audit control），政企网关 SDG400，都是一个系列的产品。还有某西部地区特制的商品，型号不明，但是内置严格的审计控制。</p>
+<p>另外提一嘴，还有一个型号是 SDG400T，使用双核 900MHz 的处理器 512MB（估计是一个东西对应不同采购），SDG400L 使用双核 1GHz 的处理器256MB，还有个上海的 SDG440（内置 audit control），政企网关 SDG400，都是一个系列的产品。还有某西部地区特制的商品，型号不明，但是内置严格的审计控制。</p>
 <h2 id="拆机">拆机</h2>
 <p><img src="./converted_sdg320.png" alt></p>
 <p>天线是 5 根 5dBi 的，主板和铁壳之间有一层导热垫。</p>
@@ -11722,11 +11722,12 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <p>linux 从 tftp 服务器下载文件：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tftp -g -r example.img 192.168.10.2</span><br></pre></td></tr></table></figure>
 <h3 id="分区解析">分区解析</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># cat /etc/fstab</span><br><span class="line">proc /proc proc defaults 0 0</span><br><span class="line">ramfs /tmp ramfs defaults 0 0</span><br><span class="line">devpts /dev/pts devpts defaults 0 0</span><br><span class="line">sysfs   /sys    sysfs defaults 0 0</span><br><span class="line">none    /sys/kernel/debug       debugfs defaults 0 0</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
+<th>分区号</th>
 <th>分区名</th>
-<th>大小</th>
 <th>描述</th>
 </tr>
 </thead>
@@ -11774,7 +11775,7 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <tr>
 <td>mtd8</td>
 <td>data</td>
-<td>数据分区，实际用于运营商插件</td>
+<td>数据分区，jffs2</td>
 </tr>
 <tr>
 <td>mtd9</td>
@@ -11811,7 +11812,7 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
 <p>/usr/data/ 目录下可以保存用户数据（这里被挂载成 jffs2 分区），重启后不会丢失。在这里编写 sh 脚本，通过传参控制，利用配置文件中的 <code>&lt;DcycleTask&gt;</code> 标签可以实现定时任务。就是系统中没有 python、perl 等脚本语言，只有 busybox 的 sh。</p>
 </blockquote>
 <h2 id="配置成为交换机-AP">配置成为交换机+AP</h2>
-<p>这个设备适合当交换机+ap使用，如果用来拨号，你是嫌自己命长（不知道什么原因，做下级路由好好的，一拨号开始能用，时间一久，断网，无线连不上，后台进不去，完全一个死机状态，这么明显的问题，他们竟然都没发现就能去卖产品，搞不好这东西给政企使用，还有我是移动的宽带）。</p>
+<p>这个设备适合当交换机+ap使用，如果用来拨号，你是嫌自己命长（不知道什么原因，做下级路由好好的，一拨号开始能用，时间一久，断网，无线连不上，后台进不去，完全一个死机状态，这么明显的问题，他们竟然都没发现就能去卖产品，搞不好这东西给政企使用）。</p>
 <p>这个和一般的光猫改交换机不太一样，因为这个提供了手动的 VLAN 功能，需要一定组网运维知识才能搞定。</p>
 <p>环境: 主路由拨号，网段 192.168.10.1</p>
 <p>所以它原先是 192.168.10.1 的网段与主路由器的网段冲突了，要改掉，改成 192.168.20.1。（随意即可）</p>
@@ -11885,15 +11886,15 @@ etc…</p>
 <blockquote>
 <p>可以改配置去关闭 CWMP、DPI、Audit。下面是一个脚本，慎用 rm -rf。</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sh /usr/sbin/CwmpDaemon.sh</span></span><br><span class="line">leds 18 3</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/com.chinamobile.smartgateway.cmccdpi.jar</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/baizhuo/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/hwevent.d/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/jc</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/config/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/bin/joyme_load.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/gmf</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/sbin/CwmpDaemon.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/before_tr069_download.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jamvm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jvm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jvm_evm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/osgi_upg.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sh /usr/sbin/CwmpDaemon.sh</span></span><br><span class="line">leds 18 3</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/com.chinamobile.smartgateway.cmccdpi.jar</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/baizhuo/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/hwevent.d/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/jc</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/config/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/bin/joyme_load.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/gmf</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/sbin/CwmpDaemon.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/before_tr069_download.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jamvm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jvm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jvm_evm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/osgi_upg.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/certs</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/certs_debug</span><br></pre></td></tr></table></figure>
 <h2 id="设备树的研究以及-OpenWrt-支持">设备树的研究以及 OpenWrt 支持</h2>
 <p>提出出来的 dts 是 en7523 的，有点意思，看起来这颗 SoC 不简单，应该是胶水封装的。</p>
 <div class="card">
-    <h2 class="card-title">原机内核提取 en7523.dts</h2>
+    <h2 class="card-title">相关文件</h2>
     <p class="card-content">
     <b>有兴趣就研究一下吧！</b>
     </p>
-    <a href="./en7562.tar.gz" download="en75xx.tar.gz" target="_blank" class="btn" data-pjax-state="load">下载</a>
+    <a href="./collection.tar.gz" download="en7562-collection.tar.gz" target="_blank" class="btn" data-pjax-state="load">下载</a>
 </div>
 <h3 id="从原厂的编译信息分析">从原厂的编译信息分析</h3>
 <p>/userfs/profile.cfg 有着一些编译信息。</p>
@@ -11905,12 +11906,12 @@ etc…</p>
 <p>这两个 SECURE_BOOT 有什么区别吗？应该上面这个是 ATF 的。</p>
 <p>如果有高手，可以结合开源的 ATF 代码，尝试制作一个多功能 UBOOT，就像 uboot-mt798x 一样</p>
 <figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">TCSUPPORT_ETHPHY=5R_DIS</span><br><span class="line">TCSUPPORT_7562_CD=y</span><br><span class="line">TCSUPPORT_GCC10_3_0_GLIBC2_32_KERNEL5_4=y</span><br><span class="line"><span class="comment"># WAN Transfer Mode Support</span></span><br><span class="line">TCSUPPORT_SWITCH_8850=y</span><br></pre></td></tr></table></figure>
-<p>从 makefile 中可以看到，en7562ct 和 an7523 的区别。这里只选取了最重要的差别，其他系统定义上的差别、驱动特性的差别没有给出。</p>
-<p>因为没有注释，只能推测</p>
-<p>第一行 <code>TCSUPPORT_ETHPHY=5R_DIS</code> 可能是指禁用了 5 个以太网物理接口（可能是为启用 en8850 交换机做准备），也可能是其他含义</p>
-<p>第二行 <code>TCSUPPORT_7562_CD=y</code> 可能是指启用了 en7562ct 的特性，或者单纯是一个标志位</p>
-<p>第三行 <code>TCSUPPORT_GCC10_3_0_GLIBC2_32_KERNEL5_4=y</code> 指定了编译环境，使用 GCC 10.3.0、glibc 2.32 和 Linux 内核 5.4</p>
-<p>第四行 <code>TCSUPPORT_SWITCH_8850=y</code> 指定了使用 en8850 交换机芯片。</p>
+<p>这里只选取了最重要的差别，其他系统定义上的差别、驱动特性的差别没有给出。<br>
+<strong>因为没有注释，只能推测</strong></p>
+<p>第一行 <code>TCSUPPORT_ETHPHY=5R_DIS</code> 可能是指禁用了 5 个以太网物理接口（可能是为启用 en8850 交换机做准备），也可能是其他含义。</p>
+<p>第二行 <code>TCSUPPORT_7562_CD=y</code> 可能是指启用了 en7562ct 的特性，或者单纯是一个标志位，代表该芯片来自 7562 家族。</p>
+<p>第三行 <code>TCSUPPORT_GCC10_3_0_GLIBC2_32_KERNEL5_4=y</code> 指定了编译环境，使用 GCC 10.3.0、glibc 2.32 和 Linux 内核 5.4，符合来自下面提到的编译信息。</p>
+<p>第四行 <code>TCSUPPORT_SWITCH_8850=y</code> 指定了使用 8850 交换机芯片。这个 8850 应该不是至 rtl8850，而是达发/MTK的 8850 交换机芯片，因为 rtl8850 是一个Wifi+蓝牙芯片，所以这个 8850 应该是达发的 8850 交换机芯片。</p>
 <p>某些编译信息，来自固件里打包的某些文件，这应该是编译 Airoha SDK 的工具链。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root@Ubuntu:tmp# /home/sdks/OEM/sdg4402023/bin/arm-linux-gcc -v</span><br><span class="line">Using built-in specs.</span><br><span class="line">COLLECT_GCC=/home/sdks/OEM/buildroot-gcc1030-glibc232_kernel5_4/bin/arm-linux-gcc.br_real</span><br><span class="line">COLLECT_LTO_WRAPPER=/home/sdks/OEM/buildroot-gcc1030-glibc232_kernel5_4/bin/../libexec/gcc/arm-buildroot-linux-gnueabi/10.3.0/lto-wrapper</span><br><span class="line">Target: arm-buildroot-linux-gnueabi</span><br><span class="line">Configured with: ./configure --prefix=/opt/trendchip/buildroot-gcc1030-glibc232_kernel5_4 --sysconfdir=/opt/trendchip/buildroot-gcc1030-glibc232_kernel5_4/etc --enable-static --target=arm-buildroot-linux-gnueabi --with-sysroot=/opt/trendchip/buildroot-gcc1030-glibc232_kernel5_4/arm-buildroot-linux-gnueabi/sysroot --enable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --disable-decimal-float --with-gmp=/opt/trendchip/buildroot-gcc1030-glibc232_kernel5_4 --with-mpc=/opt/trendchip/buildroot-gcc1030-glibc232_kernel5_4 --with-mpfr=/opt/trendchip/buildroot-gcc1030-glibc232_kernel5_4 --with-pkgversion=&#x27;Buildroot -g413d1bb&#x27; --with-bugurl=http://bugs.buildroot.net/ --without-zstd --disable-libquadmath --disable-libquadmath-support --enable-tls --enable-plugins --enable-lto --enable-threads --without-isl --without-cloog --with-float=soft --with-abi=aapcs-linux --with-cpu=cortex-a7 --with-float=soft --with-mode=arm --enable-languages=c,c++ --with-build-time-tools=/opt/trendchip/buildroot-gcc1030-glibc232_kernel5_4/arm-buildroot-linux-gnueabi/bin --enable-shared --disable-libgomp</span><br><span class="line">Thread model: posix</span><br><span class="line">Supported LTO compression algorithms: zlib</span><br><span class="line">gcc version 10.3.0 (Buildroot -g413d1bb)</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -11933,8 +11934,8 @@ etc…</p>
 <figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">TCSUPPORT_HSGMII_LAN=y</span><br></pre></td></tr></table></figure>
 <p>结合 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> 、<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 的信息以及使用 <code>ifconfig</code>/<code>iwconfig</code> 命令查看到的网口信息</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eth0</span><br><span class="line">eth0.2</span><br><span class="line">eth0.3</span><br><span class="line">eth0.4</span><br></pre></td></tr></table></figure>
-<p>可以确定，这确实是有一个5口千兆交换机内置在 en7562ct SoC 之中。GMAC1 扩展支持 SGMII (1.25GHz) 和 HSGMII (3.125GHz)</p>
-<p>那么，它可能与交换机芯片 EN8855 的驱动是兼容的，在<span class="exturl" data-url="aHR0cHM6Ly9vcGVud3J0Lm9yZy9pbmJveC90b2gveGlhb21pL2F4MzAwMHQ=">小米AX300OT<i class="fa fa-external-link-alt"></i></span>上也使用了该芯片（很怪，这个芯片应该是达发的，但是被归类到了 MTK，我其实不太确定这个 en 8855 是否能对应上，原机的编译配置使用的驱动是 en8850，因为某些地址可能不对，这些在驱动中有定义）</p>
+<p>可以确定，这确实是有一个5口千兆交换机内置在 en7562ct SoC 之中。GMAC1 扩展支持 SGMII 和 HSGMII</p>
+<p>那么，它可能与交换机芯片 EN8855 的驱动是兼容的，在<span class="exturl" data-url="aHR0cHM6Ly9vcGVud3J0Lm9yZy9pbmJveC90b2gveGlhb21pL2F4MzAwMHQ=">小米AX3000T<i class="fa fa-external-link-alt"></i></span>上也使用了该芯片（很怪，这个芯片应该是达发的，但是被归类到了 MTK，我其实不太确定这个 en 8855 是否能对应上，原机的编译配置使用的驱动是 en8850，因为某些地址可能不对，这些在驱动中有定义）</p>
 <div class="card">
     <h2 class="card-title">EN8850 SERIES</h2>
     <p class="card-content">
@@ -11945,16 +11946,21 @@ etc…</p>
 <p>估计应该和 <code>EN8850DRE</code> 差不多</p>
 <p>或许可以参照 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW53cnQvb3BlbndydC9ibG9iL21hc3Rlci90YXJnZXQvbGludXgvbWVkaWF0ZWsvZHRzL210Nzk4MWIteGlhb21pLW1pLXJvdXRlci1jb21tb24uZHRzaQ==">mt7981b-xiaomi-mi-router-common.dtsi<i class="fa fa-external-link-alt"></i></span> 对交换机进行配置。</p>
 <p>而设备树中包含了 <code>wdma</code> 和 <code>wed</code>，这两个是达发的硬件加速模块，设备树中使用 <code>en751221</code> 作为兼容硬件，可能同样兼容 EN7526。</p>
+<p>Pcie 方面，en7562ct 使用了兼容 mt7520 的 pcie 通道</p>
+<p>而 hsgmii 是提供一个 2.5Gbps 内部接口(Interface)，或为 pon/xpon 提供支持。</p>
+<p>千兆网口(PHY)来自内部的以太网交换机芯片 en8850。</p>
 <p>综合以上信息，可以得出结论，en7562ct 芯片是一个多功能的 SoC，将 en7523 作为基础的 CPU，集成了多个功能模块，包括以太网交换机、NPU、PCIe、USB 等。</p>
-<p>既 en7523(CPU) + en8850(交换机) 组成了一个完整的路由器 SoC 方案。</p>
-<p>而 hsgmii 是提供一个 2.5Gbps 内部接口，或为 pon/xpon 提供支持。</p>
-<p>千兆网口来自内部的以太网交换机芯片。</p>
+<p>既 en7523(CPU) + en8850(交换机) 组成了一个完整的 SoC 方案。</p>
+<p>如果能够看到 en7523、en7562、7581、en8850、en8855 的 dieshot，或许能更清楚地了解它们的内部结构，以及分析他们的关系。</p>
 <p>可以以 an7581 的 dtsi 为基础，修改对应的 CPU 和 NPU 相关信息，以及 GPIO/UART 等，不同设备修改至对应 en7523 的内存位置和范围，添加以太网交换机的配置，就能为作为路由器设备、交换机设备提供 OpenWrt 支持。（至于光猫设备，缺少了 pon/xpon 相关的设备树配置）</p>
+<p>以及可以发现，小米 BE5000，使用了 en7563PT 处理器，推测该芯片应该是 en7562 的更新换代，小米 BE5000 的原版系统是基于 OpenWrt 的，所以还有另一个思路，提取该机型的相关设备树文件，作为 en7562ct 的参考。以及还有一款 极客AP 也使用了 en7563pt 方案。</p>
+<p>解包小米固件后，发现该 dts 与 an7562 的内核提取 dts 非常相似，也是基于 an7523 的设备树，但是多了 an7581 的 oop-table 频率表，GPIO、分区表、thermal-zones等，这一差异大概是 airoha SDK 与 OpenWrt 的差异导致的。</p>
 <hr>
 <p>今天又有一个新的发现：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21lcmJhbmFuL2Fpcm9oYV9tbC90cmVlL21haW4=">airoha_ml<i class="fa fa-external-link-alt"></i></span></p>
 <p>随后，我又从这些文件中发现了一个名为 <span class="exturl" data-url="aHR0cHM6Ly9kZXYuaW9wc3lzLmV1L2ZlZWQvdGFyZ2V0cw==">IOWRT Airoha integration<i class="fa fa-external-link-alt"></i></span>，目的是移植 Airoha SDK 到 IOWrt(Based On Openwrt)。</p>
 <p>这里面竟然有完整带 eth 的 en7523 的设备树文件，包含了交换机、以太网、NPU、USB 等等。还有驱动之类的东西，XPON/PON 相关的也有。</p>
-<p>所以可以推翻前文的 <code>以 an7581 的 dtsi 为基础</code> 的说法，直接使用 en7523 的 dts 文件就可以了。</p>
+<p>注意：这个带有以太网、交换机的 en7523.dts 文件可能是错误的说法，因为没有实例可以验证，并且该例子为孤例，没有其他人引用。</p>
+<p>所以可以推翻前文的 <code>以 an7581 的 dtsi 为基础</code> 的说法，直接使用 en7523 的 dts 文件进行修改适配就可以了。</p>
 <p>不过这个 dts 文件貌似没有使用 SoC 的写法。以及我很好奇，从 dtsi 设备树来看，en7623 应该内置了交换机，为何还要在加上一个 en8850 交换机芯片？难道是因为运营商定制使其成为光猫芯片吗？</p>
 <p>所以现在工作量更少了，<strong>只需要解决了交换机 en8850 的驱动问题</strong>，就可以为该设备提供 OpenWrt 支持。而该驱动可以参考 en8855。</p>
 <p>但是又因为 en7523 内置了交换机芯片，或许可以无视该芯片，直接使用 en7523 的交换机驱动。</p>
@@ -11963,6 +11969,9 @@ etc…</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><span class="exturl" data-url="aHR0cHM6Ly93aWtpZGV2aS53aS1jYXQucnUvRWNvTmV0">EcoNet<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93aWtpZGV2aS53aS1jYXQucnUvTWVkaWFUZWsvU29D">MediaTek/SoC<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 <li class="lvl-2">
 <p><span class="exturl" data-url="aHR0cHM6Ly9mb3J1bS5vcGVud3J0Lm9yZy90L3F1YW50dW0tZmliZXItdzE3MDBrLXN1cHBvcnQv">Quantum Fiber W1700k support - For Developers - OpenWrt Forum<i class="fa fa-external-link-alt"></i></span></p>
@@ -12020,42 +12029,7 @@ etc…</p>
       </tags>
   </entry>
   <entry>
-    <title>HEXO 插件重置</title>
-    <url>/2024/11/22/1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">
-  <script id="hbeData" type="hbeData" data-hmacdigest="c36b5f1d20d3b035cf9b2878f85d46a466cf74879722f7b88eace3436af5e0fe">269e7d5347b7159857e2b73e7f7f62c059b1279b43e1175d87d1a505941affef6fa60bd3a1d1a7f81a128a5f5893bc7e87b6af68c73321e0bdcd7af1b9262f5ad49e25cf5d3878a289aa097b13bee65a7d2143d0fe11a125ba94d8b27e44f4603ac5899dcc88441daa79b3260d2f7428c5e183de0ee119f2b81e5ee1514ecb31fe2afbd2d31a9db0d7b96539862265cab648ad3c541a21f086d8f78f7c2212840070bb63bd05351e61287cd24b3b1b351aefa692c28814e9e76c8846308415bb15d3619cbea8d79269d9b0c5d3c5ce7ca407ff84aeaa6b3b24faa24144fd8fbbee2f20268208222adf87640fc95a67450bf7ca802993390c00a0465efe50dbb6eb3313528eb1efe0d8c4a4b5a80be434d5194a455ef27abfebfca25e352d8de8609e30ffdaf9b60763f953ddd274ff1be0a24383769097bf4b3ccb571673134b1ba1d1305411126c4a27c24fddb61155e3f0bc89acadf0fba4acd5f4404b993873e865c0892a1bb45600fac55529363f2bd6b0abaded14e339c6e21b81787675459b30c041c824d6539d46b359ee2c6130d4cd4867d3035fb4294c9f22c9a6dd960308b662a8ebc308c837d345627f1d5b42971ddfa63c56981cc4b0c2ce26298dfce69f084a9f3387c1e1ddd8f4184a826b7c76aa4541574e139a95c2b4ac41aeec646a92762685f18db2d8e8def317dd6511467a7bde05456b69ab205805e1a31c600ca3545bb5c1d92a9af04c5c10a9ca808fdbd3c13210f9c84ccec15daa4b2e1d15cd5fac5a361962d586104171c1b8f6efa9037809f1e7f3a501a40d978f0fee0611f7d47144855ede2600ffc21b8a668efaecd7dc56a4f125ef9b1a72f4d22985ba539238b8a31adb113b9493d4218269452213d5580974698148b0dfbda8d2ff68a539c3163ee0c7c1b765548e17e58c8f92d3175ffe92a2cb0a385e4acf1e35bda20dda8b6b0c37624118292414258f357c8f4aeecc5c5ce9444d499c21675abd75cdbeef2eb3adb8b452ed2125e303f23478d5c60629a72a5deb409511d83596b68dae940aad7577a79db6135c297a8c5838d081eee77eedf6c62397848dee45bbf51f81f8b4a14319a051328817b369dcf29d6776ebc9ea7babd933d0a3344cd23bed409313b85597b27328ebf118ef4c78cb9835f4c82e90c0e2e76dd4fd2b4d2f1eeb804693c3b5681843ec93449df670d46e089fc89cb6e95dbd55888a1b18c5c52ee520e06b0f101cd73cacc917f308e16909881275d3e9cdac65f3a413a4970565412ac622995009b42736c65306aa5eecf70fd01ceb04437232acf5d474f24c70731499ea9c4eac6bf4a3f8cc3b3eda2d73f0694a230b8017476dacc8eb343009b871705ff40d27c006e98030083c9efe3d805bc50fd9b44321f727ac9f3d107fa269976bd981522659b85cb1384d81a31b1e7ccb577872a54655a1eb76d2e7b2b866db6abe7ab10e107988137f24389aaed09721f7822e1add45a8534bfd5e6bc3eb26f4a511f6e52bde8271b4f1ad844ef3707f07f39a5b5a6bdb14c54bdf1139acef96470848752a010f86cb634dc0c3befd7e25ab3b50e861fe6b50f81d39a915bc86c7d3af2eea5bb9137eacfe89c37dc63b0662d90e3fac5165389b2a1df257ecca7f5b493ab0f8e71ebbcb361fc50b3df3511a89fb6b092be5082783b0a4fe6b938238eceb8937c0b815d998ee3ef416228c030c627b13c6d6d6132b4d73746e7f158c9924776474f95824290b55aff534b18b60808bf6d9110c5ad8f4c90d00a100ba281864dcca71843f102b30e6a7a07290bee70a925f84d6c3b1f8fff1d9bbdbdd7eff07c1fa822e1f0ec0a46ffe23d62a729b32fc709561865a2bed9859cb5b05d533e7abae1fbfb1c9feb5fde84b82a7a8e0f3d978296d17a13e477b95b043466eba4b23d8920967b03c99c6d926340d20a06a7f31be1508946a80630ce4bedf71798d6381c076101f510b4967df7fe900334cc486e58e2fe68dafa1d17487ca813c11c99294044ca30841bd5b0cda50d97e8158dbc2d61d9ef029a9d247c04edb41e7ef9e85bc441802fb70fb83408cadd40acc54b04d4e2a1a54732ba65917daa5e3d54babc357673ae2d5befc77562e3585fcf7ac3700f0c6db6ad50e181a740c92113f8a4cba9c5640661fba1914cfacdce97d4fdcd7f42779c349d88338f5e78ea2acf5b8ef6098f8c7828de88366963fb0d901372299e0e362d4889fedc8f385bd9f5db73ceaf191a6082dcb854ef647fae31690f9c2d050f74a42d8182159c631cc455af6e627ec4d6eed796995091c891b15c837c2ad011fc635cef2f65135170b2ce02b5de686d43c624c58958a7e1b15abb1109d63f0aa1896ca7773b1440c562a6b9022519a4785cd3adf72dd54462843777d905fa2cac4af71a5c4c5427ee12c1b44351ea19f1f1b3b77220924e5ee6317f745d56a1ec8d748ea29390dc5a1fc02477e56e1ccd0d997c67c5e263cf590f20db0b9158b35b476c27858182431343b83975eb717f24d4157654be64938078c7714681ccbdbe87d45901d3b3e5aa8f4337f32ac3b9f1277747d0dad6547a64380b9f02f2e94ab14ffb8b5ecc7fc7583b03ac093213d1d28f48debd8a71d398eb06eae232b855c1d5c3041a875a0b9b342baaa76a9c07042afaee57ae116c746646b756b2b10c199cba7b954df1528eba1d10020675c2d6b5f22ee35ae86735d35c9c2826a47e81bcf51fe2edb1cae69974f5ae97a2d39e07d89c73845cdcb136833920f64bf29af53cfb9b6153ffa9003f33ea174300da020de38b481ade4447f3a4f68613107fabd939ae7a38555192ab9e5eda18f7ba61e7512618ce9381865d444c02e54591a7392693e0fdea2f6611c625722b0fb73b9057bcfffbae3b2b8cffe556a0c974d103974c969b3d49b4990533785f4b3d52898d205405f70d2df2b2cf2e8dc7e970d1c191634800474c73c75b567d0df1355f2d4fc5a309fced65198bdfa1d5c7cb4a18b1a8441990dfda3a40a30f2bcc1174b4099c44de0bac7342bd111bcd89f75053a58c010d8465bf46585a539ff70c5e79c561bee94748a772cd5badba62abb077859fcfe13c2500202227e8ff7828fdebd9eb09e2f9b5b0e51fa56861ae285188587b1c263be3b524f4edd56c3ff69c6b6de3fdb42fb467d92c2b5cc5f7d43ef8746453528b8d7f8bb59dbd328a25c3369b7836cef7bc8acc86bb17c2fa08d9d0f61f347f35be542bf68fae4f7ddb4890fcfd36d377c6719893e8dc870d5cf6b8c6ff9ccd4059e6ae416876e2002ab01b7f64c480f5cac1c1dde2ff7ce2a432105d9a427bd0648f9b846f4d51889aeceba8ba17caa8a57a06d5e78fb766a20660e65941c5523040cf0557a37f107add8e5b8d78e0160cd7a260e8a4c3ee1cb4e5d32b157523d1f365c1bbe7bc24d8b41ed268654e5f24f94c52ce98157aad50bc82e4489fa4a0363ef6606692aba3309b7025129dcaf7ce4423cda313dcea1279ecc277c928450a901f5900677731519304028fe48e5d0fd659c97b433a0fb170d863941d09196d04eeca549913a55988a2a1aba7bd1c367abe55b931330cdd23c6675b2c2ab66e8c75b1f8292bab1ca</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">当前文章暂不对外可见，请输入访问密码后查看！</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-  </entry>
-  <entry>
-    <title>HEXO Next SEO 添加 Description 和 Keywords</title>
-    <url>/2025/04/15/2/</url>
-    <content><![CDATA[<p>目前我使用 HEXO 搭配 Next 主题，最近我的网页优化建议中，总是提醒我缺少 Description 和 Keywords。</p>
-<p>我在网上找了很多资料，发现 Next 主题的配置文件中并没有提供这两个字段的配置项。</p>
-<p>而 Description 的配置项在主题的 <code>_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">excerpt_description:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h2 id="1-修改-scaffolds">1. 修改 scaffolds</h2>
-<p>在 <code>scaffolds</code> 目录下，找到 <code>post.md</code> 文件，添加如下代码：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">&lt;!-- existed code --&gt;</span><br><span class="line">description: none</span><br><span class="line">keywords:</span><br><span class="line"><span class="section">&lt;!-- existed code --&gt;</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-<p>这样在你新建文章的时候，就会有这两个字段了。</p>
-<h2 id="2-修改布局文件">2. 修改布局文件</h2>
-<p>在 <code>layout</code> 目录下，找到 <code>layout/layout.njk</code> 文件，添加如下代码：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  &#123;&#123; partial(&#x27;_partials/head/head.njk&#x27;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">    <span class="comment">&lt;!-- existed code --&gt;</span></span><br><span class="line"></span><br><span class="line">  &#123;% if page.description %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; page.description &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;% else %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; theme.description &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">  </span><br><span class="line">  &#123;% if page.keywords %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; page.keywords &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;% else %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; theme.keywords &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- existed code --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>关于 description，某些版本是支持 SEO 的，支持的话就不需要添加了。</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>G-AX1800/F 研究日志</title>
+    <title>G-AX1800(F) 研究日志</title>
     <url>/2025/05/28/1/</url>
     <content><![CDATA[<p>1xx86运营商的路由器，G-AX1800，方案是MT7621AT+MT7905DAN+MT7975DN</p>
 <p>这个玩意有好几个版本，应该是有几个代工，配置差不多，但是方案混乱，名字都叫G-AX1800，还有一个带F的版本，也是差不多的，原版固件是 LEDE 17.01-SNAPSHOT 定制版本。</p>
@@ -12272,6 +12246,8 @@ Ethernet: 1xWAN + 3xLAN (1G)</p>
 <p>padavan 系列暂时没有适配，因为这个机型开启了 NMBM，padavan 系统似乎没有适配 NMBM 的代码。</p>
 </blockquote>
 <h3 id="改密码，开ssh">改密码，开ssh</h3>
+<p>见参考，有一种免拆开启 ssh 和 telnet 的办法。</p>
+<hr>
 <p>先启动机器，led 发光后迅速连接 TTL 至电脑（同时打开已经配置好的串口），然后不停按 reset 进行中断</p>
 <p>当提示出进入 openwrt failsafe时，输入1并回车，此时进入 failsafe</p>
 <p>但是此时 dhcp 以及 uci 皆不可使用，即没有网络连接</p>
@@ -12390,6 +12366,9 @@ Ethernet: 1xWAN + 3xLAN (1G)</p>
 <li class="lvl-2">
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL3RocmVhZC04MjQ0NzMwLTEtMS5odG1s">新华三 H3C TX1800 Plus / TX1801 Plus / TX1806 OpenWrt 及刷机教程<i class="fa fa-external-link-alt"></i></span></p>
 </li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9wd2QwLmNvbS8xMjIuaHRtbA==">中国移动G-AX1800-F免拆开SSH和telnet<i class="fa fa-external-link-alt"></i></span></p>
+</li>
 </ul>
 ]]></content>
       <categories>
@@ -12399,6 +12378,41 @@ Ethernet: 1xWAN + 3xLAN (1G)</p>
         <tag>分享</tag>
         <tag>玩机</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>HEXO 插件重置</title>
+    <url>/2024/11/22/1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="c36b5f1d20d3b035cf9b2878f85d46a466cf74879722f7b88eace3436af5e0fe">269e7d5347b7159857e2b73e7f7f62c059b1279b43e1175d87d1a505941affef6fa60bd3a1d1a7f81a128a5f5893bc7e87b6af68c73321e0bdcd7af1b9262f5ad49e25cf5d3878a289aa097b13bee65a7d2143d0fe11a125ba94d8b27e44f4603ac5899dcc88441daa79b3260d2f7428c5e183de0ee119f2b81e5ee1514ecb31fe2afbd2d31a9db0d7b96539862265cab648ad3c541a21f086d8f78f7c2212840070bb63bd05351e61287cd24b3b1b351aefa692c28814e9e76c8846308415bb15d3619cbea8d79269d9b0c5d3c5ce7ca407ff84aeaa6b3b24faa24144fd8fbbee2f20268208222adf87640fc95a67450bf7ca802993390c00a0465efe50dbb6eb3313528eb1efe0d8c4a4b5a80be434d5194a455ef27abfebfca25e352d8de8609e30ffdaf9b60763f953ddd274ff1be0a24383769097bf4b3ccb571673134b1ba1d1305411126c4a27c24fddb61155e3f0bc89acadf0fba4acd5f4404b993873e865c0892a1bb45600fac55529363f2bd6b0abaded14e339c6e21b81787675459b30c041c824d6539d46b359ee2c6130d4cd4867d3035fb4294c9f22c9a6dd960308b662a8ebc308c837d345627f1d5b42971ddfa63c56981cc4b0c2ce26298dfce69f084a9f3387c1e1ddd8f4184a826b7c76aa4541574e139a95c2b4ac41aeec646a92762685f18db2d8e8def317dd6511467a7bde05456b69ab205805e1a31c600ca3545bb5c1d92a9af04c5c10a9ca808fdbd3c13210f9c84ccec15daa4b2e1d15cd5fac5a361962d586104171c1b8f6efa9037809f1e7f3a501a40d978f0fee0611f7d47144855ede2600ffc21b8a668efaecd7dc56a4f125ef9b1a72f4d22985ba539238b8a31adb113b9493d4218269452213d5580974698148b0dfbda8d2ff68a539c3163ee0c7c1b765548e17e58c8f92d3175ffe92a2cb0a385e4acf1e35bda20dda8b6b0c37624118292414258f357c8f4aeecc5c5ce9444d499c21675abd75cdbeef2eb3adb8b452ed2125e303f23478d5c60629a72a5deb409511d83596b68dae940aad7577a79db6135c297a8c5838d081eee77eedf6c62397848dee45bbf51f81f8b4a14319a051328817b369dcf29d6776ebc9ea7babd933d0a3344cd23bed409313b85597b27328ebf118ef4c78cb9835f4c82e90c0e2e76dd4fd2b4d2f1eeb804693c3b5681843ec93449df670d46e089fc89cb6e95dbd55888a1b18c5c52ee520e06b0f101cd73cacc917f308e16909881275d3e9cdac65f3a413a4970565412ac622995009b42736c65306aa5eecf70fd01ceb04437232acf5d474f24c70731499ea9c4eac6bf4a3f8cc3b3eda2d73f0694a230b8017476dacc8eb343009b871705ff40d27c006e98030083c9efe3d805bc50fd9b44321f727ac9f3d107fa269976bd981522659b85cb1384d81a31b1e7ccb577872a54655a1eb76d2e7b2b866db6abe7ab10e107988137f24389aaed09721f7822e1add45a8534bfd5e6bc3eb26f4a511f6e52bde8271b4f1ad844ef3707f07f39a5b5a6bdb14c54bdf1139acef96470848752a010f86cb634dc0c3befd7e25ab3b50e861fe6b50f81d39a915bc86c7d3af2eea5bb9137eacfe89c37dc63b0662d90e3fac5165389b2a1df257ecca7f5b493ab0f8e71ebbcb361fc50b3df3511a89fb6b092be5082783b0a4fe6b938238eceb8937c0b815d998ee3ef416228c030c627b13c6d6d6132b4d73746e7f158c9924776474f95824290b55aff534b18b60808bf6d9110c5ad8f4c90d00a100ba281864dcca71843f102b30e6a7a07290bee70a925f84d6c3b1f8fff1d9bbdbdd7eff07c1fa822e1f0ec0a46ffe23d62a729b32fc709561865a2bed9859cb5b05d533e7abae1fbfb1c9feb5fde84b82a7a8e0f3d978296d17a13e477b95b043466eba4b23d8920967b03c99c6d926340d20a06a7f31be1508946a80630ce4bedf71798d6381c076101f510b4967df7fe900334cc486e58e2fe68dafa1d17487ca813c11c99294044ca30841bd5b0cda50d97e8158dbc2d61d9ef029a9d247c04edb41e7ef9e85bc441802fb70fb83408cadd40acc54b04d4e2a1a54732ba65917daa5e3d54babc357673ae2d5befc77562e3585fcf7ac3700f0c6db6ad50e181a740c92113f8a4cba9c5640661fba1914cfacdce97d4fdcd7f42779c349d88338f5e78ea2acf5b8ef6098f8c7828de88366963fb0d901372299e0e362d4889fedc8f385bd9f5db73ceaf191a6082dcb854ef647fae31690f9c2d050f74a42d8182159c631cc455af6e627ec4d6eed796995091c891b15c837c2ad011fc635cef2f65135170b2ce02b5de686d43c624c58958a7e1b15abb1109d63f0aa1896ca7773b1440c562a6b9022519a4785cd3adf72dd54462843777d905fa2cac4af71a5c4c5427ee12c1b44351ea19f1f1b3b77220924e5ee6317f745d56a1ec8d748ea29390dc5a1fc02477e56e1ccd0d997c67c5e263cf590f20db0b9158b35b476c27858182431343b83975eb717f24d4157654be64938078c7714681ccbdbe87d45901d3b3e5aa8f4337f32ac3b9f1277747d0dad6547a64380b9f02f2e94ab14ffb8b5ecc7fc7583b03ac093213d1d28f48debd8a71d398eb06eae232b855c1d5c3041a875a0b9b342baaa76a9c07042afaee57ae116c746646b756b2b10c199cba7b954df1528eba1d10020675c2d6b5f22ee35ae86735d35c9c2826a47e81bcf51fe2edb1cae69974f5ae97a2d39e07d89c73845cdcb136833920f64bf29af53cfb9b6153ffa9003f33ea174300da020de38b481ade4447f3a4f68613107fabd939ae7a38555192ab9e5eda18f7ba61e7512618ce9381865d444c02e54591a7392693e0fdea2f6611c625722b0fb73b9057bcfffbae3b2b8cffe556a0c974d103974c969b3d49b4990533785f4b3d52898d205405f70d2df2b2cf2e8dc7e970d1c191634800474c73c75b567d0df1355f2d4fc5a309fced65198bdfa1d5c7cb4a18b1a8441990dfda3a40a30f2bcc1174b4099c44de0bac7342bd111bcd89f75053a58c010d8465bf46585a539ff70c5e79c561bee94748a772cd5badba62abb077859fcfe13c2500202227e8ff7828fdebd9eb09e2f9b5b0e51fa56861ae285188587b1c263be3b524f4edd56c3ff69c6b6de3fdb42fb467d92c2b5cc5f7d43ef8746453528b8d7f8bb59dbd328a25c3369b7836cef7bc8acc86bb17c2fa08d9d0f61f347f35be542bf68fae4f7ddb4890fcfd36d377c6719893e8dc870d5cf6b8c6ff9ccd4059e6ae416876e2002ab01b7f64c480f5cac1c1dde2ff7ce2a432105d9a427bd0648f9b846f4d51889aeceba8ba17caa8a57a06d5e78fb766a20660e65941c5523040cf0557a37f107add8e5b8d78e0160cd7a260e8a4c3ee1cb4e5d32b157523d1f365c1bbe7bc24d8b41ed268654e5f24f94c52ce98157aad50bc82e4489fa4a0363ef6606692aba3309b7025129dcaf7ce4423cda313dcea1279ecc277c928450a901f5900677731519304028fe48e5d0fd659c97b433a0fb170d863941d09196d04eeca549913a55988a2a1aba7bd1c367abe55b931330cdd23c6675b2c2ab66e8c75b1f8292bab1ca</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">当前文章暂不对外可见，请输入访问密码后查看！</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+  </entry>
+  <entry>
+    <title>HEXO Next SEO 添加 Description 和 Keywords</title>
+    <url>/2025/04/15/2/</url>
+    <content><![CDATA[<p>目前我使用 HEXO 搭配 Next 主题，最近我的网页优化建议中，总是提醒我缺少 Description 和 Keywords。</p>
+<p>我在网上找了很多资料，发现 Next 主题的配置文件中并没有提供这两个字段的配置项。</p>
+<p>而 Description 的配置项在主题的 <code>_config.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">excerpt_description:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-修改-scaffolds">1. 修改 scaffolds</h2>
+<p>在 <code>scaffolds</code> 目录下，找到 <code>post.md</code> 文件，添加如下代码：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">&lt;!-- existed code --&gt;</span><br><span class="line">description: none</span><br><span class="line">keywords:</span><br><span class="line"><span class="section">&lt;!-- existed code --&gt;</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+<p>这样在你新建文章的时候，就会有这两个字段了。</p>
+<h2 id="2-修改布局文件">2. 修改布局文件</h2>
+<p>在 <code>layout</code> 目录下，找到 <code>layout/layout.njk</code> 文件，添加如下代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  &#123;&#123; partial(&#x27;_partials/head/head.njk&#x27;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">    <span class="comment">&lt;!-- existed code --&gt;</span></span><br><span class="line"></span><br><span class="line">  &#123;% if page.description %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; page.description &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;% else %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; theme.description &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">  </span><br><span class="line">  &#123;% if page.keywords %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; page.keywords &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;% else %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; theme.keywords &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- existed code --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>关于 description，某些版本是支持 SEO 的，支持的话就不需要添加了。</p>
+</blockquote>
+]]></content>
   </entry>
   <entry>
     <title>hexo 简繁体转换</title>
