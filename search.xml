@@ -262,7 +262,7 @@
 <p>SPI NAND: 256MB:<span class="exturl" data-url="aHR0cHM6Ly9pdGVtLnN6bGNzYy5jb20vODQxNzk4NS5odG1s">HYF2GQ4UTACAE<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 </ul>
-<p>这颗 SoC 的频率可能是 900MHZ、950MHZ 1GHZ，看厂家设置，好像还包含以一个 NPU，而且现在 ECONET 貌似是 MTK 子公司。</p>
+<p>这颗 SoC 的频率可能是 900MHZ、950MHZ 1GHZ，看厂家设置，好像还包含以一个 NPU，而且现在 ECONET 合并至 Airoha。</p>
 <p>末尾的 CT 指的是支持 XGPON 的意思，但是这台设备是纯路由器。CT相比DT，少了一个 NPU。还有一个 CU 版本，集成 512MB 内存。</p>
 <p>但是这台机器，我严重怀疑，他的 NPU 根本没用上，没有开启硬件加速，因为测试下来，比 MT7621AT@880Mhz（enable MediaTek HWNat） 还慢，但是看编译选项，HWNat又是开启的。</p>
 <p>另外提一嘴，SDG320 应该是政企版本，还有一个型号是 SDG400T，使用双核 900MHz 的处理器 512MB（估计是一个东西对应不同采购，企业版本），SDG400L 使用双核 1GHz 的处理器256MB（应该是家用版本），还有个上海的 SDG440（内置 audit control，4网口4语音1光口，无线方面阉割），政企网关 SDG400（与SDG440 类似，运营商不同），都是一个系列的产品。还有某西部地区特制版本，型号不明，但是内置严格的审计控制。</p>
@@ -497,8 +497,8 @@ etc…</p>
 <p>这个提交展示了如何在带有 Secure Boot 的达发设备上引导系统。W1700K 是一个基于 an7581 的设备，使用了 Secure Boot 机制。</p>
 <p>我感觉有戏，感觉可以为该设备提供 OpenWrt 支持。但是主线上的 an7523 只有验证样品的 DTS 文件，没有模板。</p>
 <p>不过话又说会来了，这个 dts 貌似不太完整，比如 keys、led 的 GPIO 都没有，而且也没有分区信息，应该是藏在内核脚本里了，还是要ttl看启动信息。</p>
-<p>又看了一下 OpenWrt 主线的 en7523.dtsi，给我整不会了，什么 gsw、eth、switch、gdm、sgmii 之类的定义都没有(我还看了Linux的达发芯片适配代码，也是一样的)，也就是说，就算使用 an7523 的 dts，做出来系统也就是能启动这个 SoC，没有交换机，网口都不能用，不过有 pcie，无线应该能启动。</p>
-<p>而 an7581 的 dtsi 比较合适，相比之下，en7562ct要少几个 cpu，频率也低一些，但是网口部分 an7581 用到的 gdm1 和 gsw，而 en7562ct 用到的是 gdma 和 sgmii。</p>
+<p><s>又看了一下 OpenWrt 主线的 en7523.dtsi，给我整不会了，什么 gsw、eth、switch、gdm、sgmii 之类的定义都没有(我还看了Linux的达发芯片适配代码，也是一样的)，也就是说，就算使用 an7523 的 dts，做出来系统也就是能启动这个 SoC，没有交换机，网口都不能用，不过有 pcie，无线应该能启动。</s></p>
+<p><s>而 an7581 的 dtsi 比较合适，相比之下，en7562ct要少几个 cpu，频率也低一些，但是网口部分 an7581 用到的 gdm1 和 gsw，而 en7562ct 用到的是 gdma 和 sgmii。</s></p>
 <p><s>我不太明白 gdm 和 gdma，到底 gdm 是以太网 mac 模块，gdma 同样如此，后缀a是编号还是代表 dma 模块，这个命名太迷惑了，也就是说，目前 en7562ct 的 dts 还不完整，主要是以太网部分，如果能够完善这一部分，路由器产品应该就能适配 OpenWrt 了（当然如果是光猫设备的话，还缺少了 xpon、pon 之类的设备树）</s> 见参考资料 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。</p>
 <p>破案了，gdma 应该是一个 dma 设备，而 gdm 是一个以太网 mac 设备，frame_engine 集成了以太网相关的部分。</p>
 <p>从设备树来看，有1个 pon_hsgmii（2.5Gbps），3个 sgmii（sgmii_p0、sgmii_p1、sgmii_u0，1Gbps），不清楚是否将 pon_hsgmii 作为 wan 口使用</p>
@@ -511,7 +511,7 @@ etc…</p>
 <p>结合 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 、<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> 的信息以及使用 <code>ifconfig</code>/<code>iwconfig</code> 命令查看到的网口信息</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eth0</span><br><span class="line">eth0.2</span><br><span class="line">eth0.3</span><br><span class="line">eth0.4</span><br></pre></td></tr></table></figure>
 <p>可以确定，这确实是有一个千兆交换机内置在 en7562ct SoC 之中。GMAC1 扩展支持 SGMII 和 HSGMII</p>
-<p>那么，它可能与交换机芯片 EN8855 的驱动是兼容的，在<span class="exturl" data-url="aHR0cHM6Ly9vcGVud3J0Lm9yZy9pbmJveC90b2gveGlhb21pL2F4MzAwMHQ=">小米AX3000T<i class="fa fa-external-link-alt"></i></span>上也使用了该芯片（很怪，这个芯片应该是达发的，但是被归类到了 MTK，我其实不太确定这个 en 8855 是否能对应上，原机的编译配置使用的驱动是 en8850，因为某些地址可能不对，这些在驱动中有定义）</p>
+<p><s>那么，它可能与交换机芯片 EN8855 的驱动是兼容的，在<span class="exturl" data-url="aHR0cHM6Ly9vcGVud3J0Lm9yZy9pbmJveC90b2gveGlhb21pL2F4MzAwMHQ=">小米AX3000T<i class="fa fa-external-link-alt"></i></span>上也使用了该芯片（很怪，这个芯片应该是达发的，但是被归类到了 MTK，我其实不太确定这个 en 8855 是否能对应上，原机的编译配置使用的驱动是 en8850，因为某些地址可能不对，这些在驱动中有定义）</s></p>
 <div class="card">
     <p class="card-title">EN8850 SERIES</p>
     <p class="card-content">
@@ -524,23 +524,30 @@ etc…</p>
 <p>而设备树中包含了 <code>wdma</code> 和 <code>wed</code>，这两个是达发的硬件加速模块，设备树中使用 <code>en751221</code> 作为兼容硬件，可能同样兼容 EN7526。</p>
 <p>Pcie 方面，en7562ct 使用了兼容 mt7520 的 pcie 通道</p>
 <p>而 hsgmii 是提供一个 2.5Gbps 内部接口(Interface)，或为 pon/xpon 提供支持。</p>
-<p>千兆网口(PHY)来自内部的以太网交换机芯片 en8850。</p>
+<p>千兆网口(PHY)来自内部的以太网交换机芯片。</p>
 <p><s>综合以上信息，可以得出结论，en7562ct 芯片是一个多功能的 SoC，将 en7523 作为基础的 CPU，集成了多个功能模块，包括以太网交换机、NPU、PCIe、USB 等</s>。</p>
 <p><s>既 en7523(CPU) + en8850(交换机) 组成了一个 SoC 方案</s>。目前该想法被推翻，详细见后文</p>
 <p>如果能够看到 en7523、en7562、7581、en8850、en8855 的 dieshot，或许能更清楚地了解它们的内部结构，以及分析他们的关系。</p>
-<p>可以以 an7581 的 dtsi 为基础，修改对应的 CPU 和 NPU 相关信息，以及 GPIO/UART 等，不同设备修改至对应 en7523 的内存位置和范围，添加以太网交换机的配置，就能为作为路由器设备、交换机设备提供 OpenWrt 支持。（至于光猫设备，缺少了 pon/xpon 相关的设备树配置）</p>
+<p><s>可以以 an7581 的 dtsi 为基础，修改对应的 CPU 和 NPU 相关信息，以及 GPIO/UART 等，不同设备修改至对应 en7523 的内存位置和范围，添加以太网交换机的配置，就能为作为路由器设备、交换机设备提供 OpenWrt 支持。（至于光猫设备，缺少了 pon/xpon 相关的设备树配置）</s></p>
+<blockquote>
+<p>额外发现，airoha 的交换机芯片，后缀不一样，它们的结构可能也不相同，故此驱动可能也并不通用，特定型号只能期待 MTK/AIROHA 开源了。</p>
+</blockquote>
 <p>以及可以发现，小米 BE5000，使用了 en7563PT 处理器，推测该芯片应该是 en7562 的更新换代，小米 BE5000 的原版系统是基于 OpenWrt 的，所以还有另一个思路，提取该机型的相关设备树文件，作为 en7562ct 的参考。以及还有一款 极客AP 也使用了 en7563pt 方案。</p>
 <p>解包小米固件后，发现该 dts 与 an7562 的内核提取 dts 非常相似，也是基于 an7523 的设备树，但是多了 an7581 的 oop-table 频率表，GPIO、分区表、thermal-zones等，这一差异大概是 airoha SDK 与 OpenWrt 的差异导致的。</p>
 <p>另外，我们也可以查看另一个不同架构 SoC en751221 的相关资料，已经有人发表相关的文章。具体见参考资料 <sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>。也已经有人为其适配 OpenWrt。</p>
+<hr>
+<p>en7561 一般搭配 MT7905DEN+MT7975DN 配置成 ax1800<br>
+en7562 一般搭配 MT7976DN+MT7916AN 配置成 ax3000<br>
+an7963 一般搭配 MT7976CN+MT7991AV 配置成 be5000</p>
 <h3 id="OpenWrt-支持的可能性">OpenWrt 支持的可能性</h3>
 <p>6月13日记录</p>
 <p>今天又有一个新的发现：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21lcmJhbmFuL2Fpcm9oYV9tbC90cmVlL21haW4=">airoha_ml<i class="fa fa-external-link-alt"></i></span></p>
 <p>随后，我又从这些文件中发现了一个名为 <span class="exturl" data-url="aHR0cHM6Ly9kZXYuaW9wc3lzLmV1L2ZlZWQvdGFyZ2V0cw==">IOWRT Airoha integration<i class="fa fa-external-link-alt"></i></span>，目的是移植 Airoha SDK 到 IOWrt(Based On Openwrt)。</p>
 <p>这里面竟然有完整带 eth 的 en7523 的设备树文件，包含了交换机、以太网、NPU、USB 等等。还有驱动之类的东西，XPON/PON 相关的也有。</p>
-<p>注意：这个带有以太网、交换机的 en7523.dts 文件可能是错误的说法，因为没有实例可以验证，并且该例子为孤例，没有其他人引用。</p>
+<p><s>注意：这个带有以太网、交换机的 en7523.dts 文件可能是错误的说法，因为没有实例可以验证，并且该例子为孤例，没有其他人引用。</s></p>
 <p>所以可以推翻前文的 <code>以 an7581 的 dtsi 为基础</code> 的说法，直接使用 en7523 的 dts 文件进行修改适配就可以了。</p>
-<p>不过这个 dts 文件貌似没有使用 SoC 的写法。以及我很好奇，从 dtsi 设备树来看，en7623 应该内置了交换机，为何还要在加上一个 en8850 交换机芯片？难道是因为运营商定制使其成为光猫芯片吗？</p>
-<p>所以现在工作量更少了，<strong>只需要解决了交换机 en8850 的驱动问题</strong>，就可以为该设备提供 OpenWrt 支持。而该驱动可以参考 en8855。</p>
+<p><s>不过这个 dts 文件貌似没有使用 SoC 的写法。以及我很好奇，从 dtsi 设备树来看，en7623 应该内置了交换机，为何还要在加上一个 en8850 交换机芯片？难道是因为运营商定制使其成为光猫芯片吗？</s></p>
+<p><s>所以现在工作量更少了，<strong>只需要解决了交换机 en8850 的驱动问题</strong>，就可以为该设备提供 OpenWrt 支持。而该驱动可以参考 en8855。</s></p>
 <p>但是又因为 en7523 内置了交换机芯片，或许可以无视该芯片，直接使用 en7523 的设备树进行编译。</p>
 <p><em><strong>以上均为猜想，一切有待验证。</strong></em></p>
 <hr>
@@ -555,8 +562,11 @@ etc…</p>
 <p>而到如今，IOWrt Airoha integration 项目已经很完善了，未来的某一天应该能看到 OpenWrt 支持。</p>
 <p>目前，应该可以尝试使用 IOWrt Airoha integration 的代码进行编译，应该可以启动。</p>
 <blockquote>
-<p>是否好奇没有分区表要怎么启动？我也很好奇，然后查阅了文档，像一些 gpio，分区表，都可以写在 uboot 的环境变量/启动命令中。所以不必纠结分区表了。</p>
+<p>是否好奇没有分区表要怎么启动？我也很好奇，然后查阅了文档，像一些 gpio，分区表，都可以写在 uboot 的环境变量/启动命令中。所以不必纠结分区表了和设备树了。这倒是提醒我备份 u-boot 环境变量十分重要。</p>
 </blockquote>
+<p>此外，我发现，userfs/ 目录下，存在：7523duled.conf、7523guled.conf、7529_62led.conf、7529_cd.conf、led.conf、led_fpga.conf 等文件，这些文件可能是用于配置 LED 灯的。所以，达发的 led gpio 可能是通用的，但也可能是厂商内部定义的。</p>
+<p>通过查看 IOWrt Airoha integration 的代码，发现他们的也使用类似 airoha 的 led 配置方式。同样存在于 <code>userfs/led.conf</code> 文件中。</p>
+<p>通过比较，可以确定 <code>led.conf</code> 并非是通用的，而是特定于某个设备的配置文件。适配系统时，需要通过 patch 的方式来修改该文件。</p>
 <hr>
 <p>6月16日更新</p>
 <p>看来为路由器制作系统的想法还是有一些问题，当我下克隆源码后，阅读 <span class="exturl" data-url="aHR0cDovL1JFQURNRS5tZA==">README.md<i class="fa fa-external-link-alt"></i></span> 文件时，发现了一段隐藏的文本，我已将其翻译为中文：</p>
@@ -571,13 +581,17 @@ etc…</p>
 <blockquote>
 <p>如果 SoC 内置了 efuse 的话，那么如果要适配系统要非常谨慎了。</p>
 </blockquote>
-<p>所以我也不想去折腾了，如果它仍然只能当 AP/SWITCH 使用，那么目前并不值得去刷系统。</p>
+<p>所以我也不想去折腾了，如果它仍然只能当 AP/SWITCH 使用，那么目前并不值得去刷系统。如果是玩机的话那就随意了，注意编程器备份 SPI。</p>
 <p>个人力量有限，而 IOSysWrt 项目的开发者们已经为达发芯片工作了近3年了，已经接近完善了。</p>
 <p>目前把该设备当作交换机 + AP 使用，或许是最好的选择。也期待未来这个问题能够被解决。</p>
 <hr>
 <p>这 econet 到底是 MTK 的子公司，其芯片（en7562）构成充满了 MTK 技术的影子；SoC 与 mt7622 相似、DMA 可能来自 RaLink、MT7622 的 PCIe、mt7621 的 i2c、mt7530 类似的交换机，结合了 MTK ATF 与 tc3262 的 U-Boot。。。</p>
+<p>如果能够完善源码，使得它能正常路由，它将取代 mt7981，毕竟它拥有一颗 NPU，而 RFB 普遍使用 512MB 内存 + 256MB SPI，而且根据特性，它也是能超频的，EN7562CT 的路由器二手价30左右，搭配螃蟹 2.5G 芯片的版本全新价也才 80 左右（截止25年6月）。</p>
 <h2 id="参考资料">参考资料</h2>
 <ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93aWtpZGV2aS53aS1jYXQucnUvVHJlbmRDaGlw">TrendChip<i class="fa fa-external-link-alt"></i></span></p>
+</li>
 <li class="lvl-2">
 <p><span class="exturl" data-url="aHR0cHM6Ly93aWtpZGV2aS53aS1jYXQucnUvRWNvTmV0">EcoNet<i class="fa fa-external-link-alt"></i></span></p>
 </li>
