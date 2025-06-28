@@ -5476,16 +5476,16 @@ addEventListener 添加事件监听</p>
 <li class="lvl-2">
 <p>硬件参数：</p>
 <ul class="lvl-2">
-<li class="lvl-4">主控芯片：联发科芯片 ramips架构的 MT7621@880MHz</li>
-<li class="lvl-4">2.4G芯片：MT7603</li>
-<li class="lvl-4">5G芯片：MT7612</li>
-<li class="lvl-4">存储芯片：NAND FLASH（128M）</li>
-<li class="lvl-4">主板内存: 256M DDR3@1200MHz</li>
+<li class="lvl-4">CPU：ramips MT7621@880MHz</li>
+<li class="lvl-4">2.4G RF：MT7603</li>
+<li class="lvl-4">5G RF：MT7612</li>
+<li class="lvl-4">NAND：NAND FLASH（128M）</li>
+<li class="lvl-4">DDR: 256M DDR3@1200MHz</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>其他频率信息 Flash:125MHZ,BUS:220MHZ,Ref:40MHZ</p>
+<p>NAND 貌似存在多个型号混用，其他频率信息 Flash:125MHZ,BUS:220MHZ,Ref:40MHZ</p>
 </blockquote>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -5504,7 +5504,11 @@ addEventListener 添加事件监听</p>
 <p>TTL 接法：GND接地，RX接TX，TX接RX，VCC不接</p>
 </blockquote>
 <p>纸面参数看起来不错，但是实际使用中，有一些问题：</p>
-<p>且没有屏蔽罩，容易干扰，倒装主板，散热不行，容易发热。</p>
+<p>且没有屏蔽罩，容易干扰，并且天线阉割，2.4G 信号很差；倒装主板，散热不行，容易发热。</p>
+<blockquote>
+<p>主板上貌似存在天线的线路，但是相关的电容、电阻、IC没装。当然你可以想办法魔改</p>
+</blockquote>
+<p><img src="./2.4G-RF.png" alt></p>
 <p>*：官方固件未开启，需要刷机。<br>
 *：看着是蓝色的接口，实际是 USB 2.0 的接口。</p>
 <h2 id="2-breed-不死-BootLoader-安装">2. breed 不死 BootLoader 安装</h2>
@@ -5620,6 +5624,9 @@ addEventListener 添加事件监听</p>
 <li class="lvl-2">
 <p>Padavan 固件：中兴路由器上也有</p>
 </li>
+<li class="lvl-2">
+<p>Asuswrt 固件：华硕改版的固件</p>
+</li>
 </ul>
 <p>基于 OpenWrt 的固件有很多，但是都是开源驱动居多，无线很差，5G 开源驱动基本只有200M到300M的速度，闭源驱动才有 500M 的速度。而 Padavan 固件是闭源驱动，速度很快，大约有800M的速度，稳定性也很好，但是可玩性不是很强。</p>
 <p>当前 MT7621 的性能已经有些跟不上了，如今很多便宜路由器采用 MT7981，MT7986，IPQ系列的芯片，性能更强，价格也能捡到便宜的。</p>
@@ -5678,6 +5685,16 @@ addEventListener 添加事件监听</p>
 <h2 id="如何适配-OpenWrt">如何适配 OpenWrt</h2>
 <p>参考该 Commit</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3BhZGF2YW5vbmx5L2ltbW9ydGFsd3J0L2NvbW1pdC84NzZhYTQ0NjU2OTdiNjA4ZDY1YTI5OTRhYjU1OGZhNjU4MWQ4NGE1">Commit 876aa44<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="关于-LEDE-的适配">关于 LEDE 的适配</h3>
+<p>LEDE 支持该机型，但是截至 25 年 7 月，存在一些问题。</p>
+<p>如果直接使用默认的代码与配置，编译出来的固件将没有 wifi。</p>
+<p>需要修改以下代码：</p>
+<p><code>lede/target/linux/ramips/dts/mt7621_zte_e8820s.dts</code></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">&amp;pcie0 &#123;</span><br><span class="line"> mt76@<span class="number">0</span>,<span class="number">0</span> &#123;</span><br><span class="line">  reg = &lt;<span class="number">0x0000</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>&gt;;</span><br><span class="line">  mediatek,mtd-eeprom = &lt;&amp;factory <span class="number">0x0000</span>&gt;;</span><br><span class="line">  ieee80211-freq-limit = &lt;<span class="number">2400000</span> <span class="number">2500000</span>&gt;;</span><br><span class="line"></span><br><span class="line">  led &#123;</span><br><span class="line">   led-active-low;</span><br><span class="line">  &#125;;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;pcie1 &#123;</span><br><span class="line"> mt76@<span class="number">0</span>,<span class="number">0</span> &#123;</span><br><span class="line">  reg = &lt;<span class="number">0x0000</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>&gt;;</span><br><span class="line">  mediatek,mtd-eeprom = &lt;&amp;factory <span class="number">0x8000</span>&gt;;</span><br><span class="line">  ieee80211-freq-limit = &lt;<span class="number">5000000</span> <span class="number">6000000</span>&gt;;</span><br><span class="line"></span><br><span class="line">  led &#123;</span><br><span class="line">   led-sources = &lt;<span class="number">2</span>&gt;;</span><br><span class="line">   led-active-low;</span><br><span class="line">  &#125;;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>lede/target/linux/ramips/image/mt7621.mk</code></p>
+<p>找到该机型，然后修改：</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"> DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \</span><br><span class="line">kmod-usb-ledtrig-usbport</span><br></pre></td></tr></table></figure>
+<p>之后编译即可。</p>
 <h3 id="在线固件编译">在线固件编译</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -5781,6 +5798,9 @@ prefix：24</p>
 <p>内核版本 5.15.167</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src/gz openwrt_core https://downloads.openwrt.org/releases/23.05.0/targets/ramips/mt7621</span><br><span class="line">src/gz openwrt_base https://downloads.openwrt.org/releases/23.05.0/packages/mipsel_24kc/base</span><br><span class="line">src/gz openwrt_luci https://downloads.openwrt.org/releases/23.05.0/packages/mipsel_24kc/luci</span><br><span class="line">src/gz openwrt_packages https://downloads.openwrt.org/releases/23.05.0/packages/mipsel_24kc/packages</span><br><span class="line">src/gz openwrt_routing https://downloads.openwrt.org/releases/23.05.0/packages/mipsel_24kc/routing</span><br><span class="line">src/gz openwrt_telephony https://downloads.openwrt.org/releases/23.05.0/packages/mipsel_24kc/telephony</span><br></pre></td></tr></table></figure>
 <p>直接在软件包管理中添加源，然后更新软件包列表，就可以正常安装插件了。</p>
+<h3 id="其他建议">其他建议</h3>
+<p>建议使用 4.4 内核或 3.4 内核的固件，开源驱动性能较差，如果要使用开源固件，内核最好不要超过 5.4。</p>
+<p>另外有一些固件没有 MediaTek HWNat，注意分辨。</p>
 ]]></content>
       <categories>
         <category>Linux</category>
