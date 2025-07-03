@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harder>
+    <fn>
+        <id>home</id>
+        <url>0</url>
+        <name>首页</name>
+        <js>0</js>
+        <newpage>0</newpage>
+    </fn>
+    <fn>
+        <id>blog</id>
+        <url>../</url>
+        <name>博客</name>
+        <js>0</js>
+        <newpage>1</newpage>
+    </fn>
+    <fn>
+        <id>ysepan</id>
+        <url>https://alist.yuzhii0718.eu.org/</url>
+        <name>网盘</name>
+        <js>0</js>
+        <newpage>1</newpage>
+    </fn>
+    <!-- <fn>
+        <id>ysepan</id>
+        <url>0</url>
+        <name>网盘</name>
+        <js>onclick="alert('暂停发布')"</js>
+        <newpage>0</newpage>
+    </fn> -->
+    <fn>
+        <id>info</id>
+        <url>0</url>
+        <name>资讯</name>
+        <js>0</js>
+        <newpage>0</newpage>
+    </fn>
+    <fn>
+        <id>about</id>
+        <url>0</url>
+        <name>关于</name>
+        <js>0</js>
+        <newpage>0</newpage>
+    </fn>
+</harder>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8"/>
+    <!-- description and keywords -->
+    <meta name="description" content="Yuzhii 视频解析"/>
+    <meta name="keywords" content="视频解析, Yuzhii, 解析, 视频, 播放器"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link color="#222" href="/images/logo.svg" rel="mask-icon">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>Yuzhii 视频解析</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css">
+    <style>
+        #player {
+            background-color: black;
+        }
+        h1 {
+            font-family: "Times New Roman", Times, serif;
+        }
+    </style>
+    <!--    <script src="https://cdn.bootcss.com/jquery/3.7.0/jquery.min.js"></script>-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript"> eval(function (p, a, c, k, e, d) {
+        e = function (c) {
+            return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+        };
+        if (!''.replace(/^/, String)) {
+            while (c--) d[e(c)] = k[c] || e(c);
+            k = [function (e) {
+                return d[e]
+            }];
+            e = function () {
+                return '\\w+'
+            };
+            c = 1
+        }
+        while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+        return p
+    }('b a(){0 6=1.2("9").4;0 5=1.2("3");0 3=1.2("3").c;0 8=5.e[3].4;0 7=1.2("f");7.d=8+6}', 16, 16, 'var|document|getElementById|jk|value|jkurl|diz|cljurl|jkv|url|dihejk|function|selectedIndex|src|options|player'.split('|'), 0, {}))
+    </script>
+    <script src="../../js/loadconfig.js"></script>
+</head>
+
+<body>
+<br/>
+<div class="container" style="padding-top:0;" id="wbk">
+    <div id="title">
+        <h1 class="text-center">🎞️ Yuzhii 视频解析</h1>
+    </div>
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>将视频播放页链接粘贴到 ⌈视频地址⌋ 输入框之后点击 ⌈开始播放⌋ 按钮即可。</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <hr>
+
+    <div class="col-md-14 column">
+        <div class="panel panel-default">
+            <div id="kj" class="panel-body">
+                <iframe src="" id="player" width="100%" height="600px" allowfullscreen='allowfullscreen'
+                        allow="autoplay"
+                        allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="col-md-14 column">
+        <form method="get">
+            <div class="input-group" style="width: 100%;">
+                <span class="input-group-addon input-lg" style="width: 80px; ">选择接口</span>
+                <label for="jk"></label><select class="form-control input-lg" id="jk">
+                <option rel="nofollow" value="/404" selected="">请选择接口</option>
+                <option rel="nofollow" value="https://jx.jsonplayer.com/player/?url=">JsonPlayer解析接口</option>
+                <option rel="nofollow" value="https://www.mtosz.com/m3u8.php?url=">Mao解析接口</option>
+                <option rel="nofollow" value="https://vip.bljiex.com/?v=">BL解析接口</option>
+                <option rel="nofollow" value="https://im1907.top/?jx=">1907解析接口</option>
+                <option rel="nofollow" value="https://www.administratorw.com/video.php?url=">无名小站接口</option>
+                <option rel="nofollow" value="https://jx.xmflv.com/?url=">xmflv解析接口</option>
+                <option rel="nofollow" value="http://jx.rdhk.net/?v=">HK解析接口</option>
+                <option rel="nofollow" value="https://www.8090g.cn/?url=">8090解析接口</option>
+                <option rel="nofollow" value="https://www.8090g.cn/jiexi/?url=">8090备用接口</option>
+                <option rel="nofollow" value="http://www.1717yun.com/jx/vip/index.php?url=">1717解析接口</option>
+                <option rel="nofollow" value="https://www.ckmov.vip/api.php?url=">ckmov解析接口</option>
+                <option rel="nofollow" value="http://jx.yparse.com/?url=">步步高解析接口</option>
+                <option rel="nofollow" value="https://jx.m3u8.tv/jiexi/?url=">无广告解析接口</option>
+                <option rel="nofollow" value="https://2.08bk.com/?url=">小七解析接口</option>
+                <option rel="nofollow" value="https://okjx.cc/?url=">OK解析接口</option>
+                <option rel="nofollow" value="https://www.nxflv.com/?url=">NxFlv解析接口</option>
+                <option rel="nofollow" value="https://www.yemu.xyz/?url=">夜幕解析接口</option>
+                <option rel="nofollow" value="https://jx.nnxv.cn/tv.php?url=">Nnxv解析接口</option>
+                <option rel="nofollow" value="https://api.qianqi.net/vip/?url=">QianQi解析接口</option>
+                <option rel="nofollow" value="https://www.ckplayer.vip/jiexi/?url=">CKplayer解析接口</option>
+                <option rel="nofollow" value="https://jx.playerjy.com/?url=">PlayerJY解析接口</option>
+            </select>
+            </div>
+            <br/>
+            <div class="input-group" style="width: 100%;">
+                <span class="input-group-addon input-lg" style="width: 80px;">视频地址</span>
+                <label for="url"></label><input class="form-control input-lg" type="search" placeholder="输入播放地址"
+                                                id="url"/>
+            </div>
+            <br/>
+            <div style="display:flex;flex-wrap: nowrap;justify-content: space-evenly;">
+                <button id="bf" type="button" class="btn btn-success btn-lg btn-block"
+                        onclick="dihejk()">开始播放
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+<!--<div class="copyright">-->
+<!--    <div class="container">-->
+<!--        <div class="row text-center">-->
+<!--            <div class="col-sm-12">-->
+<!--&lt;!&ndash;                <span style="line-height: 5rem;font-weight: 200" id="copyright">© 2023 Yuzhii</span>&ndash;&gt;-->
+<!--                <p style="line-height: 5rem;font-weight: 200" id="copyright">© 2023 Yuzhii</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div style="height: 5rem">
+    <p style="text-align: center; height: 3rem; padding: 1rem; color: black" id="copyright"></p>
+</div>
+</body>
+
+</html>

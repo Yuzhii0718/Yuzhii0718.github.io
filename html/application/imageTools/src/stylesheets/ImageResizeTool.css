@@ -1,0 +1,12 @@
+.settings-panel {
+    display: none;
+}
+
+.settings-panel.custom {
+    display: block;
+}
+
+.settings-group input[type="number"] {
+    width: 100px;
+    padding: 5px;
+}
