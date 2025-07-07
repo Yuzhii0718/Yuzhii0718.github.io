@@ -455,7 +455,7 @@ etc…</p>
 <p>可以改配置去关闭 CWMP、DPI、Audit。下面是一个脚本，慎用 rm -rf。</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sh /usr/sbin/CwmpDaemon.sh</span></span><br><span class="line">leds 18 3</span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/com.chinamobile.smartgateway.cmccdpi.jar</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/baizhuo/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/hwevent.d/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/jc</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/config/</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/bin/joyme_load.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/gmf</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/sbin/CwmpDaemon.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/before_tr069_download.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jamvm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jvm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/jvm_evm.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/middle_link_dir/usr/script/osgi_upg.sh</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/certs</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/etc/certs_debug</span><br></pre></td></tr></table></figure>
-<h2 id="SoC-以及-Device-tree-构成研究">SoC 以及 Device-tree 构成研究</h2>
+<h2 id="SoC-构成研究">SoC 构成研究</h2>
 <p>提出出来的 dts 是 en7523 的，有点意思，看起来这颗 SoC 不简单，应该是胶水封装的。</p>
 <div class="card">
     <p class="card-title">相关文件</p>
@@ -489,7 +489,7 @@ etc…</p>
 <blockquote>
 <p>没有源码，看个乐呵。</p>
 </blockquote>
-<h3 id="设备树构建猜想以及-SoC-组成猜测">设备树构建猜想以及 SoC 组成猜测</h3>
+<h3 id="设备树构建猜想">设备树构建猜想</h3>
 <p>以下是进行推测的过程，可以直接跳到末尾最新的部分。</p>
 <p>当然，<strong>这些都是推测，不保准准确，没有看到 dieshot 时，谁也不能确定</strong>。</p>
 <hr>
@@ -506,9 +506,13 @@ etc…</p>
 <blockquote>
 <p>R5408M 的四个 2.5G 口是直通 CPU 的，…CPU EN7562C 里面集成有一个千兆交换机，5-8 号千兆口就是走这个交换芯片。…</p>
 </blockquote>
+<p>参考<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>:</p>
+<blockquote>
+<p>…CPU型号是EN7652CT，双核A53架构，频率1GHz，集成4个千兆PHY。…</p>
+</blockquote>
 <p>以及原厂编译配置文件中的</p>
 <figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">TCSUPPORT_HSGMII_LAN=y</span><br></pre></td></tr></table></figure>
-<p>结合 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 、<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> 的信息以及使用 <code>ifconfig</code>/<code>iwconfig</code> 命令查看到的网口信息</p>
+<p>结合 <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> 、<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> 的信息以及使用 <code>ifconfig</code>/<code>iwconfig</code> 命令查看到的网口信息</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eth0</span><br><span class="line">eth0.2</span><br><span class="line">eth0.3</span><br><span class="line">eth0.4</span><br></pre></td></tr></table></figure>
 <p>可以确定，这确实是有一个千兆交换机内置在 en7562ct SoC 之中。GMAC1 扩展支持 SGMII 和 HSGMII</p>
 <p><s>那么，它可能与交换机芯片 EN8855 的驱动是兼容的，在<span class="exturl" data-url="aHR0cHM6Ly9vcGVud3J0Lm9yZy9pbmJveC90b2gveGlhb21pL2F4MzAwMHQ=">小米AX3000T<i class="fa fa-external-link-alt"></i></span>上也使用了该芯片（很怪，这个芯片应该是达发的，但是被归类到了 MTK，我其实不太确定这个 en 8855 是否能对应上，原机的编译配置使用的驱动是 en8850，因为某些地址可能不对，这些在驱动中有定义）</s></p>
@@ -520,21 +524,24 @@ etc…</p>
     <a href="./EN8850SERIES.pdf" download="EN8850SERIES.pdf" target="_blank" class="btn" data-pjax-state="load">下载</a>
 </div>
 <p>估计应该和 <code>EN8850DRE</code> 差不多</p>
-<p>或许可以参照 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW53cnQvb3BlbndydC9ibG9iL21hc3Rlci90YXJnZXQvbGludXgvbWVkaWF0ZWsvZHRzL210Nzk4MWIteGlhb21pLW1pLXJvdXRlci1jb21tb24uZHRzaQ==">mt7981b-xiaomi-mi-router-common.dtsi<i class="fa fa-external-link-alt"></i></span> 对交换机进行配置。</p>
+<p><s>或许可以参照 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW53cnQvb3BlbndydC9ibG9iL21hc3Rlci90YXJnZXQvbGludXgvbWVkaWF0ZWsvZHRzL210Nzk4MWIteGlhb21pLW1pLXJvdXRlci1jb21tb24uZHRzaQ==">mt7981b-xiaomi-mi-router-common.dtsi<i class="fa fa-external-link-alt"></i></span> 对交换机进行配置。</s></p>
 <p>而设备树中包含了 <code>wdma</code> 和 <code>wed</code>，这两个是达发的硬件加速模块，设备树中使用 <code>en751221</code> 作为兼容硬件，可能同样兼容 EN7526。</p>
 <p>Pcie 方面，en7562ct 使用了兼容 mt7520 的 pcie 通道</p>
 <p>而 hsgmii 是提供一个 2.5Gbps 内部接口(Interface)，或为 pon/xpon 提供支持。</p>
+<p>参考<sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup>:</p>
+<blockquote>
+<p>…T和U的差别，从价格和扩展性来看，就差在3个HSGMII接口上。…</p>
+</blockquote>
 <p>千兆网口(PHY)来自内部的以太网交换机芯片。</p>
 <p><s>综合以上信息，可以得出结论，en7562ct 芯片是一个多功能的 SoC，将 en7523 作为基础的 CPU，集成了多个功能模块，包括以太网交换机、NPU、PCIe、USB 等</s>。</p>
-<p><s>既 en7523(CPU) + en8850(交换机) 组成了一个 SoC 方案</s>。目前该想法被推翻，详细见后文</p>
-<p>如果能够看到 en7523、en7562、7581、en8850、en8855 的 dieshot，或许能更清楚地了解它们的内部结构，以及分析他们的关系。</p>
+<p><s>既 en7523(CPU) + en8850(交换机) 组成了一个 SoC 方案</s>。</p>
 <p><s>可以以 an7581 的 dtsi 为基础，修改对应的 CPU 和 NPU 相关信息，以及 GPIO/UART 等，不同设备修改至对应 en7523 的内存位置和范围，添加以太网交换机的配置，就能为作为路由器设备、交换机设备提供 OpenWrt 支持。（至于光猫设备，缺少了 pon/xpon 相关的设备树配置）</s></p>
 <blockquote>
 <p>额外发现，airoha 的交换机芯片，后缀不一样，它们的结构可能也不相同，故此驱动可能也并不通用，特定型号只能期待 MTK/AIROHA 开源了。</p>
 </blockquote>
 <p>以及可以发现，小米 BE5000，使用了 en7563PT 处理器，推测该芯片应该是 en7562 的更新换代，小米 BE5000 的原版系统是基于 OpenWrt 的，所以还有另一个思路，提取该机型的相关设备树文件，作为 en7562ct 的参考。以及还有一款 极客AP 也使用了 en7563pt 方案。</p>
 <p>解包小米固件后，发现该 dts 与 an7562 的内核提取 dts 非常相似，也是基于 an7523 的设备树，但是多了 an7581 的 oop-table 频率表，GPIO、分区表、thermal-zones等，这一差异大概是 airoha SDK 与 OpenWrt 的差异导致的。</p>
-<p>另外，我们也可以查看另一个不同架构 SoC en751221 的相关资料，已经有人发表相关的文章。具体见参考资料 <sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>。也已经有人为其适配 OpenWrt。</p>
+<p>另外，我们也可以查看另一个不同架构 SoC en751221 的相关资料，已经有人发表相关的文章。具体见参考资料 <sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>。也已经有人为其适配 Linux/OpenWrt。</p>
 <hr>
 <p>en7561 一般搭配 MT7905DEN+MT7975DN 配置成 ax1800<br>
 en7562 一般搭配 MT7976DN+MT7916AN 配置成 ax3000<br>
@@ -544,8 +551,7 @@ an7963 一般搭配 MT7976CN+MT7991AV 配置成 be5000</p>
 </blockquote>
 <hr>
 <p>6月16日更新</p>
-<p>这 econet 到底是 MTK 的子公司，其芯片（en7562）构成充满了 MTK 技术的影子；SoC 与 mt7622 相似、DMA 可能来自 RaLink、MT7622 的 PCIe、mt7621 的 i2c、mt7530 类似的交换机，结合了 MTK ATF 与 tc3262 的 U-Boot。。。</p>
-<p>如果能够完善源码，使得它能正常路由，它将取代 mt7981，毕竟它拥有一颗 NPU，且 RFB 普遍使用 512MB 内存 + 256MB SPI，而且根据特性，对比 mt7981 的 1.3G 频率，它也是能超频的，因为作为 en7523 的升级的 an7581（CPU 部分），它的频率范围在 0.5~1.4GHZ；EN7562CT 的路由器二手价30左右，搭配螃蟹 2.5G 芯片的版本全新价也才 80 左右（截止25年6月）。</p>
+<p>这 econet 到底是 MTK 的子公司，其芯片（en7562）构成充满了 MTK 技术的影子；SoC 与 mt7622 相似、DMA 可能来自 RaLink、MT7622 的 PCIe、mt7621 的 i2c、mt7530 类似的交换机、mt7510 改进而来的 spi 控制器，结合了 MTK ATF 与 tc3262 的 U-Boot。。。</p>
 <h2 id="OpenWrt-支持的可能性">OpenWrt 支持的可能性</h2>
 <p>6月13日记录</p>
 <p>今天有一个新的发现：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21lcmJhbmFuL2Fpcm9oYV9tbC90cmVlL21haW4=">airoha_ml<i class="fa fa-external-link-alt"></i></span></p>
@@ -557,8 +563,7 @@ an7963 一般搭配 MT7976CN+MT7991AV 配置成 be5000</p>
 <p><s>所以现在工作量更少了，<strong>只需要解决了交换机 en8850 的驱动问题</strong>，就可以为该设备提供 OpenWrt 支持。而该驱动可以参考 en8855。</s></p>
 <p><s>但是又因为 en7523 内置了交换机芯片，或许可以无视该芯片</s>，直接使用 en7523 的设备树进行编译。</p>
 <p><em><strong>以上均为猜想，一切有待验证。</strong></em></p>
-<hr>
-<p>6月15日记录</p>
+<h3 id="6月15日记录">6月15日记录</h3>
 <p>今天我又发现了一款使用 en7562ct 的设备（不过无线使用 7915）的 make config 文件，发现这是使用21年11月的编译配置，此时它直接使用了 en7523 相关配置，全然没有使用 8850 交换机选项和其他有区别于 en7523 的配置。</p>
 <p>而这些变化发生于 22 年某个时间，发生这些变化的 SDK 来自 23 年，所以我更能确定了，早期的 en7562 设备直接使用 en7523 的设备树进行编译。</p>
 <p>造成以上迷惑的主要原因来自 OpenWrt 主线的 an7523.dtsi 文件，它太过简陋，缺少了太多相关设备的定义，导致我误以为 en7523 是仅仅是一个 CPU + NPU 的集合体，实际上它也是一个 SoC，前文提到的 <code>en7523(CPU) + en8850(交换机)</code> 的说法是错误的。很可能只是 en7562 是 en7523 的一个变种，增加了 en8850 交换机的某种特性，而这种特性或许并不重要，开启与否可能只是细微的性能差别。</p>
@@ -574,8 +579,7 @@ an7963 一般搭配 MT7976CN+MT7991AV 配置成 be5000</p>
 <p>此外，我发现，userfs/ 目录下，存在：7523duled.conf、7523guled.conf、7529_62led.conf、7529_cd.conf、led.conf、led_fpga.conf 等文件，这些文件可能是用于配置 LED 灯的。所以，达发的 led gpio 可能是通用的，但也可能是厂商内部定义的。</p>
 <p>通过查看 IOWrt Airoha integration 的代码，发现他们的也使用类似 airoha 的 led 配置方式。同样存在于 <code>userfs/led.conf</code> 文件中。</p>
 <p>通过比较，可以确定 <code>led.conf</code> 并非是通用的，而是特定于某个设备的配置文件。适配系统时，需要通过 patch 的方式来修改该文件。</p>
-<hr>
-<p>6月16日更新</p>
+<h3 id="6月16日更新">6月16日更新</h3>
 <p>看来为路由器制作系统的想法还是有一些问题，当我下克隆源码后，阅读 <span class="exturl" data-url="aHR0cDovL1JFQURNRS5tZA==">README.md<i class="fa fa-external-link-alt"></i></span> 文件时，发现了一段隐藏的文本，我已将其翻译为中文：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这个机器可以作为路由器，只要有一个带有正确驱动程序的 USB 加密狗（目前，内核配置为使用 RTL8169 驱动程序来支持使用此芯片组的 USB-Ethernet 加密狗）。</span><br><span class="line">网络配置如下：</span><br><span class="line">- 默认情况下，集成以太网端口上有一个 DHCP 服务器监听任何请求。如果有的话，从该接口可以在地址 192.168.1.1 上访问设备。</span><br><span class="line">- 如果有一个 USB 以太网加密狗连接到主板，它将被自动配置为从网络请求 IP 地址。</span><br><span class="line">- 内核还带有设备中无线硬件的驱动程序。无线接口可以配置为 AP 或 STA 模式。</span><br></pre></td></tr></table></figure>
 <p>这段文本认为<strong>只有 USB 以太网加密狗</strong>才能作为路由器使用，这让我感到困惑。</p>
@@ -583,16 +587,12 @@ an7963 一般搭配 MT7976CN+MT7991AV 配置成 be5000</p>
 <p>这也解释了为什么它每次拨号后都无法正常工作的原因了（我在系统中看到它的拨号方法为 PPPoE simulate，实际上上网配置页面并没有 PPPoE  拨号，而是只有通过 IP 上网或 PPP）。</p>
 <p>但也可能是因为它的固件有问题，该设备系统 SDK 版本中使用其他方法实现拨号或是存在 BUG。</p>
 <p>该项目起始与3年前，他们开发时使用的最初 airoha SDK 可能是 20 年或 21 年的版本，或是 SDK 不完善或是移植过程中的错误，目前查看提交记录，他们似乎跟进了最新的 airoha SDK，版本24Q4，所以这种可能性也可以排除。可以初步确认这是该 SoC 的某种特性或是就是设计了加密。目前查看该项目代码，似乎移植工作基本完成，近期的更新都是小修小补。</p>
-<p>不过这也很好了，因为我并不期待这台30块的设备能够胜任主路由器的工作。</p>
 <p>另外在前文中提到了 <code>reservearea</code> 分区存储了 mac 地址等信息，还有无线校准信息，另外还一些部分意义不明的区域，可能包含了以太网交换机校准的信息。但是我有一个猜想，那么是否存在一种可能，加密狗信息保存在了 <code>reservearea</code> 分区中？然后通过某种软件的方式实现了路由器功能的解锁？而这种方法受到法律保护？移植 SDK 时不能启用？我不明白。</p>
 <blockquote>
 <p>如果 SoC 内置了 efuse 的话，那么如果要适配系统要非常谨慎了。</p>
 </blockquote>
 <p>但是我也不想去折腾了，如果它仍然只能当 AP/SWITCH 使用，那么目前并不值得去刷系统。如果是玩机的话那就随意了，注意编程器备份 SPI。</p>
-<p>个人力量有限，而 IOSysWrt 项目的开发者们已经为达发芯片工作了近3年了，已经接近完善了。想要尝试的话可以使用他们的代码进行编译，或是再次移植到 OpenWrt 上。</p>
-<p>目前把该设备当作交换机 + AP 使用，或许是最好的选择。也期待未来这个问题能够被解决。</p>
-<hr>
-<p>6月29日更新</p>
+<h3 id="6月29日更新">6月29日更新</h3>
 <p>今天抽空连接了 TTL，看了一下 uboot 和 启动 log，看到了一下内容</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(1) insmod mdio_arht.ko</span><br><span class="line">insmod: cannot open module `/lib/modules/mdio_arht.ko&#x27;: No such file or directory</span><br><span class="line">(2) insmod air_en8811h.ko                                                   writeflash: total write 0x2ac5 bytes</span><br><span class="line"></span><br><span class="line">insmod: cannot open module `/lib/modules/air_en8811h.ko&#x27;: No such file or directory</span><br><span class="line"> [tcPhyInit] in  [tcPhyInit] out , r31 = (10, 0x0)</span><br><span class="line">(3) insmod 8811_bbu_api.ko</span><br><span class="line">insmo  GE R45 AnaCal zcal_idx(before table) (dec: 43) (hex: 0x2b)</span><br><span class="line">  GE R45 AnaCal Done! (cnt:11)(after table) ([7][6:0]:0x56) ([6:0]:0xd6)</span><br><span class="line">d: cannot open module `/lib/modules/8811_bbu_api.ko&#x27;: No such file or directory</span><br><span class="line">an8811 end</span><br></pre></td></tr></table></figure>
 <p>这三个模块都是不存在的，但是系统想要加载它们。<code>en8811h</code> 是一个以太网 PHY 驱动，<code>8811_bbu_api</code> 是一个 BBU 驱动，<code>mdio_arht</code> 是一个 MDIO 驱动。</p>
@@ -603,21 +603,76 @@ an7963 一般搭配 MT7976CN+MT7991AV 配置成 be5000</p>
 <p>这说明了 led 的配置文件是 <code>/userfs/7529_cd.conf</code>，而不是 <code>/userfs/led.conf</code>。</p>
 <p>以及相关的分区表和 gpio 确实存储在 <code>uboot-env</code> 中。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bootdelay=3</span><br><span class="line">bootfile=tclinux.bin</span><br><span class="line">bootpart=512k[bootloader],12m[rescue],1280k[reservearea],256k[romfile],5m[kernela],33m[rootfsa],5m[kernelb],33m[rootfsb],6m[data],50m[java],78m[osgi]</span><br><span class="line">...</span><br><span class="line">dsl_gpio=0b</span><br><span class="line">ether_gpio=0c</span><br><span class="line">internet_gpio=02</span><br><span class="line">multi_upgrade_gpio=0b020400000000000000000000000000</span><br><span class="line">power_gpio=0b0b</span><br></pre></td></tr></table></figure>
-<hr>
+<h2 id="OpenWrt-实战研究">OpenWrt 实战研究</h2>
 <p>7月3日更新</p>
 <p>近几日尝试编译了基于 Linux 6.6 的固件，以及解决相关驱动问题。</p>
-<p>结果是可以启动，但是以太网部分瘫痪，eth、switch、wlan 都无法正常工作。wifi 应该是因为没有加入 lan 导致无法驱动，pcie 部分我应该是正确的。</p>
-<p>另外编译过程中 <code>airoha_eth.c</code> 存在问题，使用 patch 解决了（编译报错，但是无法判断该驱动是否正确），不知道是否是因为这个问题导致以太网无法工作。最好还是改用 5.4 内核试一试，毕竟 airoha SDK 原始是基于 5.4 内核的，但是用 6.6 内核这么久了，openwrt 项目积累了很多 patch，改用 5.4 可能面临大量的移植工作。还有 Airoha spi 驱动的问题需要解决。</p>
+<p>结果是可以启动，但是以太网部分瘫痪，eth、switch、wlan 都无法正常工作。</p>
+<p>另外编译过程中 <code>airoha_eth.c</code> 存在问题，使用 patch 解决了（编译报错，但是无法判断该驱动是否正确），不知道是否是因为这个问题导致以太网无法工作。还有 Airoha spi 驱动的问题需要解决。</p>
 <p>IOWrt Airoha integration 项目可以当作参考，虽然他们开源了一部分代码，但是仍然有很多门槛，无法一步到位直接使用。</p>
 <hr>
 <p>7月5日更新</p>
-<p>驱动的话我无能为力，没有这个芯片的文档，且我没有相关的专业知识。</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1l1emhpaTA3MTgvb3BlbndydC90cmVlL2VuNzU2Mi0yNC4xMA==">en7562-24.10<i class="fa fa-external-link-alt"></i></span></p>
 <p>目前系统能正常启动，但以太网部分仍然无法工作，具体的表现是 system-control/clock-control 无法正常工作，导致相关设备无法正常 resets，尝试使用 an7581 的 scu/syscon/clk 或是 ti 的 gsw resets 驱动，但是没有成功。</p>
 <p>只能等待 airoha/mediatek 开源相关驱动，或是有大佬能提供相关文档/资源。</p>
 <p>你可以尝试该 initramfs 镜像，理论 en7562/en7563 的设备都可以使用</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1l1emhpaTA3MTgvb3BlbndydC9yZWxlYXNlcy90YWcvZW43NTYyLWJ1aWxkMjUwNzIxMDE=">Build for Airoha en7562ct<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1l1emhpaTA3MTgvb3BlbndydC9yZWxlYXNlcy8=">Build for Airoha en7562ct<i class="fa fa-external-link-alt"></i></span></p>
 <p>使用方法详见该分支的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1l1emhpaTA3MTgvb3BlbndydC9ibG9iL2VuNzU2Mi0yNC4xMC9SRUFETUUubWQ=">README<i class="fa fa-external-link-alt"></i></span>。</p>
+<hr>
+<p>7月6日更新</p>
+<p>这个 SoC 网络部分的驱动或许可以结合 en7521 和 an7581 的驱动代码，en7562 很明显是迭代过程的产品，en7521 有泄露的驱动代码，an7581 的驱动代码是官方开源的，但是这种没有 datasheet 的产品，寄存器地址、寄存器位的含义都不清楚，无法进行驱动开发。</p>
+<p>还有我尝试在编译了 arm64 的内核，因为某些驱动原生是 arm64 开发的，不清楚是否兼容 v7l 内核，但是编译出来的内核无法正常开机，启动内核后直接 reset cpu。</p>
+<p>捋一捋，可以发现：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>frame_engine 基于 en7521 的 frame_engine 并加上了一些 PPE/NPU 还有一些 ONU 相关的特性</p>
+</li>
+<li class="lvl-2">
+<p>wed/wdma 兼容 en751221</p>
+</li>
+<li class="lvl-2">
+<p>npu 可能是 an7581 npu 的前身</p>
+</li>
+<li class="lvl-2">
+<p>watchdog 兼容 en7521 的 watchdog</p>
+</li>
+</ul>
+<p>关键的 system-control 部分，我不太清楚，因为 reset-controller/clock-controller 令人折磨，不清楚这个 SoC 是如何工作的。</p>
+<p>但是 an7581 的以太网已经是 eth + switch 的形式了，而加速器部分貌似只使用了 npu，wed、wdma 没有看见相关定义</p>
+<p>wed 见于 mt7622，而 mt7622 上有 wed0、wed1，而该 SoC 上是 wed0、wed2、wed_test，暂时不知道他们的关系。wdma 见于 mt7623。</p>
+<p>然后就是在 an7581 上，npu 用于加速 eth，那么在该 SoC 上，已经存在 npu 了，那么 wed 的作用是什么？</p>
+<h3 id="总结">总结</h3>
+<p>目前的结论是：</p>
+<p>目前主线 Linux/OpenWrt 可以直接启动所有 airoha mips/arm 的设备。</p>
+<p>但是其他部分，比如 pcie/usb/eth/switch/gpio/watchdog/pinctrl/pwm/wed/npu/etc. 都需要特定的驱动支持。</p>
+<p>可以找到的驱动有：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>pcie: airoha,en7523/airoha,en7581</p>
+</li>
+<li class="lvl-2">
+<p>frame_engine: ecnt,en7512-eth/airoha,en7581-eth</p>
+</li>
+<li class="lvl-2">
+<p>swith: airoha,mt7530</p>
+</li>
+<li class="lvl-2">
+<p>npu: airoha,en7581</p>
+</li>
+<li class="lvl-2">
+<p>wed: airoha,en7581</p>
+</li>
+<li class="lvl-2">
+<p>watchdog: ecnt,en7512/airoha,en7581</p>
+</li>
+<li class="lvl-2">
+<p>gpio: airoha,en7523/airoha,en7581</p>
+</li>
+<li class="lvl-2">
+<p>pinctrl: airoha,en7523/airoha,en7581</p>
+</li>
+</ul>
+<p>spi 部分，貌似有 snfi 驱动，或是 mt7510，还有兼容 en7523 的三种，但是我试过了，无论哪个都无法正常工作。都无法读到分区表，无法访问 mtd 设备。</p>
+<p>即使目前有兼容 en7523 的某些驱动，但是用在 en7562 仍然有问题，比如 pcie 无法正确取得资源，eth、switch 的 reset 问题，gpio 相关的 pin-ctrl 问题等等。</p>
 <h2 id="告一段落">告一段落</h2>
 <p>驱动问题我实在无法解决，尝试使用多种解决方法，但是没有成功。</p>
 <p>有关该设备的 OpenWrt 支持相关研究以及该设备的研究到此为止，直到上游有相关进展。</p>
@@ -650,9 +705,11 @@ an7963 一般搭配 MT7976CN+MT7991AV 配置成 be5000</p>
 </li>
 <li id="fn2" class="footnote-item"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cucHVwYm9zcy5jb20vcG9zdC8yMDI0L3RsLXI1NDA4bS1pbnNwZWN0aW9uLWFuZC1yZXZpZXcv">TL-R5408M 拆机 / 芯片设计评测<i class="fa fa-external-link-alt"></i></span> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWN3aWZpLm5ldC8yMzU3Ny5odG1s">TL-R5408M易展路由器拆机和小包转发测试<i class="fa fa-external-link-alt"></i></span> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWN3aWZpLm5ldC8yNDA0MC5odG1s">烽火SR1041FU拆机，AX3000无线路由器<i class="fa fa-external-link-alt"></i></span> <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWN3aWZpLm5ldC8yNTgwMC5odG1s">TL-R5010PE-EN拆机全2.5G POE一体机，弱电箱好野<i class="fa fa-external-link-alt"></i></span> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWN3aWZpLm5ldC8yMzU3Ny5odG1s">TL-R5408M易展路由器拆机和小包转发测试<i class="fa fa-external-link-alt"></i></span> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWN3aWZpLm5ldC8yNTgwMC5odG1s">TL-R5010PE-EN拆机全2.5G POE一体机，弱电箱好野<i class="fa fa-external-link-alt"></i></span> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
