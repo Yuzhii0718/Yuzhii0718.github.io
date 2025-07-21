@@ -2842,9 +2842,9 @@ classDiagram
 <p>期末了，正好有一个爬虫课的实习，于是就想到了爬取BOSS直聘上的数据分析岗位的招聘信息，进行数据分析和数据可视化。</p>
 <p>采用了Selenium + Mysql + Flask + Echarts + Bootstrap 的技术栈。</p>
 <h3 id="项目目标">项目目标</h3>
-<p><input type="checkbox" id="checkbox2" checked="true"><label for="checkbox2">爬取BOSS直聘上的数据分析岗位的招聘信息</label><br>
-<input type="checkbox" id="checkbox1" checked="true"><label for="checkbox1">对爬取的数据进行数据分析</label><br>
-<input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">对数据进行数据可视化</label></p>
+<p><input type="checkbox" id="checkbox7" checked="true"><label for="checkbox7">爬取BOSS直聘上的数据分析岗位的招聘信息</label><br>
+<input type="checkbox" id="checkbox6" checked="true"><label for="checkbox6">对爬取的数据进行数据分析</label><br>
+<input type="checkbox" id="checkbox5" checked="true"><label for="checkbox5">对数据进行数据可视化</label></p>
 <h3 id="成果">成果</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -3589,19 +3589,19 @@ PC2: 192.168.3.1 网关 192.168.3.2</p>
 <h3 id="功能">功能</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox3" checked="true"><label for="checkbox3">命令执行</label></p>
+<p><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">命令执行</label></p>
 </li>
 </ul>
 <p>我用于执行 ifconfig 命令，可以指定延迟和随机延迟，以及执行次数</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox4" checked="true"><label for="checkbox4">计划任务脚本生成</label></p>
+<p><input type="checkbox" id="checkbox1" checked="true"><label for="checkbox1">计划任务脚本生成</label></p>
 </li>
 </ul>
 <p>一个 Python 脚本来生成一个计划任务列表，追加到 crontab 中</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox5" checked="true"><label for="checkbox5">通过 git 从外网获取实时 IP</label></p>
+<p><input type="checkbox" id="checkbox2" checked="true"><label for="checkbox2">通过 git 从外网获取实时 IP</label></p>
 </li>
 </ul>
 <p>没有自己的服务器，我们要怎么把 IP 传递到外网呢？</p>
@@ -3614,13 +3614,13 @@ PC2: 192.168.3.1 网关 192.168.3.2</p>
 <p>结合以上命令，可以得到当前连接到路由器的设备的 IP 地址</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox6" checked="true"><label for="checkbox6">检测 log 文件的大小</label></p>
+<p><input type="checkbox" id="checkbox3" checked="true"><label for="checkbox3">检测 log 文件的大小</label></p>
 </li>
 </ul>
 <p>一个 Python 脚本来检测 /tmp/python-script/ 目录下的所有 .log 文件的大小，当大小达到 1MB 时，删除前半段内容</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox7"><label for="checkbox7">通过 git 读取配置文件、</label></p>
+<p><input type="checkbox" id="checkbox4"><label for="checkbox4">通过 git 读取配置文件、</label></p>
 </li>
 </ul>
 <p>同理，可以通过 git 来读取配置文件，然后执行相应的操作</p>
