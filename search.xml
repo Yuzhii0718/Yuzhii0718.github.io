@@ -457,6 +457,7 @@ an7963 一般搭配 MT7976CN+MT7991AV/BV 配置成 be3600/be5000</p>
 <p>LFBGA-361</p>
 <hr>
 <p>基于 en7523 的 SoC</p>
+<p>EN7529DU = EN7523_BASE,</p>
 <p>EN7523DT<br>
 EN7523DTM<br>
 EN7523DU<br>
@@ -483,7 +484,7 @@ EN7562GTS</p>
 <p>达发 ARM(a53/v7l) 命名规则：</p>
 <p>第一位后缀代表频率，从默认频率到最高频率依次为 C(1GHZ)、D(1.2GHZ)、G(1.3GHZ)、P(1.4GHZ)，其中 S/I 是特殊版本（一般是性能更强）。注：括号内的频率并不一定是实际频率，只是为了便于理解。</p>
 <p>第二位后缀代表内存封装，T 代表使用外置 DDR，U 代表使用内置 DDR。</p>
-<p>第三位后缀意义不明，可能是内部的版本号或是其他含义，目前没有量产的版本。</p>
+<p>第三位后缀 H/S，H 代表 Host，S 代表 Slave。</p>
 <blockquote>
 <p>其实这个频率，他是可以超频的，也是可以降频的。如果未来有人研究的话，是可以将最基础的 C 版本超频到 1.4GHz 的，只要你想，改 bl2 的源码，超到 2GHZ 都不是问题，不过这颗芯片发热量巨大，即使降频也很难控制温度。不过用其他版本的厂商实在不多，也没有源码。此外，目前 airoha 新版 SDK(airoha SDK 7.3 kernel 5.4) 是统一 SDK，也就是说，只要你能拿到这个 SDK 的源码，你就可以编译出所有版本的 SoC 的固件（通过不同的 mak 配置）。</p>
 </blockquote>
@@ -518,6 +519,48 @@ EN7526G<br>
 EN7526FT<br>
 EN7526FP<br>
 EN7526FT_C</p>
+<p>基于 AN7581 的 SoC</p>
+<p>AN7581_BASE,<br>
+AN7581GT = AN7581_BASE,<br>
+AN7566GT,<br>
+AN7581PT,<br>
+AN7581ST,<br>
+AN7551PT,<br>
+AN7581CT,<br>
+AN7581DT,<br>
+AN7581FG,<br>
+AN7581FP,<br>
+AN7581FD,<br>
+AN7551GT,<br>
+AN7566PT,<br>
+AN7581IT,<br>
+AN7581SIT,</p>
+<p>基于 AN7552 的 SoC</p>
+<p>AN7552_BASE,<br>
+AN7552CT = AN7552_BASE,<br>
+AN7552ST,<br>
+AN7552FT,<br>
+AN7563CT,<br>
+AN7563PT,</p>
+<p>基于 AN7583 的 SoC</p>
+<p>AN7583_BASE,<br>
+AN7583GT = AN7583_BASE,<br>
+AN7583GIT,<br>
+AN7583CT,<br>
+AN7583DT,<br>
+AN7583ST,<br>
+AN9510GT,<br>
+AN7553GT,<br>
+AN7553CT,<br>
+AN7567GT,<br>
+AN7567CT,<br>
+AN7583ET,<br>
+AN7583EIT,<br>
+AN7583FG,<br>
+AN7583FP,<br>
+AN7583FD,<br>
+AN7583FS,<br>
+AN7583FF,</p>
 <h2 id="OpenWrt-支持的可能性">OpenWrt 支持的可能性</h2>
 <p>6月13日记录</p>
 <p>今天有一个新的发现：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21lcmJhbmFuL2Fpcm9oYV9tbC90cmVlL21haW4=">airoha_ml<i class="fa fa-external-link-alt"></i></span></p>
@@ -618,10 +661,21 @@ EN7526FT_C</p>
 </li>
 </ul>
 <p>可以通过移植来支持其他机型，两款机型的 GPL 代码应该能够支持 airoha wifi6/7 基于 en7523 的机型</p>
+<p>以及一些开源的项目</p>
+<p>比如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>atf-airoha, 适用于 Airoha SoC 的 ARM Trusted Firmware</p>
+</li>
+<li class="lvl-2">
+<p>keenetic sdk, 适用于 Keenetic 路由器的开源项目，目前适配了 en7512/en7516/en7528</p>
+</li>
+</ul>
 <blockquote>
 <p>但是呢，由于不知道这些基于 en7523 的型号更新了什么东西，所以驱动也不一定通用，目前可以知道的是，en7529/en7562 是同代产品，但是是否能够用于最初的 en7523 吗，这不一定，至于 en7562/en7563，虽然是改进后支持 wifi7，但是有新增了很多特性，最重要的是 arm64 的启用。</p>
 </blockquote>
 <p>但是，前几天，我把这机器卖了，所以对于这些的研究将告一段落。</p>
+<p>我可以预计未来会有更多的开源项目和驱动支持出现。并且 airoha 的 SoC 也会逐渐被更多的开源项目支持。因为 airoha SoC 的架构和功能都非常强大，适合用于各种网络设备。</p>
 <h2 id="参考资料">参考资料</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -656,6 +710,9 @@ EN7526FT_C</p>
 </li>
 <li class="lvl-2">
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tlZW5ldGljL2tlcm5lbC00OQ==">kernel-49<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tlZW5ldGljL2tlZW5ldGljLXNkaw==">keenetic-sdk<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 </ul>
 <hr class="footnotes-sep">
