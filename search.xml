@@ -166,7 +166,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>达发 airoha en7562ct SoC 构成分析以及 OpenWrt 支持研究（下）</title>
+    <title>达发 airoha en7529ct/en7562ct/en7563pt 等基于 en7523 的 SoC 构成分析以及 OpenWrt 支持研究（下）</title>
     <url>/2025/07/10/1/</url>
     <content><![CDATA[<style>
 :root {
@@ -654,10 +654,10 @@ AN7583FF,</p>
 <p>比如：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>netgear gpl 机型 EXS27(BE5000, AN7563PT) 基于 OPENWRT 21.02 mediatek feeds.</p>
+<p>netgear gpl 机型 EXS27(BE5000, AN7563PT) 基于 OPENWRT 21.02 mediatek feeds, kernel 5.4</p>
 </li>
 <li class="lvl-2">
-<p>zyxel gpl 机型 px3321-t1(AX3000, AN7529CT) 基于 OPENWRT 14.07</p>
+<p>zyxel gpl 机型 px3321-t1(AX3000, AN7529CT) 基于 OPENWRT 14.07, kernel 4.4</p>
 </li>
 </ul>
 <p>可以通过移植来支持其他机型，两款机型的 GPL 代码应该能够支持 airoha wifi6/7 基于 en7523 的机型</p>
@@ -674,8 +674,8 @@ AN7583FF,</p>
 <blockquote>
 <p>但是呢，由于不知道这些基于 en7523 的型号更新了什么东西，所以驱动也不一定通用，目前可以知道的是，en7529/en7562 是同代产品，但是是否能够用于最初的 en7523 吗，这不一定，至于 en7562/en7563，虽然是改进后支持 wifi7，但是有新增了很多特性，最重要的是 arm64 的启用。</p>
 </blockquote>
-<p>但是，前几天，我把这机器卖了，所以对于这些的研究将告一段落。</p>
-<p>我可以预计未来会有更多的开源项目和驱动支持出现。并且 airoha 的 SoC 也会逐渐被更多的开源项目支持。因为 airoha SoC 的架构和功能都非常强大，适合用于各种网络设备。</p>
+<p>但是，前几天，我把这机器卖了，所以对于这些的研究将告一段落，不再更新了。</p>
+<p>我可以预计未来会有更多的开源项目和驱动支持出现。并且 airoha 的 SoC 也会逐渐被更多的开源项目支持。因为 airoha SoC 的架构和功能都非常强大，适合用于各种网络设备，并且设计理念优于 mt7981/mt7987，或将成为 MTK 主推的产品。</p>
 <h2 id="参考资料">参考资料</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
