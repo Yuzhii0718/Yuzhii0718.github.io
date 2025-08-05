@@ -166,7 +166,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>达发 airoha en7529ct/en7562ct/en7563pt 等基于 en7523 的 SoC 构成分析以及 OpenWrt 支持研究（下）</title>
+    <title>达发 airoha en7529/en7562/en7563 等基于 en7523 的 SoC 构成分析以及 OpenWrt 支持研究（下）</title>
     <url>/2025/07/10/1/</url>
     <content><![CDATA[<style>
 :root {
@@ -648,7 +648,6 @@ AN7583FF,</p>
 <p>目前主线 Linux/OpenWrt 可以直接启动所有 airoha mips/arm 的设备。</p>
 <p>但是其他部分，比如 pcie/usb/eth/switch/gpio/watchdog/pinctrl/pwm/wed/npu/etc. 都需要特定的驱动支持。</p>
 <h2 id="告一段落">告一段落</h2>
-<p>驱动问题我实在无法解决，尝试使用多种解决方法，但是没有成功。</p>
 <p>8月4日更新</p>
 <p>通过大厂的gpl开源，我们仍然能够获取一些东西</p>
 <p>比如：</p>
@@ -675,7 +674,6 @@ AN7583FF,</p>
 <p>但是呢，由于不知道这些基于 en7523 的型号更新了什么东西，所以驱动也不一定通用，目前可以知道的是，en7529/en7562 是同代产品，但是是否能够用于最初的 en7523 吗，这不一定，至于 en7562/en7563，虽然是改进后支持 wifi7，但是有新增了很多特性，最重要的是 arm64 的启用。</p>
 </blockquote>
 <p>但是，前几天，我把这机器卖了，所以对于这些的研究将告一段落，不再更新了。</p>
-<p>我可以预计未来会有更多的开源项目和驱动支持出现。并且 airoha 的 SoC 也会逐渐被更多的开源项目支持。因为 airoha SoC 的架构和功能都非常强大，适合用于各种网络设备，并且设计理念优于 mt7981/mt7987，或将成为 MTK 主推的产品。</p>
 <h2 id="参考资料">参考资料</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
