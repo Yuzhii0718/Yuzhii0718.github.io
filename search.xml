@@ -166,7 +166,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>达发 airoha en7529/en7562/en7563 等基于 en7523 的 SoC 构成分析以及 OpenWrt 支持研究（下）</title>
+    <title>达发 airoha en7529/en7562/an7563 等基于 en7523 的 SoC 构成分析以及 OpenWrt 支持研究（下）</title>
     <url>/2025/07/10/1/</url>
     <content><![CDATA[<style>
 :root {
@@ -258,6 +258,8 @@
     </p>
     <a href="./collection.tar.gz" download="en7562-collection.tar.gz" target="_blank" class="btn" data-pjax-state="load">下载</a>
 </div>
+<details>
+<summary>点击展开相关研究过程</summary>
 <h3 id="从原厂的编译信息分析">从原厂的编译信息分析</h3>
 <p>/userfs/profile.cfg 有着一些编译信息。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;512k[bootloader],12m[rescue],1280k[reservearea],256k[romfile],5m[kernela],33m[rootfsa],5m[kernelb],33m[rootfsb],6m[data],50m[java],78m[osgi]&quot;</span><br></pre></td></tr></table></figure>
@@ -323,6 +325,7 @@
 <p>以及可以发现，小米 BE5000，使用了 en7563PT 处理器，推测该芯片应该是 en7562 的更新换代。以及还有一款 极客AP 也使用了 en7563pt 方案。</p>
 <p>解包小米固件后，发现该 dts 与 an7562 的内核提取 dts 非常相似，也是基于 an7523 的设备树，但是多了 an7581 的 oop-table 频率表，GPIO、分区表、thermal-zones等。</p>
 <p>另外，我们也可以查看另一个不同架构 SoC en751221 的相关资料，已经有人发表相关的文章。具体见参考资料 <sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>。也已经有人为其适配 Linux/OpenWrt。</p>
+</details>
 <hr>
 <p>en7561 一般搭配 MT7905DEN+MT7975DN 配置成 ax1800<br>
 en7562 一般搭配 MT7976DN+MT7916AN 配置成 ax3000<br>
@@ -330,13 +333,6 @@ an7963 一般搭配 MT7976CN+MT7991AV/BV 配置成 be3600/be5000</p>
 <blockquote>
 <p>另外，airoha 的命名很混乱，en7561 是 mips 架构的，en7562/7563 是 arm 架构的，据说 en7561 是 mt7621 的改版，如果要尝试为 en7561 提供 OpenWrt 支持，可以参考 mt7621 的相关代码。</p>
 </blockquote>
-<hr>
-<p>6月16日更新</p>
-<p>这 econet 到底是 MTK 的子公司，其芯片（en7562）构成充满了 MTK 技术的影子；SoC 与 mt7622 相似、DMA 可能来自 RaLink、MT7622 的 PCIe、mt7621 的 i2c、mt7530 类似的交换机、mt7510 改进而来的 spi 控制器，结合了 MTK ATF 与 tc3262 的 U-Boot。。。</p>
-<hr>
-<p>7月10日更新</p>
-<p>通过观察市场上的产品，我们可以确定，econet en7523 系列的 SoC 是层层改进的结果。</p>
-<p>并且它们有一个特点，en752x 基本都在国外市场上销售，而 en756x 系列则主要在国内市场上销售。</p>
 <h3 id="结论">结论</h3>
 <p>7月9日更新</p>
 <p>概述：</p>
@@ -562,6 +558,8 @@ AN7583FD,<br>
 AN7583FS,<br>
 AN7583FF,</p>
 <h2 id="OpenWrt-支持的可能性">OpenWrt 支持的可能性</h2>
+<details>
+<summary>点击展开相关研究过程</summary>
 <p>6月13日记录</p>
 <p>今天有一个新的发现：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21lcmJhbmFuL2Fpcm9oYV9tbC90cmVlL21haW4=">airoha_ml<i class="fa fa-external-link-alt"></i></span></p>
 <p>随后，我又从这些文件中发现了一个名为 <span class="exturl" data-url="aHR0cHM6Ly9kZXYuaW9wc3lzLmV1L2ZlZWQvdGFyZ2V0cw==">IOWRT Airoha integration<i class="fa fa-external-link-alt"></i></span>，目的是移植 Airoha SDK 到 IOWrt(Based On Openwrt)。</p>
@@ -576,11 +574,6 @@ AN7583FF,</p>
 <p>此外，我发现，userfs/ 目录下，存在：7523duled.conf、7523guled.conf、7529_62led.conf、7529_cd.conf、led.conf、led_fpga.conf 等文件，这些文件可能是用于配置 LED 灯的。所以，达发的 led gpio 可能是通用的，但也可能是厂商内部定义的。</p>
 <p>通过查看 IOWrt Airoha integration 的代码，发现他们的也使用类似 airoha 的 led 配置方式。同样存在于 <code>userfs/led.conf</code> 文件中。</p>
 <p>通过比较，可以确定 <code>led.conf</code> 并非是通用的，而是特定于某个设备的配置文件。适配系统时，需要通过 patch 的方式来修改该文件。</p>
-<h3 id="6月16日更新">6月16日更新</h3>
-<p>看来为路由器制作系统的想法还是有一些问题，当我下克隆源码后，阅读 <span class="exturl" data-url="aHR0cDovL1JFQURNRS5tZA==">README.md<i class="fa fa-external-link-alt"></i></span> 文件时，发现了一段隐藏的文本，我已将其翻译为中文：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这个机器可以作为路由器，只要有一个带有正确驱动程序的 USB 加密狗（目前，内核配置为使用 RTL8169 驱动程序来支持使用此芯片组的 USB-Ethernet 加密狗）。</span><br><span class="line">网络配置如下：</span><br><span class="line">- 默认情况下，集成以太网端口上有一个 DHCP 服务器监听任何请求。如果有的话，从该接口可以在地址 192.168.1.1 上访问设备。</span><br><span class="line">- 如果有一个 USB 以太网加密狗连接到主板，它将被自动配置为从网络请求 IP 地址。</span><br><span class="line">- 内核还带有设备中无线硬件的驱动程序。无线接口可以配置为 AP 或 STA 模式。</span><br></pre></td></tr></table></figure>
-<p>这段文本认为<strong>只有 USB 以太网加密狗</strong>才能作为路由器使用，这让我感到困惑。</p>
-<p>但也可能是因为它的固件有问题，该设备系统 SDK 版本中使用其他方法实现拨号或是存在 BUG。</p>
 <h3 id="6月29日更新">6月29日更新</h3>
 <p>今天抽空连接了 TTL，看了一下 uboot 和 启动 log，看到了一下内容</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(1) insmod mdio_arht.ko</span><br><span class="line">insmod: cannot open module `/lib/modules/mdio_arht.ko&#x27;: No such file or directory</span><br><span class="line">(2) insmod air_en8811h.ko                                                   writeflash: total write 0x2ac5 bytes</span><br><span class="line"></span><br><span class="line">insmod: cannot open module `/lib/modules/air_en8811h.ko&#x27;: No such file or directory</span><br><span class="line"> [tcPhyInit] in  [tcPhyInit] out , r31 = (10, 0x0)</span><br><span class="line">(3) insmod 8811_bbu_api.ko</span><br><span class="line">insmo  GE R45 AnaCal zcal_idx(before table) (dec: 43) (hex: 0x2b)</span><br><span class="line">  GE R45 AnaCal Done! (cnt:11)(after table) ([7][6:0]:0x56) ([6:0]:0xd6)</span><br><span class="line">d: cannot open module `/lib/modules/8811_bbu_api.ko&#x27;: No such file or directory</span><br><span class="line">an8811 end</span><br></pre></td></tr></table></figure>
@@ -591,6 +584,7 @@ AN7583FF,</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tcledctrl version: tcledctrl V1.1.0.0 (Nov 10 2023-16:08:25).</span><br><span class="line">ot not found led.conf</span><br><span class="line">led path:/userfs/7529_cd.conf</span><br></pre></td></tr></table></figure>
 <p>以及相关的分区表和 gpio 确实存储在 <code>uboot-env</code> 中。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bootdelay=3</span><br><span class="line">bootfile=tclinux.bin</span><br><span class="line">bootpart=512k[bootloader],12m[rescue],1280k[reservearea],256k[romfile],5m[kernela],33m[rootfsa],5m[kernelb],33m[rootfsb],6m[data],50m[java],78m[osgi]</span><br><span class="line">...</span><br><span class="line">dsl_gpio=0b</span><br><span class="line">ether_gpio=0c</span><br><span class="line">internet_gpio=02</span><br><span class="line">multi_upgrade_gpio=0b020400000000000000000000000000</span><br><span class="line">power_gpio=0b0b</span><br></pre></td></tr></table></figure>
+</details>
 <h2 id="OpenWrt-实战研究">OpenWrt 实战研究</h2>
 <p>7月3日更新</p>
 <p>近几日尝试编译了基于 Linux 6.6 的固件，以及解决相关驱动问题。</p>
@@ -631,8 +625,10 @@ AN7583FF,</p>
 <blockquote>
 <p>小道消息：TW 某 M 开头芯片大厂据说由于降本增效裁员裁到大动脉，现在 mtwifi 部门与 mt76 部门合并，现在开发驱动的是大学生与阿三，npu 难产，开发3年没有结果，未来将回归 wed + ppe 路线。</p>
 </blockquote>
-<h3 id="关于-uboot">关于 uboot</h3>
+<h2 id="关于-uboot">关于 uboot</h2>
 <p>目前该 uboot 是 5.4 内核的，采用 a/b 分区的方式，使用了 ATF2_1 的 U-Boot。</p>
+<p>github 上有一个 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0Fuc3VlbC9hdGYtYWlyb2hh">atf-airoha<i class="fa fa-external-link-alt"></i></span> 提供了一个基于 airoha 的 atf，可以尝试移植。</p>
+<p>但是其实无所谓的，因为uboot该有的功能原版都有。只需要使用时注意备份 uboot 环境变量就行。</p>
 <p>虽然 tftpboot 启动不会破坏分区结构并且还是只读的，但是可能会破坏 uboot 环境变量。</p>
 <p>所以需要在启动前备份 uboot 环境变量。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">printenv</span></span><br></pre></td></tr></table></figure>
@@ -646,8 +642,8 @@ AN7583FF,</p>
 <h3 id="总结">总结</h3>
 <p>目前的结论是：</p>
 <p>目前主线 Linux/OpenWrt 可以直接启动所有 airoha mips/arm 的设备。</p>
-<p>但是其他部分，比如 pcie/usb/eth/switch/gpio/watchdog/pinctrl/pwm/wed/npu/etc. 都需要特定的驱动支持。</p>
-<h2 id="告一段落">告一段落</h2>
+<p>但是其他部分，比如 pcie/usb/eth/switch/gpio/watchdog/pinctrl/pwm/wed/npu/etc. 都需要特定的驱动支持。而这些驱动可以期待 airoha/mediatek 开源，或是从大厂的 gpl 代码中获取。</p>
+<h2 id="相关开源以及告一段落">相关开源以及告一段落</h2>
 <p>8月4日更新</p>
 <p>通过大厂的gpl开源，我们仍然能够获取一些东西</p>
 <p>比如：</p>
@@ -659,7 +655,10 @@ AN7583FF,</p>
 <p>zyxel gpl 机型 px3321-t1(AX3000, AN7529CT) 基于 OPENWRT 14.07, kernel 4.4</p>
 </li>
 </ul>
-<p>可以通过移植来支持其他机型，两款机型的 GPL 代码应该能够支持 airoha wifi6/7 基于 en7523 的机型</p>
+<blockquote>
+<p>netgear的代码倒是比较规范，可以直接使用，但是环境官方没有说明，按照本博客最前面提供的环境进行配置，结合zyxel的环境配置即可，zyxel 的代码需要移植 itb 镜像的打包方法，并且禁用 lzma，改用 gzip 压缩</p>
+</blockquote>
+<p>可以通过移植来支持其他机型，两款机型的 GPL 代码应该能够支持 airoha wifi6/7 基于 en7523 的机型（en7529ct/en7562ct/an7563pt）</p>
 <p>以及一些开源的项目</p>
 <p>比如：</p>
 <ul class="lvl-0">
@@ -671,7 +670,7 @@ AN7583FF,</p>
 </li>
 </ul>
 <blockquote>
-<p>但是呢，由于不知道这些基于 en7523 的型号更新了什么东西，所以驱动也不一定通用，目前可以知道的是，en7529/en7562 是同代产品，但是是否能够用于最初的 en7523 吗，这不一定，至于 en7562/en7563，虽然是改进后支持 wifi7，但是有新增了很多特性，最重要的是 arm64 的启用。</p>
+<p>但是呢，由于不知道这些基于 en7523 的型号更新了什么东西，所以驱动也不一定通用，目前可以知道的是，en7529/en7562 是同代产品，但是是否能够用于最初的 en7523 吗，这不一定，至于 en7562 -&gt; en7563，虽然是改进后支持 wifi7，但是有新增了很多特性。</p>
 </blockquote>
 <p>但是，前几天，我把这机器卖了，所以对于这些的研究将告一段落，不再更新了。</p>
 <h2 id="参考资料">参考资料</h2>
