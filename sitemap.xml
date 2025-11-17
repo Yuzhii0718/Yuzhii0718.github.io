@@ -7,6 +7,15 @@
             
   
   <url>
+    <loc>https://yuzhii0718.eu.org/playlist/index.html</loc>
+    
+    <lastmod>2025-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://yuzhii0718.eu.org/2025/07/10/1/</loc>
     
     <lastmod>2025-09-04</lastmod>
@@ -107,15 +116,6 @@
   
   <url>
     <loc>https://yuzhii0718.eu.org/links/index.html</loc>
-    
-    <lastmod>2025-05-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yuzhii0718.eu.org/playlist/index.html</loc>
     
     <lastmod>2025-05-26</lastmod>
     
@@ -801,7 +801,7 @@
 
   <url>
     <loc>https://yuzhii0718.eu.org/</loc>
-    <lastmod>2025-09-04</lastmod>
+    <lastmod>2025-11-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
