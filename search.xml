@@ -166,6 +166,50 @@
 ]]></content>
   </entry>
   <entry>
+    <title>mt798x mt7976 修改无线功率</title>
+    <url>/2025/12/27/1/</url>
+    <content><![CDATA[<p>该修改只适用于mt7976射频芯片，即mt7981使用内置功放和mt7986使用外置功放的机型</p>
+<h2 id="前言">前言</h2>
+<p>最近 hanwckf 的仓库更新了 mt798x 的无线驱动（7.6.7.3），所以我就想着更新一下</p>
+<p>更新上去了，结果发现无线功率被限制了，2.4G 只能到 22dBm，5G 只能到 21dBm</p>
+<p>看了一下之前的高功率的代码，好吧，我决定还是改 Factory 的相关参数</p>
+<h2 id="修改方法">修改方法</h2>
+<ol>
+<li class="lvl-3">
+<p>将 <code>Factory</code> 分区 dump 出来</p>
+</li>
+<li class="lvl-3">
+<p>使用可以编辑十六进制的编辑器打开</p>
+</li>
+<li class="lvl-3">
+<p>在 0x441-0x458 位置是5G 的功率参数，0x465-0x484 位置是2.4G 的功率参数</p>
+</li>
+<li class="lvl-3">
+<p>将这段区域填充为 <code>2C</code>，即可将功率提升到最大</p>
+<blockquote>
+<p>（也可以是2B，需要自己测试到底哪个信号更好）</p>
+</blockquote>
+</li>
+<li class="lvl-3">
+<p>保存修改后的分区镜像</p>
+</li>
+<li class="lvl-3">
+<p>将修改后的分区写回 <code>Factory</code> 分区</p>
+</li>
+<li class="lvl-3">
+<p>重启路由器</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>为 UBoot 添加 DHCP 服务器功能实现自动分配 IP</title>
     <url>/2025/12/26/1/</url>
     <content><![CDATA[<p>先放出成品：</p>
@@ -404,25 +448,6 @@
 </li>
 </ol>
 <p>移植时最值得注意的是“网段/地址池”这一点（下一节会说）。</p>
-<h2 id="使用方法（最终用户视角）">使用方法（最终用户视角）</h2>
-<p>以 MT7621/MT798x 的 WebUI recovery 为例（你的成品仓库 README 也是这个流程）：</p>
-<ol>
-<li class="lvl-3">
-<p>刷入带 DHCPD 的 U-Boot（例如 <code>u-boot-mt7621.bin/mt798x-fip.bin</code>）</p>
-</li>
-<li class="lvl-3">
-<p>电脑网卡设置为：自动获取 IP（DHCP）</p>
-</li>
-<li class="lvl-3">
-<p>电脑网线直连路由器 LAN 口</p>
-</li>
-<li class="lvl-3">
-<p>断电，按住 reset，上电进入 failsafe WebUI</p>
-</li>
-<li class="lvl-3">
-<p>浏览器访问：<code>http://192.168.1.1</code> 上传固件</p>
-</li>
-</ol>
 <h2 id="已知限制与改进方向">已知限制与改进方向</h2>
 <p>这个实现定位就是“failsafe 专用极简 DHCP”，所以它有一些明确的限制：</p>
 <ol>
