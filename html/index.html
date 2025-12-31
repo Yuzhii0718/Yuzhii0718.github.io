@@ -12,9 +12,22 @@
     <link rel="manifest" href="/images/site.webmanifest">
     <meta name="keywords" content="Yuzhii, Yuzhii's Blog, Yuzhii's App Center, Yuzhii's App, Yuzhii's Website" />
     <meta name="description" content="Yuzhii's App Center, a place to showcase my apps and projects." />
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') {
+                    document.documentElement.setAttribute('data-theme', t);
+                }
+            } catch (e) {
+                // ignore
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 1080px)">
+    <script src="js/theme.js" defer></script>
 </head>
 
 <body>
@@ -26,22 +39,26 @@
                 <img src="/images/avatar.png" alt="" class="logo">
             </a>
 
-            <button id="nav-toggle" class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-text">菜单</span>
-            </button>
+            <div class="header-right">
+                <button id="nav-toggle" class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-text">菜单</span>
+                </button>
 
-            <nav id="site-nav" class="nav" aria-label="Primary">
-                <ul class="nav-list">
-                    <li class="nav-item" id="home"></li>
-                    <li class="nav-item" id="blog"></li>
-                    <li class="nav-item" id="ysepan"></li>
-                    <li class="nav-item" id="info"></li>
-                    <li class="nav-item" id="about"></li>
-                </ul>
-            </nav>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="主题：自动">主题：自动</button>
+
+                <nav id="site-nav" class="nav" aria-label="Primary">
+                    <ul class="nav-list">
+                        <li class="nav-item" id="home"></li>
+                        <li class="nav-item" id="blog"></li>
+                        <li class="nav-item" id="ysepan"></li>
+                        <li class="nav-item" id="info"></li>
+                        <li class="nav-item" id="about"></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
 
         <!-- Main layout -->

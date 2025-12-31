@@ -26,7 +26,9 @@
     opacity: 1;
     /* 保持透明度为1 */
     transition: all 0.5s ease-in-out;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     /* 始终显示 */
 }
 
@@ -35,6 +37,7 @@
     width: 90%;
     height: 90%;
     object-fit: cover;
+    display: block;
 }
 
 /* 轮播图标题 */
