@@ -1,165 +1,93 @@
-/*above*/
-* {
-    margin: 0;
-    padding: 0;
-}
+/* Mobile/Tablet overrides (<=1080px) */
 
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-/*header*/
-.header {
-    height: 3rem;
-    margin: 10px 10%;
-}
-
-#logo {
-    position: fixed;
-    right: 3rem;
-    top: 3rem;
-    display: none;
-}
-
-#logo img {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
-}
-
+/* Drawer nav */
 .nav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 20%; /* Adjust as needed */
-    height: 100%;
-    background: #82B1FF;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: width 0.5s;
-}
-
-.nav li {
-    line-height: 5rem;
-    width: 100%;
-}
-
-.nav li a {
-    color: #fff;
-    font-size: 2.5rem;
-}
-
-.nav li a:hover {
-    background: #FF80AB;
-    color: #fff;
-}
-
-#home, #info, #about {
-    display: none;
-}
-
-/*banner*/
-#main {
-    display: none;
-}
-
-/*sidebar*/
-#sidebar {
-    display: none;
-}
-
-/*content*/
-#content {
-}
-
-#content.column {
-}
-
-#content h1 {
-    font-size: 4rem;
-    font-weight: 400;
-    padding: 10rem 0 0 20%
-}
-
-#content p {
-    font-size: 15px;
-    font-weight: 400;
-}
-
-#content-top {
-    position: relative;
-    text-align: center;
-}
-
-#content-box-1, #content-box-2 {
-    /* 左侧留白 */
-    padding: 10rem 0 0 30%;
-    width: 60%;
-    display: grid;
-    border-radius: 10px 10px 0 0;
-    height: 15rem;
-    align-items: center;
-}
-
-#content-box-2 {
-    padding: 20rem 0 30rem 30%;
-}
-
-#appcenter {
-    display: none;
-}
-
-.content-app {
-    padding: 1.2rem;
-    color: white;
-    text-align: center;
-}
-
-.content-app a {
     display: block;
-    background-color: #FF80AB;
-    line-height: 100px;
-    color: white;
-    font-size: 2rem;
-    border-radius: 15px;
+    position: fixed;
+    top: 64px;
+    right: 14px;
+    left: 14px;
+    z-index: 60;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 
-.content-app a:hover {
-    background-color: #82B1FF;
+.nav.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-.app-title {
-    position: relative;
+.nav-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
 }
 
-.app-tag {
-    display: none;
+.nav-item a {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
 }
 
-.third {
-    display: none;
+html.nav-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 55;
 }
 
-/*footer*/
-.footer {
-    display: none;
+/* Layout stacking */
+.layout {
+    padding-top: 14px;
 }
 
-/* 隐藏所有滚动条 */
-::-webkit-scrollbar {
-    display: none;
+/* Banner: reduce vertical space on mobile */
+#main {
+    height: 180px;
+    min-height: 180px;
 }
 
-/* 针对 IE 和 Edge 的滚动条隐藏 */
-body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+.banner-container,
+.banner-wrapper,
+.banner-item {
+    height: 100%;
+}
+
+.banner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.app-grid {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+    .app-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* A bit taller on larger phones/tablets, still much smaller than desktop */
+    #main {
+        height: 160px;
+        min-height: 160px;
+    }
+}
+
+/* Footer: keep it visible on mobile */
+.footer-links {
+    justify-content: flex-start;
 }

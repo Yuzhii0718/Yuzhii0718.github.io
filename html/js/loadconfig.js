@@ -1,7 +1,8 @@
 // 从config.json中获取配置
 
 // 注意，这需要异步加载，否则将显示 undefined
-fetch('/html/common/config.json')
+// 使用相对路径，确保在 http-server（以及子路径部署）下都能正确访问
+fetch('./common/config.json')
     .then(response => response.json())
     .then(data => {
         // 从配置中获取需要的信息
@@ -42,7 +43,7 @@ fetch('/html/common/config.json')
         };
         // 点击email
         window.clickemail = {
-            text: data.email,
+            text: (data.click_email && data.click_email.text) ? data.click_email.text : data.email,
             url: data.click_email.url
         };
         // 文字内容

@@ -26,9 +26,9 @@ function displayAppInfo(xml) {
         let name = apps[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
         let tag = apps[i].getElementsByTagName("tag")[0].childNodes[0].nodeValue;
         let newpage = apps[i].getElementsByTagName("newpage")[0].childNodes[0].nodeValue;
-        let target = newpage === "1" ? 'target="_blank"' : '';
+        let target = newpage === "1" ? 'target="_blank" rel="noopener noreferrer"' : '';
         let appInfo = `
-            <a href="${url}" ${target} class="app-title" id="${id}">${name}</a>
+            <a href="${url}" ${target} class="app-title">${name}</a>
             <p class="app-tag">${tag}</p>`;
         document.getElementById(id).insertAdjacentHTML('beforeend', appInfo);
     }
