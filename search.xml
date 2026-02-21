@@ -166,255 +166,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>MTK U-Boot mtd-layout 节点参数说明</title>
-    <url>/2026/02/21/2/</url>
-    <content><![CDATA[<p>影响文件：</p>
-<p>mtd_layout.c、mtdparts.c、failsafe.c、showlayout.c</p>
-<h2 id="1-节点结构与选择机制">1. 节点结构与选择机制</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>根节点路径：<code>/mtd-layout</code></p>
-</li>
-<li class="lvl-2">
-<p>子节点形式：<code>layout@&lt;n&gt;</code>（如 <code>layout@0</code>, <code>layout@1</code>）</p>
-</li>
-<li class="lvl-2">
-<p>通过环境变量 <code>mtd_layout_label</code> 选择当前布局</p>
-<ul class="lvl-2">
-<li class="lvl-4">若未设置该变量，则默认使用 <code>label = &quot;default&quot;</code> 的布局</li>
-<li class="lvl-4">逻辑见 mtd_layout.c</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-支持的属性列表">2. 支持的属性列表</h2>
-<p>以下属性在 <code>layout@*</code> 子节点中被读取并生效：</p>
-<table>
-<thead>
-<tr>
-<th>属性名</th>
-<th>类型</th>
-<th>是否必须</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>label</code></td>
-<td>string</td>
-<td>✅</td>
-<td>布局名称，用于选择匹配</td>
-</tr>
-<tr>
-<td><code>mtdids</code></td>
-<td>string</td>
-<td>✅</td>
-<td>MTD 设备映射字符串（供 mtdparts 解析）</td>
-</tr>
-<tr>
-<td><code>mtdparts</code></td>
-<td>string</td>
-<td>✅</td>
-<td>分区描述字符串（供 mtdparts 解析）</td>
-</tr>
-<tr>
-<td><code>cmdline</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入 <code>bootargs</code>，作为内核命令行</td>
-</tr>
-<tr>
-<td><code>boot_part</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入环境变量 <code>ubi_boot_part</code></td>
-</tr>
-<tr>
-<td><code>factory_part</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入环境变量 <code>factory_part</code></td>
-</tr>
-<tr>
-<td><code>sysupgrade_kernel_ubipart</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入 <code>sysupgrade_kernel_ubipart</code></td>
-</tr>
-<tr>
-<td><code>sysupgrade_rootfs_ubipart</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入 <code>sysupgrade_rootfs_ubipart</code></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>这些属性由 <code>board_mtdparts_default()</code> 读取并写入环境变量（见 mtd_layout.c）。</p>
-</blockquote>
-<hr>
-<h2 id="3-各属性含义与使用方式">3. 各属性含义与使用方式</h2>
-<h3 id="label"><code>label</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>用于标识布局名称</p>
-</li>
-<li class="lvl-2">
-<p>环境变量 <code>mtd_layout_label</code> 与其匹配，决定使用哪套布局</p>
-</li>
-<li class="lvl-2">
-<p>默认值是 <code>&quot;default&quot;</code></p>
-</li>
-</ul>
-<h3 id="mtdids"><code>mtdids</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>格式参考 mtdparts.c：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdids=&lt;dev-id&gt;=&lt;mtd-id&gt;[,&lt;dev-id&gt;=&lt;mtd-id&gt;...]</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdids = &quot;nmbm0=nmbm0&quot;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="mtdparts"><code>mtdparts</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>格式参考 mtdparts.c：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts=[mtdparts=]&lt;mtd-id&gt;:&lt;part-def&gt;[,&lt;part-def&gt;...]</span><br><span class="line">&lt;part-def&gt; := &lt;size&gt;[@&lt;offset&gt;][(name)][ro]</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>示例（你的 DTS 中的用法）：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts = &quot;nmbm0:1024k(bl2),512k(u-boot-env),... ,35328k(firmware)&quot;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="cmdline"><code>cmdline</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>bootargs</code></p>
-</li>
-<li class="lvl-2">
-<p>用于传递 Linux 内核命令行</p>
-</li>
-<li class="lvl-2">
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmdline = &quot;console=ttyS0,115200n1 ... bootpart=firmware&quot;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="boot-part"><code>boot_part</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>ubi_boot_part</code></p>
-</li>
-<li class="lvl-2">
-<p>在 <code>mtd_boot_image()</code> 中用于决定从哪个分区启动</p>
-</li>
-<li class="lvl-2">
-<p>如果你是多布局固件（比如 firmware/firmware2 切换），这一项很关键</p>
-</li>
-</ul>
-<h3 id="factory-part"><code>factory_part</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>factory_part</code></p>
-</li>
-<li class="lvl-2">
-<p>在升级流程 <code>mtd_upgrade_image()</code> 中作为 UBI 写入目标分区</p>
-</li>
-<li class="lvl-2">
-<p>对多布局刷写很重要</p>
-</li>
-</ul>
-<h3 id="sysupgrade-kernel-ubipart"><code>sysupgrade_kernel_ubipart</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>sysupgrade_kernel_ubipart</code></p>
-</li>
-<li class="lvl-2">
-<p>在多布局且启用 <code>CONFIG_MEDIATEK_MULTI_MTD_LAYOUT</code> 时，用于 sysupgrade 处理 <strong>内核 UBI 分区</strong></p>
-</li>
-</ul>
-<h3 id="sysupgrade-rootfs-ubipart"><code>sysupgrade_rootfs_ubipart</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>sysupgrade_rootfs_ubipart</code></p>
-</li>
-<li class="lvl-2">
-<p>类似上面，用于 sysupgrade 的 <strong>rootfs UBI 分区</strong></p>
-</li>
-</ul>
-<hr>
-<h2 id="4-相关命令与调试接口">4. 相关命令与调试接口</h2>
-<h3 id="showlayout"><code>showlayout</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>由 showlayout.c 提供</p>
-</li>
-<li class="lvl-2">
-<p>功能：打印所有 <code>mtd-layout</code> 子节点的 <code>label / mtdids / mtdparts</code></p>
-</li>
-</ul>
-<h3 id="failsafe-HTTP-接口">failsafe HTTP 接口</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>在 failsafe.c 中提供</p>
-</li>
-<li class="lvl-2">
-<p>会返回当前布局以及所有布局的 label 与 mtdparts</p>
-</li>
-</ul>
-<h2 id="在配置文件中">在配置文件中</h2>
-<p>受影响配置选项：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>CONFIG_MTDIDS_DEFAULT</code>（默认 mtdids）<br>
-e.g. <code>nmbm0=nmbm0</code></p>
-</li>
-<li class="lvl-2">
-<p><code>CONFIG_MTDPARTS_DEFAULT</code>（默认 mtdparts）<br>
-e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
-<blockquote>
-<p>当最后一个分区没有指定大小时（例如：<code>nmbm0:1024k(bl2),512k(u-boot-env),... ,-(ubi)</code>），会自动计算剩余空间作为该分区大小，之后，该分区后不能再添加其他分区。</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p><code>CONFIG_CMD_MTDPARTS</code></p>
-</li>
-<li class="lvl-2">
-<p><code>CONFIG_CMD_SHOW_MTD_LAYOUT</code></p>
-</li>
-<li class="lvl-2">
-<p><code>CONFIG_MEDIATEK_MULTI_MTD_LAYOUT</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="5-示例模板">5. 示例模板</h2>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="title class_">mtd-layout</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">layout@0</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;default&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">cmdline</span> <span class="operator">=</span> <span class="string">&quot;console=ttyS0,115200n1 loglevel=8&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">mtdids</span> <span class="operator">=</span> <span class="string">&quot;nmbm0=nmbm0&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">mtdparts</span> <span class="operator">=</span> <span class="string">&quot;nmbm0:1024k(bl2),512k(u-boot-env),...&quot;</span><span class="punctuation">;</span></span><br><span class="line"></span><br><span class="line">        boot_<span class="attr">part</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        factory_<span class="attr">part</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        sysupgrade_kernel_<span class="attr">ubipart</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        sysupgrade_rootfs_<span class="attr">ubipart</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="6-注意事项与实践建议">6. 注意事项与实践建议</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>mtdids</code> 和 <code>mtdparts</code> <strong>必须同时存在</strong> 才会生效</p>
-</li>
-<li class="lvl-2">
-<p><code>cmdline</code> 为空时会清空 <code>bootargs</code></p>
-</li>
-<li class="lvl-2">
-<p>若切换布局，建议同步设置 <code>mtd_layout_label</code></p>
-</li>
-<li class="lvl-2">
-<p>如果要区分 UBI 与 raw 分区，确保 <code>boot_part</code> / <code>factory_part</code> 与 <code>mtdparts</code> 中分区名一致</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>玩机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mediatek ATF 工具</title>
     <url>/2026/02/21/3/</url>
     <content><![CDATA[<p>介绍了 ATF（Arm Trusted Firmware）相关的几个工具：<code>ar-table</code>、<code>ar-tool</code>、<code>gen_salt_header</code>、<code>bromimage</code>、<code>bl2plimage</code> 和 <code>simg</code>。这些工具主要用于处理 MediaTek 平台的固件构建与镜像生成，涉及反回滚版本表、BL2 payload 头部、单一烧录镜像等方面。</p>
@@ -677,6 +428,255 @@ e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
       </tags>
   </entry>
   <entry>
+    <title>MTK U-Boot mtd-layout 节点参数说明</title>
+    <url>/2026/02/21/2/</url>
+    <content><![CDATA[<p>影响文件：</p>
+<p>mtd_layout.c、mtdparts.c、failsafe.c、showlayout.c</p>
+<h2 id="1-节点结构与选择机制">1. 节点结构与选择机制</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>根节点路径：<code>/mtd-layout</code></p>
+</li>
+<li class="lvl-2">
+<p>子节点形式：<code>layout@&lt;n&gt;</code>（如 <code>layout@0</code>, <code>layout@1</code>）</p>
+</li>
+<li class="lvl-2">
+<p>通过环境变量 <code>mtd_layout_label</code> 选择当前布局</p>
+<ul class="lvl-2">
+<li class="lvl-4">若未设置该变量，则默认使用 <code>label = &quot;default&quot;</code> 的布局</li>
+<li class="lvl-4">逻辑见 mtd_layout.c</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-支持的属性列表">2. 支持的属性列表</h2>
+<p>以下属性在 <code>layout@*</code> 子节点中被读取并生效：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>✅</td>
+<td>布局名称，用于选择匹配</td>
+</tr>
+<tr>
+<td><code>mtdids</code></td>
+<td>string</td>
+<td>✅</td>
+<td>MTD 设备映射字符串（供 mtdparts 解析）</td>
+</tr>
+<tr>
+<td><code>mtdparts</code></td>
+<td>string</td>
+<td>✅</td>
+<td>分区描述字符串（供 mtdparts 解析）</td>
+</tr>
+<tr>
+<td><code>cmdline</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入 <code>bootargs</code>，作为内核命令行</td>
+</tr>
+<tr>
+<td><code>boot_part</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入环境变量 <code>ubi_boot_part</code></td>
+</tr>
+<tr>
+<td><code>factory_part</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入环境变量 <code>factory_part</code></td>
+</tr>
+<tr>
+<td><code>sysupgrade_kernel_ubipart</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入 <code>sysupgrade_kernel_ubipart</code></td>
+</tr>
+<tr>
+<td><code>sysupgrade_rootfs_ubipart</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入 <code>sysupgrade_rootfs_ubipart</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这些属性由 <code>board_mtdparts_default()</code> 读取并写入环境变量（见 mtd_layout.c）。</p>
+</blockquote>
+<hr>
+<h2 id="3-各属性含义与使用方式">3. 各属性含义与使用方式</h2>
+<h3 id="label"><code>label</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用于标识布局名称</p>
+</li>
+<li class="lvl-2">
+<p>环境变量 <code>mtd_layout_label</code> 与其匹配，决定使用哪套布局</p>
+</li>
+<li class="lvl-2">
+<p>默认值是 <code>&quot;default&quot;</code></p>
+</li>
+</ul>
+<h3 id="mtdids"><code>mtdids</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>格式参考 mtdparts.c：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdids=&lt;dev-id&gt;=&lt;mtd-id&gt;[,&lt;dev-id&gt;=&lt;mtd-id&gt;...]</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdids = &quot;nmbm0=nmbm0&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="mtdparts"><code>mtdparts</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>格式参考 mtdparts.c：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts=[mtdparts=]&lt;mtd-id&gt;:&lt;part-def&gt;[,&lt;part-def&gt;...]</span><br><span class="line">&lt;part-def&gt; := &lt;size&gt;[@&lt;offset&gt;][(name)][ro]</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>示例（你的 DTS 中的用法）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts = &quot;nmbm0:1024k(bl2),512k(u-boot-env),... ,35328k(firmware)&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="cmdline"><code>cmdline</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>bootargs</code></p>
+</li>
+<li class="lvl-2">
+<p>用于传递 Linux 内核命令行</p>
+</li>
+<li class="lvl-2">
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmdline = &quot;console=ttyS0,115200n1 ... bootpart=firmware&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="boot-part"><code>boot_part</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>ubi_boot_part</code></p>
+</li>
+<li class="lvl-2">
+<p>在 <code>mtd_boot_image()</code> 中用于决定从哪个分区启动</p>
+</li>
+<li class="lvl-2">
+<p>如果你是多布局固件（比如 firmware/firmware2 切换），这一项很关键</p>
+</li>
+</ul>
+<h3 id="factory-part"><code>factory_part</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>factory_part</code></p>
+</li>
+<li class="lvl-2">
+<p>在升级流程 <code>mtd_upgrade_image()</code> 中作为 UBI 写入目标分区</p>
+</li>
+<li class="lvl-2">
+<p>对多布局刷写很重要</p>
+</li>
+</ul>
+<h3 id="sysupgrade-kernel-ubipart"><code>sysupgrade_kernel_ubipart</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>sysupgrade_kernel_ubipart</code></p>
+</li>
+<li class="lvl-2">
+<p>在多布局且启用 <code>CONFIG_MEDIATEK_MULTI_MTD_LAYOUT</code> 时，用于 sysupgrade 处理 <strong>内核 UBI 分区</strong></p>
+</li>
+</ul>
+<h3 id="sysupgrade-rootfs-ubipart"><code>sysupgrade_rootfs_ubipart</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>sysupgrade_rootfs_ubipart</code></p>
+</li>
+<li class="lvl-2">
+<p>类似上面，用于 sysupgrade 的 <strong>rootfs UBI 分区</strong></p>
+</li>
+</ul>
+<hr>
+<h2 id="4-相关命令与调试接口">4. 相关命令与调试接口</h2>
+<h3 id="showlayout"><code>showlayout</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>由 showlayout.c 提供</p>
+</li>
+<li class="lvl-2">
+<p>功能：打印所有 <code>mtd-layout</code> 子节点的 <code>label / mtdids / mtdparts</code></p>
+</li>
+</ul>
+<h3 id="failsafe-HTTP-接口">failsafe HTTP 接口</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在 failsafe.c 中提供</p>
+</li>
+<li class="lvl-2">
+<p>会返回当前布局以及所有布局的 label 与 mtdparts</p>
+</li>
+</ul>
+<h2 id="在配置文件中">在配置文件中</h2>
+<p>受影响配置选项：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>CONFIG_MTDIDS_DEFAULT</code>（默认 mtdids）<br>
+e.g. <code>nmbm0=nmbm0</code></p>
+</li>
+<li class="lvl-2">
+<p><code>CONFIG_MTDPARTS_DEFAULT</code>（默认 mtdparts）<br>
+e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
+<blockquote>
+<p>当最后一个分区没有指定大小时（例如：<code>nmbm0:1024k(bl2),512k(u-boot-env),... ,-(ubi)</code>），会自动计算剩余空间作为该分区大小，之后，该分区后不能再添加其他分区。</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p><code>CONFIG_CMD_MTDPARTS</code></p>
+</li>
+<li class="lvl-2">
+<p><code>CONFIG_CMD_SHOW_MTD_LAYOUT</code></p>
+</li>
+<li class="lvl-2">
+<p><code>CONFIG_MEDIATEK_MULTI_MTD_LAYOUT</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="5-示例模板">5. 示例模板</h2>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="title class_">mtd-layout</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">layout@0</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;default&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">cmdline</span> <span class="operator">=</span> <span class="string">&quot;console=ttyS0,115200n1 loglevel=8&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">mtdids</span> <span class="operator">=</span> <span class="string">&quot;nmbm0=nmbm0&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">mtdparts</span> <span class="operator">=</span> <span class="string">&quot;nmbm0:1024k(bl2),512k(u-boot-env),...&quot;</span><span class="punctuation">;</span></span><br><span class="line"></span><br><span class="line">        boot_<span class="attr">part</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        factory_<span class="attr">part</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        sysupgrade_kernel_<span class="attr">ubipart</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        sysupgrade_rootfs_<span class="attr">ubipart</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="6-注意事项与实践建议">6. 注意事项与实践建议</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>mtdids</code> 和 <code>mtdparts</code> <strong>必须同时存在</strong> 才会生效</p>
+</li>
+<li class="lvl-2">
+<p><code>cmdline</code> 为空时会清空 <code>bootargs</code></p>
+</li>
+<li class="lvl-2">
+<p>若切换布局，建议同步设置 <code>mtd_layout_label</code></p>
+</li>
+<li class="lvl-2">
+<p>如果要区分 UBI 与 raw 分区，确保 <code>boot_part</code> / <code>factory_part</code> 与 <code>mtdparts</code> 中分区名一致</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenWrt 标准 ubootmod 模式适配(Mediatek)</title>
     <url>/2026/02/21/1/</url>
     <content><![CDATA[<p>尽管在 U-Boot-MTK 2025 已经官方支持了 FIT/ITB 固件</p>
@@ -738,7 +738,6 @@ e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
 </ul>
 <figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">KERNEL_IN_UBI := 1</span><br><span class="line">UBOOTENV_IN_UBI := 1</span><br><span class="line">IMAGES := sysupgrade.itb</span><br><span class="line">KERNEL_INITRAMFS_SUFFIX := -recovery.itb</span><br><span class="line">KERNEL := kernel-bin | gzip</span><br><span class="line">KERNEL_INITRAMFS := kernel-bin | lzma | \</span><br><span class="line">    fit lzma $<span class="variable">$(KDIR)</span>/image-$<span class="variable">$(<span class="built_in">firstword</span> $<span class="variable">$(DEVICE_DTS)</span>)</span>.dtb with-initrd | pad-to 64k</span><br><span class="line">IMAGE/sysupgrade.itb := append-kernel | \</span><br><span class="line">    fit gzip $<span class="variable">$(KDIR)</span>/image-$<span class="variable">$(<span class="built_in">firstword</span> $<span class="variable">$(DEVICE_DTS)</span>)</span>.dtb external-static-with-rootfs | append-metadata</span><br><span class="line">ARTIFACTS := preloader.bin bl31-uboot.fip</span><br><span class="line">ARTIFACT/preloader.bin := mt7981-bl2 spim-nand-ddr3</span><br><span class="line">ARTIFACT/bl31-uboot.fip := mt7981-bl31-uboot board_name</span><br></pre></td></tr></table></figure>
 <h2 id="对于-U-Boot-的要求">对于 U-Boot 的要求</h2>
-<p>本项目实际已经完成相关设备配置的迁移，但由于型号过多，无法保证所有型号都正确迁移了相关配置，因此在切换到 ubootmod 变体后，建议仔细检查设备树配置和 U-Boot 的支持情况，以确保能够成功使用 ubootmod 模式来刷写来自主线的镜像。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>删除 <code>CONFIG_ENV_SIZE</code> 和 <code>CONFIG_ENV_OFFSET</code> 相关的配置。</p>
