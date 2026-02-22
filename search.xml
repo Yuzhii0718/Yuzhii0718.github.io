@@ -545,7 +545,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts=[mtdparts=]&lt;mtd-id&gt;:&lt;part-def&gt;[,&lt;part-def&gt;...]</span><br><span class="line">&lt;part-def&gt; := &lt;size&gt;[@&lt;offset&gt;][(name)][ro]</span><br></pre></td></tr></table></figure>
 </li>
 <li class="lvl-2">
-<p>示例（你的 DTS 中的用法）：</p>
+<p>示例：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts = &quot;nmbm0:1024k(bl2),512k(u-boot-env),... ,35328k(firmware)&quot;;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
