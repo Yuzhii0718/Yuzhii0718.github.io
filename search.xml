@@ -825,14 +825,14 @@ e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
       </tags>
   </entry>
   <entry>
-    <title>mt798x mt7976 修改无线功率</title>
+    <title>mt798x mt7975/mt7976 修改无线功率</title>
     <url>/2025/12/27/1/</url>
-    <content><![CDATA[<p>该修改只适用于mt7976射频芯片，即mt7981使用内置功放和mt7986使用外置功放的机型</p>
-<h2 id="前言">前言</h2>
+    <content><![CDATA[<h2 id="前言">前言</h2>
 <p>最近 hanwckf 的仓库更新了 mt798x 的无线驱动（7.6.7.3），所以我就想着更新一下</p>
 <p>更新上去了，结果发现无线功率被限制了，2.4G 只能到 22dBm，5G 只能到 21dBm</p>
 <p>看了一下之前的高功率的代码，好吧，我决定还是改 Factory 的相关参数</p>
-<h2 id="修改方法">修改方法</h2>
+<h2 id="使用-mt7976-射频芯片">使用 mt7976 射频芯片</h2>
+<p>即mt7981使用内置功放和mt7986使用外置功放的机型</p>
 <ol>
 <li class="lvl-3">
 <p>将 <code>Factory</code> 分区 dump 出来</p>
@@ -844,9 +844,43 @@ e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
 <p>在 0x441-0x458 位置是5G 的功率参数，0x465-0x484 位置是2.4G 的功率参数</p>
 </li>
 <li class="lvl-3">
-<p>将这段区域填充为 <code>2C</code>，即可将功率提升到最大</p>
+<p>将这段区域填充为 <code>2B</code>，即可将功率提升到最大</p>
+</li>
+<li class="lvl-3">
+<p>保存修改后的分区镜像</p>
+</li>
+<li class="lvl-3">
+<p>将修改后的分区写回 <code>Factory</code> 分区</p>
+</li>
+<li class="lvl-3">
+<p>重启路由器</p>
+</li>
+</ol>
+<h2 id="使用-mt7986-内置-FEM-的机型">使用 mt7986 内置 FEM 的机型</h2>
+<p>即使用 mt7975 射频芯片的 mt7986 机型</p>
+<ol>
+<li class="lvl-3">
+<p>将 <code>Factory</code> 分区 dump 出来</p>
+</li>
+<li class="lvl-3">
+<p>使用可以编辑十六进制的编辑器打开</p>
+</li>
+<li class="lvl-3">
+<p>在</p>
+<ul class="lvl-2">
+<li class="lvl-6">34B-352</li>
+<li class="lvl-6">357-35E</li>
+<li class="lvl-6">363-36A</li>
+<li class="lvl-6">36F-376</li>
+</ul>
 <blockquote>
-<p>（也可以是2B，需要自己测试到底哪个信号更好）</p>
+<p>目前只发现这几个位置有 5G 频段功率参数，没有发现2.4G 频段相关参数</p>
+</blockquote>
+</li>
+<li class="lvl-3">
+<p>将这段区域填充为 <code>2B</code>，即可将功率提升到最大</p>
+<blockquote>
+<p>改到 2C/2D 无线发热比较严重，有些供电很钙的机型可能带不动，建议改成 2B 或者更低</p>
 </blockquote>
 </li>
 <li class="lvl-3">
@@ -859,6 +893,20 @@ e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
 <p>重启路由器</p>
 </li>
 </ol>
+<hr>
+<p>其他可供参考的功率参数：</p>
+<pre><code>- 26/27: 23DBM
+- 28/29: 24DBM
+- 2A/2B: 25DBM
+- 2C/2D: 26DBM
+</code></pre>
+<p>对于 mt7981，最大值使用 2C；对于 mt7986，最大值使用 2D；</p>
+<blockquote>
+<p><strong>超过最大值可能无效甚至功率下降</strong></p>
+</blockquote>
+<p>推荐的方法：</p>
+<p>如果不稳定，就对参数值减一（十六进制），比如 2B 就改成 2A，2C 就改成 2B，以此类推，直到稳定为止。</p>
+<p>或者在原参数上往上加，26 -&gt; 27 -&gt; 28 -&gt; 29 -&gt; 2A -&gt; 2B -&gt; 2C -&gt; 2D，直到不稳定回退。</p>
 ]]></content>
       <categories>
         <category>Linux</category>
