@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>16进制工具</title>
+	<style>
+		:root {
+			color-scheme: dark;
+			--bg: #0a1325;
+			--bg-2: #131f39;
+			--panel: rgba(255, 255, 255, 0.07);
+			--panel-border: rgba(255, 255, 255, 0.14);
+			--text: rgba(255, 255, 255, 0.95);
+			--muted: rgba(255, 255, 255, 0.68);
+			--primary: #60a5fa;
+			--primary-2: #a78bfa;
+			--danger: #ef4444;
+			--ok: #22c55e;
+			--radius: 16px;
+		}
+
+		@media (prefers-color-scheme: light) {
+			:root {
+				color-scheme: light;
+				--bg: #f3f7ff;
+				--bg-2: #ffffff;
+				--panel: rgba(15, 23, 42, 0.04);
+				--panel-border: rgba(15, 23, 42, 0.14);
+				--text: rgba(15, 23, 42, 0.95);
+				--muted: rgba(15, 23, 42, 0.68);
+				--primary: #3b82f6;
+				--primary-2: #8b5cf6;
+			}
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+			color: var(--text);
+			background:
+				radial-gradient(circle at 12% 0%, rgba(96, 165, 250, 0.25), transparent 40%),
+				radial-gradient(circle at 90% 12%, rgba(167, 139, 250, 0.2), transparent 42%),
+				linear-gradient(145deg, var(--bg), var(--bg-2));
+			padding: 22px;
+		}
+
+		.page {
+			width: min(580px, 100%);
+			margin: 0 auto;
+			display: grid;
+			gap: 16px;
+		}
+
+		.panel {
+			border: 1px solid var(--panel-border);
+			border-radius: var(--radius);
+			background: var(--panel);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+			overflow: hidden;
+		}
+
+		.panel-header {
+			padding: 16px 18px;
+			border-bottom: 1px solid var(--panel-border);
+		}
+
+		.panel-header h1,
+		.panel-header h2 {
+			margin: 0;
+			font-size: 22px;
+			line-height: 1.25;
+		}
+
+		.panel-header h2 {
+			font-size: 18px;
+		}
+
+		.panel-header p {
+			margin: 8px 0 0;
+			color: var(--muted);
+			font-size: 14px;
+		}
+
+		.panel-body {
+			padding: 16px 18px 18px;
+			display: grid;
+			gap: 14px;
+		}
+
+		.field {
+			display: grid;
+			gap: 8px;
+		}
+
+		.field label {
+			color: var(--muted);
+			font-size: 14px;
+		}
+
+		input[type="text"] {
+			width: 100%;
+			border: 1px solid var(--panel-border);
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.05);
+			color: var(--text);
+			padding: 10px 12px;
+			font-size: 14px;
+			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+		}
+
+		.base-radios {
+			display: flex;
+			gap: 8px;
+			flex-wrap: wrap;
+		}
+
+		.base-radios label {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			border: 1px solid var(--panel-border);
+			border-radius: 999px;
+			padding: 8px 12px;
+			cursor: pointer;
+			color: var(--muted);
+			background: rgba(255, 255, 255, 0.03);
+			user-select: none;
+		}
+
+		.base-radios input {
+			accent-color: var(--primary);
+			cursor: pointer;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			overflow: hidden;
+			border-radius: 12px;
+			border: 1px solid var(--panel-border);
+		}
+
+		th,
+		td {
+			text-align: left;
+			border-bottom: 1px solid var(--panel-border);
+			padding: 10px;
+			font-size: 14px;
+			vertical-align: middle;
+		}
+
+		th {
+			color: var(--muted);
+			font-weight: 600;
+			background: rgba(255, 255, 255, 0.03);
+		}
+
+		tr:last-child td {
+			border-bottom: 0;
+		}
+
+		.mono {
+			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+			word-break: break-all;
+		}
+
+		.btn {
+			appearance: none;
+			border: 1px solid var(--panel-border);
+			border-radius: 10px;
+			padding: 8px 12px;
+			font-size: 13px;
+			font-weight: 600;
+			color: var(--text);
+			background: rgba(255, 255, 255, 0.04);
+			cursor: pointer;
+			transition: .14s ease;
+		}
+
+		.btn:hover {
+			transform: translateY(-1px);
+			border-color: rgba(96, 165, 250, 0.5);
+		}
+
+		.btn-primary {
+			border: 0;
+			color: #fff;
+			background: linear-gradient(100deg, var(--primary), var(--primary-2));
+		}
+
+		.btn-danger {
+			border-color: rgba(239, 68, 68, 0.45);
+			color: #fff;
+			background: rgba(239, 68, 68, 0.18);
+		}
+
+		.ops {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+
+		.result-grid {
+			display: grid;
+			gap: 8px;
+		}
+
+		.result-item {
+			border: 1px solid var(--panel-border);
+			border-radius: 10px;
+			padding: 10px;
+			display: grid;
+			gap: 8px;
+		}
+
+		.result-head {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 8px;
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		.hint {
+			margin: 0;
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		.hint.ok {
+			color: var(--ok);
+		}
+
+		.hint.error {
+			color: var(--danger);
+		}
+
+		@media (max-width: 700px) {
+			body {
+				padding: 14px;
+			}
+
+			th,
+			td {
+				font-size: 13px;
+				padding: 8px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<main class="page" aria-label="16进制工具">
+		<section class="panel">
+			<div class="panel-header">
+				<h1>16进制转换</h1>
+				<p>支持 2/8/10/16 进制动态转换，以及 16 进制加减乘除计算。</p>
+			</div>
+			<div class="panel-body">
+				<div class="field">
+					<label for="convert-input">输入数值</label>
+					<input id="convert-input" type="text" placeholder="例如：FF / 101010 / 12345">
+				</div>
+
+				<div class="field">
+					<label>输入进制</label>
+					<div class="base-radios" role="radiogroup" aria-label="输入进制">
+						<label><input type="radio" name="input-base" value="2">2进制</label>
+						<label><input type="radio" name="input-base" value="8">8进制</label>
+						<label><input type="radio" name="input-base" value="10">10进制</label>
+						<label><input type="radio" name="input-base" value="16" checked>16进制</label>
+					</div>
+				</div>
+
+				<table aria-label="转换结果">
+					<thead>
+						<tr>
+							<th style="width: 110px;">进制</th>
+							<th>值</th>
+							<th style="width: 100px;"></th>
+						</tr>
+					</thead>
+					<tbody id="convert-table-body">
+						<tr data-base="2">
+							<td>2进制</td>
+							<td class="mono" data-value>0</td>
+							<td><button class="btn copy-convert" type="button">复制</button></td>
+						</tr>
+						<tr data-base="8">
+							<td>8进制</td>
+							<td class="mono" data-value>0</td>
+							<td><button class="btn copy-convert" type="button">复制</button></td>
+						</tr>
+						<tr data-base="10">
+							<td>10进制</td>
+							<td class="mono" data-value>0</td>
+							<td><button class="btn copy-convert" type="button">复制</button></td>
+						</tr>
+						<tr data-base="16">
+							<td>16进制</td>
+							<td class="mono" data-value>0</td>
+							<td><button class="btn copy-convert" type="button">复制</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<p id="convert-hint" class="hint">输入后会自动转换。</p>
+			</div>
+		</section>
+
+		<section class="panel">
+			<div class="panel-header">
+				<h2>16进制计算</h2>
+				<p>输入 A 与 B（16进制），点击运算按钮立即得到结果。</p>
+			</div>
+			<div class="panel-body">
+				<div class="field">
+					<label for="hex-a">数值 A（16进制）</label>
+					<input id="hex-a" type="text" placeholder="例如：1A2F">
+				</div>
+				<div class="field">
+					<label for="hex-b">数值 B（16进制）</label>
+					<input id="hex-b" type="text" placeholder="例如：0F">
+				</div>
+
+				<div class="ops" aria-label="运算按钮">
+					<button id="op-add" class="btn" type="button">A + B</button>
+					<button id="op-sub" class="btn" type="button">A - B</button>
+					<button id="op-mul" class="btn" type="button">A × B</button>
+					<button id="op-div" class="btn" type="button">A ÷ B</button>
+					<button id="op-clear" class="btn btn-danger" type="button">清除</button>
+				</div>
+
+				<div class="result-grid" aria-label="计算结果">
+					<div class="result-item">
+						<div class="result-head">
+							<span>结果（16进制）</span>
+							<button id="copy-hex-result" class="btn" type="button">复制</button>
+						</div>
+						<div id="calc-hex" class="mono">-</div>
+					</div>
+					<div class="result-item">
+						<div class="result-head">
+							<span>结果（10进制）</span>
+							<button id="copy-dec-result" class="btn" type="button">复制</button>
+						</div>
+						<div id="calc-dec" class="mono">-</div>
+					</div>
+				</div>
+
+				<p id="calc-hint" class="hint">等待输入并运算。</p>
+			</div>
+		</section>
+	</main>
+
+	<script>
+		(function () {
+			var convertInput = document.getElementById('convert-input');
+			var baseRadios = document.querySelectorAll('input[name="input-base"]');
+			var convertRows = document.querySelectorAll('#convert-table-body tr');
+			var convertHint = document.getElementById('convert-hint');
+
+			var hexA = document.getElementById('hex-a');
+			var hexB = document.getElementById('hex-b');
+			var calcHex = document.getElementById('calc-hex');
+			var calcDec = document.getElementById('calc-dec');
+			var calcHint = document.getElementById('calc-hint');
+
+			function getSelectedBase() {
+				for (var i = 0; i < baseRadios.length; i++) {
+					if (baseRadios[i].checked) return Number(baseRadios[i].value);
+				}
+				return 16;
+			}
+
+			function normalizeInputByBase(raw, base) {
+				var value = String(raw || '').trim();
+				if (!value) return value;
+				if (base === 16) value = value.replace(/^[-+]?0x/i, function (m) { return m.indexOf('-') === 0 ? '-' : ''; });
+				if (base === 2) value = value.replace(/^[-+]?0b/i, function (m) { return m.indexOf('-') === 0 ? '-' : ''; });
+				if (base === 8) value = value.replace(/^[-+]?0o/i, function (m) { return m.indexOf('-') === 0 ? '-' : ''; });
+				return value;
+			}
+
+			function parseBigInt(raw, base) {
+				var text = normalizeInputByBase(raw, base);
+				if (!text) return null;
+
+				var sign = 1n;
+				if (text[0] === '+') text = text.slice(1);
+				if (text[0] === '-') {
+					sign = -1n;
+					text = text.slice(1);
+				}
+				if (!text) return null;
+
+				var validMap = {
+					2: /^[01]+$/,
+					8: /^[0-7]+$/,
+					10: /^[0-9]+$/,
+					16: /^[0-9a-fA-F]+$/
+				};
+
+				if (!validMap[base].test(text)) {
+					return null;
+				}
+
+				var result = 0n;
+				var baseBig = BigInt(base);
+				for (var i = 0; i < text.length; i++) {
+					var ch = text[i].toLowerCase();
+					var digit;
+					if (ch >= '0' && ch <= '9') {
+						digit = BigInt(ch.charCodeAt(0) - 48);
+					} else {
+						digit = BigInt(ch.charCodeAt(0) - 87);
+					}
+					result = result * baseBig + digit;
+				}
+				return result * sign;
+			}
+
+			function toBaseString(big, base) {
+				var neg = big < 0n;
+				var abs = neg ? -big : big;
+				var text = abs.toString(base);
+				if (base === 16) text = text.toUpperCase();
+				return (neg ? '-' : '') + text;
+			}
+
+			function writeConvertRow(base, value) {
+				var row = document.querySelector('#convert-table-body tr[data-base="' + base + '"]');
+				if (!row) return;
+				var cell = row.querySelector('[data-value]');
+				cell.textContent = value;
+			}
+
+			function setHint(el, text, type) {
+				el.textContent = text;
+				el.classList.remove('ok', 'error');
+				if (type) el.classList.add(type);
+			}
+
+			function runConvert() {
+				var base = getSelectedBase();
+				var parsed = parseBigInt(convertInput.value, base);
+
+				if (convertInput.value.trim() === '') {
+					writeConvertRow(2, '0');
+					writeConvertRow(8, '0');
+					writeConvertRow(10, '0');
+					writeConvertRow(16, '0');
+					setHint(convertHint, '输入后会自动转换。');
+					return;
+				}
+
+				if (parsed === null) {
+					writeConvertRow(2, '无效输入');
+					writeConvertRow(8, '无效输入');
+					writeConvertRow(10, '无效输入');
+					writeConvertRow(16, '无效输入');
+					setHint(convertHint, '当前输入与所选进制不匹配。', 'error');
+					return;
+				}
+
+				writeConvertRow(2, toBaseString(parsed, 2));
+				writeConvertRow(8, toBaseString(parsed, 8));
+				writeConvertRow(10, toBaseString(parsed, 10));
+				writeConvertRow(16, toBaseString(parsed, 16));
+				setHint(convertHint, '转换成功（动态更新中）。', 'ok');
+			}
+
+			function copyText(text, successMsgEl, successMsg) {
+				if (!text || text === '无效输入' || text === '-') return;
+
+				function onSuccess() {
+					setHint(successMsgEl, successMsg, 'ok');
+				}
+
+				function onFail() {
+					setHint(successMsgEl, '复制失败，请手动复制。', 'error');
+				}
+
+				if (navigator.clipboard && window.isSecureContext) {
+					navigator.clipboard.writeText(text).then(onSuccess).catch(onFail);
+					return;
+				}
+
+				var ta = document.createElement('textarea');
+				ta.value = text;
+				ta.style.position = 'fixed';
+				ta.style.opacity = '0';
+				document.body.appendChild(ta);
+				ta.focus();
+				ta.select();
+				try {
+					if (document.execCommand('copy')) onSuccess();
+					else onFail();
+				} catch (e) {
+					onFail();
+				}
+				document.body.removeChild(ta);
+			}
+
+			for (var i = 0; i < baseRadios.length; i++) {
+				baseRadios[i].addEventListener('change', runConvert);
+			}
+			convertInput.addEventListener('input', runConvert);
+
+			var copyConvertButtons = document.querySelectorAll('.copy-convert');
+			for (var j = 0; j < copyConvertButtons.length; j++) {
+				copyConvertButtons[j].addEventListener('click', function (event) {
+					var row = event.target.closest('tr');
+					var val = row.querySelector('[data-value]').textContent;
+					copyText(val, convertHint, '已复制转换值');
+				});
+			}
+
+			function parseHexInput(raw) {
+				return parseBigInt(raw, 16);
+			}
+
+			function setCalcResult(hexValue, decValue, hint, type) {
+				calcHex.textContent = hexValue;
+				calcDec.textContent = decValue;
+				setHint(calcHint, hint, type);
+			}
+
+			function calculate(op) {
+				var a = parseHexInput(hexA.value);
+				var b = parseHexInput(hexB.value);
+
+				if (a === null || b === null) {
+					setCalcResult('-', '-', '请输入有效的 16 进制值（A/B）。', 'error');
+					return;
+				}
+
+				var result;
+				if (op === 'add') {
+					result = a + b;
+					setCalcResult(toBaseString(result, 16), toBaseString(result, 10), '加法完成。', 'ok');
+					return;
+				}
+				if (op === 'sub') {
+					result = a - b;
+					setCalcResult(toBaseString(result, 16), toBaseString(result, 10), '减法完成。', 'ok');
+					return;
+				}
+				if (op === 'mul') {
+					result = a * b;
+					setCalcResult(toBaseString(result, 16), toBaseString(result, 10), '乘法完成。', 'ok');
+					return;
+				}
+
+				if (op === 'div') {
+					if (b === 0n) {
+						setCalcResult('-', '-', '除数不能为 0。', 'error');
+						return;
+					}
+
+					result = a / b;
+					var rem = a % b;
+					var msg = rem === 0n ? '除法完成。' : '除法完成（结果为整数商，余数：' + rem.toString(10) + '）。';
+					setCalcResult(toBaseString(result, 16), toBaseString(result, 10), msg, rem === 0n ? 'ok' : null);
+				}
+			}
+
+			var opButtons = {
+				add: document.getElementById('op-add'),
+				sub: document.getElementById('op-sub'),
+				mul: document.getElementById('op-mul'),
+				div: document.getElementById('op-div')
+			};
+
+			function setActiveOp(op) {
+				for (var key in opButtons) {
+					if (Object.prototype.hasOwnProperty.call(opButtons, key)) {
+						opButtons[key].classList.remove('btn-primary');
+					}
+				}
+				opButtons[op].classList.add('btn-primary');
+			}
+
+			opButtons.add.addEventListener('click', function () {
+				setActiveOp('add');
+				calculate('add');
+			});
+			opButtons.sub.addEventListener('click', function () {
+				setActiveOp('sub');
+				calculate('sub');
+			});
+			opButtons.mul.addEventListener('click', function () {
+				setActiveOp('mul');
+				calculate('mul');
+			});
+			opButtons.div.addEventListener('click', function () {
+				setActiveOp('div');
+				calculate('div');
+			});
+
+			document.getElementById('op-clear').addEventListener('click', function () {
+				hexA.value = '';
+				hexB.value = '';
+				for (var key in opButtons) {
+					if (Object.prototype.hasOwnProperty.call(opButtons, key)) {
+						opButtons[key].classList.remove('btn-primary');
+					}
+				}
+				setCalcResult('-', '-', '已清除输入与结果。');
+			});
+
+			document.getElementById('copy-hex-result').addEventListener('click', function () {
+				copyText(calcHex.textContent, calcHint, '已复制 16 进制结果');
+			});
+
+			document.getElementById('copy-dec-result').addEventListener('click', function () {
+				copyText(calcDec.textContent, calcHint, '已复制 10 进制结果');
+			});
+
+			runConvert();
+		})();
+	</script>
+</body>
+
+</html>

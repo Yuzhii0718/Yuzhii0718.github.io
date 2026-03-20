@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>密码生成器</title>
+	<style>
+		:root {
+			color-scheme: dark;
+			--bg: #0b1220;
+			--bg2: #111b32;
+			--panel: rgba(255, 255, 255, .08);
+			--panel-border: rgba(255, 255, 255, .14);
+			--text: rgba(255, 255, 255, .95);
+			--muted: rgba(255, 255, 255, .7);
+			--primary: #60a5fa;
+			--primary-2: #a78bfa;
+			--ok: #22c55e;
+			--radius: 16px;
+		}
+
+		@media (prefers-color-scheme: light) {
+			:root {
+				color-scheme: light;
+				--bg: #f3f6fc;
+				--bg2: #ffffff;
+				--panel: rgba(15, 23, 42, .04);
+				--panel-border: rgba(15, 23, 42, .15);
+				--text: rgba(15, 23, 42, .94);
+				--muted: rgba(15, 23, 42, .68);
+				--primary: #3b82f6;
+				--primary-2: #8b5cf6;
+			}
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+			color: var(--text);
+			background:
+				radial-gradient(circle at 10% 0%, rgba(96, 165, 250, .22), transparent 45%),
+				radial-gradient(circle at 90% 10%, rgba(167, 139, 250, .2), transparent 42%),
+				linear-gradient(145deg, var(--bg), var(--bg2));
+			display: grid;
+			place-items: center;
+			padding: 24px;
+		}
+
+		.app {
+			width: min(720px, 100%);
+			border: 1px solid var(--panel-border);
+			border-radius: var(--radius);
+			background: var(--panel);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 14px 38px rgba(0, 0, 0, .22);
+			overflow: hidden;
+		}
+
+		.head {
+			padding: 20px 20px 14px;
+			border-bottom: 1px solid var(--panel-border);
+		}
+
+		.head h1 {
+			margin: 0;
+			font-size: 22px;
+		}
+
+		.head p {
+			margin: 8px 0 0;
+			color: var(--muted);
+			font-size: 14px;
+		}
+
+		.body {
+			padding: 18px 20px 20px;
+			display: grid;
+			gap: 16px;
+		}
+
+		.segment {
+			display: inline-grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 8px;
+			padding: 6px;
+			border-radius: 12px;
+			border: 1px solid var(--panel-border);
+			background: rgba(255, 255, 255, .04);
+		}
+
+		.segment button {
+			appearance: none;
+			border: 0;
+			border-radius: 10px;
+			padding: 10px 12px;
+			font-size: 14px;
+			font-weight: 600;
+			cursor: pointer;
+			color: var(--text);
+			background: transparent;
+			transition: .16s ease;
+		}
+
+		.segment button.active {
+			color: #fff;
+			background: linear-gradient(100deg, var(--primary), var(--primary-2));
+			box-shadow: 0 6px 18px rgba(96, 165, 250, .35);
+		}
+
+		.length-wrap {
+			border: 1px solid var(--panel-border);
+			border-radius: 12px;
+			padding: 12px;
+			display: grid;
+			gap: 10px;
+		}
+
+		.row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.row label {
+			font-size: 14px;
+			color: var(--muted);
+		}
+
+		input[type="number"] {
+			width: 88px;
+			padding: 8px 10px;
+			border: 1px solid var(--panel-border);
+			border-radius: 10px;
+			background: rgba(255, 255, 255, .05);
+			color: var(--text);
+			font-weight: 600;
+		}
+
+		input[type="range"] {
+			width: 100%;
+			accent-color: var(--primary);
+			cursor: pointer;
+		}
+
+		.switches {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 10px;
+		}
+
+		.switch {
+			border: 1px solid var(--panel-border);
+			border-radius: 12px;
+			padding: 11px 12px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 8px;
+			font-size: 14px;
+			color: var(--muted);
+		}
+
+		.switch input {
+			width: 18px;
+			height: 18px;
+			accent-color: var(--primary);
+			cursor: pointer;
+		}
+
+		.output {
+			display: grid;
+			gap: 10px;
+		}
+
+		textarea {
+			width: 100%;
+			min-height: 120px;
+			resize: vertical;
+			border: 1px solid var(--panel-border);
+			border-radius: 12px;
+			background: rgba(255, 255, 255, .04);
+			color: var(--text);
+			padding: 12px;
+			font-size: 14px;
+			line-height: 1.55;
+			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+		}
+
+		.actions {
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+		}
+
+		.btn {
+			appearance: none;
+			border: 1px solid var(--panel-border);
+			border-radius: 10px;
+			padding: 10px 14px;
+			color: var(--text);
+			background: rgba(255, 255, 255, .04);
+			font-weight: 600;
+			cursor: pointer;
+			transition: .14s ease;
+		}
+
+		.btn:hover {
+			transform: translateY(-1px);
+			border-color: rgba(96, 165, 250, .45);
+		}
+
+		.btn-primary {
+			border: 0;
+			color: #fff;
+			background: linear-gradient(100deg, var(--primary), var(--primary-2));
+		}
+
+		.hint {
+			margin: 0;
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		.hint.ok {
+			color: var(--ok);
+		}
+
+		@media (max-width: 560px) {
+			.switches {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<main class="app" aria-label="密码生成器">
+		<header class="head">
+			<h1>密码生成器</h1>
+			<p>支持随机密码与 PIN 两种模式，参数变更会自动刷新结果。</p>
+		</header>
+
+		<section class="body">
+			<div class="segment" role="tablist" aria-label="生成类型">
+				<button id="type-random" class="active" type="button" role="tab" aria-selected="true">随机</button>
+				<button id="type-pin" type="button" role="tab" aria-selected="false">PIN</button>
+			</div>
+
+			<div class="length-wrap">
+				<div class="row">
+					<label for="length-range">字符长度</label>
+					<input id="length-input" type="number" min="8" max="100" value="12" aria-label="字符长度输入">
+				</div>
+				<input id="length-range" type="range" min="8" max="100" value="12" aria-label="字符长度滑块">
+			</div>
+
+			<div id="random-switches" class="switches" aria-label="随机模式选项">
+				<label class="switch" for="with-number">
+					<span>包含数字</span>
+					<input id="with-number" type="checkbox" checked>
+				</label>
+				<label class="switch" for="with-symbol">
+					<span>包含符号</span>
+					<input id="with-symbol" type="checkbox">
+				</label>
+			</div>
+
+			<div class="output">
+				<textarea id="result" spellcheck="false" aria-label="生成结果"></textarea>
+				<div class="actions">
+					<button id="copy-btn" class="btn btn-primary" type="button">复制密码</button>
+					<button id="refresh-btn" class="btn" type="button">刷新密码</button>
+				</div>
+				<p id="hint" class="hint">已自动生成</p>
+			</div>
+		</section>
+	</main>
+
+	<script>
+		(function () {
+			var state = {
+				mode: 'random',
+				length: 12,
+				withNumber: true,
+				withSymbol: false
+			};
+
+			var SYMBOLS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+			var LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			var NUMBERS = '0123456789';
+
+			var elements = {
+				typeRandom: document.getElementById('type-random'),
+				typePin: document.getElementById('type-pin'),
+				lengthRange: document.getElementById('length-range'),
+				lengthInput: document.getElementById('length-input'),
+				randomSwitches: document.getElementById('random-switches'),
+				withNumber: document.getElementById('with-number'),
+				withSymbol: document.getElementById('with-symbol'),
+				result: document.getElementById('result'),
+				copyBtn: document.getElementById('copy-btn'),
+				refreshBtn: document.getElementById('refresh-btn'),
+				hint: document.getElementById('hint')
+			};
+
+			function randomChar(pool) {
+				return pool.charAt(Math.floor(Math.random() * pool.length));
+			}
+
+			function generateRandomPassword() {
+				var pool = LETTERS;
+				if (state.withNumber) pool += NUMBERS;
+				if (state.withSymbol) pool += SYMBOLS;
+
+				var result = '';
+				for (var i = 0; i < state.length; i++) {
+					result += randomChar(pool);
+				}
+				return result;
+			}
+
+			function generatePin() {
+				var result = '';
+				for (var i = 0; i < state.length; i++) {
+					result += randomChar(NUMBERS);
+				}
+				return result;
+			}
+
+			function renderHint(text, ok) {
+				elements.hint.textContent = text;
+				elements.hint.classList.toggle('ok', !!ok);
+			}
+
+			function syncLength(value) {
+				var min = Number(elements.lengthRange.min);
+				var max = Number(elements.lengthRange.max);
+				var safe = Number(value);
+				if (Number.isNaN(safe)) safe = state.length;
+				safe = Math.max(min, Math.min(max, safe));
+				state.length = safe;
+				elements.lengthRange.value = String(safe);
+				elements.lengthInput.value = String(safe);
+			}
+
+			function setMode(mode) {
+				state.mode = mode;
+
+				var isPin = mode === 'pin';
+				elements.typeRandom.classList.toggle('active', !isPin);
+				elements.typePin.classList.toggle('active', isPin);
+				elements.typeRandom.setAttribute('aria-selected', String(!isPin));
+				elements.typePin.setAttribute('aria-selected', String(isPin));
+
+				elements.lengthRange.min = isPin ? '3' : '8';
+				elements.lengthRange.max = isPin ? '12' : '100';
+				elements.lengthInput.min = isPin ? '3' : '8';
+				elements.lengthInput.max = isPin ? '12' : '100';
+
+				elements.randomSwitches.style.display = isPin ? 'none' : 'grid';
+
+				var defaultLength = isPin ? 6 : 12;
+				syncLength(state.length || defaultLength);
+				generateAndDisplay('已根据模式自动生成');
+			}
+
+			function generateAndDisplay(hintText) {
+				var value = state.mode === 'pin' ? generatePin() : generateRandomPassword();
+				elements.result.value = value;
+				renderHint(hintText || '已自动生成', false);
+			}
+
+			function copyResult() {
+				if (!elements.result.value) {
+					renderHint('当前没有可复制的内容', false);
+					return;
+				}
+
+				if (navigator.clipboard && window.isSecureContext) {
+					navigator.clipboard.writeText(elements.result.value).then(function () {
+						renderHint('复制成功', true);
+					}).catch(function () {
+						fallbackCopy();
+					});
+					return;
+				}
+
+				fallbackCopy();
+			}
+
+			function fallbackCopy() {
+				elements.result.focus();
+				elements.result.select();
+				elements.result.setSelectionRange(0, elements.result.value.length);
+				try {
+					var ok = document.execCommand('copy');
+					renderHint(ok ? '复制成功' : '复制失败，请手动复制', ok);
+				} catch (error) {
+					renderHint('复制失败，请手动复制', false);
+				}
+			}
+
+			elements.typeRandom.addEventListener('click', function () {
+				setMode('random');
+			});
+
+			elements.typePin.addEventListener('click', function () {
+				setMode('pin');
+			});
+
+			elements.lengthRange.addEventListener('input', function (event) {
+				syncLength(event.target.value);
+				generateAndDisplay('长度变更，已自动生成');
+			});
+
+			elements.lengthInput.addEventListener('input', function (event) {
+				syncLength(event.target.value);
+				generateAndDisplay('长度变更，已自动生成');
+			});
+
+			elements.withNumber.addEventListener('change', function (event) {
+				state.withNumber = !!event.target.checked;
+				generateAndDisplay('选项变更，已自动生成');
+			});
+
+			elements.withSymbol.addEventListener('change', function (event) {
+				state.withSymbol = !!event.target.checked;
+				generateAndDisplay('选项变更，已自动生成');
+			});
+
+			elements.refreshBtn.addEventListener('click', function () {
+				generateAndDisplay('已刷新密码');
+			});
+
+			elements.copyBtn.addEventListener('click', copyResult);
+
+			setMode('random');
+			generateAndDisplay('已自动生成');
+		})();
+	</script>
+</body>
+
+</html>

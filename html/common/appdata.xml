@@ -56,4 +56,18 @@
         <tag>工具</tag>
         <newpage>1</newpage>
     </app>
+    <app>
+        <id>app9</id>
+        <url>application/key-generator/index.html</url>
+        <name>密码生成器</name>
+        <tag>安全</tag>
+        <newpage>1</newpage>
+    </app>
+    <app>
+        <id>app10</id>
+        <url>application/hex-tool/index.html</url>
+        <name>16进制工具</name>
+        <tag>开发工具</tag>
+        <newpage>1</newpage>
+    </app>
 </apps>
