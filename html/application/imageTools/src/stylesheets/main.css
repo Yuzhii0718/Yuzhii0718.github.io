@@ -38,6 +38,8 @@ body {
 .nav-links {
     display: flex;
     list-style: none;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .nav-links li {
@@ -110,6 +112,7 @@ h1 {
     text-align: left;
     width: 50%;
     max-width: 600px;
+    word-break: break-word;
 }
 
 /* 模态框样式 */
@@ -263,17 +266,94 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        padding: 12px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        gap: 6px;
+    }
+
     .content {
         padding: 1rem;
     }
 
     .nav-links li {
-        margin-left: .5rem;
+        margin-left: 0;
     }
 
     .nav-links a {
         padding: .4rem .6rem;
         font-size: 14px;
+    }
+
+    .page {
+        padding: 14px;
+    }
+
+    .modal-content {
+        width: 92%;
+        margin: 8% auto;
+        padding: 14px;
+    }
+
+    .batch-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .batch-upload,
+    .batch-controls .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .batch-list li.batch-row {
+        align-items: flex-start;
+    }
+
+    .batch-row-text {
+        white-space: normal;
+        line-height: 1.4;
+    }
+
+    .image-info {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 10px;
+        gap: 12px;
+    }
+
+    .batch-panel {
+        padding: 12px;
+    }
+
+    .batch-title {
+        font-size: 16px;
+    }
+
+    .batch-subtitle,
+    .batch-progress-text {
+        font-size: 12px;
+    }
+
+    .close-modal {
+        font-size: 24px;
     }
 }
 

@@ -428,98 +428,6 @@
       </tags>
   </entry>
   <entry>
-    <title>OpenWrt 标准 ubootmod 模式适配(Mediatek)</title>
-    <url>/2026/02/21/1/</url>
-    <content><![CDATA[<p>尽管在 U-Boot-MTK 2025 已经官方支持了 FIT/ITB 固件</p>
-<p>对于使用 MTD 设备的板型，所使用的 FIP，并非意味着能够直接使用 ubootmod 模式。</p>
-<blockquote>
-<p>ubootmod 模式是一种特殊的 U-Boot 模式，实际支持的是 <code>OpenWrt U-Boot layout</code>。</p>
-</blockquote>
-<p>不代表能直接刷写来自主线的镜像，必须满足以下条件：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>需要在设备树中正确配置 ubootmod 模式的相关节点和属性。</p>
-</li>
-<li class="lvl-2">
-<p>需要在设备树中正确配置 MTD 设备的相关节点和属性。</p>
-</li>
-<li class="lvl-2">
-<p>U-Boot 需要支持 ubootmod 模式，并且需要正确配置和编译 U-Boot 以启用该模式。</p>
-</li>
-</ul>
-<p>如果满足以上条件，理论上应该能够使用 ubootmod 模式来刷写来自主线的镜像。然而，实际情况可能会因具体的硬件平台、U-Boot 版本和设备树配置而有所不同。因此，在切换到 ubootmod 变体后，建议仔细检查设备树配置和 U-Boot 的支持情况，以确保能够成功使用 ubootmod 模式来刷写来自主线的镜像。</p>
-<h2 id="对于固件的要求">对于固件的要求</h2>
-<ol>
-<li class="lvl-3">
-<p>固件必须使用 <code>OpenWrt U-Boot layout</code> 格式进行构建。</p>
-</li>
-<li class="lvl-3">
-<p>[可选] 固件必须禁用 NMBM 支持。</p>
-</li>
-</ol>
-<h3 id="OpenWrt-U-Boot-layout">OpenWrt U-Boot layout</h3>
-<p><code>&amp;chosen</code> 节点下必须包含以下属性：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>rootdisk = &lt;&amp;ubi_fit_volume&gt;;<br>
-指向 UBI 卷的 phandle，表示根文件系统所在的 UBI 卷。</p>
-</li>
-<li class="lvl-2">
-<p>[可选] bootargs = “root=/dev/fit0 rootwait”;<br>
-指定内核启动参数，告诉内核从 fit0 设备加载根文件系统，并等待设备准备就绪。</p>
-</li>
-</ul>
-<p><code>&amp;partitions</code> 节点下必须包含以下分区/卷：</p>
-<p>e.g.：</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="title class_">partition@580000</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">compatible</span> <span class="operator">=</span> <span class="string">&quot;linux,ubi&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;ubi&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x580000</span> <span class="number">0x7a80000</span>&gt;</span><span class="punctuation">;</span></span><br><span class="line"></span><br><span class="line">    <span class="title class_">volumes</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="symbol">        ubi_rootdisk:</span> <span class="title class_">ubi-volume-fit</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">volname</span> <span class="operator">=</span> <span class="string">&quot;fit&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
-<p>其他 [可选] 卷、节点：</p>
-<p>e.g.：</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">ubi_ubootenv:</span> <span class="title class_">ubi-volume-ubootenv</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">volname</span> <span class="operator">=</span> <span class="string">&quot;ubootenv&quot;</span><span class="punctuation">;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">ubi_ubootenv2:</span> <span class="title class_">ubi-volume-ubootenv2</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">volname</span> <span class="operator">=</span> <span class="string">&quot;ubootenv2&quot;</span><span class="punctuation">;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
-<p>如果包含上面两个 ubi_ubootenv 卷，[可选] 还需以下节点：</p>
-<p>e.g.：</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="variable">&amp;ubi_ubootenv</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">nvmem-layout</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">compatible</span> <span class="operator">=</span> <span class="string">&quot;u-boot,env-redundant-bool&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">&amp;ubi_ubootenv2</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">nvmem-layout</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">compatible</span> <span class="operator">=</span> <span class="string">&quot;u-boot,env-redundant-bool&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Makefile-相关配置">Makefile 相关配置</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>删除 IMAGE 相关的配置。</p>
-</li>
-<li class="lvl-2">
-<p>添加以下配置：</p>
-</li>
-</ul>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">KERNEL_IN_UBI := 1</span><br><span class="line">UBOOTENV_IN_UBI := 1</span><br><span class="line">IMAGES := sysupgrade.itb</span><br><span class="line">KERNEL_INITRAMFS_SUFFIX := -recovery.itb</span><br><span class="line">KERNEL := kernel-bin | gzip</span><br><span class="line">KERNEL_INITRAMFS := kernel-bin | lzma | \</span><br><span class="line">    fit lzma $<span class="variable">$(KDIR)</span>/image-$<span class="variable">$(<span class="built_in">firstword</span> $<span class="variable">$(DEVICE_DTS)</span>)</span>.dtb with-initrd | pad-to 64k</span><br><span class="line">IMAGE/sysupgrade.itb := append-kernel | \</span><br><span class="line">    fit gzip $<span class="variable">$(KDIR)</span>/image-$<span class="variable">$(<span class="built_in">firstword</span> $<span class="variable">$(DEVICE_DTS)</span>)</span>.dtb external-static-with-rootfs | append-metadata</span><br><span class="line">ARTIFACTS := preloader.bin bl31-uboot.fip</span><br><span class="line">ARTIFACT/preloader.bin := mt7981-bl2 spim-nand-ddr3</span><br><span class="line">ARTIFACT/bl31-uboot.fip := mt7981-bl31-uboot board_name</span><br></pre></td></tr></table></figure>
-<h2 id="对于-U-Boot-的要求">对于 U-Boot 的要求</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>删除 <code>CONFIG_ENV_SIZE</code> 和 <code>CONFIG_ENV_OFFSET</code> 相关的配置。</p>
-</li>
-<li class="lvl-2">
-<p>删除 <code>CONFIG_ENV_IS_IN_MTD</code> 和 <code>CONFIG_ENV_SIZE_REDUND</code> 相关的配置。</p>
-</li>
-<li class="lvl-2">
-<p>删除 <code>CONFIG_ENV_MTD_DEV</code>/<code>CONFIG_ENV_MTD_NAME</code> 相关的配置。</p>
-</li>
-<li class="lvl-2">
-<p>[可选] 删除/调整与 <code>NMBM</code> 相关的配置。</p>
-</li>
-<li class="lvl-2">
-<p>添加以下配置：</p>
-</li>
-</ul>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">CONFIG_ENV_IS_IN_UBI=y</span><br><span class="line">CONFIG_ENV_SIZE=0x1f000 <span class="comment"># 或者根据实际情况设置合适的大小，e.g. 0x20000</span></span><br><span class="line">CONFIG_SYS_REDUNDAND_ENVIRONMENT=y</span><br><span class="line">CONFIG_ENV_UBI_PART=<span class="string">&quot;ubi&quot;</span></span><br><span class="line">CONFIG_ENV_UBI_VOLUME=<span class="string">&quot;ubootenv&quot;</span></span><br><span class="line">CONFIG_ENV_UBI_VOLUME_REDUND=<span class="string">&quot;ubootenv2&quot;</span></span><br><span class="line">CONFIG_ENV_UBI_VOLUME_CREATE=y</span><br><span class="line">CONFIG_MTK_BOOTMENU_UBI=y</span><br></pre></td></tr></table></figure>
-<p>[可选] 配置：</p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">CONFIG_MTK_UBI_RESERVED_VOLUMES=<span class="string">&quot;factory=2m&quot;</span> <span class="comment"># 默认启用，根据实际情况调整大小和名称</span></span><br><span class="line">CONFIG_MTK_DEFAULT_FIT_BOOT_CONF=<span class="string">&quot;mt7981-rfb-spim-nand&quot;</span></span><br><span class="line">CONFIG_UBI_SILENCE_MSG=y</span><br></pre></td></tr></table></figure>
-<p>需要正确配置分区表，与固件中配置的分区表保持一致，确保 U-Boot 能够正确识别和访问 UBI 卷。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>玩机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MTK U-Boot mtd-layout 节点参数说明</title>
     <url>/2026/02/21/2/</url>
     <content><![CDATA[<p>影响文件：</p>
@@ -759,6 +667,98 @@ e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
 <p>如果要区分 UBI 与 raw 分区，确保 <code>boot_part</code> / <code>factory_part</code> 与 <code>mtdparts</code> 中分区名一致</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenWrt 标准 ubootmod 模式适配(Mediatek)</title>
+    <url>/2026/02/21/1/</url>
+    <content><![CDATA[<p>尽管在 U-Boot-MTK 2025 已经官方支持了 FIT/ITB 固件</p>
+<p>对于使用 MTD 设备的板型，所使用的 FIP，并非意味着能够直接使用 ubootmod 模式。</p>
+<blockquote>
+<p>ubootmod 模式是一种特殊的 U-Boot 模式，实际支持的是 <code>OpenWrt U-Boot layout</code>。</p>
+</blockquote>
+<p>不代表能直接刷写来自主线的镜像，必须满足以下条件：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>需要在设备树中正确配置 ubootmod 模式的相关节点和属性。</p>
+</li>
+<li class="lvl-2">
+<p>需要在设备树中正确配置 MTD 设备的相关节点和属性。</p>
+</li>
+<li class="lvl-2">
+<p>U-Boot 需要支持 ubootmod 模式，并且需要正确配置和编译 U-Boot 以启用该模式。</p>
+</li>
+</ul>
+<p>如果满足以上条件，理论上应该能够使用 ubootmod 模式来刷写来自主线的镜像。然而，实际情况可能会因具体的硬件平台、U-Boot 版本和设备树配置而有所不同。因此，在切换到 ubootmod 变体后，建议仔细检查设备树配置和 U-Boot 的支持情况，以确保能够成功使用 ubootmod 模式来刷写来自主线的镜像。</p>
+<h2 id="对于固件的要求">对于固件的要求</h2>
+<ol>
+<li class="lvl-3">
+<p>固件必须使用 <code>OpenWrt U-Boot layout</code> 格式进行构建。</p>
+</li>
+<li class="lvl-3">
+<p>[可选] 固件必须禁用 NMBM 支持。</p>
+</li>
+</ol>
+<h3 id="OpenWrt-U-Boot-layout">OpenWrt U-Boot layout</h3>
+<p><code>&amp;chosen</code> 节点下必须包含以下属性：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>rootdisk = &lt;&amp;ubi_fit_volume&gt;;<br>
+指向 UBI 卷的 phandle，表示根文件系统所在的 UBI 卷。</p>
+</li>
+<li class="lvl-2">
+<p>[可选] bootargs = “root=/dev/fit0 rootwait”;<br>
+指定内核启动参数，告诉内核从 fit0 设备加载根文件系统，并等待设备准备就绪。</p>
+</li>
+</ul>
+<p><code>&amp;partitions</code> 节点下必须包含以下分区/卷：</p>
+<p>e.g.：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="title class_">partition@580000</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">compatible</span> <span class="operator">=</span> <span class="string">&quot;linux,ubi&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;ubi&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x580000</span> <span class="number">0x7a80000</span>&gt;</span><span class="punctuation">;</span></span><br><span class="line"></span><br><span class="line">    <span class="title class_">volumes</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="symbol">        ubi_rootdisk:</span> <span class="title class_">ubi-volume-fit</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">volname</span> <span class="operator">=</span> <span class="string">&quot;fit&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
+<p>其他 [可选] 卷、节点：</p>
+<p>e.g.：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">ubi_ubootenv:</span> <span class="title class_">ubi-volume-ubootenv</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">volname</span> <span class="operator">=</span> <span class="string">&quot;ubootenv&quot;</span><span class="punctuation">;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">ubi_ubootenv2:</span> <span class="title class_">ubi-volume-ubootenv2</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">volname</span> <span class="operator">=</span> <span class="string">&quot;ubootenv2&quot;</span><span class="punctuation">;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
+<p>如果包含上面两个 ubi_ubootenv 卷，[可选] 还需以下节点：</p>
+<p>e.g.：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="variable">&amp;ubi_ubootenv</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">nvmem-layout</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">compatible</span> <span class="operator">=</span> <span class="string">&quot;u-boot,env-redundant-bool&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">&amp;ubi_ubootenv2</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">nvmem-layout</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">compatible</span> <span class="operator">=</span> <span class="string">&quot;u-boot,env-redundant-bool&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Makefile-相关配置">Makefile 相关配置</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>删除 IMAGE 相关的配置。</p>
+</li>
+<li class="lvl-2">
+<p>添加以下配置：</p>
+</li>
+</ul>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">KERNEL_IN_UBI := 1</span><br><span class="line">UBOOTENV_IN_UBI := 1</span><br><span class="line">IMAGES := sysupgrade.itb</span><br><span class="line">KERNEL_INITRAMFS_SUFFIX := -recovery.itb</span><br><span class="line">KERNEL := kernel-bin | gzip</span><br><span class="line">KERNEL_INITRAMFS := kernel-bin | lzma | \</span><br><span class="line">    fit lzma $<span class="variable">$(KDIR)</span>/image-$<span class="variable">$(<span class="built_in">firstword</span> $<span class="variable">$(DEVICE_DTS)</span>)</span>.dtb with-initrd | pad-to 64k</span><br><span class="line">IMAGE/sysupgrade.itb := append-kernel | \</span><br><span class="line">    fit gzip $<span class="variable">$(KDIR)</span>/image-$<span class="variable">$(<span class="built_in">firstword</span> $<span class="variable">$(DEVICE_DTS)</span>)</span>.dtb external-static-with-rootfs | append-metadata</span><br><span class="line">ARTIFACTS := preloader.bin bl31-uboot.fip</span><br><span class="line">ARTIFACT/preloader.bin := mt7981-bl2 spim-nand-ddr3</span><br><span class="line">ARTIFACT/bl31-uboot.fip := mt7981-bl31-uboot board_name</span><br></pre></td></tr></table></figure>
+<h2 id="对于-U-Boot-的要求">对于 U-Boot 的要求</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>删除 <code>CONFIG_ENV_SIZE</code> 和 <code>CONFIG_ENV_OFFSET</code> 相关的配置。</p>
+</li>
+<li class="lvl-2">
+<p>删除 <code>CONFIG_ENV_IS_IN_MTD</code> 和 <code>CONFIG_ENV_SIZE_REDUND</code> 相关的配置。</p>
+</li>
+<li class="lvl-2">
+<p>删除 <code>CONFIG_ENV_MTD_DEV</code>/<code>CONFIG_ENV_MTD_NAME</code> 相关的配置。</p>
+</li>
+<li class="lvl-2">
+<p>[可选] 删除/调整与 <code>NMBM</code> 相关的配置。</p>
+</li>
+<li class="lvl-2">
+<p>添加以下配置：</p>
+</li>
+</ul>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">CONFIG_ENV_IS_IN_UBI=y</span><br><span class="line">CONFIG_ENV_SIZE=0x1f000 <span class="comment"># 或者根据实际情况设置合适的大小，e.g. 0x20000</span></span><br><span class="line">CONFIG_SYS_REDUNDAND_ENVIRONMENT=y</span><br><span class="line">CONFIG_ENV_UBI_PART=<span class="string">&quot;ubi&quot;</span></span><br><span class="line">CONFIG_ENV_UBI_VOLUME=<span class="string">&quot;ubootenv&quot;</span></span><br><span class="line">CONFIG_ENV_UBI_VOLUME_REDUND=<span class="string">&quot;ubootenv2&quot;</span></span><br><span class="line">CONFIG_ENV_UBI_VOLUME_CREATE=y</span><br><span class="line">CONFIG_MTK_BOOTMENU_UBI=y</span><br></pre></td></tr></table></figure>
+<p>[可选] 配置：</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">CONFIG_MTK_UBI_RESERVED_VOLUMES=<span class="string">&quot;factory=2m&quot;</span> <span class="comment"># 默认启用，根据实际情况调整大小和名称</span></span><br><span class="line">CONFIG_MTK_DEFAULT_FIT_BOOT_CONF=<span class="string">&quot;mt7981-rfb-spim-nand&quot;</span></span><br><span class="line">CONFIG_UBI_SILENCE_MSG=y</span><br></pre></td></tr></table></figure>
+<p>需要正确配置分区表，与固件中配置的分区表保持一致，确保 U-Boot 能够正确识别和访问 UBI 卷。</p>
 ]]></content>
       <categories>
         <category>Linux</category>

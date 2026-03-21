@@ -40,6 +40,7 @@
     gap: 20px;
     align-items: center;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 .settings-group label {
@@ -90,6 +91,7 @@
     gap: 10px;
     margin-bottom: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .process-option {
@@ -241,4 +243,75 @@
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+    .converter-container {
+        padding: 12px;
+    }
+
+    .file-drop-zone {
+        padding: 18px 12px;
+    }
+
+    .file-drop-zone i {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .settings-group {
+        gap: 8px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .settings-group label {
+        min-width: auto;
+    }
+
+    .settings-group input[type="number"],
+    .settings-group input[type="range"],
+    .settings-group .form-select,
+    .form-select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .process-option {
+        width: 100%;
+        text-align: center;
+        padding: 9px 10px;
+    }
+
+    .button-group .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #notification {
+        width: calc(100% - 28px);
+        max-width: 420px;
+        font-size: 14px;
+        padding: 14px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-container {
+        padding: 12px;
+    }
+
+    .panel {
+        padding: 12px;
+    }
 }
