@@ -7,11 +7,12 @@
 body {
     font-family: 'Microsoft YaHei', sans-serif;
     line-height: 1.6;
+    background: linear-gradient(180deg, #f4f7fb 0%, #f8fbff 100%);
 }
 
 /* 导航栏样式 */
 .navbar {
-    background-color: #2c3e50;
+    background: linear-gradient(120deg, #1f2b3a 0%, #25374d 100%);
     color: white;
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -65,11 +66,17 @@ body {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    gap: 16px;
 }
 
 .page {
     display: none;
     padding: 20px;
+    border: 1px solid #e6edf5;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
     animation: fadeIn 0.5s;
 }
 
@@ -127,6 +134,147 @@ h1 {
     width: 70%;
     max-width: 600px;
     animation: modalFade 0.3s ease;
+}
+
+.batch-panel {
+    border: 1px solid #e6edf5;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+    padding: 16px;
+}
+
+.batch-title {
+    margin: 0;
+    color: #1f2d3d;
+    font-size: 18px;
+}
+
+.batch-subtitle {
+    margin: 6px 0 0;
+    color: #667085;
+    font-size: 13px;
+}
+
+.batch-controls {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.batch-upload {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px dashed #9db9df;
+    border-radius: 10px;
+    background: #f5f9ff;
+    color: #1d4f91;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.batch-upload input {
+    display: none;
+}
+
+.batch-list {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+    max-height: 220px;
+    overflow: auto;
+}
+
+.batch-list li {
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #ebf1f8;
+    font-size: 13px;
+    color: #334155;
+}
+
+.batch-list li.batch-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.batch-row-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.batch-remove-btn {
+    border: 1px solid #f1c0c0;
+    border-radius: 8px;
+    background: #fff5f5;
+    color: #a62c2c;
+    font-size: 12px;
+    padding: 4px 8px;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.batch-remove-btn:hover {
+    background: #ffe9e9;
+}
+
+.batch-list li.success {
+    border-color: #bde7ce;
+    background: #f0fbf5;
+    color: #146b3a;
+}
+
+.batch-list li.error {
+    border-color: #f3c4c4;
+    background: #fff5f5;
+    color: #9f2c2c;
+}
+
+.batch-progress {
+    margin-top: 12px;
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background: #e8edf5;
+    overflow: hidden;
+}
+
+.batch-progress-bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #1d8bff, #3b82f6);
+    transition: width .2s ease;
+}
+
+.batch-progress-text {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .nav-links li {
+        margin-left: .5rem;
+    }
+
+    .nav-links a {
+        padding: .4rem .6rem;
+        font-size: 14px;
+    }
 }
 
 @keyframes modalFade {

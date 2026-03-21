@@ -374,6 +374,37 @@
             </button>
         </div>
         <!-- Function button end -->
+
+        <!-- Batch tool start -->
+        <div class="batch-panel panel">
+            <h3 class="batch-title">批量处理</h3>
+            <p class="batch-subtitle">按当前页签与当前参数对多张图片连续处理并下载。</p>
+            <div class="batch-controls">
+                <label class="batch-upload">
+                    <i class="fas fa-images"></i>
+                    <span>选择多张图片</span>
+                    <input type="file" id="batchFileInput" accept="image/*" multiple>
+                </label>
+                <button class="btn btn-primary" id="batchProcessBtn" disabled>
+                    <i class="fas fa-layer-group"></i>
+                    <span class="zh-text">批量处理并下载 ZIP</span>
+                </button>
+                <button class="btn btn-secondary" id="batchCancelBtn" disabled>
+                    <i class="fas fa-ban"></i>
+                    <span class="zh-text">取消</span>
+                </button>
+                <button class="btn btn-secondary" id="batchClearBtn" disabled>
+                    <i class="fas fa-eraser"></i>
+                    <span class="zh-text">清空队列</span>
+                </button>
+            </div>
+            <div class="batch-progress" id="batchProgressWrap" hidden>
+                <div class="batch-progress-bar" id="batchProgressBar"></div>
+            </div>
+            <p class="batch-progress-text" id="batchProgressText"></p>
+            <ul class="batch-list" id="batchList"></ul>
+        </div>
+        <!-- Batch tool end -->
     </div>
     <!-- Content end -->
 
@@ -397,36 +428,8 @@
     <!-- Modal end -->
 
     <!-- js start -->
-    <script>
-        // 页面切换逻辑
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pages = document.querySelectorAll('.page');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    // 移除所有导航链接的激活状态
-                    navLinks.forEach(item => item.classList.remove('active'));
-
-                    // 给当前点击的导航链接添加激活状态
-                    link.classList.add('active');
-
-                    // 获取要显示的页面ID
-                    const pageId = link.getAttribute('data-page');
-
-                    // 隐藏所有页面
-                    pages.forEach(page => page.classList.remove('active'));
-
-                    // 显示当前选中的页面
-                    document.getElementById(pageId).classList.add('active');
-                });
-            });
-        });
-    </script>
-
     <script src="src/javascripts/showNotification.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="src/javascripts/main.js"></script>
     <script src="src/javascripts/ImageResizeTool.js"></script>
     <script src="src/javascripts/ImageCompressionTool.js"></script>
