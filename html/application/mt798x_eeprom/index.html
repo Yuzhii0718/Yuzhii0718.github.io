@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>mt798x EEPROM 功率修改工具</title>
 
-	<meta name="keywords" content="mt798x, EEPROM, 功率修改, 工具">
-	<meta name="description" content="一个用于修改mt798x EEPROM功率的工具，支持直观的界面操作。">
+	<meta id="meta-keywords" name="keywords" content="mt798x, EEPROM, 功率修改, 工具">
+	<meta id="meta-description" name="description" content="一个用于修改mt798x EEPROM功率的工具，支持直观的界面操作。">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -97,6 +97,42 @@
 		}
 
 		.panel-body { padding: 14px 16px 16px; }
+
+		.lang-switch {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+			flex-wrap: wrap;
+			margin-bottom: 10px;
+		}
+
+		.lang-switch-label {
+			font-size: 13px;
+			color: var(--muted);
+		}
+
+		.lang-options {
+			display: inline-flex;
+			gap: 6px;
+		}
+
+		.lang-btn {
+			appearance: none;
+			border: 1px solid var(--panel-border);
+			border-radius: 999px;
+			padding: 6px 10px;
+			font-size: 12px;
+			font-weight: 700;
+			color: var(--text);
+			background: rgba(255, 255, 255, 0.04);
+			cursor: pointer;
+		}
+
+		.lang-btn.active {
+			border-color: rgba(96, 165, 250, 0.7);
+			background: rgba(96, 165, 250, 0.16);
+		}
 
 		.grid {
 			display: grid;
@@ -286,34 +322,43 @@
 </head>
 
 <body>
-	<main class="app" aria-label="mt798x EEPROM 功率修改工具">
+	<main id="main-app" class="app" aria-label="mt798x EEPROM 功率修改工具">
 		<section class="panel">
 			<div class="panel-header">
-				<h1>mt798x EEPROM 功率修改工具</h1>
-				<p>请先选择芯片方案，再上传 Factory EEPROM（二进制）并填写参数（20~2D）。</p>
+				<h1 id="main-title">mt798x EEPROM 功率修改工具</h1>
+				<p id="main-desc">请先选择芯片方案，再上传 Factory EEPROM（二进制）并填写参数（20~2D）。</p>
 			</div>
 			<div class="panel-body">
+				<div class="lang-switch" aria-label="language switcher">
+					<span id="lang-switch-label" class="lang-switch-label">语言</span>
+					<div class="lang-options" id="lang-options">
+						<button class="lang-btn active" type="button" data-lang-mode="auto">Auto</button>
+						<button class="lang-btn" type="button" data-lang-mode="zh-CN">简体中文</button>
+						<button class="lang-btn" type="button" data-lang-mode="en">English</button>
+					</div>
+				</div>
+
 				<div class="grid" id="chip-cards">
 					<label class="chip-card active" data-chip="mt7976">
-						<div class="chip-title"><input type="radio" name="chip" value="mt7976" checked>mt7976（mt7981内置PA / mt7986外置FEM）</div>
-						<p class="chip-info">参考偏移：5G 为 0x441~0x458，2.4G 为 0x465~0x484（含边界）。将对应字节改为同一参数值。</p>
+						<div class="chip-title"><input type="radio" name="chip" value="mt7976" checked><span id="chip-title-mt7976">mt7976（mt7981内置PA / mt7986外置FEM）</span></div>
+						<p id="chip-info-mt7976" class="chip-info">参考偏移：5G 为 0x441~0x458，2.4G 为 0x465~0x484（含边界）。将对应字节改为同一参数值。</p>
 					</label>
 					<label class="chip-card" data-chip="mt7975">
-						<div class="chip-title"><input type="radio" name="chip" value="mt7975">mt7975（mt7986内置FEM）</div>
-						<p class="chip-info">参考偏移：0x34B~0x352、0x357~0x35E、0x363~0x36A、0x36F~0x376（含边界）。</p>
+						<div class="chip-title"><input type="radio" name="chip" value="mt7975"><span id="chip-title-mt7975">mt7975（mt7986内置FEM）</span></div>
+						<p id="chip-info-mt7975" class="chip-info">参考偏移：0x34B~0x352、0x357~0x35E、0x363~0x36A、0x36F~0x376（含边界）。</p>
 					</label>
 				</div>
 
 				<div class="field">
-					<label for="value-input">功率参数（十六进制，范围 20~2D）</label>
+					<label id="value-label" for="value-input">功率参数（十六进制，范围 20~2D）</label>
 					<input id="value-input" type="text" value="2B" maxlength="2" placeholder="例如 2B">
 				</div>
 
 				<div class="field">
-					<label for="file-input">上传 EEPROM 文件（.bin / .img，最大 2MB）</label>
+					<label id="file-label" for="file-input">上传 EEPROM 文件（.bin / .img，最大 2MB）</label>
 					<label id="dropzone" class="dropzone" for="file-input">
-						<span class="dropzone-title">点击选择文件 或 直接拖拽到此处</span>
-						<span class="dropzone-sub">支持 .bin / .img，大小不超过 2MB</span>
+						<span id="dropzone-title" class="dropzone-title">点击选择文件 或 直接拖拽到此处</span>
+						<span id="dropzone-sub" class="dropzone-sub">支持 .bin / .img，大小不超过 2MB</span>
 						<input id="file-input" type="file" accept=".bin,.img">
 					</label>
 				</div>
@@ -330,17 +375,17 @@
 
 		<section class="panel">
 			<div class="panel-header">
-				<h2>片段对比（约 0x1000 大小）</h2>
-				<p>左侧原始内容，右侧修改后内容；坐标轴为地址行（Y）和列（X），修改字节已高亮。</p>
+				<h2 id="compare-heading">片段对比（约 0x1000 大小）</h2>
+				<p id="compare-desc">左侧原始内容，右侧修改后内容；坐标轴为地址行（Y）和列（X），修改字节已高亮。</p>
 			</div>
 			<div class="panel-body">
 				<div class="compare-wrap">
 					<div class="compare-box">
-						<div class="compare-title">原始 EEPROM</div>
+						<div id="before-title" class="compare-title">原始 EEPROM</div>
 						<pre id="before-view" class="hex-view">(等待生成)</pre>
 					</div>
 					<div class="compare-box">
-						<div class="compare-title">修改后 EEPROM</div>
+						<div id="after-title" class="compare-title">修改后 EEPROM</div>
 						<pre id="after-view" class="hex-view">(等待生成)</pre>
 					</div>
 				</div>
@@ -352,6 +397,102 @@
 		(function () {
 			var MAX_SIZE = 2 * 1024 * 1024;
 			var WINDOW_SIZE = 0x1000;
+			var LANG_STORAGE_KEY = 'mt798x_eeprom_lang_mode';
+
+			var I18N = {
+				'zh-CN': {
+					page_title: 'mt798x EEPROM 功率修改工具',
+					meta_keywords: 'mt798x, EEPROM, 功率修改, 工具',
+					meta_description: '一个用于修改mt798x EEPROM功率的工具，支持直观的界面操作。',
+					app_aria_label: 'mt798x EEPROM 功率修改工具',
+					heading_main: 'mt798x EEPROM 功率修改工具',
+					intro_main: '请先选择芯片方案，再上传 Factory EEPROM（二进制）并填写参数（20~2D）。',
+					lang_label: '语言',
+					lang_auto: '自动',
+					lang_zh: '简体中文',
+					lang_en: 'English',
+					chip_title_mt7976: 'mt7976（mt7981内置PA / mt7986外置FEM）',
+					chip_info_mt7976: '参考偏移：5G 为 0x441~0x458，2.4G 为 0x465~0x484（含边界）。将对应字节改为同一参数值。',
+					chip_title_mt7975: 'mt7975（mt7986内置FEM）',
+					chip_info_mt7975: '参考偏移：0x34B~0x352、0x357~0x35E、0x363~0x36A、0x36F~0x376（含边界）。',
+					label_value: '功率参数（十六进制，范围 20~2D）',
+					placeholder_value: '例如 2B',
+					label_file: '上传 EEPROM 文件（.bin / .img，最大 2MB）',
+					dropzone_title: '点击选择文件 或 直接拖拽到此处',
+					dropzone_sub: '支持 .bin / .img，大小不超过 2MB',
+					btn_apply: '生成修改文件',
+					btn_download: '下载修改后文件',
+					hint_waiting_upload: '等待上传文件。',
+					compare_heading: '片段对比（约 0x1000 大小）',
+					compare_desc: '左侧原始内容，右侧修改后内容；坐标轴为地址行（Y）和列（X），修改字节已高亮。',
+					compare_before_title: '原始 EEPROM',
+					compare_after_title: '修改后 EEPROM',
+					compare_waiting: '(等待生成)',
+					compare_waiting_after_apply: '(点击“生成修改文件”后展示)',
+					err_no_file_selected: '未选择文件',
+					err_invalid_ext: '仅支持 .bin / .img 格式',
+					err_file_too_large: '文件大小不能超过 2MB',
+					err_invalid_param: '参数无效：请输入 20~2D 的十六进制值。',
+					warn_upload_first: '请先上传 EEPROM 文件。',
+					err_file_too_small_offset: '文件过小：目标偏移超出文件范围。',
+					ok_patch_ready: '已生成修改结果，可下载。请自行评估硬件散热与稳定性。',
+					ok_file_loaded: '文件已载入：{name}（{size} bytes）',
+					err_file_read: '文件读取失败。',
+					warn_chip_switched: '已切换芯片方案，请重新生成修改文件。',
+					ok_download_triggered: '下载已触发：{filename}',
+					meta_chip: '芯片方案',
+					meta_value: '参数值',
+					meta_changed_count: '修改字节数',
+					meta_window: '展示窗口',
+					meta_md5: 'MD5'
+				},
+				en: {
+					page_title: 'mt798x EEPROM Power Patch Tool',
+					meta_keywords: 'mt798x, EEPROM, power patch, tool',
+					meta_description: 'A visual tool for editing mt798x EEPROM power values.',
+					app_aria_label: 'mt798x EEPROM Power Patch Tool',
+					heading_main: 'mt798x EEPROM Power Patch Tool',
+					intro_main: 'Select the chip profile, upload Factory EEPROM (binary), then fill the parameter value (20~2D).',
+					lang_label: 'Language',
+					lang_auto: 'Auto',
+					lang_zh: '简体中文',
+					lang_en: 'English',
+					chip_title_mt7976: 'mt7976 (mt7981 built-in PA / mt7986 external FEM)',
+					chip_info_mt7976: 'Reference ranges: 5G is 0x441~0x458, 2.4G is 0x465~0x484 (inclusive). Set all target bytes to the same parameter value.',
+					chip_title_mt7975: 'mt7975 (mt7986 built-in FEM)',
+					chip_info_mt7975: 'Reference ranges: 0x34B~0x352, 0x357~0x35E, 0x363~0x36A, 0x36F~0x376 (inclusive).',
+					label_value: 'Power parameter (hex, range 20~2D)',
+					placeholder_value: 'e.g. 2B',
+					label_file: 'Upload EEPROM file (.bin / .img, max 2MB)',
+					dropzone_title: 'Click to choose a file or drag it here',
+					dropzone_sub: 'Supports .bin / .img, up to 2MB',
+					btn_apply: 'Generate Patched File',
+					btn_download: 'Download Patched File',
+					hint_waiting_upload: 'Waiting for file upload.',
+					compare_heading: 'Snippet Comparison (about 0x1000)',
+					compare_desc: 'Original content on the left, patched content on the right; Y is address rows and X is byte columns, changed bytes are highlighted.',
+					compare_before_title: 'Original EEPROM',
+					compare_after_title: 'Patched EEPROM',
+					compare_waiting: '(Waiting to generate)',
+					compare_waiting_after_apply: '(Preview appears after clicking "Generate Patched File")',
+					err_no_file_selected: 'No file selected.',
+					err_invalid_ext: 'Only .bin / .img files are supported.',
+					err_file_too_large: 'File size must not exceed 2MB.',
+					err_invalid_param: 'Invalid value: please enter a hex value from 20 to 2D.',
+					warn_upload_first: 'Please upload an EEPROM file first.',
+					err_file_too_small_offset: 'File is too small: target offset is out of range.',
+					ok_patch_ready: 'Patch generated. You can download now. Please evaluate thermal and stability risks yourself.',
+					ok_file_loaded: 'File loaded: {name} ({size} bytes)',
+					err_file_read: 'Failed to read file.',
+					warn_chip_switched: 'Chip profile changed. Please generate the patched file again.',
+					ok_download_triggered: 'Download triggered: {filename}',
+					meta_chip: 'Chip profile',
+					meta_value: 'Parameter value',
+					meta_changed_count: 'Changed bytes',
+					meta_window: 'Display window',
+					meta_md5: 'MD5'
+				}
+			};
 
 			var CHIP_RANGES = {
 				mt7976: [
@@ -371,12 +512,53 @@
 			var valueInput = document.getElementById('value-input');
 			var applyBtn = document.getElementById('apply-btn');
 			var downloadBtn = document.getElementById('download-btn');
+			var metaKeywords = document.getElementById('meta-keywords');
+			var metaDescription = document.getElementById('meta-description');
+			var mainApp = document.getElementById('main-app');
+			var mainTitle = document.getElementById('main-title');
+			var mainDesc = document.getElementById('main-desc');
+			var langSwitchLabel = document.getElementById('lang-switch-label');
+			var langButtons = document.querySelectorAll('.lang-btn');
+			var chipTitleMt7976 = document.getElementById('chip-title-mt7976');
+			var chipInfoMt7976 = document.getElementById('chip-info-mt7976');
+			var chipTitleMt7975 = document.getElementById('chip-title-mt7975');
+			var chipInfoMt7975 = document.getElementById('chip-info-mt7975');
+			var valueLabel = document.getElementById('value-label');
+			var fileLabel = document.getElementById('file-label');
+			var dropzoneTitle = document.getElementById('dropzone-title');
+			var dropzoneSub = document.getElementById('dropzone-sub');
+			var compareHeading = document.getElementById('compare-heading');
+			var compareDesc = document.getElementById('compare-desc');
+			var beforeTitle = document.getElementById('before-title');
+			var afterTitle = document.getElementById('after-title');
 			var hint = document.getElementById('hint');
 			var beforeView = document.getElementById('before-view');
 			var afterView = document.getElementById('after-view');
 			var meta = document.getElementById('meta');
 			var chipCards = document.querySelectorAll('.chip-card');
 			var chipInputs = document.querySelectorAll('input[name="chip"]');
+
+			function normalizeLang(input) {
+				var lang = (input || '').toLowerCase();
+				if (lang.indexOf('zh') === 0) return 'zh-CN';
+				return 'en';
+			}
+
+			function loadLangMode() {
+				try {
+					var saved = localStorage.getItem(LANG_STORAGE_KEY);
+					if (saved === 'auto' || saved === 'zh-CN' || saved === 'en') return saved;
+				} catch (e) {
+					// ignore storage read errors
+				}
+				return 'auto';
+			}
+
+			function resolveLang(mode) {
+				if (mode === 'zh-CN' || mode === 'en') return mode;
+				var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+				return normalizeLang(nav);
+			}
 
 			var state = {
 				file: null,
@@ -386,13 +568,114 @@
 				md5: '',
 				changedOffsets: [],
 				patchValue: 0x2B,
-				chip: 'mt7976'
+				chip: 'mt7976',
+				compareStatus: 'waiting',
+				langMode: loadLangMode(),
+				lang: 'zh-CN',
+				hintKey: 'hint_waiting_upload',
+				hintParams: null,
+				hintType: ''
 			};
+
+			state.lang = resolveLang(state.langMode);
+
+			function t(key, params) {
+				var dict = I18N[state.lang] || I18N.en;
+				var fallback = I18N.en;
+				var text = dict[key] || fallback[key] || key;
+				if (!params) return text;
+				return text.replace(/\{([^}]+)\}/g, function (_, p1) {
+					if (Object.prototype.hasOwnProperty.call(params, p1)) {
+						return String(params[p1]);
+					}
+					return _;
+				});
+			}
+
+			function updateLangButtons() {
+				for (var i = 0; i < langButtons.length; i++) {
+					var btn = langButtons[i];
+					btn.classList.toggle('active', btn.getAttribute('data-lang-mode') === state.langMode);
+				}
+			}
+
+			function applyI18nToDom() {
+				document.documentElement.lang = state.lang;
+				document.title = t('page_title');
+				metaKeywords.setAttribute('content', t('meta_keywords'));
+				metaDescription.setAttribute('content', t('meta_description'));
+
+				mainApp.setAttribute('aria-label', t('app_aria_label'));
+				mainTitle.textContent = t('heading_main');
+				mainDesc.textContent = t('intro_main');
+				langSwitchLabel.textContent = t('lang_label');
+
+				for (var i = 0; i < langButtons.length; i++) {
+					var mode = langButtons[i].getAttribute('data-lang-mode');
+					if (mode === 'auto') langButtons[i].textContent = t('lang_auto');
+					if (mode === 'zh-CN') langButtons[i].textContent = t('lang_zh');
+					if (mode === 'en') langButtons[i].textContent = t('lang_en');
+				}
+
+				chipTitleMt7976.textContent = t('chip_title_mt7976');
+				chipInfoMt7976.textContent = t('chip_info_mt7976');
+				chipTitleMt7975.textContent = t('chip_title_mt7975');
+				chipInfoMt7975.textContent = t('chip_info_mt7975');
+
+				valueLabel.textContent = t('label_value');
+				valueInput.setAttribute('placeholder', t('placeholder_value'));
+				fileLabel.textContent = t('label_file');
+				dropzoneTitle.textContent = t('dropzone_title');
+				dropzoneSub.textContent = t('dropzone_sub');
+				applyBtn.textContent = t('btn_apply');
+				downloadBtn.textContent = t('btn_download');
+
+				compareHeading.textContent = t('compare_heading');
+				compareDesc.textContent = t('compare_desc');
+				beforeTitle.textContent = t('compare_before_title');
+				afterTitle.textContent = t('compare_after_title');
+
+				if (state.hintKey) {
+					hint.textContent = t(state.hintKey, state.hintParams || {});
+				}
+
+				if (state.compareStatus === 'after-load') {
+					beforeView.textContent = t('compare_waiting_after_apply');
+					afterView.textContent = t('compare_waiting_after_apply');
+				} else if (state.compareStatus === 'waiting') {
+					beforeView.textContent = t('compare_waiting');
+					afterView.textContent = t('compare_waiting');
+				}
+
+				if (state.originalBytes && state.modifiedBytes && state.changedOffsets.length) {
+					refreshDiffViews();
+				}
+			}
+
+			function setLanguageMode(mode) {
+				state.langMode = mode;
+				state.lang = resolveLang(mode);
+				try {
+					localStorage.setItem(LANG_STORAGE_KEY, mode);
+				} catch (e) {
+					// ignore storage write errors
+				}
+				updateLangButtons();
+				applyI18nToDom();
+			}
 
 			function setHint(text, type) {
 				hint.textContent = text;
 				hint.className = 'hint';
 				if (type) hint.classList.add(type);
+				state.hintType = type || '';
+				if (!type) state.hintType = '';
+			}
+
+			function setHintByKey(key, type, params) {
+				state.hintKey = key;
+				state.hintParams = params || null;
+				setHint(t(key, params), type);
 			}
 
 			function toHex(num, width) {
@@ -419,13 +702,13 @@
 			}
 
 			function validateFile(file) {
-				if (!file) return '未选择文件';
+				if (!file) return 'err_no_file_selected';
 				var lower = file.name.toLowerCase();
 				if (!(lower.endsWith('.bin') || lower.endsWith('.img'))) {
-					return '仅支持 .bin / .img 格式';
+					return 'err_invalid_ext';
 				}
 				if (file.size > MAX_SIZE) {
-					return '文件大小不能超过 2MB';
+					return 'err_file_too_large';
 				}
 				return '';
 			}
@@ -499,7 +782,7 @@
 			function applyPatchToBytes() {
 				var value = parsePatchValue();
 				if (value === null) {
-					setHint('参数无效：请输入 20~2D 的十六进制值。', 'error');
+					setHintByKey('err_invalid_param', 'error');
 					return false;
 				}
 				state.patchValue = value;
@@ -507,7 +790,7 @@
 				var ranges = getActiveRanges();
 				var changedOffsets = collectChangedOffsets(ranges);
 				if (!state.originalBytes) {
-					setHint('请先上传 EEPROM 文件。', 'warn');
+					setHintByKey('warn_upload_first', 'warn');
 					return false;
 				}
 
@@ -515,7 +798,7 @@
 				for (var i = 0; i < changedOffsets.length; i++) {
 					var offset = changedOffsets[i];
 					if (offset >= bytes.length) {
-						setHint('文件过小：目标偏移超出文件范围。', 'error');
+						setHintByKey('err_file_too_small_offset', 'error');
 						return false;
 					}
 					bytes[offset] = value;
@@ -696,20 +979,22 @@
 				var valueHex = toHex(state.patchValue, 2);
 				var md5Short = state.md5 ? state.md5.slice(0, 8) : '--------';
 				meta.innerHTML = '' +
-					'<div>芯片方案：<strong>' + escapeHtml(state.chip) + '</strong></div>' +
-					'<div>参数值：<strong>0x' + valueHex + '</strong></div>' +
-					'<div>修改字节数：<strong>' + state.changedOffsets.length + '</strong></div>' +
-					'<div>展示窗口：<strong>0x' + toHex(windowStart, 6) + ' ~ 0x' + toHex(windowEnd - 1, 6) + '</strong></div>' +
-					'<div>MD5：<strong>' + md5Short + '...</strong></div>';
+					'<div>' + escapeHtml(t('meta_chip')) + '：<strong>' + escapeHtml(state.chip) + '</strong></div>' +
+					'<div>' + escapeHtml(t('meta_value')) + '：<strong>0x' + valueHex + '</strong></div>' +
+					'<div>' + escapeHtml(t('meta_changed_count')) + '：<strong>' + state.changedOffsets.length + '</strong></div>' +
+					'<div>' + escapeHtml(t('meta_window')) + '：<strong>0x' + toHex(windowStart, 6) + ' ~ 0x' + toHex(windowEnd - 1, 6) + '</strong></div>' +
+					'<div>' + escapeHtml(t('meta_md5')) + '：<strong>' + md5Short + '...</strong></div>';
 			}
 
 			function refreshDiffViews() {
 				if (!state.originalBytes || !state.modifiedBytes || !state.changedOffsets.length) {
-					beforeView.textContent = '(等待生成)';
-					afterView.textContent = '(等待生成)';
+					state.compareStatus = 'waiting';
+					beforeView.textContent = t('compare_waiting');
+					afterView.textContent = t('compare_waiting');
 					meta.textContent = '';
 					return;
 				}
+				state.compareStatus = 'patched';
 
 				var changedSet = new Set(state.changedOffsets);
 				var windowRange = buildWindow(state.originalBytes.length, state.changedOffsets);
@@ -730,7 +1015,7 @@
 
 			function doPatchAndPreview() {
 				if (!state.file || !state.originalBytes) {
-					setHint('请先上传文件。', 'warn');
+					setHintByKey('warn_upload_first', 'warn');
 					return;
 				}
 
@@ -743,7 +1028,7 @@
 				state.filename = buildOutputName();
 				refreshDiffViews();
 				downloadBtn.disabled = false;
-				setHint('已生成修改结果，可下载。请自行评估硬件散热与稳定性。', 'ok');
+				setHintByKey('ok_patch_ready', 'ok');
 			}
 
 			function loadFile(file) {
@@ -752,9 +1037,10 @@
 					state.file = null;
 					state.originalBytes = null;
 					state.modifiedBytes = null;
+					state.compareStatus = 'waiting';
 					downloadBtn.disabled = true;
 					updateApplyState();
-					setHint(err, 'error');
+					setHintByKey(err, 'error');
 					return;
 				}
 
@@ -766,15 +1052,16 @@
 					state.filename = '';
 					state.md5 = '';
 					state.changedOffsets = [];
+					state.compareStatus = 'after-load';
 					downloadBtn.disabled = true;
 					updateApplyState();
-					setHint('文件已载入：' + file.name + '（' + file.size + ' bytes）', 'ok');
-					beforeView.textContent = '(点击“生成修改文件”后展示)';
-					afterView.textContent = '(点击“生成修改文件”后展示)';
+					setHintByKey('ok_file_loaded', 'ok', { name: file.name, size: file.size });
+					beforeView.textContent = t('compare_waiting_after_apply');
+					afterView.textContent = t('compare_waiting_after_apply');
 					meta.textContent = '';
 				};
 				reader.onerror = function () {
-					setHint('文件读取失败。', 'error');
+					setHintByKey('err_file_read', 'error');
 				};
 				reader.readAsArrayBuffer(file);
 			}
@@ -819,7 +1106,15 @@
 					state.chip = e.target.value;
 					updateChipCards();
 					downloadBtn.disabled = true;
-					setHint('已切换芯片方案，请重新生成修改文件。', 'warn');
+					setHintByKey('warn_chip_switched', 'warn');
+				});
+			}
+
+			for (var j = 0; j < langButtons.length; j++) {
+				langButtons[j].addEventListener('click', function (e) {
+					var mode = e.currentTarget.getAttribute('data-lang-mode');
+					if (!mode || mode === state.langMode) return;
+					setLanguageMode(mode);
 				});
 			}
 
@@ -836,9 +1131,12 @@
 				a.click();
 				document.body.removeChild(a);
 				URL.revokeObjectURL(url);
-				setHint('下载已触发：' + state.filename, 'ok');
+				setHintByKey('ok_download_triggered', 'ok', { filename: state.filename });
 			});
 
+			updateLangButtons();
+			applyI18nToDom();
+			setHintByKey('hint_waiting_upload');
 			updateApplyState();
 		})();
 	</script>
