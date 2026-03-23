@@ -1,0 +1,84 @@
+/* 主题切换组件（Material Design） */
+
+.theme-toggle-container {
+  position: relative;
+  display: inline-block;
+}
+
+.theme-button {
+  display: inline-flex;
+  align-items: center;
+  min-width: 112px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: var(--toggle-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-button:hover {
+  border-color: var(--primary-color);
+  background: var(--button-hover-bg-color);
+}
+
+.theme-icon {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.dropdown-arrow {
+  margin-left: 6px;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.theme-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  width: 176px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  z-index: 1000;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 2px;
+  padding: 9px 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.theme-option-text {
+  color: inherit;
+}
+
+.theme-option:hover {
+  background: var(--bg-light);
+}
+
+.theme-option.active {
+  background: rgba(103, 80, 164, 0.14);
+  font-weight: 600;
+}
+
+.theme-option.active::after {
+  content: '✓';
+  position: absolute;
+  right: 12px;
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .theme-option.active {
+  background: rgba(208, 188, 255, 0.16);
+}

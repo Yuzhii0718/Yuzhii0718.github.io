@@ -77,4 +77,11 @@
         <tag>玩机</tag>
         <newpage>1</newpage>
     </app>
+    <app>
+        <id>app12</id>
+        <url>application/textDiffer/index.html</url>
+        <name>文本对比工具</name>
+        <tag>工具</tag>
+        <newpage>1</newpage>
+    </app>
 </apps>

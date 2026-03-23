@@ -1,0 +1,122 @@
+/* Mergely 差异高亮（Material Design） */
+
+.mergely-editor .CodeMirror {
+  line-height: 1.5;
+  height: auto;
+  width: 100%;
+  border: none;
+}
+
+.mergely-editor .mergely-margin canvas {
+  width: 8px;
+}
+
+.mergely-editor .mergely-canvas canvas {
+  width: 28px;
+}
+
+.mergely-editor .CodeMirror-linenumber {
+  cursor: pointer;
+}
+
+.mergely-editor .CodeMirror-selected {
+  background: rgba(103, 80, 164, 0.22);
+}
+
+.mergely-editor .mergely.CodeMirror-linebackground {
+  border-style: solid;
+  border-width: 0;
+}
+
+.mergely-editor .mergely.start.CodeMirror-linebackground {
+  border-top-width: 1px;
+}
+
+.mergely-editor .mergely.end.CodeMirror-linebackground {
+  border-bottom-width: 1px;
+}
+
+.mergely-editor .mergely.no-end.CodeMirror-linebackground {
+  border-bottom-width: 0;
+  background-color: initial;
+}
+
+.mergely-editor .mergely.CodeMirror-gutter-background.current {
+  background-color: var(--primary-dark);
+}
+
+.mergely-editor .mergely.current .CodeMirror-linenumber {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* 修改（change） */
+.mergely-editor .mergely.c.CodeMirror-linebackground {
+  border-color: #7d5260;
+  background-color: rgba(125, 82, 96, 0.12);
+}
+
+/* 左侧删除 */
+.mergely-editor .mergely.rhs.a.no-end.CodeMirror-linebackground,
+.mergely-editor .mergely.rhs.a.no-start.CodeMirror-linebackground,
+.mergely-editor .mergely.lhs.no-end.CodeMirror-linebackground,
+.mergely-editor .mergely.lhs.d.CodeMirror-linebackground {
+  border-color: #ba1a1a;
+}
+
+.mergely-editor .mergely.lhs.d.CodeMirror-linebackground {
+  background-color: rgba(186, 26, 26, 0.12);
+}
+
+.mergely-editor .mergely.ch.ind.lhs,
+.mergely-editor .mergely.ch.d.lhs {
+  text-decoration: line-through;
+  color: #b3261e;
+}
+
+/* 右侧新增 */
+.mergely-editor .mergely.lhs.no-end.CodeMirror-linebackground,
+.mergely-editor .mergely.lhs.no-start.CodeMirror-linebackground,
+.mergely-editor .mergely.rhs.a.CodeMirror-linebackground {
+  border-color: #1e8e3e;
+}
+
+.mergely-editor .mergely.rhs.a.CodeMirror-linebackground {
+  background-color: rgba(30, 142, 62, 0.12);
+}
+
+.mergely-editor .mergely.ch.ina.rhs {
+  color: #1b873f;
+}
+
+.mergely-editor .mergely.current.lhs.CodeMirror-linebackground,
+.mergely-editor .mergely.current.rhs.CodeMirror-linebackground {
+  border-color: var(--primary-color);
+}
+
+.mergely-editor .mergely.no-start.end.CodeMirror-linebackground,
+.mergely-editor .mergely.no-end.start.CodeMirror-linebackground {
+  background: none;
+}
+
+[data-theme="dark"] .mergely-editor .mergely.c.CodeMirror-linebackground {
+  border-color: #efb8c8;
+  background-color: rgba(239, 184, 200, 0.16);
+}
+
+[data-theme="dark"] .mergely-editor .mergely.lhs.d.CodeMirror-linebackground {
+  background-color: rgba(242, 184, 181, 0.16);
+}
+
+[data-theme="dark"] .mergely-editor .mergely.rhs.a.CodeMirror-linebackground {
+  background-color: rgba(165, 214, 167, 0.16);
+}
+
+[data-theme="dark"] .mergely-editor .mergely.ch.ind.lhs,
+[data-theme="dark"] .mergely-editor .mergely.ch.d.lhs {
+  color: #ffb4ab;
+}
+
+[data-theme="dark"] .mergely-editor .mergely.ch.ina.rhs {
+  color: #9ae7a1;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文本在线文本对比工具 | 在线代码差异比较器</title>
+  <meta name="description"
+    content="高效在线文本差异对比工具，实时比较两段文本或代码的精确差异，智能识别并高亮显示添加、删除和修改的内容。支持行号显示、自动换行和差异导航功能，可轻松合并变更到任一侧。适用于代码审查、文档版本比较、配置文件对比等场景，提高协作效率。">
+  <meta name="keywords" content="文本对比,代码比较,差异对比,文件比较,代码审查,Diff工具,文本差异,在线比较">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="文本对比工具 | 在线代码差异比较器">
+  <meta property="og:description" content="在线比较两个文本文件的差异，高亮显示修改内容">
+
+  <script src="./src/theme.js"></script>
+
+  <link rel="stylesheet" href="./src/mergely.css">
+  <link rel="stylesheet" href="./src/codemirror.css">
+  <link rel="stylesheet" href="./src/eclipse.css">
+  <link rel="stylesheet" href="./src/monokai.css">
+  <link rel="stylesheet" href="./src/main.css">
+  <link rel="stylesheet" href="./src/theme.css">
+  <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="./src/mergely-style.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这个文本对比工具支持哪些文件格式？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持任意纯文本格式，包括代码、配置文件和普通文本文档。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何上传文件进行对比？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "点击“上传左侧”或“上传右侧”按钮选择本地文件即可。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何快速定位差异？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可使用“上一处/下一处”按钮在差异间快速跳转。"
+          }
+        }
+      ]
+    }
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div id="header-container">
+      <h1 class="sr-only">文本对比工具 - 比较两个文本文件的字符级差异</h1>
+      <h2 class="sr-only">比较两个文本文件的字符级差异，支持高亮显示修改内容。</h2>
+    </div>
+
+    <div class="tool-content-container">
+      <div class="action-bar">
+        <div class="main-actions">
+          <button id="compare-btn" class="active" title="比较文本">比较</button>
+          <button id="clear-btn" title="清空编辑器">清空</button>
+          <button id="swap-btn" title="交换两侧内容">交换</button>
+          <button id="load-sample-btn" title="加载示例">示例</button>
+          <button id="upload-left-btn" title="上传左侧文件">上传左侧</button>
+          <button id="upload-right-btn" title="上传右侧文件">上传右侧</button>
+          <input type="file" id="file-input-left" style="display: none">
+          <input type="file" id="file-input-right" style="display: none">
+        </div>
+
+        <div class="options-group">
+          <div class="option-item">
+            <input type="checkbox" id="wrap-lines" class="styled-checkbox">
+            <label for="wrap-lines">自动换行</label>
+          </div>
+          <div class="option-item">
+            <input type="checkbox" id="line-numbers" class="styled-checkbox" checked>
+            <label for="line-numbers">显示行号</label>
+          </div>
+          <div class="option-item">
+            <input type="checkbox" id="smart-align" class="styled-checkbox" checked>
+            <label for="smart-align">智能对齐（忽略空白 + 行块对齐）</label>
+          </div>
+          <button id="normalize-indent-btn" title="将Tab转换为空格，统一缩进格式">统一缩进</button>
+        </div>
+      </div>
+
+      <div id="error-container" class="error-container">
+        <div class="error-content">
+          <div id="error-message"></div>
+          <button id="close-error" title="关闭错误提示">×</button>
+        </div>
+      </div>
+
+      <div class="mergely-container">
+        <div class="editor-header">
+          <div class="left-header">
+            <span class="editor-title">左侧文本</span>
+            <div class="editor-actions">
+              <button id="copy-left-btn" title="复制左侧内容">复制</button>
+              <button id="prev-change-btn" title="上一处更改">上一处</button>
+              <button id="next-change-btn" title="下一处更改">下一处</button>
+            </div>
+          </div>
+          <div class="right-header">
+            <span class="editor-title">右侧文本</span>
+            <div class="editor-actions">
+              <button id="copy-right-btn" title="复制右侧内容">复制</button>
+              <button id="merge-left-btn" title="合并到左侧">合并到左侧</button>
+              <button id="merge-right-btn" title="合并到右侧">合并到右侧</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mergely-editor" class="mergely-full-screen" aria-label="文本差异编辑器"></div>
+      </div>
+
+      <div class="status-bar">
+        <div id="status-message">准备就绪</div>
+        <div class="info-group">
+          <span>差异: <span id="diff-stats">0 处更改 (添加: 0, 修改: 0, 删除: 0)</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./src/header.js"></script>
+  <script src="./src/codemirror.js"></script>
+  <script src="./src/mergely.js"></script>
+  <script src="./src/script.js"></script>
+</body>
+
+</html>
