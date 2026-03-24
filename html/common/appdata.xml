@@ -84,4 +84,11 @@
         <tag>工具</tag>
         <newpage>1</newpage>
     </app>
+    <app>
+        <id>app13</id>
+        <url>/Test-Contest-HTML/index.html</url>
+        <name>星星</name>
+        <tag>专题</tag>
+        <newpage>1</newpage>
+    </app>
 </apps>
