@@ -909,7 +909,7 @@ e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
 <p>或者在原参数上往上加，26 -&gt; 27 -&gt; 28 -&gt; 29 -&gt; 2A -&gt; 2B -&gt; 2C -&gt; 2D，直到不稳定回退。</p>
 <h2 id="自动工具">自动工具</h2>
 <p>我制作了一个一键修改的工具，直接上传修改</p>
-<p><a href="/bl-mt798x-dhcpd/index.html">mt798x-mt7976-high-power-tool</a></p>
+<p><a href="/html/application/mt798x_eeprom/index.html">mt798x-mt7976-high-power-tool</a></p>
 <p>这下就更方便了，直接上传修改后的分区镜像就行了，不需要自己修改十六进制了</p>
 ]]></content>
       <categories>

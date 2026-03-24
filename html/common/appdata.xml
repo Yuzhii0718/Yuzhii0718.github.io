@@ -72,7 +72,7 @@
     </app>
     <app>
         <id>app11</id>
-        <url>/bl-mt798x-dhcpd/index.html</url>
+        <url>application/mt798x_eeprom/index.html</url>
         <name>mt798x EEPROM 功率工具</name>
         <tag>玩机</tag>
         <newpage>1</newpage>
