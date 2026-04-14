@@ -168,13 +168,57 @@
   <entry>
     <title>mtk-launchpad</title>
     <url>/2026/03/27/1/</url>
-    <content><![CDATA[<p>最近看到 esp-launchpad 对 esp 烧录相当方便，我想着 mtk 的 uartboot 也可以做一个类似的工具，于是就有了 mtk-launchpad 这个项目。</p>
+    <content><![CDATA[<h2 id="介绍">介绍</h2>
+<p>最近看到 esp-launchpad 对 esp 烧录相当方便，我想着 mtk 的 uartboot 也可以做一个类似的工具，于是就有了 mtk-launchpad 这个项目。</p>
 <p>mtk-launchpad 是一个基于 React 的前端工具，依靠前端串口 API 来实现相关功能。</p>
 <p>项目地址 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1l1emhpaTA3MTgvbXRrLWxhdW5jaHBhZA==">https://github.com/Yuzhii0718/mtk-launchpad<i class="fa fa-external-link-alt"></i></span></p>
 <p>目前 mtk-launchpad 还处于开发阶段，功能还不完善，但已经可以实现基本的功能了。</p>
 <p>在线体验 <a href="/mtk-launchpad/">mtk-launchpad</a></p>
 <hr>
 <p>使用该工具，能和我另一个 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1l1emhpaTA3MTgvYmwtbXQ3OTh4LWRoY3Bk">bl-mt798x-dhcpd<i class="fa fa-external-link-alt"></i></span> 项目结合使用，实现更便捷的开发和调试体验。</p>
+<hr>
+<h2 id="还不会救砖？">还不会救砖？</h2>
+<p>今天有人问我怎么救砖，我把暗云的那篇文章发给他了，结果他都进去 ramboot 了，还问我怎么救砖，其实这离成功只有一步之遥了。</p>
+<p>如果是使用命令行工具的话，救砖的步骤大概是这样的：</p>
+<ol>
+<li class="lvl-3">
+<p>连接串口线 GND-GND，TX-RX，RX-TX。</p>
+</li>
+<li class="lvl-3">
+<p>命令：<code>.\mtk_uartboot.exe -s COM4 -p .\mt7981\mt7981-ddr3-bl2.bin -a -f fip.bin --brom-load-baudrate 115200 --bl2-load-baudrate 115200</code></p>
+</li>
+<li class="lvl-3">
+<p>上电，等待 fip 成功加载到内存中</p>
+</li>
+<li class="lvl-3">
+<p>成功瞬间立即切换到另一个串口工具，打断启动过程</p>
+</li>
+<li class="lvl-3">
+<p>此时处于uboot中，然后你就可以进行后续的操作了。</p>
+</li>
+</ol>
+<blockquote>
+<p>关于这串命令，COM 口改成你串口实际的，你需要理解的只有 <code>\mt7981\mt7981-ddr3-bl2.bin</code> 和 <code>fip.bin</code> 这两个文件，前者是 ramboot bl2 文件，改成你需要的就行了，已经内置在救砖工具包里了，不用自己去找；后者是 fip 文件，包含了 bl31、bl32、bl33 等文件，改成你需要的就行了，自己找一个合适的 fip 文件就行了，或者自己编译一个。</p>
+</blockquote>
+<p>如果是用的 u-boot 项目中的 u-boot，用 tftp 服务器来刷写相关镜像文件</p>
+<p>如果是用的 mtk-openwrt/u-boot 项目中以及基于此的 u-boot，还可以采用 web 升级的方式来刷写相关镜像文件</p>
+<p>这个操作还是太麻烦了，所以用 mtk-launchpad 就可以省去很多步骤了</p>
+<p>不需要安装什么工具，也不用自己去找文件了，直接在界面上操作就行了，步骤如下：</p>
+<ol>
+<li class="lvl-3">
+<p>连接串口线 GND-GND，TX-RX，RX-TX。</p>
+</li>
+<li class="lvl-3">
+<p>访问该网页</p>
+</li>
+<li class="lvl-3">
+<p>直接在界面自定义需求</p>
+</li>
+<li class="lvl-3">
+<p>点击开始，然后上电</p>
+</li>
+</ol>
+<p>后续你想干什么都行了，直接在界面上操作就行了。</p>
 ]]></content>
       <categories>
         <category>Linux</category>
