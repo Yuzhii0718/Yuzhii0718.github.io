@@ -1,6 +1,6 @@
 {
-  "Version": "2025-12-31",
-  "Year": "2025",
+  "Version": "2026-6-14",
+  "Year": "2026",
   "author": "Yuzhii",
   "email": "null",
   "maintitle": "应用中心",
@@ -8,7 +8,7 @@
   "icon32": "/images/favicon-32x32.png",
   "maskicon": "/images/logo.svg",
   "copyright": {
-    "text": "© 2025 Yuzhii",
+    "text": "© 2026 Yuzhii",
     "url": "https://yuzhii0718.eu.org"
   },
   "beian": {

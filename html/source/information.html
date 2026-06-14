@@ -5,27 +5,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../css/page.css">
     <script src="../js/theme.js" defer></script>
 </head>
 
 <body>
     <main class="page">
-        <section class="card" aria-label="资讯">
-            <h1>资讯</h1>
+        <section class="card" aria-label="Info">
+            <h1>Info</h1>
 
-            <div class="meta" aria-label="站点信息">
+            <div class="meta" aria-label="Site Information">
                 <div class="meta-row">
                     <div class="meta-label">Version</div>
-                    <div class="meta-value" id="version">—</div>
+                    <div class="meta-value" id="version">--</div>
                 </div>
                 <div class="meta-row" style="display: none;">
                     <div class="meta-label">Year</div>
-                    <div class="meta-value" id="year">—</div>
+                    <div class="meta-value" id="year">--</div>
                 </div>
                 <div class="meta-row">
                     <div class="meta-label">Author</div>
-                    <div class="meta-value" id="author">—</div>
+                    <div class="meta-value" id="author">--</div>
                 </div>
             </div>
 
@@ -33,9 +35,9 @@
 
             <blockquote>
                 <p>
-                    “So every bondman in his own hand bears<br>
-                    The power to cancel his captivity.”<br>
-                    <span class="small">William Shakespeare, <em>Julius Cæsar</em> (1599), Act I, scene 3, line 101</span>
+                    "So every bondman in his own hand bears<br>
+                    The power to cancel his captivity."<br>
+                    <span class="small">William Shakespeare, <em>Julius Caesar</em> (1599), Act I, scene 3, line 101</span>
                 </p>
             </blockquote>
         </section>
@@ -48,7 +50,7 @@
             function setText(id, value) {
                 var el = document.getElementById(id);
                 if (!el) return;
-                el.textContent = value == null || value === '' ? '—' : String(value);
+                el.textContent = value == null || value === '' ? '--' : String(value);
             }
 
             fetch('../common/config.json')
@@ -65,7 +67,7 @@
                 })
                 .catch(function (err) {
                     console.error(err);
-                    setText('version', '配置加载失败');
+                    setText('version', 'Config load error');
                 });
         })();
     </script>

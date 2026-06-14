@@ -1,21 +1,24 @@
-/* Mobile/Tablet overrides (<=1080px) */
+/* ==========================================================================
+   Mobile / Tablet Overrides (<=1080px) — Elegant Monochrome
+   ========================================================================== */
 
-/* Drawer nav */
+/* --- Drawer Nav --- */
 .nav {
     display: block;
     position: fixed;
-    top: 64px;
-    right: 14px;
-    left: 14px;
+    top: 60px;
+    right: 12px;
+    left: 12px;
     z-index: 60;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.15s ease, transform 0.15s ease;
-    border-radius: 16px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius);
     border: 1px solid var(--border);
-    background: var(--panel-solid);
-    box-shadow: var(--shadow);
+    background: var(--surface);
+    box-shadow: var(--shadow-lg);
 }
 
 .nav.is-open {
@@ -27,40 +30,39 @@
 .nav-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 12px;
+    gap: 2px;
+    padding: 8px;
 }
 
 .nav-item a {
     width: 100%;
     justify-content: flex-start;
-    padding: 12px 14px;
-    border-radius: 12px;
-    background: var(--control-bg);
+    padding: 10px 12px;
+    border-radius: var(--radius-xs);
+    font-size: 14px;
 }
 
 .nav-item a:hover {
     background: var(--control-bg-hover);
-    border-color: var(--border-strong);
 }
 
 html.nav-open::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 55;
 }
 
-/* Layout stacking */
+/* --- Layout Stacking --- */
 .layout {
-    padding-top: 14px;
+    padding-top: 12px;
 }
 
-/* Banner: reduce vertical space on mobile */
+/* --- Banner --- */
 #main {
-    height: 220px;
-    min-height: 220px;
+    height: 200px;
+    min-height: 200px;
 }
 
 .banner-container,
@@ -73,8 +75,10 @@ html.nav-open::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 0;
 }
 
+/* --- App Grid --- */
 .app-grid {
     grid-template-columns: 1fr;
 }
@@ -84,14 +88,30 @@ html.nav-open::before {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* A bit taller on larger phones/tablets, still much smaller than desktop */
     #main {
         height: 160px;
         min-height: 160px;
     }
 }
 
-/* Footer: keep it visible on mobile */
+/* --- Footer --- */
 .footer-links {
     justify-content: flex-start;
+}
+
+/* --- Header height adjustment --- */
+.header {
+    height: 52px;
+}
+
+/* --- Touch optimizations --- */
+@media (hover: none) {
+    .app-card:active {
+        transform: scale(0.98);
+        background: var(--card-hover);
+    }
+
+    .app-card:hover {
+        transform: none;
+    }
 }

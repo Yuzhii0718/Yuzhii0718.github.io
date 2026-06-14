@@ -15,22 +15,41 @@ xhttpApp.open("GET", "./common/appdata.xml", true);
 // 发送请求
 xhttpApp.send();
 
-// 定义一个函数来处理XML文件并显示应用信息
+// Dynamically generate app cards from appdata.xml into #app-grid
 function displayAppInfo(xml) {
-    let i;
-    let xmlDoc = xml.responseXML;
-    let apps = xmlDoc.getElementsByTagName("app");
-    for (i = 0; i < apps.length; i++) {
-        let id = apps[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
-        let url = apps[i].getElementsByTagName("url")[0].childNodes[0].nodeValue;
-        let name = apps[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-        let tag = apps[i].getElementsByTagName("tag")[0].childNodes[0].nodeValue;
-        let newpage = apps[i].getElementsByTagName("newpage")[0].childNodes[0].nodeValue;
-        let target = newpage === "1" ? 'target="_blank" rel="noopener noreferrer"' : '';
-        let appInfo = `
-            <a href="${url}" ${target} class="app-title">${name}</a>
-            <p class="app-tag">${tag}</p>`;
-        document.getElementById(id).insertAdjacentHTML('beforeend', appInfo);
+    var grid = document.getElementById('app-grid');
+    if (!grid) {
+        console.error('App grid container #app-grid not found');
+        return;
+    }
+
+    var xmlDoc = xml.responseXML;
+    if (!xmlDoc) return;
+
+    var apps = xmlDoc.getElementsByTagName("app");
+
+    for (var i = 0; i < apps.length; i++) {
+        // Read show field; default to visible if not present
+        var showEls = apps[i].getElementsByTagName("show");
+        var show = (showEls.length > 0) ? showEls[0].textContent.trim() : "1";
+        if (show !== "1") continue;
+
+        var id = apps[i].getElementsByTagName("id")[0].textContent.trim();
+        var url = apps[i].getElementsByTagName("url")[0].textContent.trim();
+        var name = apps[i].getElementsByTagName("name")[0].textContent.trim();
+        var tag = apps[i].getElementsByTagName("tag")[0].textContent.trim();
+        var newpage = apps[i].getElementsByTagName("newpage")[0].textContent.trim();
+        var target = newpage === "1" ? 'target="_blank" rel="noopener noreferrer"' : '';
+
+        // Create card element
+        var card = document.createElement('div');
+        card.className = 'app-card';
+        card.setAttribute('data-id', id);
+        card.innerHTML =
+            '<a href="' + url + '" ' + target + ' class="app-title">' + name + '</a>' +
+            '<p class="app-tag">' + tag + '</p>';
+
+        grid.appendChild(card);
     }
 }
 

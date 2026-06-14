@@ -52,26 +52,29 @@
         updateToggle(mode);
     }
 
+    // Minimal icons characters for each theme
+    var icons = {
+        auto: '\u25D0',    // half-filled circle
+        light: '\u2600',   // sun
+        dark: '\u263E'     // moon
+    };
+
     function modeLabel(mode) {
-        if (mode === 'light') return '浅色';
-        if (mode === 'dark') return '深色';
-        return '自动';
+        if (mode === 'light') return 'Light';
+        if (mode === 'dark') return 'Dark';
+        return 'Auto';
     }
 
     function updateToggle(mode) {
         var btn = document.getElementById('theme-toggle');
         if (!btn) return;
 
+        var icon = icons[mode] || icons.auto;
         var label = modeLabel(mode);
-        var extra = '';
 
-        if (mode === 'auto') {
-            extra = '（跟随系统：' + modeLabel(systemThemeName()) + '）';
-        }
-
-        btn.textContent = '主题：' + label;
-        btn.setAttribute('title', '主题：' + label + extra);
-        btn.setAttribute('aria-label', '主题：' + label + extra);
+        btn.innerHTML = '<span style="font-size:14px;line-height:1">' + icon + '</span> ' + label;
+        btn.setAttribute('title', label + (mode === 'auto' ? ' (' + modeLabel(systemThemeName()) + ')' : ''));
+        btn.setAttribute('aria-label', 'Theme: ' + label);
     }
 
     function nextMode(current) {
@@ -103,13 +106,11 @@
             if (mql.addEventListener) {
                 mql.addEventListener('change', handler);
             } else if (mql.addListener) {
-                // Safari/old Chromium
                 mql.addListener(handler);
             }
         }
     }
 
-    // Run ASAP (defer/DOMContentLoaded-safe)
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

@@ -1,4 +1,7 @@
-/* 轮播图容器样式 */
+/* ==========================================================================
+   Banner / Carousel — Elegant Monochrome
+   ========================================================================== */
+
 .banner-container {
     position: relative;
     width: 100%;
@@ -6,77 +9,83 @@
     overflow: hidden;
 }
 
-/* 轮播图包装器 */
 .banner-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 轮播图项目 */
 .banner-item {
     position: relative;
-    /* 改为relative而不是absolute */
     flex: 0 0 100%;
-    /* 每个项目占据100%宽度 */
     width: 100%;
     height: 100%;
     opacity: 1;
-    /* 保持透明度为1 */
-    transition: all 0.5s ease-in-out;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    /* 始终显示 */
 }
 
-/* 轮播图图片 */
 .banner-item img {
-    width: 90%;
-    height: 90%;
+    width: 92%;
+    height: 92%;
     object-fit: cover;
+    border-radius: 8px;
     display: block;
+    filter: brightness(0.92);
+    transition: filter 0.3s ease;
 }
 
-/* 轮播图标题 */
+.banner-item:hover img {
+    filter: brightness(1);
+}
+
+/* --- Title --- */
 .banner-title {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
 }
 
-/* 分页指示器容器 */
+/* --- Pagination --- */
 .banner-pagination {
     position: absolute;
-    bottom: 10px;
+    bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 6px;
 }
 
-/* 分页指示器项目 */
 .banner-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.25s ease, width 0.25s ease;
 }
 
 .banner-pagination-bullet.active {
-    background-color: #ffffff;
+    width: 18px;
+    background: rgba(255, 255, 255, 0.85);
 }
 
-/* 前进后退按钮 */
+/* --- Prev/Next Buttons --- */
 .banner-buttons {
     position: absolute;
     top: 50%;
@@ -84,34 +93,39 @@
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
+    padding: 0 6px;
     pointer-events: none;
-    opacity: 0; /* 默认隐藏 */
-    transition: opacity 0.3s ease; /* 添加过渡动画 */
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
 .banner-buttons.visible {
-    opacity: 1; /* 显示状态 */
+    opacity: 1;
 }
 
 .banner-button-prev,
 .banner-button-next {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 50%;
-    font-size: 20px;
+    border-radius: 8px;
+    font-size: 16px;
     pointer-events: auto;
-    transition: background-color 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .banner-button-prev:hover,
 .banner-button-next:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
 }
 
 @media (hover: none) {
@@ -122,15 +136,16 @@
 
 @media (max-width: 480px) {
     .banner-title {
-        font-size: 12px;
-        bottom: 14px;
-        left: 14px;
+        font-size: 11px;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
     }
 
     .banner-button-prev,
     .banner-button-next {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
     }
 }
