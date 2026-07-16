@@ -326,7 +326,7 @@
 		<section class="panel">
 			<div class="panel-header">
 				<h1 id="main-title">mt798x EEPROM 功率修改工具</h1>
-				<p id="main-desc">请先选择芯片方案，再上传 Factory EEPROM（二进制）并填写参数（20~2D）。</p>
+				<p id="main-desc">请先选择芯片方案，再上传 Factory EEPROM（二进制）并分别填写 5G / 2.4G 参数（20~2D）。</p>
 			</div>
 			<div class="panel-body">
 				<div class="lang-switch" aria-label="language switcher">
@@ -345,13 +345,18 @@
 					</label>
 					<label class="chip-card" data-chip="mt7975">
 						<div class="chip-title"><input type="radio" name="chip" value="mt7975"><span id="chip-title-mt7975">mt7975（mt7986内置FEM）</span></div>
-						<p id="chip-info-mt7975" class="chip-info">参考偏移：0x34B~0x352、0x357~0x35E、0x363~0x36A、0x36F~0x376（含边界）。</p>
+						<p id="chip-info-mt7975" class="chip-info">参考偏移：5G 为 0x34B~0x352、0x357~0x35E、0x363~0x36A、0x36F~0x376；2.4G 为 0x2FC、0x2FF、0x302、0x305。将对应字节改为同一参数值。</p>
 					</label>
 				</div>
 
 				<div class="field">
-					<label id="value-label" for="value-input">功率参数（十六进制，范围 20~2D）</label>
-					<input id="value-input" type="text" value="2B" maxlength="2" placeholder="例如 2B">
+					<label id="value-5g-label" for="value-5g-input">5G 功率参数（十六进制，范围 20~2D）</label>
+					<input id="value-5g-input" type="text" value="2B" maxlength="2" placeholder="例如 2B">
+				</div>
+
+				<div class="field">
+					<label id="value-24g-label" for="value-24g-input">2.4G 功率参数（十六进制，范围 20~2D）</label>
+					<input id="value-24g-input" type="text" value="2B" maxlength="2" placeholder="例如 2B">
 				</div>
 
 				<div class="field">
@@ -406,7 +411,7 @@
 					meta_description: '一个用于修改mt798x EEPROM功率的工具，支持直观的界面操作。',
 					app_aria_label: 'mt798x EEPROM 功率修改工具',
 					heading_main: 'mt798x EEPROM 功率修改工具',
-					intro_main: '请先选择芯片方案，再上传 Factory EEPROM（二进制）并填写参数（20~2D）。',
+					intro_main: '请先选择芯片方案，再上传 Factory EEPROM（二进制）并分别填写 5G / 2.4G 参数（20~2D）。',
 					lang_label: '语言',
 					lang_auto: '自动',
 					lang_zh: '简体中文',
@@ -414,8 +419,9 @@
 					chip_title_mt7976: 'mt7976（mt7981内置PA / mt7986外置FEM）',
 					chip_info_mt7976: '参考偏移：5G 为 0x441~0x458，2.4G 为 0x465~0x484（含边界）。将对应字节改为同一参数值。',
 					chip_title_mt7975: 'mt7975（mt7986内置FEM）',
-					chip_info_mt7975: '参考偏移：0x34B~0x352、0x357~0x35E、0x363~0x36A、0x36F~0x376（含边界）。',
-					label_value: '功率参数（十六进制，范围 20~2D）',
+					chip_info_mt7975: '参考偏移：5G 为 0x34B~0x352、0x357~0x35E、0x363~0x36A、0x36F~0x376；2.4G 为 0x2FC、0x2FF、0x302、0x305。将对应字节改为同一参数值。',
+					label_value_5g: '5G 功率参数（十六进制，范围 20~2D）',
+					label_value_24g: '2.4G 功率参数（十六进制，范围 20~2D）',
 					placeholder_value: '例如 2B',
 					label_file: '上传 EEPROM 文件（.bin / .img，最大 2MB）',
 					dropzone_title: '点击选择文件 或 直接拖拽到此处',
@@ -432,7 +438,8 @@
 					err_no_file_selected: '未选择文件',
 					err_invalid_ext: '仅支持 .bin / .img 格式',
 					err_file_too_large: '文件大小不能超过 2MB',
-					err_invalid_param: '参数无效：请输入 20~2D 的十六进制值。',
+					err_invalid_param_5g: '5G 参数无效：请输入 20~2D 的十六进制值。',
+					err_invalid_param_24g: '2.4G 参数无效：请输入 20~2D 的十六进制值。',
 					warn_upload_first: '请先上传 EEPROM 文件。',
 					err_file_too_small_offset: '文件过小：目标偏移超出文件范围。',
 					ok_patch_ready: '已生成修改结果，可下载。请自行评估硬件散热与稳定性。',
@@ -441,7 +448,8 @@
 					warn_chip_switched: '已切换芯片方案，请重新生成修改文件。',
 					ok_download_triggered: '下载已触发：{filename}',
 					meta_chip: '芯片方案',
-					meta_value: '参数值',
+					meta_value_5g: '5G 参数值',
+					meta_value_24g: '2.4G 参数值',
 					meta_changed_count: '修改字节数',
 					meta_window: '展示窗口',
 					meta_md5: 'MD5'
@@ -452,7 +460,7 @@
 					meta_description: 'A visual tool for editing mt798x EEPROM power values.',
 					app_aria_label: 'mt798x EEPROM Power Patch Tool',
 					heading_main: 'mt798x EEPROM Power Patch Tool',
-					intro_main: 'Select the chip profile, upload Factory EEPROM (binary), then fill the parameter value (20~2D).',
+					intro_main: 'Select the chip profile, upload Factory EEPROM (binary), then fill separate 5G / 2.4G values (20~2D).',
 					lang_label: 'Language',
 					lang_auto: 'Auto',
 					lang_zh: '简体中文',
@@ -460,8 +468,9 @@
 					chip_title_mt7976: 'mt7976 (mt7981 built-in PA / mt7986 external FEM)',
 					chip_info_mt7976: 'Reference ranges: 5G is 0x441~0x458, 2.4G is 0x465~0x484 (inclusive). Set all target bytes to the same parameter value.',
 					chip_title_mt7975: 'mt7975 (mt7986 built-in FEM)',
-					chip_info_mt7975: 'Reference ranges: 0x34B~0x352, 0x357~0x35E, 0x363~0x36A, 0x36F~0x376 (inclusive).',
-					label_value: 'Power parameter (hex, range 20~2D)',
+					chip_info_mt7975: 'Reference ranges: 5G is 0x34B~0x352, 0x357~0x35E, 0x363~0x36A, 0x36F~0x376; 2.4G is 0x2FC, 0x2FF, 0x302, 0x305. Set all target bytes to the same parameter value.',
+					label_value_5g: '5G power parameter (hex, range 20~2D)',
+					label_value_24g: '2.4G power parameter (hex, range 20~2D)',
 					placeholder_value: 'e.g. 2B',
 					label_file: 'Upload EEPROM file (.bin / .img, max 2MB)',
 					dropzone_title: 'Click to choose a file or drag it here',
@@ -478,7 +487,8 @@
 					err_no_file_selected: 'No file selected.',
 					err_invalid_ext: 'Only .bin / .img files are supported.',
 					err_file_too_large: 'File size must not exceed 2MB.',
-					err_invalid_param: 'Invalid value: please enter a hex value from 20 to 2D.',
+					err_invalid_param_5g: 'Invalid 5G value: please enter a hex value from 20 to 2D.',
+					err_invalid_param_24g: 'Invalid 2.4G value: please enter a hex value from 20 to 2D.',
 					warn_upload_first: 'Please upload an EEPROM file first.',
 					err_file_too_small_offset: 'File is too small: target offset is out of range.',
 					ok_patch_ready: 'Patch generated. You can download now. Please evaluate thermal and stability risks yourself.',
@@ -487,7 +497,8 @@
 					warn_chip_switched: 'Chip profile changed. Please generate the patched file again.',
 					ok_download_triggered: 'Download triggered: {filename}',
 					meta_chip: 'Chip profile',
-					meta_value: 'Parameter value',
+					meta_value_5g: '5G value',
+					meta_value_24g: '2.4G value',
 					meta_changed_count: 'Changed bytes',
 					meta_window: 'Display window',
 					meta_md5: 'MD5'
@@ -495,21 +506,34 @@
 			};
 
 			var CHIP_RANGES = {
-				mt7976: [
-					[0x441, 0x458],
-					[0x465, 0x484]
-				],
-				mt7975: [
-					[0x34B, 0x352],
-					[0x357, 0x35E],
-					[0x363, 0x36A],
-					[0x36F, 0x376]
-				]
+				mt7976: {
+					g5: [
+						[0x441, 0x458]
+					],
+					g24: [
+						[0x465, 0x484]
+					]
+				},
+				mt7975: {
+					g5: [
+						[0x34B, 0x352],
+						[0x357, 0x35E],
+						[0x363, 0x36A],
+						[0x36F, 0x376]
+					],
+					g24: [
+						[0x2FC, 0x2FC],
+						[0x2FF, 0x2FF],
+						[0x302, 0x302],
+						[0x305, 0x305]
+					]
+				}
 			};
 
 			var fileInput = document.getElementById('file-input');
 			var dropzone = document.getElementById('dropzone');
-			var valueInput = document.getElementById('value-input');
+			var value5gInput = document.getElementById('value-5g-input');
+			var value24gInput = document.getElementById('value-24g-input');
 			var applyBtn = document.getElementById('apply-btn');
 			var downloadBtn = document.getElementById('download-btn');
 			var metaKeywords = document.getElementById('meta-keywords');
@@ -523,7 +547,8 @@
 			var chipInfoMt7976 = document.getElementById('chip-info-mt7976');
 			var chipTitleMt7975 = document.getElementById('chip-title-mt7975');
 			var chipInfoMt7975 = document.getElementById('chip-info-mt7975');
-			var valueLabel = document.getElementById('value-label');
+			var value5gLabel = document.getElementById('value-5g-label');
+			var value24gLabel = document.getElementById('value-24g-label');
 			var fileLabel = document.getElementById('file-label');
 			var dropzoneTitle = document.getElementById('dropzone-title');
 			var dropzoneSub = document.getElementById('dropzone-sub');
@@ -567,7 +592,8 @@
 				filename: '',
 				md5: '',
 				changedOffsets: [],
-				patchValue: 0x2B,
+				patchValue5g: 0x2B,
+				patchValue24g: 0x2B,
 				chip: 'mt7976',
 				compareStatus: 'waiting',
 				langMode: loadLangMode(),
@@ -622,8 +648,10 @@
 				chipTitleMt7975.textContent = t('chip_title_mt7975');
 				chipInfoMt7975.textContent = t('chip_info_mt7975');
 
-				valueLabel.textContent = t('label_value');
-				valueInput.setAttribute('placeholder', t('placeholder_value'));
+				value5gLabel.textContent = t('label_value_5g');
+				value24gLabel.textContent = t('label_value_24g');
+				value5gInput.setAttribute('placeholder', t('placeholder_value'));
+				value24gInput.setAttribute('placeholder', t('placeholder_value'));
 				fileLabel.textContent = t('label_file');
 				dropzoneTitle.textContent = t('dropzone_title');
 				dropzoneSub.textContent = t('dropzone_sub');
@@ -693,12 +721,27 @@
 					.replace(/'/g, '&#39;');
 			}
 
-			function parsePatchValue() {
-				var v = (valueInput.value || '').trim().toUpperCase().replace(/^0X/, '');
+			function parseHexValueFromInput(inputEl) {
+				var v = (inputEl.value || '').trim().toUpperCase().replace(/^0X/, '');
 				if (!/^[0-9A-F]{1,2}$/.test(v)) return null;
 				var n = parseInt(v, 16);
 				if (n < 0x20 || n > 0x2D) return null;
 				return n;
+			}
+
+			function parsePatchValues() {
+				var v5g = parseHexValueFromInput(value5gInput);
+				if (v5g === null) {
+					return { errorKey: 'err_invalid_param_5g' };
+				}
+				var v24g = parseHexValueFromInput(value24gInput);
+				if (v24g === null) {
+					return { errorKey: 'err_invalid_param_24g' };
+				}
+				return {
+					value5g: v5g,
+					value24g: v24g
+				};
 			}
 
 			function validateFile(file) {
@@ -714,7 +757,8 @@
 			}
 
 			function updateApplyState() {
-				var validValue = parsePatchValue() !== null;
+				var parsed = parsePatchValues();
+				var validValue = !parsed.errorKey;
 				var validFile = !!state.file;
 				applyBtn.disabled = !(validValue && validFile);
 			}
@@ -726,17 +770,36 @@
 			}
 
 			function getActiveRanges() {
-				return CHIP_RANGES[state.chip];
+				return CHIP_RANGES[state.chip] || { g5: [], g24: [] };
 			}
 
-			function collectChangedOffsets(ranges) {
-				var out = [];
-				for (var i = 0; i < ranges.length; i++) {
-					for (var p = ranges[i][0]; p <= ranges[i][1]; p++) {
-						out.push(p);
+			function collectOffsetEntries(rangesByBand, value5g, value24g) {
+				var offsetValueMap = {};
+
+				function applyRanges(ranges, value) {
+					for (var i = 0; i < ranges.length; i++) {
+						for (var p = ranges[i][0]; p <= ranges[i][1]; p++) {
+							offsetValueMap[p] = value;
+						}
 					}
 				}
-				return out;
+
+				applyRanges(rangesByBand.g5 || [], value5g);
+				applyRanges(rangesByBand.g24 || [], value24g);
+
+				var changedOffsets = Object.keys(offsetValueMap).map(function (k) { return parseInt(k, 10); });
+				changedOffsets.sort(function (a, b) { return a - b; });
+
+				var entries = [];
+				for (var j = 0; j < changedOffsets.length; j++) {
+					var offset = changedOffsets[j];
+					entries.push({ offset: offset, value: offsetValueMap[offset] });
+				}
+
+				return {
+					entries: entries,
+					changedOffsets: changedOffsets
+				};
 			}
 
 			function buildWindow(bytesLength, changedOffsets) {
@@ -780,32 +843,33 @@
 			}
 
 			function applyPatchToBytes() {
-				var value = parsePatchValue();
-				if (value === null) {
-					setHintByKey('err_invalid_param', 'error');
+				var parsed = parsePatchValues();
+				if (parsed.errorKey) {
+					setHintByKey(parsed.errorKey, 'error');
 					return false;
 				}
-				state.patchValue = value;
+				state.patchValue5g = parsed.value5g;
+				state.patchValue24g = parsed.value24g;
 
-				var ranges = getActiveRanges();
-				var changedOffsets = collectChangedOffsets(ranges);
+				var rangesByBand = getActiveRanges();
+				var patchPlan = collectOffsetEntries(rangesByBand, parsed.value5g, parsed.value24g);
 				if (!state.originalBytes) {
 					setHintByKey('warn_upload_first', 'warn');
 					return false;
 				}
 
 				var bytes = new Uint8Array(state.originalBytes);
-				for (var i = 0; i < changedOffsets.length; i++) {
-					var offset = changedOffsets[i];
+				for (var i = 0; i < patchPlan.entries.length; i++) {
+					var offset = patchPlan.entries[i].offset;
 					if (offset >= bytes.length) {
 						setHintByKey('err_file_too_small_offset', 'error');
 						return false;
 					}
-					bytes[offset] = value;
+					bytes[offset] = patchPlan.entries[i].value;
 				}
 
 				state.modifiedBytes = bytes;
-				state.changedOffsets = changedOffsets;
+				state.changedOffsets = patchPlan.changedOffsets;
 				return true;
 			}
 
@@ -976,11 +1040,13 @@
 			}
 
 			function refreshMeta(windowStart, windowEnd) {
-				var valueHex = toHex(state.patchValue, 2);
+				var value5gHex = toHex(state.patchValue5g, 2);
+				var value24gHex = toHex(state.patchValue24g, 2);
 				var md5Short = state.md5 ? state.md5.slice(0, 8) : '--------';
 				meta.innerHTML = '' +
 					'<div>' + escapeHtml(t('meta_chip')) + '：<strong>' + escapeHtml(state.chip) + '</strong></div>' +
-					'<div>' + escapeHtml(t('meta_value')) + '：<strong>0x' + valueHex + '</strong></div>' +
+					'<div>' + escapeHtml(t('meta_value_5g')) + '：<strong>0x' + value5gHex + '</strong></div>' +
+					'<div>' + escapeHtml(t('meta_value_24g')) + '：<strong>0x' + value24gHex + '</strong></div>' +
 					'<div>' + escapeHtml(t('meta_changed_count')) + '：<strong>' + state.changedOffsets.length + '</strong></div>' +
 					'<div>' + escapeHtml(t('meta_window')) + '：<strong>0x' + toHex(windowStart, 6) + ' ~ 0x' + toHex(windowEnd - 1, 6) + '</strong></div>' +
 					'<div>' + escapeHtml(t('meta_md5')) + '：<strong>' + md5Short + '...</strong></div>';
@@ -1007,10 +1073,11 @@
 			}
 
 			function buildOutputName() {
-				var valueHex = toHex(state.patchValue, 2).toLowerCase();
+				var value5gHex = toHex(state.patchValue5g, 2).toLowerCase();
+				var value24gHex = toHex(state.patchValue24g, 2).toLowerCase();
 				var date = formatDateYmd(new Date());
 				var md5Short = (state.md5 || '00000000').slice(0, 8);
-				return state.chip + '-' + valueHex + '-factory_md5-' + md5Short + '_' + date + '.bin';
+				return state.chip + '-5g' + value5gHex + '-24g' + value24gHex + '-factory_md5-' + md5Short + '_' + date + '.bin';
 			}
 
 			function doPatchAndPreview() {
@@ -1095,10 +1162,18 @@
 				}
 			});
 
-			valueInput.addEventListener('input', function () {
-				var v = (valueInput.value || '').toUpperCase().replace(/[^0-9A-F]/g, '');
-				valueInput.value = v.slice(0, 2);
+			function normalizeHexInput(inputEl) {
+				var v = (inputEl.value || '').toUpperCase().replace(/[^0-9A-F]/g, '');
+				inputEl.value = v.slice(0, 2);
 				updateApplyState();
+			}
+
+			value5gInput.addEventListener('input', function () {
+				normalizeHexInput(value5gInput);
+			});
+
+			value24gInput.addEventListener('input', function () {
+				normalizeHexInput(value24gInput);
 			});
 
 			for (var i = 0; i < chipInputs.length; i++) {
@@ -1107,6 +1182,7 @@
 					updateChipCards();
 					downloadBtn.disabled = true;
 					setHintByKey('warn_chip_switched', 'warn');
+					updateApplyState();
 				});
 			}
 
