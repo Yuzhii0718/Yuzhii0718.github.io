@@ -1,12 +1,50 @@
-.settings-panel {
-    display: none;
-}
-
+/* 调整尺寸工具：通过 JS 设置 style.display 控制面板显隐 */
+.settings-panel.percentage,
+.settings-panel.pixels,
 .settings-panel.custom {
-    display: block;
+    /* 由 JS 控制 display，此处仅作兜底 */
 }
 
+/* 数字输入框统一 */
 .settings-group input[type="number"] {
     width: 100px;
-    padding: 5px;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--panel);
+    color: var(--text);
+    font-size: 13px;
+    font-family: inherit;
+}
+
+.settings-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, .15);
+}
+
+/* 预设快捷按钮组 */
+.preset-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.preset-buttons button {
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--panel);
+    color: var(--muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .14s ease;
+    font-family: inherit;
+}
+
+.preset-buttons button:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: var(--primary-soft);
 }

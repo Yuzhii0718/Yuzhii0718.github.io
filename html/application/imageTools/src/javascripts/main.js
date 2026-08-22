@@ -7,6 +7,9 @@ const convertBtn = document.getElementById('convertBtn');
 const resizeBtn = document.getElementById('resizeBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 const clearBtn = document.getElementById('clearBtn');
+// 每个工具页面独立的下载/清除按钮，与全局按钮共用同一行为
+const downloadBtns = [downloadBtn, document.getElementById('downloadBtn2'), document.getElementById('downloadBtn3')].filter(Boolean);
+const clearBtns = [clearBtn, document.getElementById('clearBtn2'), document.getElementById('clearBtn3')].filter(Boolean);
 const previewContainer = document.getElementById('previewContainer');
 const preview = document.getElementById('preview');
 const notification = document.getElementById('notification');
@@ -50,7 +53,7 @@ function loadImageFromFile(file) {
         };
         img.onerror = () => {
             URL.revokeObjectURL(url);
-            reject(new Error('图片加载失败'));
+            reject(new Error(t('upload.image_load_failed')));
         };
         img.src = url;
     });
@@ -109,14 +112,17 @@ function getResizeTargetByCurrentUI(width, height) {
     }
 
     if (activeMode === 'percentage') {
-        const percentage = parseInt(document.getElementById('percentageSelect').value, 10) / 100;
+        let percentage = parseInt(document.getElementById('percentageInput').value, 10);
+        if (isNaN(percentage) || percentage < 1) percentage = 1;
+        if (percentage > 200) percentage = 200;
+        percentage = percentage / 100;
         return {
             width: Math.max(1, Math.round(width * percentage)),
             height: Math.max(1, Math.round(height * percentage))
         };
     }
 
-    const targetWidth = parseInt(document.getElementById('pixelsSelect').value, 10) || width;
+    const targetWidth = parseInt(document.getElementById('pixelsInput').value, 10) || width;
     return {
         width: Math.max(1, targetWidth),
         height: Math.max(1, Math.round(height * (targetWidth / width)))
@@ -149,9 +155,51 @@ async function processFileByActiveTool(file) {
 
     if (pageId === 'page2') {
         const activeMode = document.querySelector('.compression-option.active').dataset.mode;
-        const quality = activeMode === 'custom'
-            ? Number(document.getElementById('compressQualitySlider').value) / 100
-            : activeMode === 'size' ? 0.6 : 0.9;
+        // 压缩始终输出 JPEG：PNG 等无损格式会忽略 quality 参数，导致压缩无效
+        const mime = 'image/jpeg';
+
+        // 按大小调整：二分搜索最佳质量
+        if (activeMode === 'by-size') {
+            const targetKB = parseInt(document.getElementById('maxSize').value, 10) || 1024;
+            const targetBytes = targetKB * 1024;
+            let low = 0.1, high = 1, bestDataUrl = null;
+
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+
+            for (let i = 0; i < 8; i++) {
+                const mid = (low + high) / 2;
+                const dataUrl = canvas.toDataURL(mime, mid);
+                const size = Math.round((dataUrl.length - 22) * 3 / 4);
+                if (size <= targetBytes) {
+                    bestDataUrl = dataUrl;
+                    low = mid;
+                } else {
+                    high = mid;
+                }
+            }
+            if (!bestDataUrl) bestDataUrl = canvas.toDataURL(mime, low);
+            return {
+                dataUrl: bestDataUrl,
+                fileName: `compressed_${getFileBaseName(file.name)}.jpg`,
+                summary: `${file.name} -> 压缩 ${getDataUrlSizeKB(bestDataUrl)}KB (目标${targetKB}KB)`
+            };
+        }
+
+        // 其他模式：按质量参数压缩
+        let quality;
+        if (activeMode === 'by-quality') {
+            quality = Number(document.getElementById('compressQualitySlider').value) / 100;
+        } else if (activeMode === 'size') {
+            quality = 0.6;
+        } else {
+            quality = 0.9;
+        }
 
         let width = img.width;
         let height = img.height;
@@ -168,8 +216,15 @@ async function processFileByActiveTool(file) {
             }
         }
 
-        const mime = file.type && file.type.startsWith('image/') ? file.type : 'image/jpeg';
-        const dataUrl = renderImageToDataUrl(img, Math.round(width), Math.round(height), mime, quality);
+        // renderImageToDataUrl 不做白底填充，批量压缩场景需自行处理透明
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.round(width);
+        canvas.height = Math.round(height);
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const dataUrl = canvas.toDataURL(mime, quality);
         return {
             dataUrl,
             fileName: `compressed_${getFileBaseName(file.name)}.jpg`,
@@ -178,7 +233,6 @@ async function processFileByActiveTool(file) {
     }
 
     const format = document.querySelector('.format-option.active').dataset.format;
-    const quality = Number(document.getElementById('convertQualitySlider').value) / 100;
     const mimeMap = {
         jpeg: 'image/jpeg',
         png: 'image/png',
@@ -197,9 +251,29 @@ async function processFileByActiveTool(file) {
         tiff: 'tiff',
         ico: 'ico'
     };
+    // 仅 JPEG / WebP 支持质量参数；无损格式忽略 quality
+    const lossyFormats = ['jpeg', 'webp'];
+    const quality = lossyFormats.includes(format)
+        ? Number(document.getElementById('convertQualitySlider').value) / 100
+        : undefined;
 
     const mime = mimeMap[format] || 'image/png';
-    const dataUrl = renderImageToDataUrl(img, img.width, img.height, mime, quality);
+    // JPEG / WebP 需白底填充以避免透明区域变黑
+    const canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext('2d');
+    if (format === 'jpeg' || format === 'webp') {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+    let dataUrl;
+    try {
+        dataUrl = canvas.toDataURL(mime, quality);
+    } catch (e) {
+        dataUrl = canvas.toDataURL('image/png');
+    }
     return {
         dataUrl,
         fileName: `converted_${getFileBaseName(file.name)}.${extMap[format] || 'png'}`,
@@ -211,7 +285,7 @@ function setActionButtonsEnabled(enabled) {
     resizeBtn.disabled = !enabled;
     convertBtn.disabled = !enabled;
     compressBtn.disabled = !enabled;
-    clearBtn.disabled = !enabled;
+    clearBtns.forEach(btn => { btn.disabled = !enabled; });
 }
 
 function updateBatchState() {
@@ -233,7 +307,7 @@ function updateBatchProgress(done, total, text) {
     const percent = Math.max(0, Math.min(100, Math.round((done / total) * 100)));
     batchProgressWrap.hidden = false;
     batchProgressBar.style.width = `${percent}%`;
-    batchProgressText.textContent = text || `进度：${done}/${total} (${percent}%)`;
+    batchProgressText.textContent = text || t('batch.progress', { done, total, percent });
 }
 
 function renderBatchQueue() {
@@ -241,7 +315,7 @@ function renderBatchQueue() {
 
     if (!batchQueue.length) {
         const li = document.createElement('li');
-        li.textContent = '队列为空：请先添加图片';
+        li.textContent = t('preview.empty');
         batchList.appendChild(li);
         return;
     }
@@ -256,13 +330,13 @@ function renderBatchQueue() {
         text.className = 'batch-row-text';
 
         if (item.status === 'processing') {
-            text.textContent = `处理中：${item.file.name}`;
+            text.textContent = t('batch.row_processing', { name: item.file.name });
         } else if (item.status === 'success') {
-            text.textContent = `完成：${item.message}`;
+            text.textContent = t('batch.row_success', { message: item.message });
         } else if (item.status === 'error') {
-            text.textContent = `失败：${item.file.name}（${item.message}）`;
+            text.textContent = t('batch.row_error', { name: item.file.name, message: item.message });
         } else {
-            text.textContent = `待处理：${item.file.name}`;
+            text.textContent = t('batch.row_queued', { name: item.file.name });
         }
 
         li.appendChild(text);
@@ -271,7 +345,7 @@ function renderBatchQueue() {
             const removeBtn = document.createElement('button');
             removeBtn.type = 'button';
             removeBtn.className = 'batch-remove-btn';
-            removeBtn.textContent = '删除';
+            removeBtn.textContent = t('batch.remove');
             removeBtn.dataset.index = String(index);
             li.appendChild(removeBtn);
         }
@@ -304,9 +378,9 @@ function appendBatchFiles(files) {
     });
 
     if (added === 0) {
-        showNotification('没有新增可用图片（可能重复或格式不支持）', 'error');
+        showNotification(t('batch.no_new'), 'error');
     } else {
-        showNotification(`已加入队列：${added} 张`, 'success');
+        showNotification(t('batch.added', { count: added }), 'success');
     }
 
     renderBatchQueue();
@@ -323,12 +397,12 @@ function removeBatchItem(index) {
 
 async function runBatchProcess() {
     if (!batchQueue.length) {
-        showNotification('请先选择批量图片', 'error');
+        showNotification(t('batch.select_first'), 'error');
         return;
     }
 
     if (!window.JSZip) {
-        showNotification('缺少 ZIP 组件，无法打包下载', 'error');
+        showNotification(t('batch.no_zip'), 'error');
         return;
     }
 
@@ -347,7 +421,7 @@ async function runBatchProcess() {
 
     updateBatchState();
     renderBatchQueue();
-    updateBatchProgress(0, total, `开始处理：0/${total}`);
+    updateBatchProgress(0, total, t('batch.start', { total }));
 
     for (let i = 0; i < batchQueue.length; i++) {
         if (batchCancelRequested) {
@@ -358,7 +432,7 @@ async function runBatchProcess() {
         const file = current.file;
         current.status = 'processing';
         renderBatchQueue();
-        updateBatchProgress(i, total, `处理中：${file.name} (${i + 1}/${total})`);
+        updateBatchProgress(i, total, t('batch.processing', { name: file.name, done: i + 1, total }));
 
         try {
             const result = await processFileByActiveTool(file);
@@ -373,12 +447,12 @@ async function runBatchProcess() {
         }
 
         renderBatchQueue();
-        updateBatchProgress(i + 1, total, `已完成：${i + 1}/${total}`);
+        updateBatchProgress(i + 1, total, t('batch.done', { done: i + 1, total }));
         await new Promise(resolve => setTimeout(resolve, 120));
     }
 
     if (!batchCancelRequested && successCount > 0) {
-        updateBatchProgress(total, total, '正在打包 ZIP...');
+        updateBatchProgress(total, total, t('batch.zipping'));
         const zipBlob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE', compressionOptions: { level: 6 } });
         const now = new Date();
         const mode = getActiveModeName();
@@ -390,9 +464,9 @@ async function runBatchProcess() {
     updateBatchState();
 
     if (batchCancelRequested) {
-        showNotification(`批量处理已取消（成功 ${successCount}，失败 ${failureCount}）`, 'error');
+        showNotification(t('batch.cancelled', { success: successCount, failure: failureCount }), 'error');
     } else {
-        showNotification(`批量处理完成（成功 ${successCount}，失败 ${failureCount}）`, 'success');
+        showNotification(t('batch.completed', { success: successCount, failure: failureCount }), 'success');
     }
 
     updateBatchProgress(0, 0, '');
@@ -410,7 +484,7 @@ function clearBatchQueue() {
 function cancelBatchProcess() {
     if (!batchProcessing) return;
     batchCancelRequested = true;
-    batchProgressText.textContent = '正在取消...（当前项结束后停止）';
+    batchProgressText.textContent = t('batch.canceling');
 }
 
 // 拖放处理
@@ -431,7 +505,7 @@ function bindDropZone() {
         if (file && file.type.startsWith('image/')) {
             handleFile(file);
         } else {
-            showNotification('请上传图片文件', 'error');
+            showNotification(t('upload.invalid'), 'error');
         }
     });
 
@@ -453,10 +527,10 @@ function handleFile(file) {
     const reader = new FileReader();
     reader.onload = (e) => {
         preview.src = e.target.result;
-        previewContainer.style.display = 'block';
+        previewContainer.style.display = 'flex';
         setActionButtonsEnabled(true);
         updateImageInfo(file, e.target.result);
-        showNotification('图片已加载');
+        showNotification(t('upload.image_loaded'));
     };
     reader.readAsDataURL(file);
 }
@@ -473,10 +547,10 @@ function updateImageInfo(file, dataUrl) {
         const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
         imageInfo.innerHTML = `
             <div class="zh-text">
-                文件名：${file.name}<br>
-                原始大小：${fileSizeMB} MB<br>
-                尺寸：${img.width} × ${img.height} 像素<br>
-                类型：${file.type}
+                ${t('info.filename')}：${file.name}<br>
+                ${t('info.original_size')}：${fileSizeMB} ${t('info.unit_mb')}<br>
+                ${t('info.dimensions')}：${img.width} × ${img.height} ${t('info.unit_px')}<br>
+                ${t('info.type')}：${file.type}
             </div>
         `;
     };
@@ -485,42 +559,55 @@ function updateImageInfo(file, dataUrl) {
 
 // 通用下载图片函数
 function downloadImage() {
-    const method = methodSpan.innerText;
+    // 注意：methodSpan 带有 hidden / display:none，必须用 textContent，
+    // innerText 对不可见元素返回空字符串会导致分支判断失效
+    const method = methodSpan.textContent;
     let imageUrl;
     let imagePrefix = '';
+    let targetExt = '';
 
     switch (method) {
         case 'resized':
             imageUrl = resizedImageUrl;
-            imagePrefix = 'resized_';
+            imagePrefix = t('prefix.resized');
             break;
         case 'compressed':
             imageUrl = compressedImageUrl;
-            imagePrefix = 'compressed_';
+            imagePrefix = t('prefix.compressed');
             break;
         case 'converted':
             imageUrl = convertedImageUrl;
-            imagePrefix = 'converted_';
+            imagePrefix = t('prefix.converted');
+            {
+                const format = document.querySelector('.format-option.active').dataset.format;
+                const extMap = {
+                    jpeg: 'jpg', png: 'png', webp: 'webp', bmp: 'bmp',
+                    gif: 'gif', tiff: 'tiff', ico: 'ico'
+                };
+                targetExt = extMap[format] || 'png';
+            }
             break;
         default:
             imageUrl = resizedImageUrl || compressedImageUrl || convertedImageUrl;
             if (!imageUrl) {
-                showNotification('没有可用的图片', 'error');
+                showNotification(t('upload.no_image_available'), 'error');
                 return;
             }
             break;
     }
 
     if (!imageUrl) {
-        showNotification(`${method}图片不可用`, 'error');
+        showNotification(t('resize.method_unavailable', { method }), 'error');
         return;
     }
 
+    const baseName = getFileBaseName(originalFile.name);
+    const ext = targetExt || originalFile.name.split('.').pop() || 'png';
     const link = document.createElement('a');
-    link.download = `${imagePrefix}${originalFile.name}`;
+    link.download = `${imagePrefix}${baseName}.${ext}`;
     link.href = imageUrl;
     link.click();
-    showNotification('开始下载');
+    showNotification(t('preview.start_download'));
 }
 
 function clearSingleState() {
@@ -534,11 +621,11 @@ function clearSingleState() {
     compressBtn.disabled = true;
     resizeBtn.disabled = true;
     convertBtn.disabled = true;
-    downloadBtn.disabled = true;
-    clearBtn.disabled = true;
+    downloadBtns.forEach(btn => { btn.disabled = true; });
+    clearBtns.forEach(btn => { btn.disabled = true; });
     imageInfo.innerHTML = '';
     methodSpan.textContent = '';
-    showNotification('已清除');
+    showNotification(t('preview.cleared'));
 }
 
 function bindHelpModal() {
@@ -556,15 +643,15 @@ function bindHelpModal() {
         switch (activePage) {
             case 'page1':
                 helpContent = document.getElementById('resize-help').innerHTML;
-                modalTitle.textContent = '图像裁剪帮助';
+                modalTitle.textContent = t('help.title_resize');
                 break;
             case 'page2':
                 helpContent = document.getElementById('compress-help').innerHTML;
-                modalTitle.textContent = '图像压缩帮助';
+                modalTitle.textContent = t('help.title_compress');
                 break;
             default:
                 helpContent = document.getElementById('convert-help').innerHTML;
-                modalTitle.textContent = '图像转换帮助';
+                modalTitle.textContent = t('help.title_convert');
                 break;
         }
 
@@ -619,8 +706,8 @@ function bindBatch() {
 }
 
 // 下载按钮事件监听
-downloadBtn.addEventListener('click', downloadImage);
-clearBtn.addEventListener('click', clearSingleState);
+downloadBtns.forEach(btn => btn.addEventListener('click', downloadImage));
+clearBtns.forEach(btn => btn.addEventListener('click', clearSingleState));
 
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
@@ -628,6 +715,17 @@ document.addEventListener('DOMContentLoaded', () => {
     bindDropZone();
     bindHelpModal();
     bindBatch();
+
+    // 语言切换按钮
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn) {
+        langBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleLang();
+        });
+    }
+    // 应用初始语言（从 localStorage 或浏览器检测）
+    applyI18n();
 
     const defaultResizeOption = document.querySelector('.resize-option[data-mode="percentage"]');
     if (defaultResizeOption) {

@@ -1,3 +1,21 @@
+:root {
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --border: #e5e7eb;
+    --border-soft: #eef0f3;
+    --text: #1f2329;
+    --muted: #8a8f99;
+    --primary: #2563eb;
+    --primary-soft: #eff4ff;
+    --primary-hover: #e0eaff;
+    --ok: #16a34a;
+    --danger: #dc2626;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, .04);
+    --shadow-md: 0 1px 3px rgba(16, 24, 40, .06);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,81 +23,105 @@
 }
 
 body {
-    font-family: 'Microsoft YaHei', sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     line-height: 1.6;
-    background: linear-gradient(180deg, #f4f7fb 0%, #f8fbff 100%);
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* 导航栏样式 */
+/* 导航栏 */
 .navbar {
-    background: linear-gradient(120deg, #1f2b3a 0%, #25374d 100%);
-    color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* 保持在顶部 */
+    background: var(--panel);
+    color: var(--text);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: .2px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    flex-wrap: wrap;
-    gap: 8px;
+    gap: 4px;
 }
 
 .nav-links li {
-    margin-left: 2rem;
+    margin: 0;
 }
 
 .nav-links a {
-    color: white;
+    color: var(--muted);
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: all 0.3s;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    transition: .14s ease;
     cursor: pointer;
+    display: inline-block;
 }
 
 .nav-links a:hover {
-    background-color: #34495e;
+    color: var(--text);
+    background: var(--bg);
 }
 
 .nav-links a.active {
-    background-color: #3498db;
+    color: var(--primary);
+    background: var(--primary-soft);
 }
 
-/* 内容区域样式 */
+/* 内容区域 */
 .content {
-    padding: 2rem;
-    max-width: 1200px;
+    padding: 20px;
+    max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    gap: 16px;
+    gap: 14px;
 }
 
+/* 卡片基础 */
+.card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--panel);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.upload-card {
+    padding: 14px;
+    display: grid;
+    gap: 14px;
+}
+
+.tool-card {
+    padding: 14px;
+}
+
+/* 页面切换 */
 .page {
     display: none;
-    padding: 20px;
-    border: 1px solid #e6edf5;
-    border-radius: 12px;
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
-    animation: fadeIn 0.5s;
+    animation: fadeIn .2s ease;
 }
 
 .page.active {
@@ -87,35 +129,98 @@ body {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 h1 {
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: var(--text);
 }
 
 #info-box {
-    display: flex;
-    justify-content: center;
-    /* 使子元素水平居中 */
     width: 100%;
 }
 
 .image-info {
     text-align: left;
-    width: 50%;
-    max-width: 600px;
+    width: 100%;
     word-break: break-word;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
 }
 
-/* 模态框样式 */
+/* 预览容器 */
+.preview-container {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preview-head h3 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.preview-body {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    padding: 10px;
+    text-align: center;
+    overflow: auto;
+}
+
+.preview-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+}
+
+/* 帮助信息（用于模态框内） */
+.info-section {
+    display: none;
+}
+
+.info-content {
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.info-content h3 {
+    color: var(--text);
+    margin: 18px 0 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.info-content ul,
+.info-content ol {
+    margin-bottom: 12px;
+    padding-left: 22px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.info-content li {
+    margin-bottom: 6px;
+}
+
+.info-content ul ul,
+.info-content ol ul {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.info-content strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* 模态框 */
 .modal {
     display: none;
     position: fixed;
@@ -124,60 +229,122 @@ h1 {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(16, 24, 40, .45);
     overflow: auto;
+    padding: 20px;
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 70%;
-    max-width: 600px;
-    animation: modalFade 0.3s ease;
+    background-color: var(--panel);
+    margin: 5vh auto;
+    padding: 18px 20px 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(16, 24, 40, .15);
+    width: 100%;
+    max-width: 640px;
+    animation: modalFade .2s ease;
 }
 
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.close-modal {
+    font-size: 22px;
+    font-weight: 400;
+    cursor: pointer;
+    color: var(--muted);
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.close-modal:hover {
+    color: var(--text);
+}
+
+.modal-body {
+    line-height: 1.6;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-body ul {
+    padding-left: 22px;
+}
+
+.modal-body li {
+    margin-bottom: 8px;
+}
+
+/* 批量处理 */
 .batch-panel {
-    border: 1px solid #e6edf5;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
-    padding: 16px;
+    padding: 14px;
+}
+
+.batch-head {
+    margin-bottom: 12px;
 }
 
 .batch-title {
     margin: 0;
-    color: #1f2d3d;
-    font-size: 18px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .batch-subtitle {
-    margin: 6px 0 0;
-    color: #667085;
-    font-size: 13px;
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 12px;
 }
 
 .batch-controls {
-    margin-top: 12px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     align-items: center;
 }
 
 .batch-upload {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    border: 1px dashed #9db9df;
-    border-radius: 10px;
-    background: #f5f9ff;
-    color: #1d4f91;
+    gap: 6px;
+    padding: 7px 12px;
+    border: 1px dashed var(--primary);
+    border-radius: var(--radius-sm);
+    background: var(--primary-soft);
+    color: var(--primary);
     cursor: pointer;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
+    transition: .14s ease;
+}
+
+.batch-upload:hover {
+    background: var(--primary-hover);
 }
 
 .batch-upload input {
@@ -196,11 +363,11 @@ h1 {
 
 .batch-list li {
     padding: 8px 10px;
-    border-radius: 8px;
-    background: #f8fafc;
-    border: 1px solid #ebf1f8;
-    font-size: 13px;
-    color: #334155;
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    border: 1px solid var(--border-soft);
+    font-size: 12px;
+    color: var(--muted);
 }
 
 .batch-list li.batch-row {
@@ -217,95 +384,88 @@ h1 {
 }
 
 .batch-remove-btn {
-    border: 1px solid #f1c0c0;
-    border-radius: 8px;
-    background: #fff5f5;
-    color: #a62c2c;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--panel);
+    color: var(--danger);
     font-size: 12px;
-    padding: 4px 8px;
+    padding: 3px 8px;
     cursor: pointer;
     flex: 0 0 auto;
+    transition: .14s ease;
 }
 
 .batch-remove-btn:hover {
-    background: #ffe9e9;
+    background: #fee2e2;
+    border-color: #fecaca;
 }
 
 .batch-list li.success {
-    border-color: #bde7ce;
-    background: #f0fbf5;
-    color: #146b3a;
+    border-color: #bbf7d0;
+    background: #f0fdf4;
+    color: #15803d;
 }
 
 .batch-list li.error {
-    border-color: #f3c4c4;
-    background: #fff5f5;
-    color: #9f2c2c;
+    border-color: #fecaca;
+    background: #fef2f2;
+    color: #b91c1c;
 }
 
 .batch-progress {
     margin-top: 12px;
     width: 100%;
-    height: 10px;
+    height: 6px;
     border-radius: 999px;
-    background: #e8edf5;
+    background: var(--border-soft);
     overflow: hidden;
 }
 
 .batch-progress-bar {
     width: 0;
     height: 100%;
-    background: linear-gradient(90deg, #1d8bff, #3b82f6);
+    background: var(--primary);
     transition: width .2s ease;
 }
 
 .batch-progress-text {
     margin: 8px 0 0;
     font-size: 12px;
-    color: #64748b;
+    color: var(--muted);
 }
 
+/* 响应式 */
 @media (max-width: 768px) {
     .navbar {
-        padding: 12px;
+        padding: 10px 12px;
     }
 
     .nav-container {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
-    }
-
-    .logo {
-        font-size: 1.2rem;
+        gap: 8px;
     }
 
     .nav-links {
         width: 100%;
-        gap: 6px;
-    }
-
-    .content {
-        padding: 1rem;
-    }
-
-    .nav-links li {
-        margin-left: 0;
+        gap: 4px;
+        flex-wrap: wrap;
     }
 
     .nav-links a {
-        padding: .4rem .6rem;
-        font-size: 14px;
+        padding: 6px 10px;
+        font-size: 13px;
     }
 
-    .page {
-        padding: 14px;
+    .content {
+        padding: 12px;
+        gap: 10px;
     }
 
-    .modal-content {
-        width: 92%;
-        margin: 8% auto;
-        padding: 14px;
+    .upload-card,
+    .tool-card,
+    .batch-panel {
+        padding: 12px;
     }
 
     .batch-controls {
@@ -328,74 +488,23 @@ h1 {
         line-height: 1.4;
     }
 
-    .image-info {
-        width: 100%;
+    .modal-content {
+        margin: 3vh auto;
+        padding: 14px;
     }
 }
 
 @media (max-width: 480px) {
     .content {
         padding: 10px;
-        gap: 12px;
-    }
-
-    .batch-panel {
-        padding: 12px;
+        gap: 10px;
     }
 
     .batch-title {
-        font-size: 16px;
-    }
-
-    .batch-subtitle,
-    .batch-progress-text {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .close-modal {
-        font-size: 24px;
+        font-size: 20px;
     }
-}
-
-@keyframes modalFade {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.close-modal {
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close-modal:hover {
-    color: #555;
-}
-
-.modal-body {
-    line-height: 1.6;
-}
-
-.modal-body ul {
-    padding-left: 20px;
-}
-
-.modal-body li {
-    margin-bottom: 8px;
 }

@@ -10,9 +10,9 @@
     </app>
     <app>
         <id>app2</id>
-        <url>application/FlexAlbum/FlexAlbum.html</url>
-        <name>相册</name>
-        <tag>媒体</tag>
+        <url>/mtk-launchpad/index.html</url>
+        <name>MTK-Launchpad</name>
+        <tag>玩机</tag>
         <newpage>1</newpage>
         <show>1</show>
     </app>
@@ -50,11 +50,11 @@
     </app>
     <app>
         <id>app7</id>
-        <url>application/snibypass.html</url>
-        <name>snibypass</name>
-        <tag>网络安全</tag>
+        <url>/Test-Contest-HTML/index.html</url>
+        <name>星星</name>
+        <tag>专题</tag>
         <newpage>1</newpage>
-        <show>0</show>
+        <show>1</show>
     </app>
     <app>
         <id>app8</id>
@@ -93,22 +93,6 @@
         <url>application/textDiffer/index.html</url>
         <name>文本对比工具</name>
         <tag>工具</tag>
-        <newpage>1</newpage>
-        <show>1</show>
-    </app>
-    <app>
-        <id>app13</id>
-        <url>/Test-Contest-HTML/index.html</url>
-        <name>星星</name>
-        <tag>专题</tag>
-        <newpage>1</newpage>
-        <show>1</show>
-    </app>
-    <app>
-        <id>app14</id>
-        <url>/mtk-launchpad/index.html</url>
-        <name>MTK-Launchpad</name>
-        <tag>玩机</tag>
         <newpage>1</newpage>
         <show>1</show>
     </app>

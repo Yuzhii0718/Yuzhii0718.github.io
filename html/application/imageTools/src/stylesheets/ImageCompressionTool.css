@@ -1,12 +1,24 @@
-.settings-panel {
-    display: none;
+/* 压缩工具：由 JS 控制 panel 显隐，避免全局隐藏 */
+
+/* 面板内提示 */
+.panel-hint {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-.settings-panel.custom {
-    display: block;
-}
-
+/* 质量滑块与最大尺寸输入 */
 .settings-group input[type="range"] {
     flex: 1;
-    max-width: 300px;
+    max-width: 280px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+#compressQualityValue {
+    min-width: 40px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 13px;
 }

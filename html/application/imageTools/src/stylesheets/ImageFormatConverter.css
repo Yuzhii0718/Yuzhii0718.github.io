@@ -1,51 +1,54 @@
+/* 格式转换工具 */
 .format-options {
     flex-wrap: wrap;
 }
 
 .format-option {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-}
-
-.format-option i {
-    font-size: 20px;
+    gap: 6px;
 }
 
 .quality-slider {
-    width: 200px;
+    width: 220px;
+    accent-color: var(--primary);
+    cursor: pointer;
 }
 
+#convertQualityValue {
+    min-width: 40px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* 加载状态 */
 .btn-loading {
     position: relative;
     pointer-events: none;
-    opacity: 0.8;
+    opacity: .8;
 }
 
 .btn-loading::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     top: 50%;
     left: 50%;
-    margin: -10px 0 0 -10px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #fff;
+    margin: -8px 0 0 -8px;
+    border: 2px solid rgba(37, 99, 235, .25);
+    border-top-color: var(--primary);
     border-radius: 50%;
-    animation: button-loading-spinner 0.8s linear infinite;
+    animation: button-loading-spinner .8s linear infinite;
 }
 
 @keyframes button-loading-spinner {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.btn-loading span {
+.btn-loading span,
+.btn-loading i {
     visibility: hidden;
 }

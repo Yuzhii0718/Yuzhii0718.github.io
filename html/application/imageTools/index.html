@@ -22,12 +22,13 @@
     <!-- Navigation bar start -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">图像工具</div>
+            <div class="logo" data-i18n="nav.logo">图像工具</div>
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-page="page1">图像裁剪</a></li>
-                <li><a href="#" class="nav-link" data-page="page2">图像压缩</a></li>
-                <li><a href="#" class="nav-link" data-page="page3">图像转换</a></li>
-                <li><a href="#" id="help-btn">帮助</a></li>
+                <li><a href="#" class="nav-link active" data-page="page1" data-i18n="nav.resize">图像裁剪</a></li>
+                <li><a href="#" class="nav-link" data-page="page2" data-i18n="nav.compress">图像压缩</a></li>
+                <li><a href="#" class="nav-link" data-page="page3" data-i18n="nav.convert">图像转换</a></li>
+                <li><a href="#" id="help-btn" data-i18n="nav.help">帮助</a></li>
+                <li><a href="#" id="lang-toggle-btn" data-i18n="nav.lang">EN</a></li>
             </ul>
         </div>
     </nav>
@@ -100,11 +101,17 @@
                         <li>适合摄影作品、打印图片等场景</li>
                     </ul>
                 </li>
-                <li><strong>自定义</strong>：根据具体需求自定义压缩参数
+                <li><strong>按质量调整</strong>：手动指定压缩质量
                     <ul>
                         <li>可调节压缩质量（0-100%）</li>
-                        <li>可设置最大文件大小限制</li>
-                        <li>适合有特定要求的场景</li>
+                        <li>适合需要精细控制画质的场景</li>
+                    </ul>
+                </li>
+                <li><strong>按大小调整</strong>：指定目标文件大小自动压缩
+                    <ul>
+                        <li>自动二分搜索最佳质量参数</li>
+                        <li>使输出大小尽量接近目标值</li>
+                        <li>适合有特定大小限制的场景</li>
                     </ul>
                 </li>
             </ul>
@@ -123,7 +130,7 @@
                     <ul>
                         <li>网站图片建议使用"缩小优先"模式</li>
                         <li>重要图片建议使用"清晰优先"模式</li>
-                        <li>特殊需求使用"自定义"模式</li>
+                        <li>特殊需求使用"按质量调整"或"按大小调整"</li>
                     </ul>
                 </li>
                 <li>压缩前请备份原始图片</li>
@@ -186,216 +193,230 @@
 
     <!-- Content start -->
     <div class="content">
-        <div class="converter-container">
+        <!-- 上传区与预览 -->
+        <section class="card upload-card">
             <div class="file-drop-zone" id="dropZone">
                 <i class="fas fa-cloud-upload-alt"></i>
-                <p class="zh-text">拖放图片到这里或点击选择文件</p>
+                <p class="zh-text" data-i18n="upload.hint">拖放图片到这里或点击选择文件</p>
                 <input type="file" id="fileInput" accept="image/*" style="display: none;" wfd-id="id0">
-
-                <!-- Preview start -->
-                <div class="preview-container" id="previewContainer">
-                    <h3 class="zh-text">预览</h3>
-                    <img id="preview" alt="预览">
-                    <div id="info-box">
-                        <div class="image-info" id="imageInfo"></div>
-                    </div>
-                </div>
-                <!-- Preview end -->
             </div>
-        </div>
 
-        <!-- Image resize tool satrt -->
-        <div id="page1" class="page active">
-            <div id="resize-box">
+            <div class="preview-container" id="previewContainer">
+                <div class="preview-head">
+                    <h3 class="zh-text" data-i18n="preview.title">预览</h3>
+                </div>
+                <div class="preview-body">
+                    <img id="preview" data-i18n-attr="alt:preview.alt" alt="预览">
+                </div>
+                <div id="info-box">
+                    <div class="image-info" id="imageInfo"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工具区：每个页面包含模式切换、参数、操作按钮 -->
+        <section class="card tool-card">
+            <!-- Image resize tool start -->
+            <div id="page1" class="page active">
                 <div class="options resize-options">
                     <div class="process-option resize-option active" data-mode="percentage">
-                        <span class="zh-text">百分比调整</span>
+                        <span class="zh-text" data-i18n="resize.mode_percentage">百分比调整</span>
                     </div>
                     <div class="process-option resize-option" data-mode="pixels">
-                        <span class="zh-text">像素调整</span>
+                        <span class="zh-text" data-i18n="resize.mode_pixels">像素调整</span>
                     </div>
                     <div class="process-option resize-option" data-mode="custom">
-                        <span class="zh-text">自定义</span>
+                        <span class="zh-text" data-i18n="resize.mode_custom">自定义</span>
                     </div>
                 </div>
 
                 <div class="panel settings-panel percentage" id="percentagePanel" style="display: none;">
                     <div class="settings-group">
-                        <label class="zh-text">缩放比例：</label>
-                        <select id="percentageSelect" class="form-select">
-                            <option value="15">15%</option>
-                            <option value="25">25%</option>
-                            <option value="25">33%</option>
-                            <option value="50">50%</option>
-                            <option value="75">75%</option>
-                            <option value="90" selected>90%</option>
-                            <option value="100">100%</option>
-                        </select>
-                        <div class="custom-percentage">
-                            <label class="zh-text">自定义百分比：</label>
-                            <input type="number" id="percentageInput" min="1" max="200" value="90" class="form-select">
-                            %
-                        </div>
+                        <label class="zh-text" data-i18n="resize.scale_ratio">缩放比例：</label>
+                        <input type="number" id="percentageInput" min="1" max="200" value="90"> %
+                    </div>
+                    <div class="preset-buttons" data-target="percentageInput">
+                        <button type="button" data-value="15">15%</button>
+                        <button type="button" data-value="25">25%</button>
+                        <button type="button" data-value="50">50%</button>
+                        <button type="button" data-value="75">75%</button>
+                        <button type="button" data-value="90">90%</button>
+                        <button type="button" data-value="100">100%</button>
                     </div>
                 </div>
 
                 <div class="panel settings-panel pixels" id="pixelsPanel" style="display: none;">
                     <div class="settings-group">
-                        <label class="zh-text">预设尺寸：</label>
-                        <select id="pixelsSelect" class="form-select">
-                            <option value="800">800px 宽度</option>
-                            <option value="1024">1024px 宽度</option>
-                            <option value="1280">1280px 宽度</option>
-                            <option value="1920">1920px 宽度</option>
-                            <option value="3840">3840px 宽度 (4K)</option>
-                        </select>
+                        <label class="zh-text" data-i18n="resize.target_width">目标宽度：</label>
+                        <input type="number" id="pixelsInput" min="1" value="800"> px
+                    </div>
+                    <div class="preset-buttons" data-target="pixelsInput">
+                        <button type="button" data-value="800">800px</button>
+                        <button type="button" data-value="1024">1024px</button>
+                        <button type="button" data-value="1280">1280px</button>
+                        <button type="button" data-value="1920">1920px</button>
+                        <button type="button" data-value="3840">3840px</button>
                     </div>
                 </div>
 
-                <div class="panel settings-panel custom" id="customPanel">
+                <div class="panel settings-panel custom" id="customPanel" style="display: none;">
                     <div class="settings-group">
-                        <label class="zh-text">宽度：</label>
+                        <label class="zh-text" data-i18n="resize.width">宽度：</label>
                         <input type="number" id="width" min="1" value="800" wfd-id="id1" class="form-select"> px
                     </div>
                     <div class="settings-group">
-                        <label class="zh-text">高度：</label>
+                        <label class="zh-text" data-i18n="resize.height">高度：</label>
                         <input type="number" id="height" min="1" value="600" wfd-id="id2" class="form-select"> px
                     </div>
                     <div class="settings-group">
-                        <label class="zh-text">保持比例：</label>
+                        <label class="zh-text" data-i18n="resize.maintain_aspect">保持比例：</label>
                         <input type="checkbox" id="maintainAspect" checked="" wfd-id="id3">
                     </div>
                 </div>
-            </div>
-            <div class="button-group">
-                <button class="btn btn-primary" id="resizeBtn" disabled="" onclick="resizeImage()">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                    <span class="zh-text">调整尺寸</span>
-                </button>
-            </div>
-        </div>
-        <!-- Image resize tool end -->
 
-        <!-- Image compression tool start -->
-        <div id="page2" class="page">
-            <div id="compress-box">
+                <div class="button-group tool-actions">
+                    <button class="btn btn-primary" id="resizeBtn" disabled="" onclick="resizeImage()">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                        <span class="zh-text" data-i18n="resize.btn_resize">调整尺寸</span>
+                    </button>
+                    <button class="btn btn-secondary" id="downloadBtn" disabled="">
+                        <i class="fas fa-download"></i>
+                        <span class="zh-text" data-i18n="resize.btn_download">下载图片</span>
+                    </button>
+                    <button class="btn btn-secondary" id="clearBtn" disabled="">
+                        <i class="fas fa-trash-alt"></i>
+                        <span class="zh-text" data-i18n="resize.btn_clear">清除</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Image resize tool end -->
+
+            <!-- Image compression tool start -->
+            <div id="page2" class="page">
                 <div class="options compression-options">
                     <div class="process-option compression-option active" data-mode="size">
-                        <span class="zh-text">缩小优先</span>
+                        <span class="zh-text" data-i18n="compress.mode_size">缩小优先</span>
                     </div>
                     <div class="process-option compression-option" data-mode="quality">
-                        <span class="zh-text">清晰优先</span>
+                        <span class="zh-text" data-i18n="compress.mode_quality">清晰优先</span>
                     </div>
-                    <div class="process-option compression-option" data-mode="custom">
-                        <span class="zh-text">自定义</span>
+                    <div class="process-option compression-option" data-mode="by-quality">
+                        <span class="zh-text" data-i18n="compress.mode_by_quality">按质量调整</span>
+                    </div>
+                    <div class="process-option compression-option" data-mode="by-size">
+                        <span class="zh-text" data-i18n="compress.mode_by_size">按大小调整</span>
                     </div>
                 </div>
 
-                <div class="panel settings-panel custom" id="settingsPanel">
+                <div class="panel settings-panel by-quality" id="qualityPanel" style="display: none;">
                     <div class="settings-group">
-                        <label class="zh-text">压缩质量：</label>
-                        <input type="range" id="compressQualitySlider" min="0" max="100" value="80" wfd-id="id1">
+                        <label class="zh-text" data-i18n="compress.quality">压缩质量：</label>
+                        <input type="range" id="compressQualitySlider" min="0" max="100" value="80">
                         <span id="compressQualityValue">80%</span>
                     </div>
+                </div>
+
+                <div class="panel settings-panel by-size" id="sizePanel" style="display: none;">
                     <div class="settings-group">
-                        <label class="zh-text">最大尺寸：</label>
-                        <input type="number" id="maxSize" value="1024" min="1" wfd-id="id2" class="form-select"> KB
+                        <label class="zh-text" data-i18n="compress.target_size">目标大小：</label>
+                        <input type="number" id="maxSize" value="1024" min="1" class="form-select"> KB
                     </div>
+                    <p class="panel-hint" data-i18n="compress.size_hint">将自动调整压缩质量，使文件大小接近目标值。</p>
+                </div>
+
+                <div class="button-group tool-actions">
+                    <button class="btn btn-primary" id="compressBtn" disabled="" onclick="compressImage()">
+                        <i class="fas fa-compress-alt"></i>
+                        <span class="zh-text" data-i18n="compress.btn_compress">压缩图片</span>
+                    </button>
+                    <button class="btn btn-secondary" id="downloadBtn2" disabled="" data-action="download">
+                        <i class="fas fa-download"></i>
+                        <span class="zh-text" data-i18n="compress.btn_download">下载图片</span>
+                    </button>
+                    <button class="btn btn-secondary" id="clearBtn2" disabled="" data-action="clear">
+                        <i class="fas fa-trash-alt"></i>
+                        <span class="zh-text" data-i18n="compress.btn_clear">清除</span>
+                    </button>
                 </div>
             </div>
+            <!-- Image compression tool end -->
 
-            <div class="button-group">
-                <button class="btn btn-primary" id="compressBtn" disabled="" onclick="compressImage()">
-                    <i class="fas fa-compress-alt"></i>
-                    <span class="zh-text">压缩图片</span>
-                </button>
-            </div>
-        </div>
-        <!-- Image compression tool end -->
-
-        <!-- Image format converter tool start -->
-        <div id="page3" class="page">
-            <div id="covert-box">
+            <!-- Image format converter tool start -->
+            <div id="page3" class="page">
                 <div class="options format-options">
                     <div class="process-option format-option active" data-format="jpeg">
-                        <i class="fas fa-file-image"></i>
                         <span class="zh-text">JPEG</span>
                     </div>
                     <div class="process-option format-option" data-format="png">
-                        <i class="fas fa-file-image"></i>
                         <span class="zh-text">PNG</span>
                     </div>
                     <div class="process-option format-option" data-format="webp">
-                        <i class="fas fa-file-image"></i>
                         <span class="zh-text">WebP</span>
                     </div>
                     <div class="process-option format-option" data-format="bmp">
-                        <i class="fas fa-file-image"></i>
                         <span class="zh-text">BMP</span>
                     </div>
                     <div class="process-option format-option" data-format="gif">
-                        <i class="fas fa-file-image"></i>
                         <span class="zh-text">GIF</span>
                     </div>
                     <div class="process-option format-option" data-format="tiff">
-                        <i class="fas fa-file-image"></i>
                         <span class="zh-text">TIFF</span>
                     </div>
                     <div class="process-option format-option" data-format="ico">
-                        <i class="fas fa-file-image"></i>
                         <span class="zh-text">ICO</span>
                     </div>
+                </div>
+
+                <div class="panel settings-panel">
                     <div class="settings-group">
-                        <label class="zh-text">图片质量：</label>
+                        <label class="zh-text" data-i18n="convert.quality">图片质量：</label>
                         <input type="range" id="convertQualitySlider" class="quality-slider" min="0" max="100"
                             value="90" wfd-id="id1">
                         <span id="convertQualityValue">90%</span>
                     </div>
                 </div>
-            </div>
-            <div class="button-group">
-                <button class="btn btn-primary" id="convertBtn" disabled="" onclick="convertImage()">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span class="zh-text">转换格式</span>
-                </button>
-            </div>
-        </div>
-        <!-- Image format converter tool end -->
 
-        <!-- Function button start -->
-        <div class="button-group">
-            <button class="btn btn-secondary" id="downloadBtn" disabled="">
-                <i class="fas fa-download"></i>
-                <span class="zh-text">下载图片</span>
-            </button>
-            <button class="btn btn-secondary" id="clearBtn" disabled="">
-                <i class="fas fa-trash-alt"></i>
-                <span class="zh-text">清除</span>
-            </button>
-        </div>
-        <!-- Function button end -->
+                <div class="button-group tool-actions">
+                    <button class="btn btn-primary" id="convertBtn" disabled="" onclick="convertImage()">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="zh-text" data-i18n="convert.btn_convert">转换格式</span>
+                    </button>
+                    <button class="btn btn-secondary" id="downloadBtn3" disabled="" data-action="download">
+                        <i class="fas fa-download"></i>
+                        <span class="zh-text" data-i18n="convert.btn_download">下载图片</span>
+                    </button>
+                    <button class="btn btn-secondary" id="clearBtn3" disabled="" data-action="clear">
+                        <i class="fas fa-trash-alt"></i>
+                        <span class="zh-text" data-i18n="convert.btn_clear">清除</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Image format converter tool end -->
+        </section>
 
         <!-- Batch tool start -->
-        <div class="batch-panel panel">
-            <h3 class="batch-title">批量处理</h3>
-            <p class="batch-subtitle">按当前页签与当前参数对多张图片连续处理并下载。</p>
+        <section class="card batch-panel">
+            <div class="batch-head">
+                <h3 class="batch-title" data-i18n="batch.title">批量处理</h3>
+                <p class="batch-subtitle" data-i18n="batch.subtitle">按当前页签与当前参数对多张图片连续处理并下载。</p>
+            </div>
             <div class="batch-controls">
                 <label class="batch-upload">
                     <i class="fas fa-images"></i>
-                    <span>选择多张图片</span>
+                    <span data-i18n="batch.select">选择多张图片</span>
                     <input type="file" id="batchFileInput" accept="image/*" multiple>
                 </label>
                 <button class="btn btn-primary" id="batchProcessBtn" disabled>
                     <i class="fas fa-layer-group"></i>
-                    <span class="zh-text">批量处理并下载 ZIP</span>
+                    <span class="zh-text" data-i18n="batch.process">批量处理并下载 ZIP</span>
                 </button>
                 <button class="btn btn-secondary" id="batchCancelBtn" disabled>
                     <i class="fas fa-ban"></i>
-                    <span class="zh-text">取消</span>
+                    <span class="zh-text" data-i18n="batch.cancel">取消</span>
                 </button>
                 <button class="btn btn-secondary" id="batchClearBtn" disabled>
                     <i class="fas fa-eraser"></i>
-                    <span class="zh-text">清空队列</span>
+                    <span class="zh-text" data-i18n="batch.clear">清空队列</span>
                 </button>
             </div>
             <div class="batch-progress" id="batchProgressWrap" hidden>
@@ -403,7 +424,7 @@
             </div>
             <p class="batch-progress-text" id="batchProgressText"></p>
             <ul class="batch-list" id="batchList"></ul>
-        </div>
+        </section>
         <!-- Batch tool end -->
     </div>
     <!-- Content end -->
@@ -428,6 +449,7 @@
     <!-- Modal end -->
 
     <!-- js start -->
+    <script src="src/javascripts/i18n.js"></script>
     <script src="src/javascripts/showNotification.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="src/javascripts/main.js"></script>

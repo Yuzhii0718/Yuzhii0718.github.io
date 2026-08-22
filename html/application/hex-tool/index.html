@@ -14,257 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="mask-icon" href="/images/logo.svg" color="#000">
 
-	<style>
-		:root {
-			color-scheme: dark;
-			--bg: #0a1325;
-			--bg-2: #131f39;
-			--panel: rgba(255, 255, 255, 0.07);
-			--panel-border: rgba(255, 255, 255, 0.14);
-			--text: rgba(255, 255, 255, 0.95);
-			--muted: rgba(255, 255, 255, 0.68);
-			--primary: #60a5fa;
-			--primary-2: #a78bfa;
-			--danger: #ef4444;
-			--ok: #22c55e;
-			--radius: 16px;
-		}
-
-		@media (prefers-color-scheme: light) {
-			:root {
-				color-scheme: light;
-				--bg: #f3f7ff;
-				--bg-2: #ffffff;
-				--panel: rgba(15, 23, 42, 0.04);
-				--panel-border: rgba(15, 23, 42, 0.14);
-				--text: rgba(15, 23, 42, 0.95);
-				--muted: rgba(15, 23, 42, 0.68);
-				--primary: #3b82f6;
-				--primary-2: #8b5cf6;
-			}
-		}
-
-		* {
-			box-sizing: border-box;
-		}
-
-		body {
-			margin: 0;
-			min-height: 100vh;
-			font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-			color: var(--text);
-			background:
-				radial-gradient(circle at 12% 0%, rgba(96, 165, 250, 0.25), transparent 40%),
-				radial-gradient(circle at 90% 12%, rgba(167, 139, 250, 0.2), transparent 42%),
-				linear-gradient(145deg, var(--bg), var(--bg-2));
-			padding: 22px;
-		}
-
-		.page {
-			width: min(580px, 100%);
-			margin: 0 auto;
-			display: grid;
-			gap: 16px;
-		}
-
-		.panel {
-			border: 1px solid var(--panel-border);
-			border-radius: var(--radius);
-			background: var(--panel);
-			backdrop-filter: blur(10px);
-			box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
-			overflow: hidden;
-		}
-
-		.panel-header {
-			padding: 16px 18px;
-			border-bottom: 1px solid var(--panel-border);
-		}
-
-		.panel-header h1,
-		.panel-header h2 {
-			margin: 0;
-			font-size: 22px;
-			line-height: 1.25;
-		}
-
-		.panel-header h2 {
-			font-size: 18px;
-		}
-
-		.panel-header p {
-			margin: 8px 0 0;
-			color: var(--muted);
-			font-size: 14px;
-		}
-
-		.panel-body {
-			padding: 16px 18px 18px;
-			display: grid;
-			gap: 14px;
-		}
-
-		.field {
-			display: grid;
-			gap: 8px;
-		}
-
-		.field label {
-			color: var(--muted);
-			font-size: 14px;
-		}
-
-		input[type="text"] {
-			width: 100%;
-			border: 1px solid var(--panel-border);
-			border-radius: 10px;
-			background: rgba(255, 255, 255, 0.05);
-			color: var(--text);
-			padding: 10px 12px;
-			font-size: 14px;
-			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-		}
-
-		.base-radios {
-			display: flex;
-			gap: 8px;
-			flex-wrap: wrap;
-		}
-
-		.base-radios label {
-			display: inline-flex;
-			align-items: center;
-			gap: 6px;
-			border: 1px solid var(--panel-border);
-			border-radius: 999px;
-			padding: 8px 12px;
-			cursor: pointer;
-			color: var(--muted);
-			background: rgba(255, 255, 255, 0.03);
-			user-select: none;
-		}
-
-		.base-radios input {
-			accent-color: var(--primary);
-			cursor: pointer;
-		}
-
-		table {
-			width: 100%;
-			border-collapse: collapse;
-			overflow: hidden;
-			border-radius: 12px;
-			border: 1px solid var(--panel-border);
-		}
-
-		th,
-		td {
-			text-align: left;
-			border-bottom: 1px solid var(--panel-border);
-			padding: 10px;
-			font-size: 14px;
-			vertical-align: middle;
-		}
-
-		th {
-			color: var(--muted);
-			font-weight: 600;
-			background: rgba(255, 255, 255, 0.03);
-		}
-
-		tr:last-child td {
-			border-bottom: 0;
-		}
-
-		.mono {
-			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-			word-break: break-all;
-		}
-
-		.btn {
-			appearance: none;
-			border: 1px solid var(--panel-border);
-			border-radius: 10px;
-			padding: 8px 12px;
-			font-size: 13px;
-			font-weight: 600;
-			color: var(--text);
-			background: rgba(255, 255, 255, 0.04);
-			cursor: pointer;
-			transition: .14s ease;
-		}
-
-		.btn:hover {
-			transform: translateY(-1px);
-			border-color: rgba(96, 165, 250, 0.5);
-		}
-
-		.btn-primary {
-			border: 0;
-			color: #fff;
-			background: linear-gradient(100deg, var(--primary), var(--primary-2));
-		}
-
-		.btn-danger {
-			border-color: rgba(239, 68, 68, 0.45);
-			color: #fff;
-			background: rgba(239, 68, 68, 0.18);
-		}
-
-		.ops {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 8px;
-		}
-
-		.result-grid {
-			display: grid;
-			gap: 8px;
-		}
-
-		.result-item {
-			border: 1px solid var(--panel-border);
-			border-radius: 10px;
-			padding: 10px;
-			display: grid;
-			gap: 8px;
-		}
-
-		.result-head {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			gap: 8px;
-			color: var(--muted);
-			font-size: 13px;
-		}
-
-		.hint {
-			margin: 0;
-			color: var(--muted);
-			font-size: 13px;
-		}
-
-		.hint.ok {
-			color: var(--ok);
-		}
-
-		.hint.error {
-			color: var(--danger);
-		}
-
-		@media (max-width: 700px) {
-			body {
-				padding: 14px;
-			}
-
-			th,
-			td {
-				font-size: 13px;
-				padding: 8px;
-			}
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -290,37 +40,45 @@
 					</div>
 				</div>
 
-				<table aria-label="转换结果">
-					<thead>
-						<tr>
-							<th style="width: 110px;">进制</th>
-							<th>值</th>
-							<th style="width: 100px;"></th>
-						</tr>
-					</thead>
-					<tbody id="convert-table-body">
-						<tr data-base="2">
-							<td>2进制</td>
-							<td class="mono" data-value>0</td>
-							<td><button class="btn copy-convert" type="button">复制</button></td>
-						</tr>
-						<tr data-base="8">
-							<td>8进制</td>
-							<td class="mono" data-value>0</td>
-							<td><button class="btn copy-convert" type="button">复制</button></td>
-						</tr>
-						<tr data-base="10">
-							<td>10进制</td>
-							<td class="mono" data-value>0</td>
-							<td><button class="btn copy-convert" type="button">复制</button></td>
-						</tr>
-						<tr data-base="16">
-							<td>16进制</td>
-							<td class="mono" data-value>0</td>
-							<td><button class="btn copy-convert" type="button">复制</button></td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="result-item">
+					<div class="result-head">
+						<span>对应大小</span>
+						<button id="copy-convert-size" class="btn" type="button">复制</button>
+					</div>
+					<div id="convert-size" class="mono">0 B</div>
+				</div>
+
+			<table aria-label="转换结果">
+				<thead>
+					<tr>
+						<th style="width: 110px;">进制</th>
+						<th>值</th>
+						<th style="width: 100px;"></th>
+					</tr>
+				</thead>
+				<tbody id="convert-table-body">
+					<tr data-base="2">
+						<td>2进制</td>
+						<td class="mono" data-value>0</td>
+						<td><button class="btn copy-convert" type="button">复制</button></td>
+					</tr>
+					<tr data-base="8">
+						<td>8进制</td>
+						<td class="mono" data-value>0</td>
+						<td><button class="btn copy-convert" type="button">复制</button></td>
+					</tr>
+					<tr data-base="10">
+						<td>10进制</td>
+						<td class="mono" data-value>0</td>
+						<td><button class="btn copy-convert" type="button">复制</button></td>
+					</tr>
+					<tr data-base="16">
+						<td>16进制</td>
+						<td class="mono" data-value>0</td>
+						<td><button class="btn copy-convert" type="button">复制</button></td>
+					</tr>
+				</tbody>
+			</table>
 				<p id="convert-hint" class="hint">输入后会自动转换。</p>
 			</div>
 		</section>
@@ -452,6 +210,53 @@
 				cell.textContent = value;
 			}
 
+			function writeConvertSize(size) {
+				var el = document.getElementById('convert-size');
+				if (el) el.textContent = size;
+			}
+
+			function formatSize(big) {
+				var neg = big < 0n;
+				var abs = neg ? -big : big;
+
+				if (abs === 0n) return '0 B';
+
+				var units = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+				var divisors = [1n];
+				for (var i = 1; i < units.length; i++) {
+					divisors.push(divisors[i - 1] * 1024n);
+				}
+
+				var idx = 0;
+				for (var i = units.length - 1; i >= 0; i--) {
+					if (abs >= divisors[i]) {
+						idx = i;
+						break;
+					}
+				}
+
+				var divisor = divisors[idx];
+				var intPart = abs / divisor;
+				var rem = abs % divisor;
+
+				// 2 位小数（向下取整）
+				var decimals = (rem * 100n) / divisor;
+
+				var intStr = intPart.toString();
+				var decStr = decimals.toString().padStart(2, '0');
+
+				var result;
+				if (decStr === '00') {
+					result = intStr;
+				} else {
+					result = intStr + '.' + decStr;
+					// 去掉末尾多余的 0
+					result = result.replace(/0$/, '').replace(/\.$/, '');
+				}
+
+				return (neg ? '-' : '') + result + ' ' + units[idx];
+			}
+
 			function setHint(el, text, type) {
 				el.textContent = text;
 				el.classList.remove('ok', 'error');
@@ -467,6 +272,7 @@
 					writeConvertRow(8, '0');
 					writeConvertRow(10, '0');
 					writeConvertRow(16, '0');
+					writeConvertSize('0 B');
 					setHint(convertHint, '输入后会自动转换。');
 					return;
 				}
@@ -476,6 +282,7 @@
 					writeConvertRow(8, '无效输入');
 					writeConvertRow(10, '无效输入');
 					writeConvertRow(16, '无效输入');
+					writeConvertSize('-');
 					setHint(convertHint, '当前输入与所选进制不匹配。', 'error');
 					return;
 				}
@@ -484,6 +291,7 @@
 				writeConvertRow(8, toBaseString(parsed, 8));
 				writeConvertRow(10, toBaseString(parsed, 10));
 				writeConvertRow(16, toBaseString(parsed, 16));
+				writeConvertSize(formatSize(parsed));
 				setHint(convertHint, '转换成功（动态更新中）。', 'ok');
 			}
 
@@ -532,6 +340,10 @@
 					copyText(val, convertHint, '已复制转换值');
 				});
 			}
+
+			document.getElementById('copy-convert-size').addEventListener('click', function () {
+				copyText(document.getElementById('convert-size').textContent, convertHint, '已复制对应大小');
+			});
 
 			function parseHexInput(raw) {
 				return parseBigInt(raw, 16);

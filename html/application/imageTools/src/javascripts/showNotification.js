@@ -2,12 +2,13 @@
 function showNotification(message, type = 'success', duration = 3000) {
     notification.textContent = message;
     notification.style.display = 'block';
-    notification.style.background = type === 'success' ? 'rgba(40, 167, 69, 0.9)' : 'rgba(220, 53, 69, 0.9)';
-    notification.style.whiteSpace = 'pre-line';
-    notification.style.textAlign = 'center';
-    notification.style.padding = '20px';
-    notification.style.fontSize = '16px';
-    notification.style.lineHeight = '1.5';
+    notification.style.background = type === 'success'
+        ? 'rgba(22, 163, 74, .95)'
+        : 'rgba(220, 38, 38, .95)';
+    // 触发动画重置
+    notification.style.animation = 'none';
+    void notification.offsetWidth;
+    notification.style.animation = 'fadeInOut ' + duration + 'ms ease';
 
     setTimeout(() => {
         notification.style.display = 'none';
