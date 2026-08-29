@@ -159,6 +159,50 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Airoha SoC 常见的闪存布局</title>
+    <url>/2026/08/29/1/</url>
+    <content><![CDATA[<p>目前从市面上的产品看来，使用了 Econet/Airoha SoC 的产品大多分区布局混乱不堪，找不到一个统一的规律，导致用户在刷机时往往一个设备一个教程，非常不方便。</p>
+<h2 id="原厂布局">原厂布局</h2>
+<p>对于 ARM v7/AARCH64 架构的 Airoha SoC，原厂提供的布局如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>ARM v7:</p>
+</li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="variable">&amp;partitions</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">partition@0</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;bootloader&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x00000000</span> <span class="number">0x00080000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 512KB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="title class_">partition@80000</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;tclinux&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x00080000</span> <span class="number">0x02800000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 40MB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="title class_">partition@2880000</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;tclinux_slave&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x02880000</span> <span class="number">0x02800000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 40MB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="title class_">partition@5080000</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;rootfs_data&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x05080000</span> <span class="number">0x00800000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 512KB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>AARCH64:</p>
+</li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="variable">&amp;partitions</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">partition@0</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;bootloader&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x00000000</span> <span class="number">0x00000000</span> <span class="number">0x00000000</span> <span class="number">0x00080000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 512KB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="title class_">partition@80000</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;tclinux&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x00000000</span> <span class="number">0x00080000</span> <span class="number">0x00000000</span> <span class="number">0x03200000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 40MB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="title class_">partition@3280000</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;tclinux_slave&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x00000000</span> <span class="number">0x03280000</span> <span class="number">0x00000000</span> <span class="number">0x03200000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 40MB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="title class_">partition@6480000</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;rootfs_data&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x00000000</span> <span class="number">0x06480000</span> <span class="number">0x00000000</span> <span class="number">0x00800000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 512KB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line">    <span class="title class_">partition@dd00000</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;art&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">reg</span> <span class="operator">=</span> <span class="params">&lt;<span class="number">0x00000000</span> <span class="number">0xffffffff</span> <span class="number">0x00000000</span> <span class="number">0x00380000</span>&gt;</span><span class="punctuation">;</span> <span class="comment">/* 3584KB */</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
+<p>这只是一个参考布局，实际在早期版本的SDK中，还有另外的布局，以及reserves分区等等，原厂布局相对来说比较混乱，缺乏统一的规范。</p>
+<p>另外由于监管要求，国内发行的产品中，往往会在闪存中预留一部分空间用于存放一些插件的数据以及其运行空间，但是这些软件往往没有统一规范，由厂商自行定义，导致不同厂商的产品在闪存布局上差异很大。</p>
+<h2 id="UBI布局">UBI布局</h2>
+<p>UBI layout 由社区提出，经过多次讨论和修改，最终形成了一个相对统一的布局规范。</p>
+<p>对于 ARM v7/AARCH64 架构的 Airoha SoC，UBI layout 的布局如下：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>ARM v7: 1MB(u-boot), -(ubi)</p>
+</li>
+<li class="lvl-2">
+<p>AARCH64: 128KB(bl2), -(ubi)</p>
+</li>
+</ul>
+<p>运行在 ARM v7 的 EN7523/AN7552(AN7563)，没有 bl2 分区，EN7523需要打包 bl1+bl2+bl31+uboot 组成的 bootloader.bin 刷入到 u-boot 分区，AN7552(AN7563)则不需要bl1。</p>
+<p>运行在 AARCH64 的 AN7581/AN7583，其兼容 ARM v7 架构的 bootloader 使用，但是同时也支持 bl2 分区引导 ubi 内的 bl31-uboot。</p>
+<p>这样，我们能得到一个相对统一的闪存布局规范，方便用户在刷机时使用统一的教程和工具。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+        <tag>Airoha</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Airoha BL2 NAND 支持列表</title>
     <url>/2026/08/11/2/</url>
     <content><![CDATA[<h2 id="EN7523-DRAMC-V0-2">EN7523 DRAMC V0.2</h2>
@@ -727,9 +771,11 @@ idx  mfr  dev size(MB)  page  erase  oob  name<br>
       </tags>
   </entry>
   <entry>
-    <title>关于达发 AIROHA TCBOOT(Bootloader) 的一些分析</title>
+    <title>关于达发 AIROHA Bootloader(TCBOOT) 的一些分析</title>
     <url>/2026/08/01/1/</url>
-    <content><![CDATA[<h2 id="TCBOOT-组成">TCBOOT 组成</h2>
+    <content><![CDATA[<h2 id="概念">概念</h2>
+<p>在ARM平台下，其实已经不存在 TCBoot 这个东西了，TCBoot 是 Airoha/Econet 厂商对其 MIPS 平台的 bootloader 的命名，ARM 平台上已经被 TF-A (Trusted Firmware-A) + U-Boot 取代了。但是由于历史惯性以及遗留的代码和文档，我们仍然会看到 TCBOOT 这个名字，并对仍然用 TCBOOT 称呼 Airoha/Econet 的 ARM bootloader。</p>
+<h2 id="Bootloader-组成">Bootloader 组成</h2>
 <p>这个 mtd0 的 bootloader 不是单纯的 “U-Boot 一个文件”，而是厂商打包后的 tcboot.bin / bootloader 总包。从文件里看到的结构大致是：<br>
 mtd0 bootloader: 0x00000000-0x00080000, 512 KiB<br>
 里面包含：<br>
@@ -738,24 +784,8 @@ mtd0 bootloader: 0x00000000-0x00080000, 512 KiB<br>
 0x0001e000 附近：Trusted Boot / Non-Trusted Firmware 证书链<br>
 0x00021000：LZMA 压缩 payload，解出来是 BL31<br>
 0x00024800：LZMA 压缩 payload，解出来是 U-Boot<br>
-0x0007c000 附近：U-Boot 环境变量区比较关键的证据：<br>
-BL2: …<br>
-BL2: Booting BL32<br>
-EXIT from BL2<br>
-Trusted Boot FW Certificate0<br>
-Non-Trusted Firmware Content Certificate0<br>
-0x21000 的 LZMA 解压后有：<br>
-BL31: %s<br>
-ecnt_sip_svc<br>
-ecnt_plat_sip_handler<br>
-0x24800 的 LZMA 解压后有：<br>
-U-Boot 2014.04-rc1 (Jun 08 2023 - 13:58:05)<br>
-ECNT&gt;<br>
-arch=arm<br>
-cpu=armv7<br>
-soc=en7523<br>
-vendor=ecnt<br>
-所以它的启动链更像是：<br>
+0x0007c000 附近：U-Boot 环境变量区</p>
+<p>所以它的启动链更像是：<br>
 SoC BootROM<br>
 -&gt; mtd0 里的前级 loader / BL2<br>
 -&gt; 初始化 PLL / DDR / SPI NAND<br>
@@ -764,8 +794,7 @@ SoC BootROM<br>
 -&gt; 解压并进入 U-Boot，也就是 BL33<br>
 -&gt; 读取 tclinux<br>
 -&gt; bootm 启动 kernel</p>
-<p>也就是说，你没有看到单独的 BL2.bin、FIP.bin(BL31.bin、u-boot.bin) 分区，是因为它们都被打进了一个厂商 bootloader 镜像里。U-Boot 环境里也写着：</p>
-<p>uboot_filename=tcboot.bin</p>
+<p>也就是说，你没有看到单独的 BL2.bin、FIP.bin(BL31.bin、u-boot.bin) 分区，是因为它们都被打进了一个厂商 bootloader 镜像里。</p>
 <p>它不是裸 U-Boot，而是包含前级、BL31、U-Boot、证书和环境区的组合包。</p>
 <table>
 <thead>
@@ -833,123 +862,6 @@ SoC BootROM<br>
 </tr>
 </tbody>
 </table>
-<h2 id="BL2-差异-EN7523-vs-EN7562">BL2 差异 (EN7523 vs EN7562)</h2>
-<p>两个 BL2 是基于不同 SDK 版本的独立编译。</p>
-<p>en7523/en7529是en7523系列的芯片的早期应用，大多使用了DRAMC V0.1/v0.2，而en7562是en7523系列的后续产品，使用了DRAMC V0.6，支持DDR2133和更复杂的时钟管理。</p>
-<blockquote>
-<p>当然 en7562 早期SDK也有V0.2的，但是en7523/en7529的SDK版本更老，至少我没见到过 V0.6 的 en7523/en7529 DRAMC。</p>
-</blockquote>
-<h3 id="1-SDK-版本跨越">1. SDK 版本跨越</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>EN7523</th>
-<th>EN7562</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>SDK</strong></td>
-<td><code>V7_3_267_150_verify_20210126_v024</code></td>
-<td><code>br_v1.00_AX3000SDK_base_TAG-984</code></td>
-</tr>
-<tr>
-<td><strong>构建日期</strong></td>
-<td>2021-01-30</td>
-<td>2023-06-08</td>
-</tr>
-<tr>
-<td><strong>DRAMC</strong></td>
-<td>V0.1</td>
-<td>V0.6</td>
-</tr>
-</tbody>
-</table>
-<p>从 V7.3 SDK 迁移到了全新的 AX3000 SDK，时间跨度约 2.5 年。</p>
-<h3 id="2-DDR-控制器升级-V0-1-→-V0-6">2. DDR 控制器升级 (V0.1 → V0.6)</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>新增 DDR2133 PLL 支持</strong>：EN7523 只有 <code>DDR1600</code> 和 <code>DDR1866</code>，EN7562 增加了 <code>DDR2133 PLL setting init</code></p>
-</li>
-<li class="lvl-2">
-<p><strong>新增阻抗校准</strong>：EN7562 增加了 <code>Final Impdance Cal Result: OCDP:0x, OCDN:0x, ODTP:0x, ODTN:0x</code>——这是 DDR 的 OCD (Off-Chip Driver) 和 ODT (On-Die Termination) 阻抗校准输出，DDR2133 需要更精确的信号完整性调校</p>
-</li>
-</ul>
-<h3 id="3-CPU-时钟管理增强">3. CPU 时钟管理增强</h3>
-<p>EN7562 BL2 新增了大量时钟相关代码：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>armpll</code> 时钟切换（<code>cpu clock switch to armpll fail.</code> / <code>cpu clock switch to pll2 fail.</code>）</p>
-</li>
-<li class="lvl-2">
-<p><code>clk_divider_config</code> 分频器配置（6条 ERROR 校验）</p>
-</li>
-<li class="lvl-2">
-<p><code>SYSPLL_PCW</code> 值读取</p>
-</li>
-<li class="lvl-2">
-<p>这些在 EN7523 BL2 中完全不存在（时钟管理原本只在 BL31 中）</p>
-</li>
-</ul>
-<h3 id="4-安全启动证书链扩展">4. 安全启动证书链扩展</h3>
-<p>EN7562 BL2 新增了4类证书的字符串定义：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>Trusted Boot FW Certificate</code> — 可信启动固件证书</p>
-</li>
-<li class="lvl-2">
-<p><code>Trusted Key Certificate</code> — 可信密钥证书</p>
-</li>
-<li class="lvl-2">
-<p><code>SoC Firmware Key Certificate</code> — SoC 固件密钥证书</p>
-</li>
-<li class="lvl-2">
-<p><code>Non-Trusted Firmware Key Certificate</code> — 非可信固件密钥证书</p>
-</li>
-</ul>
-<p>以及 MGF1 掩码生成（<code>(%s, MGF1-%s, 0x%02X)</code>）和 RSASSA-PSS 支持，密码学栈更完整。</p>
-<h3 id="5-不变的部分">5. 不变的部分</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>SPI-NAND 设备表完全相同</strong>：34 款 Flash 芯片（Winbond W25N01G, GigaDevice GD5F 系列, Etron EM73 系列, Kioxia TC58 系列, Micron MT29F 系列），只是偏移不同</p>
-</li>
-<li class="lvl-2">
-<p>LZMA 解压、eFuse 操作、HMAC-SHA、RSA 签名验证等核心功能不变</p>
-</li>
-</ul>
-<h2 id="BL31-差异-EN7523-vs-EN7562">BL31 差异 (EN7523 vs EN7562)</h2>
-<p>这正好是一个 4KB 页的新代码，包含：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>CPU 频率动态调节</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5"><code>cpu_freq_enum_get</code> — CPU 频率枚举函数</li>
-<li class="lvl-5"><code>armpll(500~950MHz)</code> — ARM PLL 可变频率范围</li>
-<li class="lvl-5"><code>cpu clock switch to armpll/pll2 fail.</code> — 时钟切换错误处理</li>
-<li class="lvl-5"><code>xtal(20/25MHz)</code> — 晶振频率配置表（<code>config_xtal20M</code> / <code>config_xtal25M</code>）</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>AVS（自适应电压调节）</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5"><code>Warning : ecnt_avs_handler r1 not support</code> — AVS 处理器存根（r1 版本暂不支持，框架已就位）</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>armpll 获取逻辑</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5"><code>Warning : Can not get the correct oriarmpll !!</code></li>
-<li class="lvl-5"><code>ERROR: can't get armpll (isXtal25M:%d, SYSPLL_PCW value:0x%x)</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="共享不变的部分">共享不变的部分</h3>
-<p>ATF v2.1 框架的核心完全一致：<code>ecnt_sip_svc</code> SiP 调用、<code>ecnt_plat_sip_handler</code>、eFuse 读写与安全密钥、<code>SECURE_AERA</code> 安全区域检查、APB Timer、mmap 内存映射、PANIC 处理器等。</p>
-<h3 id="总结">总结</h3>
-<p><img src="./EN7562_vs_EN7523_BL2_BL31_compare.png" alt></p>
-<p><strong>BL2</strong>主要来自：DRAMC V0.1→V0.6 的 DDR2133 支持和阻抗校准、AX3000 SDK 的整体代码重构、armpll 时钟管理代码从 BL31 上移到 BL2、以及更完整的安全证书链。</p>
-<p><strong>BL31</strong>精确对应新增的 CPU 频率动态调节模块——EN7562 支持 armpll 在 500-950MHz 范围动态切换，并预留了 AVS 接口，这是 EN7523 所没有的功耗管理能力。</p>
 <h2 id="安全启动">安全启动</h2>
 <p><img src="./SECBOOT_-_EN7562_Bootloader.png" alt></p>
 <p>大多数 EN7523 设备的 bootloader 编译了完整的安全启动支持，但 <strong>eFuse 未烧录 ROTPK（根信任公钥哈希）</strong>，导致运行时验证被跳过。</p>
@@ -1037,7 +949,6 @@ SoC BootROM<br>
 </ol>
 <h2 id="BOOTEXT-RAM">BOOTEXT.RAM</h2>
 <p><code>en7523_bootext.ram</code> 和普通 <code>bl2.bin</code> 本质上是<strong>同一段 BL2 固件的不同打包形态</strong>，区别在于封装格式、包含内容和加载方式。</p>
-<h3 id="bootext-ram-是什么">bootext.ram 是什么</h3>
 <p><img src="./bootextram_vs_bl2bin.png" alt></p>
 <p>它是一个标准的 <strong>FIP (Firmware Image Package)</strong> 格式文件，结构如下：</p>
 <table>
@@ -1141,15 +1052,11 @@ SoC BootROM<br>
 </table>
 <p>两者 BL2 代码的前 0x34 字节完全相同（ARM vector table），仅 0x34 处一条 BL 跳转指令的目标不同（<code>+0x42C</code> vs <code>+0x3C4</code>），说明是同一代码库的不同编译版本。</p>
 <p><strong>简单说：bootext.ram = “boot extension” = 自包含的 RAM 加载版 BL2</strong>，自带证书和 FIP 元数据，用于 BootROM 直接加载到 RAM 执行（如下载模式/恢复模式）；而 bl2.bin 是精简的 flash 启动版，会被 LZMA 压缩后塞进 tcboot.bin 的 0xC00 偏移处。</p>
-<h2 id="识别-SPI-NAND-的BL2">识别 SPI-NAND 的BL2</h2>
-<p>如果得到的是成品bl2.bin，很难还原回可编辑闪存支持表的镜像，所以大概率只能用已知的芯片型号来匹配。</p>
-<blockquote>
-<p>新平台EN7581/AN7552/AN7583那样有独立的flash_table.bin嵌入，而EN7523/EN7562是直接把flash_table与bl2高度耦合在一起。</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> en7523-bl2.bin an7562-bl2.bin; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">&quot;== <span class="subst">$(basename <span class="string">&quot;<span class="variable">$f</span>&quot;</span>)</span> ==&quot;</span>; strings -a -t x <span class="string">&quot;<span class="variable">$f</span>&quot;</span> | grep -Ei <span class="string">&#x27;GD5F|W25N|TC58|MT29|EM73|F50L|XTX|flash_table|spi nand|spi_nand|SPI NAND|SPI_NAND&#x27;</span> | <span class="built_in">head</span> -n 60; <span class="built_in">echo</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">199ff  _SPI_NAND_DEVICE_ID_GD5F1GQ4UB</span><br><span class="line">19a1e  _SPI_NAND_DEVICE_ID_GD5F2GQ4UB</span><br><span class="line">19a3e  _SPI_NAND_DEVICE_ID_GD5F2GQ4UE9IS</span><br><span class="line">19a61  _SPI_NAND_DEVICE_ID_GD5F4GQ4UB</span><br><span class="line">19a81  _SPI_NAND_DEVICE_ID_F50L1G</span><br><span class="line">19a9d  _SPI_NAND_DEVICE_ID_F50L1G41LB</span><br><span class="line">19abd  _SPI_NAND_DEVICE_ID_F50L2G41LB</span><br><span class="line">19add  _SPI_NAND_DEVICE_ID_W25N01G</span><br><span class="line">19afa  _SPI_NAND_DEVICE_ID_W25M02G</span><br><span class="line">19b17  _SPI_NAND_DEVICE_ID_MXIC35LF1G</span><br><span class="line">19b37  _SPI_NAND_DEVICE_ID_MXIC35LF2G</span><br><span class="line">19b57  _SPI_NAND_DEVICE_ID_EM73C044SNB</span><br><span class="line">19b78  _SPI_NAND_DEVICE_ID_EM73C044SND</span><br><span class="line">19b99  _SPI_NAND_DEVICE_ID_EM73C044SNF</span><br><span class="line">19bba  _SPI_NAND_DEVICE_ID_EM73C044VCA</span><br><span class="line">19bdb  _SPI_NAND_DEVICE_ID_EM73C044VCD</span><br><span class="line">19bfc  _SPI_NAND_DEVICE_ID_EM73D044SNA</span><br><span class="line">19c1d  _SPI_NAND_DEVICE_ID_EM73D044SNC</span><br><span class="line">19c3e  _SPI_NAND_DEVICE_ID_EM73D044SND</span><br><span class="line">19c5f  _SPI_NAND_DEVICE_ID_EM73D044SNF</span><br><span class="line">19c80  _SPI_NAND_DEVICE_ID_EM73D044VCA</span><br><span class="line">19ca1  _SPI_NAND_DEVICE_ID_EM73D044VCB</span><br><span class="line">19cc2  _SPI_NAND_DEVICE_ID_EM73D044VCD</span><br><span class="line">19ce3  _SPI_NAND_DEVICE_ID_EM73D044VCG</span><br><span class="line">19d04  _SPI_NAND_DEVICE_ID_EM73D044VCH</span><br><span class="line">19d25  _SPI_NAND_DEVICE_ID_EM73E044SNA</span><br><span class="line">19d46  _SPI_NAND_DEVICE_ID_EM73F044SNA</span><br><span class="line">19d67  _SPI_NAND_DEVICE_ID_EM73E044VCA</span><br><span class="line">19d88  _SPI_NAND_DEVICE_ID_EM73E044VCB</span><br><span class="line">19da9  _SPI_NAND_DEVICE_ID_TC58CVG0S3H</span><br><span class="line">19dca  _SPI_NAND_DEVICE_ID_TC58CVG1S3H</span><br><span class="line">19deb  _SPI_NAND_DEVICE_ID_TC58CVG2S0H</span><br><span class="line">19e0c  _SPI_NAND_DEVICE_ID_MT29F1G01</span><br><span class="line">19e2b  _SPI_NAND_DEVICE_ID_MT29F2G01</span><br><span class="line">19e4a  _SPI_NAND_DEVICE_ID_MT29F4G01</span><br><span class="line">19e69  _SPI_NAND_DEVICE_ID_ATO25D1GA</span><br><span class="line">19e88  _SPI_NAND_DEVICE_ID_FM25S01</span><br><span class="line">19ea5  _SPI_NAND_DEVICE_ID_FM25G01B</span><br><span class="line">19ec3  _SPI_NAND_DEVICE_ID_FM25G02B</span><br><span class="line">19ee1  _SPI_NAND_DEVICE_ID_FM25G02</span><br><span class="line">19efe  _SPI_NAND_DEVICE_ID_XT26G02B</span><br><span class="line">19f1c  _SPI_NAND_DEVICE_ID_XT26G01A</span><br><span class="line">19f3a  _SPI_NAND_DEVICE_ID_XT26G02A</span><br><span class="line">19f58  _SPI_NAND_DEVICE_ID_PSU1GS20BN</span><br><span class="line">19f78  _SPI_NAND_DEVICE_ID_BWJX08U</span><br><span class="line">19f95  _SPI_NAND_DEVICE_ID_BWET08U</span><br><span class="line">19fb2  _SPI_NAND_DEVICE_ID_FS35ND01GD1F1</span><br><span class="line">19fd5  _SPI_NAND_DEVICE_ID_FS35ND02GS2F1</span><br><span class="line">19ff8  _SPI_NAND_DEVICE_ID_FS35ND02GD1F1</span><br><span class="line">1a01b  _SPI_NAND_DEVICE_ID_MXIC35LF2G14AC</span><br></pre></td></tr></table></figure>
 <h2 id="救砖">救砖</h2>
 <p>Econet/Airoha 设计了一个类似高通9008/MTK UART的“Emergency upgarde”模式，但是中文互联网更喜欢称呼为“X模式”。</p>
+<blockquote>
+<p>飞思灵的几款基于 AN7581FP 换皮的芯片 FSL61167D/P，其 BROM 中未烧录 Emergency Upgrade 功能，并且由于其闪存控制器还是旧款基于EN7510的mtk_nand闪存控制器，使用48脚TSOP封装的闪存，救砖只能依靠 JTAG 或者 编程器。</p>
+</blockquote>
 <p>该模式由“XMODE” 驱动，具体方法为：</p>
 <ol>
 <li class="lvl-3">
@@ -1236,6 +1143,255 @@ SoC BootROM<br>
 </li>
 </ol>
 <p>后续你想干什么都行了，直接在界面上操作就行了。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MTK U-Boot mtd-layout 节点参数说明</title>
+    <url>/2026/02/21/2/</url>
+    <content><![CDATA[<p>影响文件：</p>
+<p>mtd_layout.c、mtdparts.c、failsafe.c、showlayout.c</p>
+<h2 id="1-节点结构与选择机制">1. 节点结构与选择机制</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>根节点路径：<code>/mtd-layout</code></p>
+</li>
+<li class="lvl-2">
+<p>子节点形式：<code>layout@&lt;n&gt;</code>（如 <code>layout@0</code>, <code>layout@1</code>）</p>
+</li>
+<li class="lvl-2">
+<p>通过环境变量 <code>mtd_layout_label</code> 选择当前布局</p>
+<ul class="lvl-2">
+<li class="lvl-4">若未设置该变量，则默认使用 <code>label = &quot;default&quot;</code> 的布局</li>
+<li class="lvl-4">逻辑见 mtd_layout.c</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-支持的属性列表">2. 支持的属性列表</h2>
+<p>以下属性在 <code>layout@*</code> 子节点中被读取并生效：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>✅</td>
+<td>布局名称，用于选择匹配</td>
+</tr>
+<tr>
+<td><code>mtdids</code></td>
+<td>string</td>
+<td>✅</td>
+<td>MTD 设备映射字符串（供 mtdparts 解析）</td>
+</tr>
+<tr>
+<td><code>mtdparts</code></td>
+<td>string</td>
+<td>✅</td>
+<td>分区描述字符串（供 mtdparts 解析）</td>
+</tr>
+<tr>
+<td><code>cmdline</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入 <code>bootargs</code>，作为内核命令行</td>
+</tr>
+<tr>
+<td><code>boot_part</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入环境变量 <code>ubi_boot_part</code></td>
+</tr>
+<tr>
+<td><code>factory_part</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入环境变量 <code>factory_part</code></td>
+</tr>
+<tr>
+<td><code>sysupgrade_kernel_ubipart</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入 <code>sysupgrade_kernel_ubipart</code></td>
+</tr>
+<tr>
+<td><code>sysupgrade_rootfs_ubipart</code></td>
+<td>string</td>
+<td>可选</td>
+<td>写入 <code>sysupgrade_rootfs_ubipart</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这些属性由 <code>board_mtdparts_default()</code> 读取并写入环境变量（见 mtd_layout.c）。</p>
+</blockquote>
+<hr>
+<h2 id="3-各属性含义与使用方式">3. 各属性含义与使用方式</h2>
+<h3 id="label"><code>label</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用于标识布局名称</p>
+</li>
+<li class="lvl-2">
+<p>环境变量 <code>mtd_layout_label</code> 与其匹配，决定使用哪套布局</p>
+</li>
+<li class="lvl-2">
+<p>默认值是 <code>&quot;default&quot;</code></p>
+</li>
+</ul>
+<h3 id="mtdids"><code>mtdids</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>格式参考 mtdparts.c：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdids=&lt;dev-id&gt;=&lt;mtd-id&gt;[,&lt;dev-id&gt;=&lt;mtd-id&gt;...]</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdids = &quot;nmbm0=nmbm0&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="mtdparts"><code>mtdparts</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>格式参考 mtdparts.c：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts=[mtdparts=]&lt;mtd-id&gt;:&lt;part-def&gt;[,&lt;part-def&gt;...]</span><br><span class="line">&lt;part-def&gt; := &lt;size&gt;[@&lt;offset&gt;][(name)][ro]</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts = &quot;nmbm0:1024k(bl2),512k(u-boot-env),... ,35328k(firmware)&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="cmdline"><code>cmdline</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>bootargs</code></p>
+</li>
+<li class="lvl-2">
+<p>用于传递 Linux 内核命令行</p>
+</li>
+<li class="lvl-2">
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmdline = &quot;console=ttyS0,115200n1 ... bootpart=firmware&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="boot-part"><code>boot_part</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>ubi_boot_part</code></p>
+</li>
+<li class="lvl-2">
+<p>在 <code>mtd_boot_image()</code> 中用于决定从哪个分区启动</p>
+</li>
+<li class="lvl-2">
+<p>如果你是多布局固件（比如 firmware/firmware2 切换），这一项很关键</p>
+</li>
+</ul>
+<h3 id="factory-part"><code>factory_part</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>factory_part</code></p>
+</li>
+<li class="lvl-2">
+<p>在升级流程 <code>mtd_upgrade_image()</code> 中作为 UBI 写入目标分区</p>
+</li>
+<li class="lvl-2">
+<p>对多布局刷写很重要</p>
+</li>
+</ul>
+<h3 id="sysupgrade-kernel-ubipart"><code>sysupgrade_kernel_ubipart</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>sysupgrade_kernel_ubipart</code></p>
+</li>
+<li class="lvl-2">
+<p>在多布局且启用 <code>CONFIG_MEDIATEK_MULTI_MTD_LAYOUT</code> 时，用于 sysupgrade 处理 <strong>内核 UBI 分区</strong></p>
+</li>
+</ul>
+<h3 id="sysupgrade-rootfs-ubipart"><code>sysupgrade_rootfs_ubipart</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>被写入环境变量 <code>sysupgrade_rootfs_ubipart</code></p>
+</li>
+<li class="lvl-2">
+<p>类似上面，用于 sysupgrade 的 <strong>rootfs UBI 分区</strong></p>
+</li>
+</ul>
+<hr>
+<h2 id="4-相关命令与调试接口">4. 相关命令与调试接口</h2>
+<h3 id="showlayout"><code>showlayout</code></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>由 showlayout.c 提供</p>
+</li>
+<li class="lvl-2">
+<p>功能：打印所有 <code>mtd-layout</code> 子节点的 <code>label / mtdids / mtdparts</code></p>
+</li>
+</ul>
+<h3 id="failsafe-HTTP-接口">failsafe HTTP 接口</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在 failsafe.c 中提供</p>
+</li>
+<li class="lvl-2">
+<p>会返回当前布局以及所有布局的 label 与 mtdparts</p>
+</li>
+</ul>
+<h2 id="在配置文件中">在配置文件中</h2>
+<p>受影响配置选项：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>CONFIG_MTDIDS_DEFAULT</code>（默认 mtdids）<br>
+e.g. <code>nmbm0=nmbm0</code></p>
+</li>
+<li class="lvl-2">
+<p><code>CONFIG_MTDPARTS_DEFAULT</code>（默认 mtdparts）<br>
+e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
+<blockquote>
+<p>当最后一个分区没有指定大小时（例如：<code>nmbm0:1024k(bl2),512k(u-boot-env),... ,-(ubi)</code>），会自动计算剩余空间作为该分区大小，之后，该分区后不能再添加其他分区。</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p><code>CONFIG_CMD_MTDPARTS</code></p>
+</li>
+<li class="lvl-2">
+<p><code>CONFIG_CMD_SHOW_MTD_LAYOUT</code></p>
+</li>
+<li class="lvl-2">
+<p><code>CONFIG_MEDIATEK_MULTI_MTD_LAYOUT</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="5-示例模板">5. 示例模板</h2>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="title class_">mtd-layout</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">layout@0</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;default&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">cmdline</span> <span class="operator">=</span> <span class="string">&quot;console=ttyS0,115200n1 loglevel=8&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">mtdids</span> <span class="operator">=</span> <span class="string">&quot;nmbm0=nmbm0&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">mtdparts</span> <span class="operator">=</span> <span class="string">&quot;nmbm0:1024k(bl2),512k(u-boot-env),...&quot;</span><span class="punctuation">;</span></span><br><span class="line"></span><br><span class="line">        boot_<span class="attr">part</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        factory_<span class="attr">part</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        sysupgrade_kernel_<span class="attr">ubipart</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        sysupgrade_rootfs_<span class="attr">ubipart</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="6-注意事项与实践建议">6. 注意事项与实践建议</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>mtdids</code> 和 <code>mtdparts</code> <strong>必须同时存在</strong> 才会生效</p>
+</li>
+<li class="lvl-2">
+<p><code>cmdline</code> 为空时会清空 <code>bootargs</code></p>
+</li>
+<li class="lvl-2">
+<p>若切换布局，建议同步设置 <code>mtd_layout_label</code></p>
+</li>
+<li class="lvl-2">
+<p>如果要区分 UBI 与 raw 分区，确保 <code>boot_part</code> / <code>factory_part</code> 与 <code>mtdparts</code> 中分区名一致</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -1498,255 +1654,6 @@ SoC BootROM<br>
 </ul>
 <h2 id="gpt-editor（gpt-editor-py）"><code>gpt_editor</code>（gpt_editor.py）</h2>
 <p>已经存在文档 <code>atf/tools/dev/gpt_editor/README.md</code>，故不再赘述。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>玩机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MTK U-Boot mtd-layout 节点参数说明</title>
-    <url>/2026/02/21/2/</url>
-    <content><![CDATA[<p>影响文件：</p>
-<p>mtd_layout.c、mtdparts.c、failsafe.c、showlayout.c</p>
-<h2 id="1-节点结构与选择机制">1. 节点结构与选择机制</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>根节点路径：<code>/mtd-layout</code></p>
-</li>
-<li class="lvl-2">
-<p>子节点形式：<code>layout@&lt;n&gt;</code>（如 <code>layout@0</code>, <code>layout@1</code>）</p>
-</li>
-<li class="lvl-2">
-<p>通过环境变量 <code>mtd_layout_label</code> 选择当前布局</p>
-<ul class="lvl-2">
-<li class="lvl-4">若未设置该变量，则默认使用 <code>label = &quot;default&quot;</code> 的布局</li>
-<li class="lvl-4">逻辑见 mtd_layout.c</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-支持的属性列表">2. 支持的属性列表</h2>
-<p>以下属性在 <code>layout@*</code> 子节点中被读取并生效：</p>
-<table>
-<thead>
-<tr>
-<th>属性名</th>
-<th>类型</th>
-<th>是否必须</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>label</code></td>
-<td>string</td>
-<td>✅</td>
-<td>布局名称，用于选择匹配</td>
-</tr>
-<tr>
-<td><code>mtdids</code></td>
-<td>string</td>
-<td>✅</td>
-<td>MTD 设备映射字符串（供 mtdparts 解析）</td>
-</tr>
-<tr>
-<td><code>mtdparts</code></td>
-<td>string</td>
-<td>✅</td>
-<td>分区描述字符串（供 mtdparts 解析）</td>
-</tr>
-<tr>
-<td><code>cmdline</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入 <code>bootargs</code>，作为内核命令行</td>
-</tr>
-<tr>
-<td><code>boot_part</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入环境变量 <code>ubi_boot_part</code></td>
-</tr>
-<tr>
-<td><code>factory_part</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入环境变量 <code>factory_part</code></td>
-</tr>
-<tr>
-<td><code>sysupgrade_kernel_ubipart</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入 <code>sysupgrade_kernel_ubipart</code></td>
-</tr>
-<tr>
-<td><code>sysupgrade_rootfs_ubipart</code></td>
-<td>string</td>
-<td>可选</td>
-<td>写入 <code>sysupgrade_rootfs_ubipart</code></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>这些属性由 <code>board_mtdparts_default()</code> 读取并写入环境变量（见 mtd_layout.c）。</p>
-</blockquote>
-<hr>
-<h2 id="3-各属性含义与使用方式">3. 各属性含义与使用方式</h2>
-<h3 id="label"><code>label</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>用于标识布局名称</p>
-</li>
-<li class="lvl-2">
-<p>环境变量 <code>mtd_layout_label</code> 与其匹配，决定使用哪套布局</p>
-</li>
-<li class="lvl-2">
-<p>默认值是 <code>&quot;default&quot;</code></p>
-</li>
-</ul>
-<h3 id="mtdids"><code>mtdids</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>格式参考 mtdparts.c：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdids=&lt;dev-id&gt;=&lt;mtd-id&gt;[,&lt;dev-id&gt;=&lt;mtd-id&gt;...]</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdids = &quot;nmbm0=nmbm0&quot;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="mtdparts"><code>mtdparts</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>格式参考 mtdparts.c：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts=[mtdparts=]&lt;mtd-id&gt;:&lt;part-def&gt;[,&lt;part-def&gt;...]</span><br><span class="line">&lt;part-def&gt; := &lt;size&gt;[@&lt;offset&gt;][(name)][ro]</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mtdparts = &quot;nmbm0:1024k(bl2),512k(u-boot-env),... ,35328k(firmware)&quot;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="cmdline"><code>cmdline</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>bootargs</code></p>
-</li>
-<li class="lvl-2">
-<p>用于传递 Linux 内核命令行</p>
-</li>
-<li class="lvl-2">
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmdline = &quot;console=ttyS0,115200n1 ... bootpart=firmware&quot;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="boot-part"><code>boot_part</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>ubi_boot_part</code></p>
-</li>
-<li class="lvl-2">
-<p>在 <code>mtd_boot_image()</code> 中用于决定从哪个分区启动</p>
-</li>
-<li class="lvl-2">
-<p>如果你是多布局固件（比如 firmware/firmware2 切换），这一项很关键</p>
-</li>
-</ul>
-<h3 id="factory-part"><code>factory_part</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>factory_part</code></p>
-</li>
-<li class="lvl-2">
-<p>在升级流程 <code>mtd_upgrade_image()</code> 中作为 UBI 写入目标分区</p>
-</li>
-<li class="lvl-2">
-<p>对多布局刷写很重要</p>
-</li>
-</ul>
-<h3 id="sysupgrade-kernel-ubipart"><code>sysupgrade_kernel_ubipart</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>sysupgrade_kernel_ubipart</code></p>
-</li>
-<li class="lvl-2">
-<p>在多布局且启用 <code>CONFIG_MEDIATEK_MULTI_MTD_LAYOUT</code> 时，用于 sysupgrade 处理 <strong>内核 UBI 分区</strong></p>
-</li>
-</ul>
-<h3 id="sysupgrade-rootfs-ubipart"><code>sysupgrade_rootfs_ubipart</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>被写入环境变量 <code>sysupgrade_rootfs_ubipart</code></p>
-</li>
-<li class="lvl-2">
-<p>类似上面，用于 sysupgrade 的 <strong>rootfs UBI 分区</strong></p>
-</li>
-</ul>
-<hr>
-<h2 id="4-相关命令与调试接口">4. 相关命令与调试接口</h2>
-<h3 id="showlayout"><code>showlayout</code></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>由 showlayout.c 提供</p>
-</li>
-<li class="lvl-2">
-<p>功能：打印所有 <code>mtd-layout</code> 子节点的 <code>label / mtdids / mtdparts</code></p>
-</li>
-</ul>
-<h3 id="failsafe-HTTP-接口">failsafe HTTP 接口</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>在 failsafe.c 中提供</p>
-</li>
-<li class="lvl-2">
-<p>会返回当前布局以及所有布局的 label 与 mtdparts</p>
-</li>
-</ul>
-<h2 id="在配置文件中">在配置文件中</h2>
-<p>受影响配置选项：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>CONFIG_MTDIDS_DEFAULT</code>（默认 mtdids）<br>
-e.g. <code>nmbm0=nmbm0</code></p>
-</li>
-<li class="lvl-2">
-<p><code>CONFIG_MTDPARTS_DEFAULT</code>（默认 mtdparts）<br>
-e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
-<blockquote>
-<p>当最后一个分区没有指定大小时（例如：<code>nmbm0:1024k(bl2),512k(u-boot-env),... ,-(ubi)</code>），会自动计算剩余空间作为该分区大小，之后，该分区后不能再添加其他分区。</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p><code>CONFIG_CMD_MTDPARTS</code></p>
-</li>
-<li class="lvl-2">
-<p><code>CONFIG_CMD_SHOW_MTD_LAYOUT</code></p>
-</li>
-<li class="lvl-2">
-<p><code>CONFIG_MEDIATEK_MULTI_MTD_LAYOUT</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="5-示例模板">5. 示例模板</h2>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="title class_">mtd-layout</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="title class_">layout@0</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">label</span> <span class="operator">=</span> <span class="string">&quot;default&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">cmdline</span> <span class="operator">=</span> <span class="string">&quot;console=ttyS0,115200n1 loglevel=8&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">mtdids</span> <span class="operator">=</span> <span class="string">&quot;nmbm0=nmbm0&quot;</span><span class="punctuation">;</span></span><br><span class="line">        <span class="attr">mtdparts</span> <span class="operator">=</span> <span class="string">&quot;nmbm0:1024k(bl2),512k(u-boot-env),...&quot;</span><span class="punctuation">;</span></span><br><span class="line"></span><br><span class="line">        boot_<span class="attr">part</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        factory_<span class="attr">part</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        sysupgrade_kernel_<span class="attr">ubipart</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">        sysupgrade_rootfs_<span class="attr">ubipart</span> <span class="operator">=</span> <span class="string">&quot;firmware&quot;</span><span class="punctuation">;</span></span><br><span class="line">    <span class="punctuation">&#125;;</span></span><br><span class="line"><span class="punctuation">&#125;;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="6-注意事项与实践建议">6. 注意事项与实践建议</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>mtdids</code> 和 <code>mtdparts</code> <strong>必须同时存在</strong> 才会生效</p>
-</li>
-<li class="lvl-2">
-<p><code>cmdline</code> 为空时会清空 <code>bootargs</code></p>
-</li>
-<li class="lvl-2">
-<p>若切换布局，建议同步设置 <code>mtd_layout_label</code></p>
-</li>
-<li class="lvl-2">
-<p>如果要区分 UBI 与 raw 分区，确保 <code>boot_part</code> / <code>factory_part</code> 与 <code>mtdparts</code> 中分区名一致</p>
-</li>
-</ul>
 ]]></content>
       <categories>
         <category>Linux</category>
