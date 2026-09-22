@@ -144,36 +144,6 @@
       </tags>
   </entry>
   <entry>
-    <title>为 SWRT 配置 DDNS-go</title>
-    <url>/2025/05/06/1/</url>
-    <content><![CDATA[<p>我使用了 SWRT 的固件，配置动态 DNS 非常简单。</p>
-<p>但是我有一些特殊的需求，需要使用 IPv6 地址。</p>
-<p>梅林DDNS虽然也可以选择CF，软件中心也有 Cloudflare 的插件，以及 DDNS-go 的插件，但是有点问题。</p>
-<h2 id="1-配置-DDNS-go">1. 配置 DDNS-go</h2>
-<p>在 SWRT 的 Web 界面中，进入 <strong>软件中心</strong> -&gt; <strong>多ddns合一</strong></p>
-<p>这个虽然安装好了，但是不能正常使用。</p>
-<p>我看了一下安装文件，发现 DDNS-go 的二进制只有2mb，与最新的版本差距很大。</p>
-<p>故下载最新的 linux-arm64 的版本，放到 <code>/jffs/softcenter/bin</code> 目录下，重命名为 <code>ddns-go</code>，然后给它执行权限。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /jffs/softcenter/bin/ddns-go</span><br></pre></td></tr></table></figure>
-<p>然后进入插件，打开并运行，进入控制面板，设置 IPv6 地址，方法随意。</p>
-<h2 id="2-配置梅林-DDNS">2. 配置梅林 DDNS</h2>
-<p>在 SWRT 的 Web 界面中，进入 <strong>WAN</strong> -&gt; <strong>动态 DNS</strong></p>
-<p>选择 <code>custom</code>，自定义需要的域名</p>
-<h2 id="3-配置防火墙">3. 配置防火墙</h2>
-<p>在系统管理 -&gt; 系统设置中，打开<code>从互联网设置 RAX80</code>，并且添加一个自定义的端口</p>
-<p>转到防火墙，打开ipv6防火墙，添加一条规则，名称随意，本地IP：<code>0:0:0:0:0:0:0:1234/::FFFF:FFFF:FFFF:FFFF</code>，协议：TCP，端口：之前设置的端口</p>
-<h2 id="Tips">Tips</h2>
-<p>dns 并不会很快就解析出来，但是可以通过访问CF后台的DNS解析记录来查看是否解析成功。访问时不会自动https，很可能无法访问，手动添加https即可。访问的设备需要有ipv6地址，并且访问的链接格式为<code>http://[ipv6地址]:端口号</code>如果可以访问，说明配置成功。等待dns生效，通过<code>https://[域名]:端口号</code>即可访问。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>玩机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>中兴 ZTE E8820S 路由器经验分享</title>
     <url>/2024/03/10/1/</url>
     <content><![CDATA[<h2 id="1-介绍">1. 介绍</h2>
@@ -501,6 +471,36 @@ prefix：24</p>
 <h3 id="其他建议">其他建议</h3>
 <p>建议使用 4.4 内核或 3.4 内核的固件，开源驱动性能较差，如果要使用开源固件，内核最好不要超过 5.4。</p>
 <p>另外有一些固件没有 MediaTek HWNat，注意分辨。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为 SWRT 配置 DDNS-go</title>
+    <url>/2025/05/06/1/</url>
+    <content><![CDATA[<p>我使用了 SWRT 的固件，配置动态 DNS 非常简单。</p>
+<p>但是我有一些特殊的需求，需要使用 IPv6 地址。</p>
+<p>梅林DDNS虽然也可以选择CF，软件中心也有 Cloudflare 的插件，以及 DDNS-go 的插件，但是有点问题。</p>
+<h2 id="1-配置-DDNS-go">1. 配置 DDNS-go</h2>
+<p>在 SWRT 的 Web 界面中，进入 <strong>软件中心</strong> -&gt; <strong>多ddns合一</strong></p>
+<p>这个虽然安装好了，但是不能正常使用。</p>
+<p>我看了一下安装文件，发现 DDNS-go 的二进制只有2mb，与最新的版本差距很大。</p>
+<p>故下载最新的 linux-arm64 的版本，放到 <code>/jffs/softcenter/bin</code> 目录下，重命名为 <code>ddns-go</code>，然后给它执行权限。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /jffs/softcenter/bin/ddns-go</span><br></pre></td></tr></table></figure>
+<p>然后进入插件，打开并运行，进入控制面板，设置 IPv6 地址，方法随意。</p>
+<h2 id="2-配置梅林-DDNS">2. 配置梅林 DDNS</h2>
+<p>在 SWRT 的 Web 界面中，进入 <strong>WAN</strong> -&gt; <strong>动态 DNS</strong></p>
+<p>选择 <code>custom</code>，自定义需要的域名</p>
+<h2 id="3-配置防火墙">3. 配置防火墙</h2>
+<p>在系统管理 -&gt; 系统设置中，打开<code>从互联网设置 RAX80</code>，并且添加一个自定义的端口</p>
+<p>转到防火墙，打开ipv6防火墙，添加一条规则，名称随意，本地IP：<code>0:0:0:0:0:0:0:1234/::FFFF:FFFF:FFFF:FFFF</code>，协议：TCP，端口：之前设置的端口</p>
+<h2 id="Tips">Tips</h2>
+<p>dns 并不会很快就解析出来，但是可以通过访问CF后台的DNS解析记录来查看是否解析成功。访问时不会自动https，很可能无法访问，手动添加https即可。访问的设备需要有ipv6地址，并且访问的链接格式为<code>http://[ipv6地址]:端口号</code>如果可以访问，说明配置成功。等待dns生效，通过<code>https://[域名]:端口号</code>即可访问。</p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -2286,328 +2286,13 @@ Stable-Diffusion还有很多功能，有兴趣的可以自行探索。</p>
       </tags>
   </entry>
   <entry>
-    <title>关于达发 AIROHA Bootloader(TCBOOT) 的一些分析</title>
-    <url>/2026/08/01/1/</url>
-    <content><![CDATA[<h2 id="概念">概念</h2>
-<p>在ARM平台下，其实已经不存在 TCBoot 这个东西了，TCBoot 是 Airoha/Econet 厂商对其 MIPS 平台的 bootloader 的命名，ARM 平台上已经被 TF-A (Trusted Firmware-A) + U-Boot 取代了。但是由于历史惯性以及遗留的代码和文档，我们仍然会看到 TCBOOT 这个名字，并对仍然用 TCBOOT 称呼 Airoha/Econet 的 ARM bootloader。</p>
-<h2 id="Bootloader-组成">Bootloader 组成</h2>
-<p>这个 mtd0 的 bootloader 不是单纯的 “U-Boot 一个文件”，而是厂商打包后的 tcboot.bin / bootloader 总包。从文件里看到的结构大致是：<br>
-mtd0 bootloader: 0x00000000-0x00080000, 512 KiB<br>
-里面包含：<br>
-0x00000000 起：ARMv7 启动代码 / 前级 loader / BL2 类代码<br>
-0x0001a000 附近：DDR、SPI NAND、secure boot、LZMA 解压相关代码和字符串<br>
-0x0001e000 附近：Trusted Boot / Non-Trusted Firmware 证书链<br>
-0x00021000：LZMA 压缩 payload，解出来是 BL31<br>
-0x00024800：LZMA 压缩 payload，解出来是 U-Boot<br>
-0x0007c000 附近：U-Boot 环境变量区</p>
-<p>所以它的启动链更像是：<br>
-SoC BootROM<br>
--&gt; mtd0 里的前级 loader / BL2<br>
--&gt; 初始化 PLL / DDR / SPI NAND<br>
--&gt; 校验证书 / secure boot 相关处理<br>
--&gt; 解压并启动 BL31<br>
--&gt; 解压并进入 U-Boot，也就是 BL33<br>
--&gt; 读取 tclinux<br>
--&gt; bootm 启动 kernel</p>
-<p>也就是说，你没有看到单独的 BL2.bin、FIP.bin(BL31.bin、u-boot.bin) 分区，是因为它们都被打进了一个厂商 bootloader 镜像里。</p>
-<p>它不是裸 U-Boot，而是包含前级、BL31、U-Boot、证书和环境区的组合包。</p>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Offset</th>
-<th>Size</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bl1.bin</code></td>
-<td>0x00000</td>
-<td>2,016 B</td>
-<td>BL1 first-stage loader (exact match with <code>en7523/en7523-bl1.bin</code>)</td>
-</tr>
-<tr>
-<td><code>key_area.bin</code></td>
-<td>0x007E0</td>
-<td>1,056 B</td>
-<td>Secure-boot key/hash table</td>
-</tr>
-<tr>
-<td><code>bl2.bin</code></td>
-<td>0x00C00</td>
-<td>127,210 B</td>
-<td>Pre-assembled BL2 (DDR init, SPI-NAND, LZMA, secure boot)</td>
-</tr>
-<tr>
-<td><code>certificates.bin</code></td>
-<td>0x20000</td>
-<td>4,096 B</td>
-<td>Two X.509 DER certificates (trusted + non-trusted FW)</td>
-</tr>
-<tr>
-<td><code>bl31.lzma.bin</code></td>
-<td>0x21000</td>
-<td>14,336 B</td>
-<td>BL31 LZMA compressed stream</td>
-</tr>
-<tr>
-<td><code>bl31.bin</code></td>
-<td>—</td>
-<td>32,896 B</td>
-<td>BL31 decompressed (AArch64 runtime firmware)</td>
-</tr>
-<tr>
-<td><code>uboot.lzma.bin</code></td>
-<td>0x24800</td>
-<td>358,400 B</td>
-<td>U-Boot LZMA compressed stream</td>
-</tr>
-<tr>
-<td><code>uboot.bin</code></td>
-<td>—</td>
-<td>260,352 B</td>
-<td>U-Boot 2014.04-rc1 (Jun 08 2023) decompressed</td>
-</tr>
-<tr>
-<td><code>uboot.env.bin</code></td>
-<td>0x7C000</td>
-<td>16,384 B</td>
-<td>U-Boot environment (37 variables)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="安全启动">安全启动</h2>
-<p><img src="./SECBOOT_-_EN7562_Bootloader.png" alt></p>
-<p>大多数 EN7523 设备的 bootloader 编译了完整的安全启动支持，但 <strong>eFuse 未烧录 ROTPK（根信任公钥哈希）</strong>，导致运行时验证被跳过。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ROTPK is not deployed on platform. Skipping ROTPK verification.</span><br></pre></td></tr></table></figure>
-<p>BL2 启动时会读取 eFuse 中的 ROTPK。由于 eFuse 没有烧录，BL2 走了 “skip” 分支——直接跳过证书验证，不检查 BL31 和 U-Boot 的签名。</p>
-<h3 id="验证流程（实际运行路径）">验证流程（实际运行路径）</h3>
-<table>
-<thead>
-<tr>
-<th>阶段</th>
-<th>做了什么</th>
-<th>安全检查</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BootROM</td>
-<td>加载 BL1</td>
-<td>无验证</td>
-</tr>
-<tr>
-<td>BL1 (0x0, 2016B)</td>
-<td>加载 BL2</td>
-<td><strong>无 SHA-256 常量，不做哈希</strong></td>
-</tr>
-<tr>
-<td>BL2 (0xC00, 127KB)</td>
-<td>读 eFuse 找 ROTPK</td>
-<td><strong>未找到 → 跳过验证</strong></td>
-</tr>
-<tr>
-<td>BL2 → BL31</td>
-<td>解压 LZMA 加载</td>
-<td>证书存在但<strong>未验证</strong></td>
-</tr>
-<tr>
-<td>BL2 → U-Boot</td>
-<td>解压 LZMA 加载</td>
-<td>证书存在但<strong>未验证</strong></td>
-</tr>
-<tr>
-<td>U-Boot bootm</td>
-<td><code>flash imgread 2048;bootm</code></td>
-<td>无签名验证</td>
-</tr>
-</tbody>
-</table>
-<h3 id="未生效时的安全机制">未生效时的安全机制</h3>
-<p>SDK 确实以 <code>TRUSTED_BOARD_BOOT=1</code> 编译，以下设施全部存在：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>Mbed TLS 完整加密栈</strong>：RSA (SHA-224/256/384/512)、RSASSA-PSS + MGF1、HMAC-SHA-224/256/384/512、DES-CBC/3DES、X.509 ASN.1 解析器</p>
-</li>
-<li class="lvl-3">
-<p><strong>2 个 X.509 DER 证书</strong>（0x20000）：</p>
-<ul class="lvl-2">
-<li class="lvl-5"><code>SoC Firmware Content Certificate</code>（可信固件 = BL31）</li>
-<li class="lvl-5"><code>Non-Trusted Firmware Content Certificate</code>（非可信固件 = U-Boot）</li>
-<li class="lvl-5">有效期：2023-06-08 ~ 2043-06-03（与 U-Boot 构建日期一致）</li>
-<li class="lvl-5">都包含 RSA 公钥</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>4 类 TBBR 证书类型定义</strong>：Trusted Boot FW / Trusted Key / SoC Firmware Key / Non-Trusted FW Key</p>
-</li>
-<li class="lvl-3">
-<p><strong>20 个 ECNT 私有 OID</strong>：<code>1.3.6.1.4.1.4128.2100.xxx</code></p>
-</li>
-<li class="lvl-3">
-<p><strong>固件加密支持</strong>：代码中同时存在 <code>FW UN-ENCRYPTION</code> 和 <code>FW ENCRYPTION</code> 路径，当前走的是 UN-ENCRYPTION</p>
-</li>
-</ol>
-<h3 id="真正启用安全验证">真正启用安全验证</h3>
-<p>要激活安全启动，厂商需要：</p>
-<ol>
-<li class="lvl-3">
-<p>生成 RSA 密钥对，将公钥的 SHA-256 哈希烧入 eFuse 的 ROTPK 区域</p>
-</li>
-<li class="lvl-3">
-<p>用私钥对 BL31 和 U-Boot 签名，签名嵌入证书</p>
-</li>
-<li class="lvl-3">
-<p>BL2 启动时读到 ROTPK → 验证证书签名 → 验证固件哈希 → 通过才加载</p>
-</li>
-</ol>
-<h2 id="BOOTEXT-RAM">BOOTEXT.RAM</h2>
-<p><code>en7523_bootext.ram</code> 和普通 <code>bl2.bin</code> 本质上是<strong>同一段 BL2 固件的不同打包形态</strong>，区别在于封装格式、包含内容和加载方式。</p>
-<p><img src="./bootextram_vs_bl2bin.png" alt></p>
-<p>它是一个标准的 <strong>FIP (Firmware Image Package)</strong> 格式文件，结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>偏移</th>
-<th>内容</th>
-<th>大小</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0x0000</td>
-<td>FIP TOC Header (magic=0xAA640001)</td>
-<td>16B</td>
-</tr>
-<tr>
-<td>0x0010</td>
-<td>TOC Entry 0: BL2 firmware (UUID: <code>0becf95f-...</code>)</td>
-<td>40B</td>
-</tr>
-<tr>
-<td>0x0038</td>
-<td>TOC Entry 1: Certificate (UUID: <code>ea69e2d6-...</code>)</td>
-<td>40B</td>
-</tr>
-<tr>
-<td>0x0060</td>
-<td>NULL terminator</td>
-<td>40B</td>
-</tr>
-<tr>
-<td>0x0400</td>
-<td><strong>BL2 固件代码</strong> (ARM 指令)</td>
-<td>119,454B</td>
-</tr>
-<tr>
-<td>0x1D800</td>
-<td><strong>X.509 证书</strong> (“Trusted Boot FW Certificate”, DER, 2021-2041)</td>
-<td>1,135B</td>
-</tr>
-<tr>
-<td>0x1DFFC</td>
-<td>CRC32</td>
-<td>4B</td>
-</tr>
-</tbody>
-</table>
-<p>总大小 122,880B (0x1E000)，由 <code>trx -t &lt;input&gt; bootext.ram</code> 创建 — CRC 计算覆盖 (size-4) 字节，放在数据<strong>内部</strong>最后 4 字节，<strong>变长无 flash 填充</strong>。</p>
-<h2 id="bl2-bin-是什么">bl2.bin 是什么</h2>
-<p>裸 ARM 二进制，<strong>无任何容器头</strong>，直接从 <code>mov r9, #0</code> 指令开始。大小 115,350B，由两步创建：</p>
-<ol>
-<li class="lvl-3">
-<p><code>trx -z</code> — 打包 bl21 + bl22.lzma + bl23.lzma + flash_table.lzma</p>
-</li>
-<li class="lvl-3">
-<p><code>trx -x</code> — 在数据<strong>之后追加</strong> 4 字节 CRC</p>
-</li>
-</ol>
-<h3 id="核心差异">核心差异</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>bootext.ram</th>
-<th>bl2.bin</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>格式</strong></td>
-<td>FIP 容器 (TOC + entries)</td>
-<td>裸 ARM 二进制</td>
-</tr>
-<tr>
-<td><strong>证书</strong></td>
-<td>内含 TBBR “Trusted Boot FW Certificate”</td>
-<td>无 (证书单独存于 tcboot.bin)</td>
-</tr>
-<tr>
-<td><strong>CRC 位置</strong></td>
-<td>数据内部最后 4 字节</td>
-<td>数据之后追加 4 字节</td>
-</tr>
-<tr>
-<td><strong>加载方式</strong></td>
-<td><strong>RAM 加载</strong> (下载/恢复模式)</td>
-<td><strong>Flash 加载</strong> (LZMA 压缩后嵌入 tcboot.bin/mtd0)</td>
-</tr>
-<tr>
-<td><strong>大小</strong></td>
-<td>122,880B (含 FIP 头+证书+对齐)</td>
-<td>115,350B (纯代码)</td>
-</tr>
-<tr>
-<td><strong>创建工具</strong></td>
-<td><code>trx -t &lt;fip_input&gt; bootext.ram</code></td>
-<td><code>trx -z</code> + <code>trx -x</code></td>
-</tr>
-</tbody>
-</table>
-<p>两者 BL2 代码的前 0x34 字节完全相同（ARM vector table），仅 0x34 处一条 BL 跳转指令的目标不同（<code>+0x42C</code> vs <code>+0x3C4</code>），说明是同一代码库的不同编译版本。</p>
-<p><strong>简单说：bootext.ram = “boot extension” = 自包含的 RAM 加载版 BL2</strong>，自带证书和 FIP 元数据，用于 BootROM 直接加载到 RAM 执行（如下载模式/恢复模式）；而 bl2.bin 是精简的 flash 启动版，会被 LZMA 压缩后塞进 tcboot.bin 的 0xC00 偏移处。</p>
-<h2 id="救砖">救砖</h2>
-<p>Econet/Airoha 设计了一个类似高通9008/MTK UART的“Emergency upgarde”模式，但是中文互联网更喜欢称呼为“X模式”。</p>
-<blockquote>
-<p>飞思灵的几款基于 AN7581FP 换皮的芯片 FSL61167D/P，其 BROM 中未烧录 Emergency Upgrade 功能，并且由于其闪存控制器还是旧款基于EN7510的mtk_nand闪存控制器，使用48脚TSOP封装的闪存，救砖只能依靠 JTAG 或者 编程器。</p>
-</blockquote>
-<p>该模式由“XMODE” 驱动，具体方法为：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>按住复位键</strong>，同时连接 TTL，终端会显示 <code>CCCC</code>，表示进入了 XMODE，此时会提示你“Press x”</p>
-</li>
-<li class="lvl-3">
-<p><strong>按下 x 键</strong>，设备会进入，就会进入紧急升级模式，等待主机发送 bootext.ram</p>
-</li>
-<li class="lvl-3">
-<p><strong>通过xmodem 工具</strong>，将 bootext.ram 发送到设备，设备会在 RAM 中解压并执行 BL2，BL2 会初始化，并提示按下 x 键继续升级</p>
-</li>
-<li class="lvl-3">
-<p><strong>按下 x 键</strong>，再次使用 xmodem 发送 tcboot.bin，BL2 会解压并写入 SPI-NAND，完成升级</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">EN7523DRAMC V0.6</span><br><span class="line">dram_type = 5, speed = 1866</span><br><span class="line">Final Impdance Cal Result: OCDP:0x14, OCDN:0x1b, ODTP:0x6, ODTN:0x6</span><br><span class="line">DDR1866 PLL setting init</span><br><span class="line">[Dramc] PCDDR3 AC Timing update</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.2, value.0x20 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.3, value.0x0 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.1, value.0x6 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.0, value.0x1114 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.1, value.0x86 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.1, value.0x6 done</span><br><span class="line">Calculate size.</span><br><span class="line">DRAM size=512MB</span><br><span class="line">Press x to update firmware</span><br></pre></td></tr></table></figure>
-<p>这个模式的好处是<strong>不依赖 SPI-NAND 的内容</strong>，即使 NAND 里没有有效的 bootloader，也可以通过 XMODE 直接升级。</p>
-<p>另外如果原来的 bl2 没有被破坏，可以在第一阶段不需要升级 bootext.ram，等待其超时进入第二阶段，直接发送 tcboot.bin 也可以升级。</p>
-<p>bootext.ram 里面包含了 BL2、证书和 CRC 校验，BL2 会在 RAM 中解压并执行，初始化 DDR、SPI-NAND、secure boot 等，然后再解压 tcboot.bin 并写入 SPI-NAND。所以<strong>bootext.ram</strong>不能乱用，里面的证书要匹配机型，一旦是不匹配的bl2和证书，触发了panic，救砖就十分困难了。所以在 en7523/en7562 系列的 ATF 开源之前，我们应该尽量提取原厂的 tcboot.bin 以及其中存在的各个组成，打包配套的 bootext.ram，避免使用不匹配的 bootext.ram。</p>
-<blockquote>
-<p>Tips: Airoha 的 uboot 通常会设置一个账号密码 ‘telecomadmin/nE7jA%5m’，通常会要求使用console前置登录，才能进入命令行，但是如果启动失败时，uboot 会直接进入命令行，不需要登录。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>玩机</tag>
-        <tag>Airoha</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Airoha BL2 NAND 支持列表</title>
     <url>/2026/08/11/2/</url>
-    <content><![CDATA[<h2 id="EN7523-DRAMC-V0-2">EN7523 DRAMC V0.2</h2>
+    <content><![CDATA[<p>Airoha 的 BL2 不打印 TF-A 版本信息，只打印 DDR_CAL(DRAMC) 版本信息，所以只能依靠 DRAMC 版本来大致判断支持的 NAND Flash 型号。</p>
+<blockquote>
+<p>因为 SDK 更新时， DRAMC 版本可能会更新，但 NAND Flash 支持列表不一定会更新，所以不能完全依赖 DRAMC 版本来判断支持的 NAND Flash 型号。</p>
+</blockquote>
+<h2 id="EN7523-DRAMC-V0-2">EN7523 DRAMC V0.2</h2>
 <p>Struct flash table: entries=50, stride=0x40, array @ 0x17518<br>
 Struct flash table @ 0x17518: 50 entries, stride 0x40<br>
 idx  mfr  dev size(MB)  page  erase  oob  name<br>
@@ -2979,6 +2664,326 @@ idx  mfr  dev size(MB)  page  erase  oob  name<br>
       </tags>
   </entry>
   <entry>
+    <title>关于达发 AIROHA Bootloader(TCBOOT) 的一些分析</title>
+    <url>/2026/08/01/1/</url>
+    <content><![CDATA[<h2 id="概念">概念</h2>
+<p>在ARM平台下，其实已经不存在 TCBoot 这个东西了，TCBoot 是 Airoha/Econet 厂商对其 MIPS 平台的 bootloader 的命名，ARM 平台上已经被 TF-A (Trusted Firmware-A) + U-Boot 取代了。但是由于历史惯性以及遗留的代码和文档，我们仍然会看到 TCBOOT 这个名字，并对仍然用 TCBOOT 称呼 Airoha/Econet 的 ARM bootloader。</p>
+<h2 id="Bootloader-组成">Bootloader 组成</h2>
+<p>这个 mtd0 的 bootloader 不是单纯的 “U-Boot 一个文件”，而是厂商打包后的 tcboot.bin / bootloader 总包。从文件里看到的结构大致是：<br>
+mtd0 bootloader: 0x00000000-0x00080000, 512 KiB<br>
+里面包含：<br>
+0x00000000 起：ARMv7 启动代码 / 前级 loader / BL2 类代码<br>
+0x0001a000 附近：DDR、SPI NAND、secure boot、LZMA 解压相关代码和字符串<br>
+0x0001e000 附近：Trusted Boot / Non-Trusted Firmware 证书链<br>
+0x00021000：LZMA 压缩 payload，解出来是 BL31<br>
+0x00024800：LZMA 压缩 payload，解出来是 U-Boot<br>
+0x0007c000 附近：U-Boot 环境变量区</p>
+<p>所以它的启动链更像是：<br>
+SoC BootROM<br>
+-&gt; mtd0 里的前级 loader / BL2<br>
+-&gt; 初始化 PLL / DDR / SPI NAND<br>
+-&gt; 校验证书 / secure boot 相关处理<br>
+-&gt; 解压并启动 BL31<br>
+-&gt; 解压并进入 U-Boot，也就是 BL33<br>
+-&gt; 读取 tclinux<br>
+-&gt; bootm 启动 kernel</p>
+<p>也就是说，你没有看到单独的 BL2.bin、FIP.bin(BL31.bin、u-boot.bin) 分区，是因为它们都被打进了一个厂商 bootloader 镜像里。</p>
+<p>它不是裸 U-Boot，而是包含前级、BL31、U-Boot、证书和环境区的组合包。</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Offset</th>
+<th>Size</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bl1.bin</code></td>
+<td>0x00000</td>
+<td>2,016 B</td>
+<td>BL1 first-stage loader (exact match with <code>en7523/en7523-bl1.bin</code>)</td>
+</tr>
+<tr>
+<td><code>key_area.bin</code></td>
+<td>0x007E0</td>
+<td>1,056 B</td>
+<td>Secure-boot key/hash table</td>
+</tr>
+<tr>
+<td><code>bl2.bin</code></td>
+<td>0x00C00</td>
+<td>127,210 B</td>
+<td>Pre-assembled BL2 (DDR init, SPI-NAND, LZMA, secure boot)</td>
+</tr>
+<tr>
+<td><code>certificates.bin</code></td>
+<td>0x20000</td>
+<td>4,096 B</td>
+<td>Two X.509 DER certificates (trusted + non-trusted FW)</td>
+</tr>
+<tr>
+<td><code>bl31.lzma.bin</code></td>
+<td>0x21000</td>
+<td>14,336 B</td>
+<td>BL31 LZMA compressed stream</td>
+</tr>
+<tr>
+<td><code>bl31.bin</code></td>
+<td>—</td>
+<td>32,896 B</td>
+<td>BL31 decompressed (AArch64 runtime firmware)</td>
+</tr>
+<tr>
+<td><code>uboot.lzma.bin</code></td>
+<td>0x24800</td>
+<td>358,400 B</td>
+<td>U-Boot LZMA compressed stream</td>
+</tr>
+<tr>
+<td><code>uboot.bin</code></td>
+<td>—</td>
+<td>260,352 B</td>
+<td>U-Boot 2014.04-rc1 (Jun 08 2023) decompressed</td>
+</tr>
+<tr>
+<td><code>uboot.env.bin</code></td>
+<td>0x7C000</td>
+<td>16,384 B</td>
+<td>U-Boot environment (37 variables)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="安全启动">安全启动</h2>
+<p><img src="./SECBOOT_-_EN7562_Bootloader.png" alt></p>
+<p>大多数 EN7523 设备的 bootloader 编译了完整的安全启动支持，但 <strong>eFuse 未烧录 ROTPK（根信任公钥哈希）</strong>，导致运行时验证被跳过。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ROTPK is not deployed on platform. Skipping ROTPK verification.</span><br></pre></td></tr></table></figure>
+<p>BL2 启动时会读取 eFuse 中的 ROTPK。由于 eFuse 没有烧录，BL2 走了 “skip” 分支——直接跳过证书验证，不检查 BL31 和 U-Boot 的签名。</p>
+<h3 id="验证流程（实际运行路径）">验证流程（实际运行路径）</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>做了什么</th>
+<th>安全检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BootROM</td>
+<td>加载 BL1</td>
+<td>无验证</td>
+</tr>
+<tr>
+<td>BL1 (0x0, 2016B)</td>
+<td>加载 BL2</td>
+<td><strong>无 SHA-256 常量，不做哈希</strong></td>
+</tr>
+<tr>
+<td>BL2 (0xC00, 127KB)</td>
+<td>读 eFuse 找 ROTPK</td>
+<td><strong>未找到 → 跳过验证</strong></td>
+</tr>
+<tr>
+<td>BL2 → BL31</td>
+<td>解压 LZMA 加载</td>
+<td>证书存在但<strong>未验证</strong></td>
+</tr>
+<tr>
+<td>BL2 → U-Boot</td>
+<td>解压 LZMA 加载</td>
+<td>证书存在但<strong>未验证</strong></td>
+</tr>
+<tr>
+<td>U-Boot bootm</td>
+<td><code>flash imgread 2048;bootm</code></td>
+<td>无签名验证</td>
+</tr>
+</tbody>
+</table>
+<h3 id="未生效时的安全机制">未生效时的安全机制</h3>
+<p>SDK 确实以 <code>TRUSTED_BOARD_BOOT=1</code> 编译，以下设施全部存在：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>Mbed TLS 完整加密栈</strong>：RSA (SHA-224/256/384/512)、RSASSA-PSS + MGF1、HMAC-SHA-224/256/384/512、DES-CBC/3DES、X.509 ASN.1 解析器</p>
+</li>
+<li class="lvl-3">
+<p><strong>2 个 X.509 DER 证书</strong>（0x20000）：</p>
+<ul class="lvl-2">
+<li class="lvl-5"><code>SoC Firmware Content Certificate</code>（可信固件 = BL31）</li>
+<li class="lvl-5"><code>Non-Trusted Firmware Content Certificate</code>（非可信固件 = U-Boot）</li>
+<li class="lvl-5">有效期：2023-06-08 ~ 2043-06-03（与 U-Boot 构建日期一致）</li>
+<li class="lvl-5">都包含 RSA 公钥</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>4 类 TBBR 证书类型定义</strong>：Trusted Boot FW / Trusted Key / SoC Firmware Key / Non-Trusted FW Key</p>
+</li>
+<li class="lvl-3">
+<p><strong>20 个 ECNT 私有 OID</strong>：<code>1.3.6.1.4.1.4128.2100.xxx</code></p>
+</li>
+<li class="lvl-3">
+<p><strong>固件加密支持</strong>：代码中同时存在 <code>FW UN-ENCRYPTION</code> 和 <code>FW ENCRYPTION</code> 路径，当前走的是 UN-ENCRYPTION</p>
+</li>
+</ol>
+<h3 id="真正启用安全验证">真正启用安全验证</h3>
+<p>要激活安全启动，厂商需要：</p>
+<ol>
+<li class="lvl-3">
+<p>生成 RSA 密钥对，将公钥的 SHA-256 哈希烧入 eFuse 的 ROTPK 区域</p>
+</li>
+<li class="lvl-3">
+<p>用私钥对 BL31 和 U-Boot 签名，签名嵌入证书</p>
+</li>
+<li class="lvl-3">
+<p>BL2 启动时读到 ROTPK → 验证证书签名 → 验证固件哈希 → 通过才加载</p>
+</li>
+</ol>
+<h2 id="BOOTEXT-RAM">BOOTEXT.RAM</h2>
+<p><code>en7523_bootext.ram</code> 和普通 <code>bl2.bin</code> 本质上是<strong>同一段 BL2 固件的不同打包形态</strong>，区别在于封装格式、包含内容和加载方式。</p>
+<p><img src="./bootextram_vs_bl2bin.png" alt></p>
+<p>它是一个标准的 <strong>FIP (Firmware Image Package)</strong> 格式文件，结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>偏移</th>
+<th>内容</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0000</td>
+<td>FIP TOC Header (magic=0xAA640001)</td>
+<td>16B</td>
+</tr>
+<tr>
+<td>0x0010</td>
+<td>TOC Entry 0: BL2 firmware (UUID: <code>0becf95f-...</code>)</td>
+<td>40B</td>
+</tr>
+<tr>
+<td>0x0038</td>
+<td>TOC Entry 1: Certificate (UUID: <code>ea69e2d6-...</code>)</td>
+<td>40B</td>
+</tr>
+<tr>
+<td>0x0060</td>
+<td>NULL terminator</td>
+<td>40B</td>
+</tr>
+<tr>
+<td>0x0400</td>
+<td><strong>BL2 固件代码</strong> (ARM 指令)</td>
+<td>119,454B</td>
+</tr>
+<tr>
+<td>0x1D800</td>
+<td><strong>X.509 证书</strong> (“Trusted Boot FW Certificate”, DER, 2021-2041)</td>
+<td>1,135B</td>
+</tr>
+<tr>
+<td>0x1DFFC</td>
+<td>CRC32</td>
+<td>4B</td>
+</tr>
+</tbody>
+</table>
+<p>总大小 122,880B (0x1E000)，由 <code>trx -t &lt;input&gt; bootext.ram</code> 创建 — CRC 计算覆盖 (size-4) 字节，放在数据<strong>内部</strong>最后 4 字节，<strong>变长无 flash 填充</strong>。</p>
+<h2 id="bl2-bin-是什么">bl2.bin 是什么</h2>
+<p>裸 ARM 二进制，<strong>无任何容器头</strong>，直接从 <code>mov r9, #0</code> 指令开始。大小 115,350B，由两步创建：</p>
+<ol>
+<li class="lvl-3">
+<p><code>trx -z</code> — 打包 bl21 + bl22.lzma + bl23.lzma + flash_table.lzma</p>
+</li>
+<li class="lvl-3">
+<p><code>trx -x</code> — 在数据<strong>之后追加</strong> 4 字节 CRC</p>
+</li>
+</ol>
+<h3 id="核心差异">核心差异</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>bootext.ram</th>
+<th>bl2.bin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>格式</strong></td>
+<td>FIP 容器 (TOC + entries)</td>
+<td>裸 ARM 二进制</td>
+</tr>
+<tr>
+<td><strong>证书</strong></td>
+<td>内含 TBBR “Trusted Boot FW Certificate”</td>
+<td>无 (证书单独存于 tcboot.bin)</td>
+</tr>
+<tr>
+<td><strong>CRC 位置</strong></td>
+<td>数据内部最后 4 字节</td>
+<td>数据之后追加 4 字节</td>
+</tr>
+<tr>
+<td><strong>加载方式</strong></td>
+<td><strong>RAM 加载</strong> (下载/恢复模式)</td>
+<td><strong>Flash 加载</strong> (LZMA 压缩后嵌入 tcboot.bin/mtd0)</td>
+</tr>
+<tr>
+<td><strong>大小</strong></td>
+<td>122,880B (含 FIP 头+证书+对齐)</td>
+<td>115,350B (纯代码)</td>
+</tr>
+<tr>
+<td><strong>创建工具</strong></td>
+<td><code>trx -t &lt;fip_input&gt; bootext.ram</code></td>
+<td><code>trx -z</code> + <code>trx -x</code></td>
+</tr>
+</tbody>
+</table>
+<p>两者 BL2 代码的前 0x34 字节完全相同（ARM vector table），仅 0x34 处一条 BL 跳转指令的目标不同（<code>+0x42C</code> vs <code>+0x3C4</code>），说明是同一代码库的不同编译版本。</p>
+<p><strong>简单说：bootext.ram = “boot extension” = 自包含的 RAM 加载版 BL2</strong>，自带证书和 FIP 元数据，用于 BootROM 直接加载到 RAM 执行（如下载模式/恢复模式）；而 bl2.bin 是精简的 flash 启动版，会被 LZMA 压缩后塞进 tcboot.bin 的 0xC00 偏移处。</p>
+<h2 id="救砖">救砖</h2>
+<p>Econet/Airoha 设计了一个类似高通9008/MTK UART的“Emergency upgarde”模式，但是中文互联网更喜欢称呼为“X模式”。</p>
+<blockquote>
+<p>飞思灵的几款基于 AN7581F 换皮的芯片 FSL61167D/P，其 BROM 中未烧录 Emergency Upgrade 功能，并且由于其闪存控制器还是旧款基于EN7510的mtk_nand闪存控制器，使用48脚TSOP封装的闪存，救砖只能依靠 JTAG 或者编程器。</p>
+</blockquote>
+<p>该模式由“XMODE” 驱动，具体方法为：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>按住复位键</strong>，同时连接 TTL，终端会显示 <code>CCCC</code>，表示进入了 XMODE，此时会提示你“Press x”</p>
+</li>
+<li class="lvl-3">
+<p><strong>按下 x 键</strong>，设备会进入，就会进入紧急升级模式，等待主机发送 bootext.ram</p>
+</li>
+<li class="lvl-3">
+<p><strong>通过xmodem 工具</strong>，将 bootext.ram 发送到设备，设备会在 RAM 中解压并执行 BL2，BL2 会初始化，并提示按下 x 键继续升级</p>
+</li>
+<li class="lvl-3">
+<p><strong>按下 x 键</strong>，再次使用 xmodem 发送 tcboot.bin，BL2 会解压并写入 SPI-NAND，完成升级</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">EN7523DRAMC V0.6</span><br><span class="line">dram_type = 5, speed = 1866</span><br><span class="line">Final Impdance Cal Result: OCDP:0x14, OCDN:0x1b, ODTP:0x6, ODTN:0x6</span><br><span class="line">DDR1866 PLL setting init</span><br><span class="line">[Dramc] PCDDR3 AC Timing update</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.2, value.0x20 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.3, value.0x0 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.1, value.0x6 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.0, value.0x1114 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.1, value.0x86 done</span><br><span class="line">Fire MRW command...</span><br><span class="line">ModeReg.1, value.0x6 done</span><br><span class="line">Calculate size.</span><br><span class="line">DRAM size=512MB</span><br><span class="line">Press x to update firmware</span><br></pre></td></tr></table></figure>
+<p>这个模式的好处是<strong>不依赖 SPI-NAND 的内容</strong>，即使 NAND 里没有有效的 bootloader，也可以通过 XMODE 直接升级。</p>
+<p>另外如果原来的 bl2 没有被破坏，可以在第一阶段不需要升级 bootext.ram，等待其超时进入第二阶段，直接发送 tcboot.bin 也可以升级。</p>
+<p>bootext.ram 里面包含了 BL2、证书和 CRC 校验，BL2 会在 RAM 中解压并执行，初始化 DDR、SPI-NAND、secure boot 等，然后再解压 tcboot.bin 并写入 SPI-NAND。所以<strong>bootext.ram</strong>不能乱用，里面的证书要匹配机型，一旦是不匹配的bl2和证书，触发了panic，救砖就十分困难了。所以在 en7523/en7562 系列的 ATF 开源之前，我们应该尽量提取原厂的 tcboot.bin 以及其中存在的各个组成，打包配套的 bootext.ram，避免使用不匹配的 bootext.ram。</p>
+<blockquote>
+<p>到2016年9月16日，我已完成开源构建，如果是未启用安全启动的机型，可以打包an7581/7583类似的 preloader.bin 替代 bootext.ram，不再依赖证书，从而减少了风险。另外，对于en7523/en7529/en7562，刷入bl2分区的preloader实际上需要用bl1拼接bl2才能启动。</p>
+<p>Tips: Airoha 的 uboot 通常会设置一个账号密码 ‘telecomadmin/nE7jA%5m’，通常会要求使用console前置登录，才能进入命令行，但是如果启动失败时，uboot 会直接进入命令行，不需要登录。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+        <tag>Airoha</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Airoha SoC 常见的闪存布局</title>
     <url>/2026/08/29/1/</url>
     <content><![CDATA[<p>目前从市面上的产品看来，使用了 Econet/Airoha SoC 的产品大多分区布局混乱不堪，找不到一个统一的规律，导致用户在刷机时往往一个设备一个教程，非常不方便。</p>
@@ -3085,6 +3090,58 @@ idx  mfr  dev size(MB)  page  erase  oob  name<br>
       </tags>
   </entry>
   <entry>
+    <title>破解富士通平板电脑的UEFI密码</title>
+    <url>/2024/09/22/1/</url>
+    <content><![CDATA[<p>这台设备是 Fujitsu Tablet Stylistic V727 的用于日本医疗行业的定制版本 V727/V</p>
+<p>采用 Intel 公司的 m3y30 处理器，8G LPDDR3 内存，128G SSD，1920x1280 分辨率的屏幕，支持触控和笔触，内置 4G LTE 模块，支持 Feli-Ca，支持 USB Type-C，支持 802.11ac Wi-Fi，支持蓝牙 4.1，支持 GPS，使用 Windows 10 Pro 操作系统。</p>
+<p><img src="./screen.jpg" alt></p>
+<p>以往我都会把密码存储在密码管理器中，这次想要重装系统，但是忘记了UEFI密码。</p>
+<p>尝试了许多可能的密码，但是都没有成功。最后我找到了一个方法，可以重置UEFI密码。</p>
+<h2 id="重置UEFI密码">重置UEFI密码</h2>
+<p>解密工作需要输入密码时请直接回车3次，一般会出现多位溢出码部分不出溢出码的机器请按照以下方法操作。提示密码时输入下列：</p>
+<p>第一次输入3hqgo3按确定报错之后第二次输入jqw534报错之后输入0qww294e按确定之后出一串字符码。第一个密码33是数字  第二个534是数字 第三个0294是数字。其它都是小写字母</p>
+<p>把溢出的代码 在这个网站输入</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9iaW9zLXB3Lm9yZy8=">BIOS Master Password Generator for Laptops<i class="fa fa-external-link-alt"></i></span></p>
+<p>然后会得到一个解锁密码，输入即可解锁。</p>
+<p>然后进入UEFI设置，重置密码即可。</p>
+<h2 id="参考">参考</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hpbmFmaXguY29tL3RocmVhZC0xMDcwOTU3LTEtMS5odG1s">【维修经验】我自己总结的几种笔记本BIOS密码超级密码不拆机解密方法<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-2">
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JhY2hlcjA5L3B3Z2VuLWZvci1iaW9z">Password generator for BIOS<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+<h2 id="烂电池">烂电池</h2>
+<p>去年的冬天（24年末），那天晚上使用完，放在桌子上，第二天早，无法开机，电池没电了，插上电源，开机，显示电池电量为0%，过了一段时间，充满了电，我没有太在意，继续使用，但是发现电池很快就没电了，使用软件查看电池健康状态，发现电池健康状态为损耗97%，耗电如流水。</p>
+<p><img src="./battery.PNG" alt></p>
+<p>故去购物网查看电池价格，发现电池价格为 300 元，然而这台设备二手价才 500~600 元，所以我决定不换电池，继续使用。</p>
+<p>我想到了三个解决方案：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>这台设备支持 USB Type-C，我可以使用移动电源继续使用（PD 12V）。</p>
+</li>
+<li class="lvl-2">
+<p>电源插口是 DC 19V的，可以制作一个UPS供电。</p>
+</li>
+<li class="lvl-2">
+<p>维修电池。</p>
+</li>
+</ul>
+<p>第一个方案最简单，但是我放弃了，因为这与第二个方案相似，而且由于技术原因，Type-C 电源供电是先充电池，再从电池供电，那为何不直接用第二个方案呢？</p>
+<p>第二个方案挺好的，我可以使用 18650 电池制作一个 UPS，这样可以保证设备不会因为断电而关机，但是这个方案需要我购买一些电子元件，而且我需要设计一个电路板，这个方案需要时间。</p>
+<p>第三个方案需要拆开电池，更换其中的电芯，但是我不知道这样是否会锁定电池，但是这样最省钱，而且美观。我拆开发现，它的主控芯片是 fm30xy 844s7b，电芯是索尼 383396 3.7V 聚合物锂电池，容量 1510mAh，3串2并，总共6个，11.1V。关于这个保护芯片，在网上没有任何资料，我只能自己研究。</p>
+]]></content>
+      <categories>
+        <category>PC</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>为 Openwrt 配置 ddns-go</title>
     <url>/2025/04/23/1/</url>
     <content><![CDATA[<p>看了网上的教程，配置动态 DNS 非常简单。当时还是遇到了一些问题，故此记录一下。</p>
@@ -3169,58 +3226,6 @@ idx  mfr  dev size(MB)  page  erase  oob  name<br>
 ]]></content>
       <categories>
         <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>玩机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>破解富士通平板电脑的UEFI密码</title>
-    <url>/2024/09/22/1/</url>
-    <content><![CDATA[<p>这台设备是 Fujitsu Tablet Stylistic V727 的用于日本医疗行业的定制版本 V727/V</p>
-<p>采用 Intel 公司的 m3y30 处理器，8G LPDDR3 内存，128G SSD，1920x1280 分辨率的屏幕，支持触控和笔触，内置 4G LTE 模块，支持 Feli-Ca，支持 USB Type-C，支持 802.11ac Wi-Fi，支持蓝牙 4.1，支持 GPS，使用 Windows 10 Pro 操作系统。</p>
-<p><img src="./screen.jpg" alt></p>
-<p>以往我都会把密码存储在密码管理器中，这次想要重装系统，但是忘记了UEFI密码。</p>
-<p>尝试了许多可能的密码，但是都没有成功。最后我找到了一个方法，可以重置UEFI密码。</p>
-<h2 id="重置UEFI密码">重置UEFI密码</h2>
-<p>解密工作需要输入密码时请直接回车3次，一般会出现多位溢出码部分不出溢出码的机器请按照以下方法操作。提示密码时输入下列：</p>
-<p>第一次输入3hqgo3按确定报错之后第二次输入jqw534报错之后输入0qww294e按确定之后出一串字符码。第一个密码33是数字  第二个534是数字 第三个0294是数字。其它都是小写字母</p>
-<p>把溢出的代码 在这个网站输入</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9iaW9zLXB3Lm9yZy8=">BIOS Master Password Generator for Laptops<i class="fa fa-external-link-alt"></i></span></p>
-<p>然后会得到一个解锁密码，输入即可解锁。</p>
-<p>然后进入UEFI设置，重置密码即可。</p>
-<h2 id="参考">参考</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hpbmFmaXguY29tL3RocmVhZC0xMDcwOTU3LTEtMS5odG1s">【维修经验】我自己总结的几种笔记本BIOS密码超级密码不拆机解密方法<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-<li class="lvl-2">
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JhY2hlcjA5L3B3Z2VuLWZvci1iaW9z">Password generator for BIOS<i class="fa fa-external-link-alt"></i></span></p>
-</li>
-</ul>
-<h2 id="烂电池">烂电池</h2>
-<p>去年的冬天（24年末），那天晚上使用完，放在桌子上，第二天早，无法开机，电池没电了，插上电源，开机，显示电池电量为0%，过了一段时间，充满了电，我没有太在意，继续使用，但是发现电池很快就没电了，使用软件查看电池健康状态，发现电池健康状态为损耗97%，耗电如流水。</p>
-<p><img src="./battery.PNG" alt></p>
-<p>故去购物网查看电池价格，发现电池价格为 300 元，然而这台设备二手价才 500~600 元，所以我决定不换电池，继续使用。</p>
-<p>我想到了三个解决方案：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>这台设备支持 USB Type-C，我可以使用移动电源继续使用（PD 12V）。</p>
-</li>
-<li class="lvl-2">
-<p>电源插口是 DC 19V的，可以制作一个UPS供电。</p>
-</li>
-<li class="lvl-2">
-<p>维修电池。</p>
-</li>
-</ul>
-<p>第一个方案最简单，但是我放弃了，因为这与第二个方案相似，而且由于技术原因，Type-C 电源供电是先充电池，再从电池供电，那为何不直接用第二个方案呢？</p>
-<p>第二个方案挺好的，我可以使用 18650 电池制作一个 UPS，这样可以保证设备不会因为断电而关机，但是这个方案需要我购买一些电子元件，而且我需要设计一个电路板，这个方案需要时间。</p>
-<p>第三个方案需要拆开电池，更换其中的电芯，但是我不知道这样是否会锁定电池，但是这样最省钱，而且美观。我拆开发现，它的主控芯片是 fm30xy 844s7b，电芯是索尼 383396 3.7V 聚合物锂电池，容量 1510mAh，3串2并，总共6个，11.1V。关于这个保护芯片，在网上没有任何资料，我只能自己研究。</p>
-]]></content>
-      <categories>
-        <category>PC</category>
       </categories>
       <tags>
         <tag>分享</tag>
@@ -4890,6 +4895,45 @@ Ethernet: 1xWAN + 3xLAN (1G)</p>
       </tags>
   </entry>
   <entry>
+    <title>逃离 Microsoft Authenticator</title>
+    <url>/2026/09/22/1/</url>
+    <content><![CDATA[<p>已经用了 Microsoft Authenticator 有五六年了，最近发现它越来越不方便了。从最开始，密码也能通过它保管，到现在，连云备份也不再支持了。所以我下定决心要换掉它，寻找一个更适合我的身份验证器。</p>
+<blockquote>
+<p>从 2027 年 1 月开始，你将不再使用 Microsoft 个人帐户启用备份。 你需要从 Google One 备份启用“Microsoft Authenticator”。 详细了解如何 使用 Google One 进行备份。<br>
+<span class="exturl" data-url="aHR0cHM6Ly9ha2EubXMvYXV0aGFwcGJhY2t1cHJlY292ZXJ5">https://aka.ms/authappbackuprecovery<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<p>通知里面说通过Google ONE备份启用 Microsoft Authenticator，然而 Google ONE 中并无 Microsoft Authenticator 的选项。</p>
+<p>网上找了很多方法，大部分说要通过云备份/ROOT权限来迁移数据，这个思路很好，所以我决定使用 WSA 来进行迁移（趁现在云备份还在）。</p>
+<ol>
+<li class="lvl-3">
+<p>安装WSA（Windows Subsystem for Android）并配置好环境。<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL011c3RhcmRDaGVmL1dTQUJ1aWxkcy8=">WSABuilds<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+<li class="lvl-3">
+<p>在WSA中安装 Microsoft Authenticator，并恢复备份</p>
+</li>
+<li class="lvl-3">
+<p>安装 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JlZW1kZXZlbG9wbWVudC9BZWdpcw==">Aegis<i class="fa fa-external-link-alt"></i></span>，这是一个开源的身份验证器，支持导入 Microsoft Authenticator 的数据。</p>
+</li>
+<li class="lvl-3">
+<p>在 Aegis 中导入 Microsoft Authenticator 的数据，完成迁移。</p>
+</li>
+<li class="lvl-3">
+<p>使用 Aegis 作为新的身份验证器，并导出数据。</p>
+</li>
+<li class="lvl-3">
+<p>在手机上安装 Aegis，并导入数据。</p>
+</li>
+</ol>
+<blockquote>
+<p>WSA 要选择带 ROOT 权限的版本，否则无法导入数据。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HEXO 插件重置</title>
     <url>/2024/11/22/1/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">
@@ -5133,6 +5177,268 @@ Ethernet: 1xWAN + 3xLAN (1G)</p>
 </li>
 </ol>
 <p>后续你想干什么都行了，直接在界面上操作就行了。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>玩机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mediatek ATF 工具</title>
+    <url>/2026/02/21/3/</url>
+    <content><![CDATA[<p>介绍了 ATF（Arm Trusted Firmware）相关的几个工具：<code>ar-table</code>、<code>ar-tool</code>、<code>gen_salt_header</code>、<code>bromimage</code>、<code>bl2plimage</code> 和 <code>simg</code>。这些工具主要用于处理 MediaTek 平台的固件构建与镜像生成，涉及反回滚版本表、BL2 payload 头部、单一烧录镜像等方面。</p>
+<h2 id="ar-table-（ar-table-py）"><code>ar-table/</code>（<span class="exturl" data-url="aHR0cDovL2FyLXRhYmxlLnB5">ar-table.py<i class="fa fa-external-link-alt"></i></span>）</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>读取 ar_table.xml，解析 <code>ar_entry</code> 中的 <code>RELEASE_INDEX/BL2_AR_VER/FIP_AR_VER/FIT_AR_VER</code>。</p>
+</li>
+<li class="lvl-2">
+<p>生成两类输出：</p>
+<ul class="lvl-2">
+<li class="lvl-4">C 代码：<code>mtk_ar_table[]</code> + 记录数，用于反回滚版本表（anti-rollback）。</li>
+<li class="lvl-4">Makefile 变量：<code>TFW_NVCTR_VAL/NTFW_NVCTR_VAL/BL2_AR_VER/FIT_AR_VER</code>，用于构建配置。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>命令格式：<code>ar-table [create_ar_table|create_ar_conf] input_config output_file</code>。</p>
+</li>
+</ul>
+<h2 id="ar-tool-（ar-tool-py）"><code>ar-tool/</code>（<span class="exturl" data-url="aHR0cDovL2FyLXRvb2wucHk=">ar-tool.py<i class="fa fa-external-link-alt"></i></span>）</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>读取 bl_ar_table.xml 或 fw_ar_table.xml，解析 <code>bl_ar_entry/fw_ar_entry</code> 中 <code>USED</code> 与 <code>*_AR_VER</code>。</p>
+</li>
+<li class="lvl-2">
+<p>生成两类输出：</p>
+<ul class="lvl-2">
+<li class="lvl-4">C 代码：<code>const uint32_t bl_ar_ver</code> 或 <code>fw_ar_ver</code>。</li>
+<li class="lvl-4">Makefile 变量：<code>BL_AR_VER</code> 或 <code>FW_AR_VER</code>。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>命令格式：<code>ar-tool [bl_ar_table|fw_ar_table] [create_ar_ver|create_ar_conf] input_file output_file</code>。</p>
+</li>
+</ul>
+<h2 id="gen-salt-header-（gen-salt-header-sh）"><code>gen_salt_header/</code>（gen_salt_header.sh）</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>把二进制盐值文件转成 C 头文件宏数组（十六进制字节序列）。</p>
+</li>
+<li class="lvl-2">
+<p>生成包含头防护与宏定义的 <code>.h</code>，用于把 salt 编译进固件。</p>
+</li>
+</ul>
+<h2 id="bromimage"><code>bromimage/</code></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>仅提供多平台预编译可执行文件（<code>bromimage-*</code>），无源码。</p>
+</li>
+<li class="lvl-2">
+<p>从命名推断用于生成/处理 MediaTek BootROM 相关镜像。</p>
+</li>
+<li class="lvl-2">
+<p>附带 <code>musl/openssl</code> 相关许可证。</p>
+</li>
+</ul>
+<h2 id="bl2plimage（bl2plimage-c）"><code>bl2plimage</code>（bl2plimage.c）</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用于生成 <strong>BL2 payload image</strong>：在原始 payload（二进制）前追加一个 <code>bl2pl_hdr</code> 头部，然后输出为新文件。</p>
+</li>
+<li class="lvl-2">
+<p>头部字段（来自 <code>bl2pl.h</code> 的 <code>struct bl2pl_hdr</code>）：</p>
+<ul class="lvl-2">
+<li class="lvl-4"><code>magic</code>：<code>BL2PL_HDR_MAGIC</code></li>
+<li class="lvl-4"><code>load_addr</code>：payload 的加载地址（由 <code>-a</code> 指定）</li>
+<li class="lvl-4"><code>size</code>：payload 大小（字节）</li>
+<li class="lvl-4"><code>unused</code>：保留字段，写入 0</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>支持大小端输出：</p>
+<ul class="lvl-2">
+<li class="lvl-4">默认 <strong>little-endian</strong></li>
+<li class="lvl-4"><code>-b</code>：将 <code>magic/load_addr/size</code> 按 <strong>big-endian</strong> 写入</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>命令格式：<code>bl2plimage [options] &lt;input_file&gt; &lt;output_file&gt;</code></p>
+</li>
+<li class="lvl-2">
+<p>选项说明：</p>
+<ul class="lvl-2">
+<li class="lvl-4"><code>-h</code>：显示帮助</li>
+<li class="lvl-4"><code>-a &lt;addr&gt;</code>：加载地址（十六进制字符串，例如 <code>0x201000</code>）</li>
+<li class="lvl-4"><code>-b</code>：使用 big-endian 写入头部字段</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>示例：</p>
+<ul class="lvl-2">
+<li class="lvl-4">生成 little-endian 头部：<code>bl2plimage -a 0x201000 bl2_payload.bin bl2_payload.img</code></li>
+<li class="lvl-4">生成 big-endian 头部：<code>bl2plimage -b -a 0x201000 bl2_payload.bin bl2_payload_be.img</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="simg（single-image-wrapper，single-img-wrapper-mk-image-sh）"><code>simg</code>（single image wrapper，single_img_wrapper/mk_image.sh）</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用于生成 <strong>single image</strong>（单一烧录镜像）：根据分区布局（YAML）把多个输入镜像（GPT/BL2/RF/FIP/kernel/rootfs 等）按 offset 打包进同一个输出文件，便于一次性烧录到 flash / eMMC / SD。</p>
+</li>
+<li class="lvl-2">
+<p>脚本：<code>single_img_wrapper/mk_image.sh</code></p>
+<ul class="lvl-2">
+<li class="lvl-4">支持平台：<code>mt7981/mt7986/mt7988/mt7987</code></li>
+<li class="lvl-4">支持介质类型：<code>snfi-nand/spim-nand/spim-nor/emmc/sd</code></li>
+<li class="lvl-4">支持 dual image 模式：<code>--dual-image</code>（或 <code>--dual_image</code>）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>分区配置：</p>
+<ul class="lvl-2">
+<li class="lvl-4">默认读取：<code>single_img_wrapper/partitions/&lt;flash_type&gt;.yml</code></li>
+<li class="lvl-4">可用 <code>-c &lt;partition config&gt;</code> 指定其他 YAML</li>
+<li class="lvl-4">YAML 中按 <code>.&lt;platform&gt;.&lt;default|&quot;dual-image&quot;&gt;.&lt;partition&gt;.(start/size)</code> 描述 offset/大小（脚本用 <code>yq</code> 解析）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>关键输入/校验规则（脚本内置检查）：</p>
+<ul class="lvl-2">
+<li class="lvl-4"><code>-p &lt;platform&gt;</code>、<code>-d &lt;flash_type&gt;</code> 必填</li>
+<li class="lvl-4"><code>-f &lt;FIP image&gt;</code> 必填（默认文件名 <code>fip.bin</code>）</li>
+<li class="lvl-4">非 eMMC：需要 <code>-b &lt;BL2 image&gt;</code>（默认 <code>bl2.img</code>）</li>
+<li class="lvl-4">eMMC/SD：必须提供 <code>-g &lt;GPT table&gt;</code>；其中 eMMC 镜像<strong>不包含</strong> BL2（指定 <code>-b</code> 会报错）</li>
+<li class="lvl-4"><code>-r &lt;RF image&gt;</code> 可选（脚本按配置里的 <code>factory</code> 分区写入，常用于 RF/Factory 数据）</li>
+<li class="lvl-4"><code>-k &lt;kernel image&gt;</code> 可选</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>eMMC/SD 的 kernel/rootfs 处理：</p>
+<ul class="lvl-2">
+<li class="lvl-4"><code>-k</code> 通常传入类似 OpenWrt sysupgrade 的 tar 包；脚本会解包并抽取 <code>*kernel*</code> 与 <code>*root*</code>，再按分区 <code>kernel.size/rootfs.size</code> 重新拼成一个 <code>kernel_single.bin</code>（dual-image 时会生成 <code>kernel_dual.bin</code>）。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>NAND dual-image 的 UBI 处理（<code>--dual-image</code> + <code>spim-nand/snfi-nand</code>）：</p>
+<ul class="lvl-2">
+<li class="lvl-4">使用 <code>ubireader_extract_images/ubireader_display_info</code> 提取并读取 UBI 信息</li>
+<li class="lvl-4">结合 YAML 中 <code>.ubi.&lt;volume&gt;.size</code>（如 <code>rootfs/rootfs2/rootfs_data/u-boot-env</code> 等）生成 <code>ubinize</code> 配置并重建 UBI 镜像</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>Enable ubi image 的处理</p>
+<ul class="lvl-2">
+<li class="lvl-4">暂未实装</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>依赖（脚本启动时会检查）：</p>
+<ul class="lvl-2">
+<li class="lvl-4">基础命令：<code>awk/tar/sed/dd</code></li>
+<li class="lvl-4"><code>yq</code>：用于解析 YAML（仓库内提供 <code>single_img_wrapper/bin/yq_linux_amd64</code>，在 Linux/WSL 下可用）</li>
+<li class="lvl-4">UBI 相关（dual-image 的 NAND 场景）：<code>ubireader_extract_images/ubireader_display_info</code>（Python 包 <code>ubi_reader</code>）、<code>ubinize</code>（通常来自 <code>mtd-utils</code>）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>命令格式：<code>./mk_image.sh -p &lt;platform&gt; -d &lt;flash_type&gt; [options]</code></p>
+</li>
+<li class="lvl-2">
+<p>常见示例：</p>
+<ul class="lvl-2">
+<li class="lvl-4">eMMC single image（GPT + FIP + kernel）：<code>./mk_image.sh -p mt7986 -d emmc -g GPT.bin -f fip.bin -k sysupgrade.tar</code></li>
+<li class="lvl-4">SPIM-NAND single image（BL2 + FIP + kernel + 可选 RF）：<code>./mk_image.sh -p mt7986 -d spim-nand -b bl2.img -f fip.bin -k nand-kernel.bin -r factory.bin</code></li>
+<li class="lvl-4">SPIM-NAND dual-image：<code>./mk_image.sh -p mt7986 -d spim-nand -b bl2.img -f fip.bin -k nand-ubi.bin --dual-image</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="存储-分区布局分析（partitions-yml）">存储/分区布局分析（<code>partitions/*.yml</code>）</h3>
+<p><code>single_img_wrapper/partitions/</code> 下的 <code>.yml</code> 文件可以视为“<strong>存储布局分析结果</strong>”：用统一的键结构描述不同 SoC（<code>mt7981/mt7986/mt7987/mt7988</code>）在不同启动介质（eMMC/SD/NAND/NOR）上的分区起始地址与大小。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>文件列表（按介质类型划分）：</p>
+<ul class="lvl-2">
+<li class="lvl-4"><code>emmc.yml</code>：eMMC 布局（含 <code>gpt/fip/kernel/rootfs</code> 等）</li>
+<li class="lvl-4"><code>sd.yml</code>：SD 布局（比 eMMC 多 <code>bl2</code>）</li>
+<li class="lvl-4"><code>spim-nand.yml</code> / <code>snfi-nand.yml</code>：NAND 布局（固件区通常使用 <code>ubi</code>）</li>
+<li class="lvl-4"><code>spim-nor.yml</code>：NOR 布局</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>通用结构约定：</p>
+<ul class="lvl-2">
+<li class="lvl-4">顶层 key 是平台名：<code>mt7981/mt7986/mt7987/mt7988</code></li>
+<li class="lvl-4">第二层是模式：<code>default</code> 或 <code>&quot;dual-image&quot;</code></li>
+<li class="lvl-4">叶子节点常用字段：
+<ul class="lvl-4">
+<li class="lvl-6"><code>start</code>：起始 offset（十六进制，单位：byte）</li>
+<li class="lvl-6"><code>size</code>：预留空间大小（十六进制，单位：byte，可选）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>常见分区键（不同介质会不同）：</p>
+<ul class="lvl-2">
+<li class="lvl-4">eMMC/SD：<code>gpt</code>、<code>bl2</code>（仅 SD）、<code>factory</code>、<code>fip</code>、<code>kernel</code>、<code>rootfs</code>，dual-image 时会多 <code>kernel2/rootfs2</code></li>
+<li class="lvl-4">NAND：<code>bl2</code>、<code>factory</code>、<code>fip</code>、<code>ubi</code>（其下包含 volume/区域信息）</li>
+<li class="lvl-4">NOR：<code>bl2</code>、<code>rf</code>、<code>fip</code>、<code>kernel</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意：当前 <code>mk_image.sh</code> 读取 RF 分区时使用的是 <code>factory</code> 键（即 <code>...factory.start</code>）。但 <code>spim-nor.yml</code> 里 RF 使用 <code>rf</code> 键。如果你希望在 NOR 上也正确写入 RF 数据，有两种做法：</p>
+<ol>
+<li class="lvl-3">将 <code>spim-nor.yml</code> 中的 <code>rf:</code> 改名为 <code>factory:</code>（保持字段不变）；或</li>
+<li class="lvl-3">修改实际使用的 <code>mk_image.sh</code>，让其在 <code>factory</code> 不存在时回退读取 <code>rf</code>。</li>
+</ol>
+</blockquote>
+<h2 id="fiptool-Mediatek-部分（mediatek）"><code>fiptool</code> Mediatek 部分（mediatek）</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>plat_fiptool.mk</p>
+<ul class="lvl-2">
+<li class="lvl-4">启用 <code>PLAT_DEF_FIP_UUID</code> 和 <code>MTK_FIP_CHKSUM</code>。</li>
+<li class="lvl-4">将 plat_def_uuid_config.c、sha256.c、crc32.c 编入 <code>fiptool</code>。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>plat_def_uuid_config.c</p>
+<ul class="lvl-2">
+<li class="lvl-4">向 FIP 的 ToC 增加平台自定义条目：<code>UUID_MTK_FIP_CHECKSUM</code>，命令名 <code>fip-chksum</code>。</li>
+<li class="lvl-4">实现 <code>mtk_fip_chksum_*</code>：计算并写入 <code>mtk_fip_checksum</code>（<code>len + crc32 + sha256</code>）。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>crc32.*</code> / <code>sha256.*</code> / alignment.h</p>
+<ul class="lvl-2">
+<li class="lvl-4">提供 CRC32 和 SHA-256 的本地实现，避免依赖外部库。</li>
+<li class="lvl-4">alignment.h 用于非对齐读取与字节序处理（来自 mbedtls 代码）。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>fiptool.c 中的 Mediatek 逻辑</p>
+<ul class="lvl-2">
+<li class="lvl-4">当启用 <code>MTK_FIP_CHKSUM</code>：
+<ul class="lvl-4">
+<li class="lvl-6">自动创建 <code>fip-chksum</code> 条目并写入校验数据。</li>
+<li class="lvl-6">打包时对 ToC 和所有 payload 进行 CRC32 + SHA256 计算。</li>
+<li class="lvl-6">明确禁止用户手动指定 <code>--fip-chksum</code>。</li>
+</ul>
+</li>
+<li class="lvl-4">相关结构与 UUID 定义来自 plat_def_fip_uuid.h：
+<ul class="lvl-4">
+<li class="lvl-6"><code>UUID_MTK_FIP_CHECKSUM</code></li>
+<li class="lvl-6"><code>struct mtk_fip_checksum &#123; len, crc, sha256sum[0x20]; &#125;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="gpt-editor（gpt-editor-py）"><code>gpt_editor</code>（gpt_editor.py）</h2>
+<p>已经存在文档 <code>atf/tools/dev/gpt_editor/README.md</code>，故不再赘述。</p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -5474,268 +5780,6 @@ e.g. <code>nmbm0:1024k(bl2),512k(u-boot-env),...</code></p>
 <p>[可选] 配置：</p>
 <figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">CONFIG_MTK_UBI_RESERVED_VOLUMES=<span class="string">&quot;factory=2m&quot;</span> <span class="comment"># 默认启用，根据实际情况调整大小和名称</span></span><br><span class="line">CONFIG_MTK_DEFAULT_FIT_BOOT_CONF=<span class="string">&quot;mt7981-rfb-spim-nand&quot;</span></span><br><span class="line">CONFIG_UBI_SILENCE_MSG=y</span><br></pre></td></tr></table></figure>
 <p>需要正确配置分区表，与固件中配置的分区表保持一致，确保 U-Boot 能够正确识别和访问 UBI 卷。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>分享</tag>
-        <tag>玩机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mediatek ATF 工具</title>
-    <url>/2026/02/21/3/</url>
-    <content><![CDATA[<p>介绍了 ATF（Arm Trusted Firmware）相关的几个工具：<code>ar-table</code>、<code>ar-tool</code>、<code>gen_salt_header</code>、<code>bromimage</code>、<code>bl2plimage</code> 和 <code>simg</code>。这些工具主要用于处理 MediaTek 平台的固件构建与镜像生成，涉及反回滚版本表、BL2 payload 头部、单一烧录镜像等方面。</p>
-<h2 id="ar-table-（ar-table-py）"><code>ar-table/</code>（<span class="exturl" data-url="aHR0cDovL2FyLXRhYmxlLnB5">ar-table.py<i class="fa fa-external-link-alt"></i></span>）</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>读取 ar_table.xml，解析 <code>ar_entry</code> 中的 <code>RELEASE_INDEX/BL2_AR_VER/FIP_AR_VER/FIT_AR_VER</code>。</p>
-</li>
-<li class="lvl-2">
-<p>生成两类输出：</p>
-<ul class="lvl-2">
-<li class="lvl-4">C 代码：<code>mtk_ar_table[]</code> + 记录数，用于反回滚版本表（anti-rollback）。</li>
-<li class="lvl-4">Makefile 变量：<code>TFW_NVCTR_VAL/NTFW_NVCTR_VAL/BL2_AR_VER/FIT_AR_VER</code>，用于构建配置。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>命令格式：<code>ar-table [create_ar_table|create_ar_conf] input_config output_file</code>。</p>
-</li>
-</ul>
-<h2 id="ar-tool-（ar-tool-py）"><code>ar-tool/</code>（<span class="exturl" data-url="aHR0cDovL2FyLXRvb2wucHk=">ar-tool.py<i class="fa fa-external-link-alt"></i></span>）</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>读取 bl_ar_table.xml 或 fw_ar_table.xml，解析 <code>bl_ar_entry/fw_ar_entry</code> 中 <code>USED</code> 与 <code>*_AR_VER</code>。</p>
-</li>
-<li class="lvl-2">
-<p>生成两类输出：</p>
-<ul class="lvl-2">
-<li class="lvl-4">C 代码：<code>const uint32_t bl_ar_ver</code> 或 <code>fw_ar_ver</code>。</li>
-<li class="lvl-4">Makefile 变量：<code>BL_AR_VER</code> 或 <code>FW_AR_VER</code>。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>命令格式：<code>ar-tool [bl_ar_table|fw_ar_table] [create_ar_ver|create_ar_conf] input_file output_file</code>。</p>
-</li>
-</ul>
-<h2 id="gen-salt-header-（gen-salt-header-sh）"><code>gen_salt_header/</code>（gen_salt_header.sh）</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>把二进制盐值文件转成 C 头文件宏数组（十六进制字节序列）。</p>
-</li>
-<li class="lvl-2">
-<p>生成包含头防护与宏定义的 <code>.h</code>，用于把 salt 编译进固件。</p>
-</li>
-</ul>
-<h2 id="bromimage"><code>bromimage/</code></h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>仅提供多平台预编译可执行文件（<code>bromimage-*</code>），无源码。</p>
-</li>
-<li class="lvl-2">
-<p>从命名推断用于生成/处理 MediaTek BootROM 相关镜像。</p>
-</li>
-<li class="lvl-2">
-<p>附带 <code>musl/openssl</code> 相关许可证。</p>
-</li>
-</ul>
-<h2 id="bl2plimage（bl2plimage-c）"><code>bl2plimage</code>（bl2plimage.c）</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>用于生成 <strong>BL2 payload image</strong>：在原始 payload（二进制）前追加一个 <code>bl2pl_hdr</code> 头部，然后输出为新文件。</p>
-</li>
-<li class="lvl-2">
-<p>头部字段（来自 <code>bl2pl.h</code> 的 <code>struct bl2pl_hdr</code>）：</p>
-<ul class="lvl-2">
-<li class="lvl-4"><code>magic</code>：<code>BL2PL_HDR_MAGIC</code></li>
-<li class="lvl-4"><code>load_addr</code>：payload 的加载地址（由 <code>-a</code> 指定）</li>
-<li class="lvl-4"><code>size</code>：payload 大小（字节）</li>
-<li class="lvl-4"><code>unused</code>：保留字段，写入 0</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>支持大小端输出：</p>
-<ul class="lvl-2">
-<li class="lvl-4">默认 <strong>little-endian</strong></li>
-<li class="lvl-4"><code>-b</code>：将 <code>magic/load_addr/size</code> 按 <strong>big-endian</strong> 写入</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>命令格式：<code>bl2plimage [options] &lt;input_file&gt; &lt;output_file&gt;</code></p>
-</li>
-<li class="lvl-2">
-<p>选项说明：</p>
-<ul class="lvl-2">
-<li class="lvl-4"><code>-h</code>：显示帮助</li>
-<li class="lvl-4"><code>-a &lt;addr&gt;</code>：加载地址（十六进制字符串，例如 <code>0x201000</code>）</li>
-<li class="lvl-4"><code>-b</code>：使用 big-endian 写入头部字段</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>示例：</p>
-<ul class="lvl-2">
-<li class="lvl-4">生成 little-endian 头部：<code>bl2plimage -a 0x201000 bl2_payload.bin bl2_payload.img</code></li>
-<li class="lvl-4">生成 big-endian 头部：<code>bl2plimage -b -a 0x201000 bl2_payload.bin bl2_payload_be.img</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="simg（single-image-wrapper，single-img-wrapper-mk-image-sh）"><code>simg</code>（single image wrapper，single_img_wrapper/mk_image.sh）</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>用于生成 <strong>single image</strong>（单一烧录镜像）：根据分区布局（YAML）把多个输入镜像（GPT/BL2/RF/FIP/kernel/rootfs 等）按 offset 打包进同一个输出文件，便于一次性烧录到 flash / eMMC / SD。</p>
-</li>
-<li class="lvl-2">
-<p>脚本：<code>single_img_wrapper/mk_image.sh</code></p>
-<ul class="lvl-2">
-<li class="lvl-4">支持平台：<code>mt7981/mt7986/mt7988/mt7987</code></li>
-<li class="lvl-4">支持介质类型：<code>snfi-nand/spim-nand/spim-nor/emmc/sd</code></li>
-<li class="lvl-4">支持 dual image 模式：<code>--dual-image</code>（或 <code>--dual_image</code>）</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>分区配置：</p>
-<ul class="lvl-2">
-<li class="lvl-4">默认读取：<code>single_img_wrapper/partitions/&lt;flash_type&gt;.yml</code></li>
-<li class="lvl-4">可用 <code>-c &lt;partition config&gt;</code> 指定其他 YAML</li>
-<li class="lvl-4">YAML 中按 <code>.&lt;platform&gt;.&lt;default|&quot;dual-image&quot;&gt;.&lt;partition&gt;.(start/size)</code> 描述 offset/大小（脚本用 <code>yq</code> 解析）</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>关键输入/校验规则（脚本内置检查）：</p>
-<ul class="lvl-2">
-<li class="lvl-4"><code>-p &lt;platform&gt;</code>、<code>-d &lt;flash_type&gt;</code> 必填</li>
-<li class="lvl-4"><code>-f &lt;FIP image&gt;</code> 必填（默认文件名 <code>fip.bin</code>）</li>
-<li class="lvl-4">非 eMMC：需要 <code>-b &lt;BL2 image&gt;</code>（默认 <code>bl2.img</code>）</li>
-<li class="lvl-4">eMMC/SD：必须提供 <code>-g &lt;GPT table&gt;</code>；其中 eMMC 镜像<strong>不包含</strong> BL2（指定 <code>-b</code> 会报错）</li>
-<li class="lvl-4"><code>-r &lt;RF image&gt;</code> 可选（脚本按配置里的 <code>factory</code> 分区写入，常用于 RF/Factory 数据）</li>
-<li class="lvl-4"><code>-k &lt;kernel image&gt;</code> 可选</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>eMMC/SD 的 kernel/rootfs 处理：</p>
-<ul class="lvl-2">
-<li class="lvl-4"><code>-k</code> 通常传入类似 OpenWrt sysupgrade 的 tar 包；脚本会解包并抽取 <code>*kernel*</code> 与 <code>*root*</code>，再按分区 <code>kernel.size/rootfs.size</code> 重新拼成一个 <code>kernel_single.bin</code>（dual-image 时会生成 <code>kernel_dual.bin</code>）。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>NAND dual-image 的 UBI 处理（<code>--dual-image</code> + <code>spim-nand/snfi-nand</code>）：</p>
-<ul class="lvl-2">
-<li class="lvl-4">使用 <code>ubireader_extract_images/ubireader_display_info</code> 提取并读取 UBI 信息</li>
-<li class="lvl-4">结合 YAML 中 <code>.ubi.&lt;volume&gt;.size</code>（如 <code>rootfs/rootfs2/rootfs_data/u-boot-env</code> 等）生成 <code>ubinize</code> 配置并重建 UBI 镜像</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>Enable ubi image 的处理</p>
-<ul class="lvl-2">
-<li class="lvl-4">暂未实装</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>依赖（脚本启动时会检查）：</p>
-<ul class="lvl-2">
-<li class="lvl-4">基础命令：<code>awk/tar/sed/dd</code></li>
-<li class="lvl-4"><code>yq</code>：用于解析 YAML（仓库内提供 <code>single_img_wrapper/bin/yq_linux_amd64</code>，在 Linux/WSL 下可用）</li>
-<li class="lvl-4">UBI 相关（dual-image 的 NAND 场景）：<code>ubireader_extract_images/ubireader_display_info</code>（Python 包 <code>ubi_reader</code>）、<code>ubinize</code>（通常来自 <code>mtd-utils</code>）</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>命令格式：<code>./mk_image.sh -p &lt;platform&gt; -d &lt;flash_type&gt; [options]</code></p>
-</li>
-<li class="lvl-2">
-<p>常见示例：</p>
-<ul class="lvl-2">
-<li class="lvl-4">eMMC single image（GPT + FIP + kernel）：<code>./mk_image.sh -p mt7986 -d emmc -g GPT.bin -f fip.bin -k sysupgrade.tar</code></li>
-<li class="lvl-4">SPIM-NAND single image（BL2 + FIP + kernel + 可选 RF）：<code>./mk_image.sh -p mt7986 -d spim-nand -b bl2.img -f fip.bin -k nand-kernel.bin -r factory.bin</code></li>
-<li class="lvl-4">SPIM-NAND dual-image：<code>./mk_image.sh -p mt7986 -d spim-nand -b bl2.img -f fip.bin -k nand-ubi.bin --dual-image</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="存储-分区布局分析（partitions-yml）">存储/分区布局分析（<code>partitions/*.yml</code>）</h3>
-<p><code>single_img_wrapper/partitions/</code> 下的 <code>.yml</code> 文件可以视为“<strong>存储布局分析结果</strong>”：用统一的键结构描述不同 SoC（<code>mt7981/mt7986/mt7987/mt7988</code>）在不同启动介质（eMMC/SD/NAND/NOR）上的分区起始地址与大小。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>文件列表（按介质类型划分）：</p>
-<ul class="lvl-2">
-<li class="lvl-4"><code>emmc.yml</code>：eMMC 布局（含 <code>gpt/fip/kernel/rootfs</code> 等）</li>
-<li class="lvl-4"><code>sd.yml</code>：SD 布局（比 eMMC 多 <code>bl2</code>）</li>
-<li class="lvl-4"><code>spim-nand.yml</code> / <code>snfi-nand.yml</code>：NAND 布局（固件区通常使用 <code>ubi</code>）</li>
-<li class="lvl-4"><code>spim-nor.yml</code>：NOR 布局</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>通用结构约定：</p>
-<ul class="lvl-2">
-<li class="lvl-4">顶层 key 是平台名：<code>mt7981/mt7986/mt7987/mt7988</code></li>
-<li class="lvl-4">第二层是模式：<code>default</code> 或 <code>&quot;dual-image&quot;</code></li>
-<li class="lvl-4">叶子节点常用字段：
-<ul class="lvl-4">
-<li class="lvl-6"><code>start</code>：起始 offset（十六进制，单位：byte）</li>
-<li class="lvl-6"><code>size</code>：预留空间大小（十六进制，单位：byte，可选）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>常见分区键（不同介质会不同）：</p>
-<ul class="lvl-2">
-<li class="lvl-4">eMMC/SD：<code>gpt</code>、<code>bl2</code>（仅 SD）、<code>factory</code>、<code>fip</code>、<code>kernel</code>、<code>rootfs</code>，dual-image 时会多 <code>kernel2/rootfs2</code></li>
-<li class="lvl-4">NAND：<code>bl2</code>、<code>factory</code>、<code>fip</code>、<code>ubi</code>（其下包含 volume/区域信息）</li>
-<li class="lvl-4">NOR：<code>bl2</code>、<code>rf</code>、<code>fip</code>、<code>kernel</code></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>注意：当前 <code>mk_image.sh</code> 读取 RF 分区时使用的是 <code>factory</code> 键（即 <code>...factory.start</code>）。但 <code>spim-nor.yml</code> 里 RF 使用 <code>rf</code> 键。如果你希望在 NOR 上也正确写入 RF 数据，有两种做法：</p>
-<ol>
-<li class="lvl-3">将 <code>spim-nor.yml</code> 中的 <code>rf:</code> 改名为 <code>factory:</code>（保持字段不变）；或</li>
-<li class="lvl-3">修改实际使用的 <code>mk_image.sh</code>，让其在 <code>factory</code> 不存在时回退读取 <code>rf</code>。</li>
-</ol>
-</blockquote>
-<h2 id="fiptool-Mediatek-部分（mediatek）"><code>fiptool</code> Mediatek 部分（mediatek）</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>plat_fiptool.mk</p>
-<ul class="lvl-2">
-<li class="lvl-4">启用 <code>PLAT_DEF_FIP_UUID</code> 和 <code>MTK_FIP_CHKSUM</code>。</li>
-<li class="lvl-4">将 plat_def_uuid_config.c、sha256.c、crc32.c 编入 <code>fiptool</code>。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>plat_def_uuid_config.c</p>
-<ul class="lvl-2">
-<li class="lvl-4">向 FIP 的 ToC 增加平台自定义条目：<code>UUID_MTK_FIP_CHECKSUM</code>，命令名 <code>fip-chksum</code>。</li>
-<li class="lvl-4">实现 <code>mtk_fip_chksum_*</code>：计算并写入 <code>mtk_fip_checksum</code>（<code>len + crc32 + sha256</code>）。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p><code>crc32.*</code> / <code>sha256.*</code> / alignment.h</p>
-<ul class="lvl-2">
-<li class="lvl-4">提供 CRC32 和 SHA-256 的本地实现，避免依赖外部库。</li>
-<li class="lvl-4">alignment.h 用于非对齐读取与字节序处理（来自 mbedtls 代码）。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>fiptool.c 中的 Mediatek 逻辑</p>
-<ul class="lvl-2">
-<li class="lvl-4">当启用 <code>MTK_FIP_CHKSUM</code>：
-<ul class="lvl-4">
-<li class="lvl-6">自动创建 <code>fip-chksum</code> 条目并写入校验数据。</li>
-<li class="lvl-6">打包时对 ToC 和所有 payload 进行 CRC32 + SHA256 计算。</li>
-<li class="lvl-6">明确禁止用户手动指定 <code>--fip-chksum</code>。</li>
-</ul>
-</li>
-<li class="lvl-4">相关结构与 UUID 定义来自 plat_def_fip_uuid.h：
-<ul class="lvl-4">
-<li class="lvl-6"><code>UUID_MTK_FIP_CHECKSUM</code></li>
-<li class="lvl-6"><code>struct mtk_fip_checksum &#123; len, crc, sha256sum[0x20]; &#125;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="gpt-editor（gpt-editor-py）"><code>gpt_editor</code>（gpt_editor.py）</h2>
-<p>已经存在文档 <code>atf/tools/dev/gpt_editor/README.md</code>，故不再赘述。</p>
 ]]></content>
       <categories>
         <category>Linux</category>
